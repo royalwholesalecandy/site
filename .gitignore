@@ -15,6 +15,7 @@
 !/app/design/frontend/Megnor/**/*
 !/app/etc/config.php
 !/choco/**/*
+!/lib/web/mage/trim-input.js
 !/lib/web/rokanthemes/**/*
 /update/
 /dev
