@@ -1,0 +1,26 @@
+{
+    "name": "webkul/amazon-magento-connect",
+    "description": "Webkul Amazon Connector For Magento2",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|~7.1.0",
+        "magento/module-config": "101.0.*",
+        "magento/module-store": "100.2.*",
+        "magento/framework": "101.0.*",
+        "guzzlehttp/guzzle": "~6.0",
+        "spatie/array-to-xml": "^2.1",
+        "league/csv": "^8.1"
+    },
+    "type": "magento2-module",
+    "version": "2.0.7",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Webkul\\AmazonMagentoConnect\\": ""
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php $footer = $helper->getStoreConfig('mgstheme/general/footer') ?>
+	<div class="footer-container">
+		<section class="top-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-12 social-footer">
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_social')->toHtml() ?>
+					</div>
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_ft_newsletter')->toHtml();?>
+					</div>
+				</div>
+			</div>
+			
+		</section>
+		<section class="middle-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 middle-block">
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_ft_about')->toHtml() ?>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 middle-block">
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_ft_contacts')->toHtml();?>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 middle-block">
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_ft_info')->toHtml();?>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 middle-block">
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('molly_ft_instagram')->toHtml();?>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<section class="bottom-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<address><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></address>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+

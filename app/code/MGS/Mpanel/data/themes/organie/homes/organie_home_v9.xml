@@ -1,0 +1,321 @@
+<home>
+	<section>
+		<name><![CDATA[block142]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block143]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/b/g/bg-about-flower2.png]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block144]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[5,7]]></block_cols>
+		<tablet_cols><![CDATA[["12","12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["",""]]]></block_class>
+		<class><![CDATA[custom-col-flower]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block145]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[]]></tablet_cols>
+		<mobile_cols><![CDATA[]]></mobile_cols>
+		<block_class><![CDATA[]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block146]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[7,5]]></block_cols>
+		<tablet_cols><![CDATA[["12","12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["",""]]]></block_class>
+		<class><![CDATA[custom-col-flower]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[16]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[5]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block147]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-sm-top80 pd-sm-bottom80 pd-xs-top50 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[148]]></padding_top>
+		<padding_bottom><![CDATA[128]]></padding_bottom>
+		<block_position><![CDATA[6]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block148]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[7]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block142-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","links":["","","","","","","","","","",""],"images":["slider-flower-2.jpg"],"effect":"1","speed":"","fullscreen":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"loop":0,"rtl":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" images="slider-flower-2.jpg" links=",,,,,,,,,," fullscreen="0" autoplay="0" stop_auto="0" navigation="0" pagination="0" loop="0" rtl="0" speed="" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block143-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-flower-collection">
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="box-text-spring"><span class="sub-title"> Spring summer 2017 </span>
+<h3>We've unlimited flower collections</h3>
+<p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu. Vero mollitia suscipit officiis quia nobis sapiente corrupti ipsum exer</p>
+<a class="btn btn-primary" href="#">Shop now</a></div>
+<div class="box-img-1">
+<h4>Gift Wrapping</h4>
+<span> <img class="img-responsive" src="{{media url="wysiwyg/panel/img-about-flower2.png"}}" alt="" /></span></div>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="box-img-2">
+<h4>Beautiful Flowers</h4>
+<img class="img-responsive" src="{{media url="wysiwyg/panel/img-about-flower1.png"}}" alt="" /></div>
+<div class="box-text-organie"><span class="h4">-Flower store-</span>
+<h2>Organie<span>store</span></h2>
+<p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu. Vero mollitia suscipit officiis quia nobis sapiente corrupti ipsum exer</p>
+<a class="btn btn-primary" href="#">Shop now</a></div>
+</div>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block144-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-deal-flower">
+<div class="box-content"><img src="{{media url="wysiwyg/panel/bg-new-collection.jpg"}}" alt="" class="img-responsive" />
+<div class="box-text"><img src="{{media url="wysiwyg/panel/img-rectangle.jpg"}}" alt="" class="img-responsive" />
+<div class="box-abs">
+<h2>New Collection</h2>
+<span class="h5 sale">30%</span>
+<p class="h6">off everything</p>
+<a class="h6" href="#">Shop now</a></div>
+</div>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block144-0]]></block_name>
+		<type><![CDATA[deals]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"1","perrow":"1","template":"grid.phtml","ratio":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[deal-desc-hidden]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\Deals" mgs_panel_title="" mgs_panel_note="" limit="1" perrow="1" ratio="1" category_ids="" use_slider="0" loadmore="0" template="products/deals/grid.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block144-1]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-title-top]]></class>
+		<block_content><![CDATA[<div class="title-flower2">
+<div class="title">
+<h3>New Arrivals</h3>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block145-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="box-text-flower">
+<img src="{{media url="wysiwyg/panel/img-text-flower.png"}}" alt=""/>
+<div class="box-abs"><span class="sub-title">There are always</span>
+<h3>flowers</h3>
+<p>for those who want to see them</p></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block146-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-title-top custom-trending]]></class>
+		<block_content><![CDATA[<div class="title-flower2">
+<div class="title">
+<h3>Trending Items</h3>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block146-0]]></block_name>
+		<type><![CDATA[new_products]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"9","perrow":"3","template":"grid.phtml","ratio":"4","use_slider":"1","navigation":"1","category_id":["88"],"text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-box-product-bg]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\NewProducts" mgs_panel_title="" mgs_panel_note="" limit="9" perrow="3" ratio="4" category_ids="88" use_slider="1" loadmore="0" template="products/new/grid.phtml" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block146-1]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-fresh-spring">
+<div class="box-content"><img class="img-responsive" src="{{media url="wysiwyg/panel/bg-fresh.jpg"}}" alt="" />
+<h6 class="first">-Spring flowers-</h6>
+<div class="box-text">
+<div class="box-bg-white"><img src="{{media url="wysiwyg/panel/img-text-fresh.png"}}" alt="" />
+<h4>for spring</h4>
+</div>
+</div>
+<h6 class="last"><a href="#">-shop now-</a></h6>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block147-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[border-title]]></class>
+		<block_content><![CDATA[<div class="title-flower2">
+<div class="title">
+<h3>Blog update</h3>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block147-0]]></block_name>
+		<type><![CDATA[latest_posts]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","number_of_posts":"5","items":"3","template":"default.phtml","show_thumbnail":"1","show_short_content":"1","limit_characters_short_content":"150","view_as":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[text-center]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Blog\Block\Widget\Latest" mgs_panel_title="" number_of_posts="5" items="3" show_thumbnail="1" mgs_panel_note="" template="widget/default.phtml" show_short_content="1" limit_characters_short_content="150" view_as="owl_carousel" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block144-1]]></block_name>
+		<type><![CDATA[new_products]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"6","perrow":"3","template":"grid.phtml","ratio":"4","use_slider":"1","navigation":"1","category_id":["88"],"text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-box-product-bg]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\NewProducts" mgs_panel_title="" mgs_panel_note="" limit="6" perrow="3" ratio="4" category_ids="88" use_slider="1" loadmore="0" template="products/new/grid.phtml" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block148-0]]></block_name>
+		<type><![CDATA[instagram]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"6","resolution":"low_resolution","link":"1","like":0,"comment":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Social\Block\Panel\Widget" mgs_panel_title="" mgs_panel_note="" limit="6" resolution="low_resolution" link="1" like="0" comment="0" template="widget/instagram.phtml"}}]]></block_content>
+	</block>
+	<theme_setting>
+		<general>
+			<footer>footer_2</footer>
+			<header>header_5</header>
+			<onepage_slider>0</onepage_slider>
+		</general>
+		<custom_style>
+			<style>.welcome,address{    font-family: 'Playfair Display', serif;}
+@media(max-width: 420px){.slider_mgs_carousel.owl-carousel.owl-theme .owl-controls .owl-nav .owl-prev,.slider_mgs_carousel.owl-carousel.owl-theme .owl-controls .owl-nav .owl-next{display:none !important;}}
+address{font-size: 15px;}</style>
+		</custom_style>
+	</theme_setting>
+	<color_setting>
+		<general>
+			<theme_color>#f49ac1</theme_color>
+		</general>
+	</color_setting>
+
+</home>

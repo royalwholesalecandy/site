@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+
+    <event name="bms_supplier_edit_tabs">
+        <observer name="bms_ultimatereport_bms_supplier_edit_tabs" instance="BoostMyShop\UltimateReport\Observer\SupplierEditTabs"/>
+    </event>
+
+</config>

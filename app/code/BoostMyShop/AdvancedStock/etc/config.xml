@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <advancedstock>
+            <opened_orders>
+                <opened_orders_statuses>pending,processing,fraud,holded</opened_orders_statuses>
+            </opened_orders>
+            <stock_level>
+                <default_warning>3</default_warning>
+                <default_ideal>10</default_ideal>
+                <history_range_1>30</history_range_1>
+                <history_range_2>15</history_range_2>
+                <history_range_3>5</history_range_3>
+            </stock_level>
+            <misc>
+                <check_configuration>1</check_configuration>
+            </misc>
+            <discrepencies>
+                <stock_item_quantity_fix_method>create_stock_movement</stock_item_quantity_fix_method>
+            </discrepencies>
+            <general>
+                <store_sm_stacktrace>1</store_sm_stacktrace>
+            </general>
+        </advancedstock>
+    </default>
+</config>

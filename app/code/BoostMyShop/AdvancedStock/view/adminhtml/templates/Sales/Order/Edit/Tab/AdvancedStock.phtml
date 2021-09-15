@@ -1,0 +1,65 @@
+<form method="POST" action="<?php echo $this->getSubmitUrl(); ?>" id="form_advanced_stock">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <input type="hidden" name="order_id" value="<?php echo $this->getOrder()->getId(); ?>">
+
+    <section class="admin__page-section order-view-advanced-stock">
+        <div class="admin__page-section-title">
+            <span class="title"><?php echo __('Inventory Management'); ?></span>
+
+            <div align="right">
+                <button id="save" title="save" type="button" class="action-default scalable primary" onclick="jQuery('#form_advanced_stock').submit();" >
+                    <span><?php echo __('Save'); ?></span>
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="admin__page-section-content">
+
+            <table class="data-grid" id="cache_grid_table">
+                <thead>
+                <tr>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('#'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sku'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Product'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity to ship'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity reserved'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Warehouse'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Shelf location'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Stock levels'); ?></span></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <?php foreach($this->getItems() as $item): ?>
+
+                    <tr>
+                        <td class="a-left"><?php echo $item->getitem_id(); ?></td>
+                        <td class="a-left"><a href="<?php echo $this->getProductUrl($item->getproduct_id()); ?>"><?php echo $item->getSku(); ?></a></td>
+                        <td class="a-left"><?php echo $item->getName(); ?></td>
+                        <td class="a-center"><?php echo $item->getesfoi_qty_to_ship(); ?></td>
+                        <td class="a-center"><?php echo $item->getesfoi_qty_reserved(); ?></td>
+                        <td class="a-center">
+                            <select name="advancedstock[<?php echo $item->getId(); ?>][esfoi_warehouse_id]">
+                            <?php foreach($this->getWarehouses() as $w): ?>
+                                <?php $selected = ($w->getId() == $item->getesfoi_warehouse_id() ? ' selected ' : ''); ?>
+                                <option value="<?php echo $w->getId(); ?>" <?php echo $selected; ?>><?php echo $w->getw_name(); ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td class="a-center"><?php echo $item->getwi_shelf_location(); ?></td>
+                        <td class="a-left">
+                            <?php foreach($this->getWarehouseItems($item->getproduct_id()) as $warehouseItem): ?>
+                                <?php echo $warehouseItem->getw_name(); ?> : <?php echo $warehouseItem->getwi_available_quantity(); ?> / <?php echo $warehouseItem->getwi_physical_quantity(); ?> <br>
+                            <?php endforeach; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+</form>

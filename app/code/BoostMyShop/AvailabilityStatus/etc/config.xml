@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <availabilitystatus>
+            <general>
+                <enable>1</enable>
+            </general>
+            <instock>
+                <label>In stock</label>
+                <css>product-availability-in-stock</css>
+            </instock>
+            <backorder>
+                <use_po>1</use_po>
+                <po_label>Back in stock {m}/{d}/{y}</po_label>
+                <use_lead_time>1</use_lead_time>
+                <label>On request</label>
+                <css>product-availability-backorder</css>
+            </backorder>
+            <outofstock>
+                <label>Out of stock</label>
+                <po_label>Back in stock {m}/{d}/{y}</po_label>
+                <css>product-availability-out-of-stock</css>
+            </outofstock>
+        </availabilitystatus>
+    </default>
+</config>

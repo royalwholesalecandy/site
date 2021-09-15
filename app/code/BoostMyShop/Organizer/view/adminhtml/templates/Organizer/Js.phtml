@@ -1,0 +1,16 @@
+<script>
+
+    require(["organizer"], function(){
+        organizer = new AdminOrganizer();
+    });
+</script>
+<div id="popup-modal" style="display:none;">
+    <div id="popup_tabs_org"></div>
+</div>
+<style type="text/css">
+    #popup-modal #popup_tabs_org{ float:left; position:relative; width:200px; min-height:500px;}
+    #popup-modal #popup_tabs_org .ui-widget-content{ position:absolute; width:1000px; left:200px; top:-10px;}
+    #popup-modal #popup_tabs_org .ui-widget-content .ui-widget-content{ position:static; width:100%;}
+    #popup-modal #popup_tabs_org .admin__page-nav-item { position: static;}
+    #popup-modal #popup_tabs_org #page_tabs_organizer_section_content_org{ margin-top:-40px;}
+</style>

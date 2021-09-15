@@ -1,0 +1,20 @@
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="jQuery('#edit_form').submit();"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Save'); ?></span>
+        </button>
+    </div>
+</div>
+
+<form method="POST" action="<?php echo $this->getSaveUrl(); ?>" id="edit_form">
+    <input type="hidden" name="changes" id="changes">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+</form>
+
+<script>
+
+    require(["low_stock"], function(){
+        lowStock = new AdminLowStock();
+    });
+
+</script>

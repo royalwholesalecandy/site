@@ -1,0 +1,167 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_REGISTRATION_FIELDS_MANAGER
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<form class="form form-edit-account-usr" action="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo $block->escapeHtml(__('* Required Fields')) ?>" autocomplete="off">
+    <fieldset class="fieldset info">
+        <?php echo $block->getBlockHtml('formkey')?>
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Account Information')) ?></span></legend><br>
+        <?php echo $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getCustomer())->toHtml() ?>
+        <div class="field email required">
+            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input type="email" name="email" id="email" value="<?php echo $block->escapeHtml($block->getCustomer()->getEmail()) ?>" title="<?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Email')) ?>" class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+        </div>
+        <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
+        <?php $_taxvat = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Taxvat') ?>
+        <?php $_gender = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Gender') ?>
+        <?php if ($_dob->isEnabled()): ?>
+            <?php echo $_dob->setDate($block->getCustomer()->getDob())->toHtml() ?>
+        <?php endif ?>
+        <?php if ($_taxvat->isEnabled()): ?>
+            <?php echo $_taxvat->setTaxvat($block->getCustomer()->getTaxvat())->toHtml() ?>
+        <?php endif ?>
+        <?php if ($_gender->isEnabled()): ?>
+            <?php echo $_gender->setGender($block->getCustomer()->getGender())->toHtml() ?>
+        <?php endif ?>
+        <div class="field choice">
+            <input type="checkbox" name="change_password" id="change-password" value="1" title="<?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Change Password')) ?>"<?php if ($block->getChangePassword()): ?> checked="checked"<?php endif; ?> onclick="window.setPasswordForm(this.checked)" class="checkbox"/>
+            <label class="label" for="change-password"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Change Password')) ?></span></label>
+        </div>
+    </fieldset>
+
+    <fieldset class="fieldset password" style="display:none;" id="change_pass_form">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Change Password')) ?></span></legend><br>
+        <div class="field password current required">
+            <label class="label" for="current-password"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Current Password')) ?></span></label>
+            <div class="control">
+                <input type="password" class="input-text" name="current_password" id="current_password" autocomplete="off" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field new password required" data-container="new-password">
+            <label class="label" for="password"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('New Password')) ?></span></label>
+            <div class="control">
+                <input type="password" class="input-text" name="password" id="password" autocomplete="off" data-password-min-length="8" data-password-min-character-sets="3" data-input="new-password" data-validate="{required:true, 'validate-customer-password':true, 'password-not-equal-to-user-name':'<?php echo $block->escapeHtml($block->getCustomer()->getEmail()) ?>'}">
+                <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
+                    <div id="password-strength-meter" class="password-strength-meter">
+                        <?php echo __('Password Strength'); ?>:
+                        <span id="password-strength-meter-label" data-role="password-strength-meter-label"><?php echo __('No Password'); ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field confirm password required">
+            <label class="label" for="password-confirmation"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Confirm New Password')) ?></span></label>
+            <div class="control">
+                <input type="password" class="input-text" name="password_confirmation" id="password_confirmation" autocomplete="off" data-validate='{required:true, equalTo:"[data-input=new-password]"}' >
+            </div>
+        </div>
+    </fieldset>
+    <?php if ($block->getFormConfig()): ?>
+        <div class="fieldset">
+            <fieldset class="fieldset">
+                <legend class="legend">
+                    <span><?php echo $block->escapeHtml(__('Other Information')) ?></span>
+                </legend>
+                    <?php /** @var \Itoris\RegFields\Helper\Field $fieldHelper */ ?>
+                    <?php $fieldHelper = \Magento\Framework\App\ObjectManager::getInstance()->create('Itoris\RegFields\Helper\Field'); ?>
+                    <?php echo $fieldHelper->getCustomFieldsHtml($block->getFormConfig(), null, false, true) ?>
+            </fieldset>
+        </div>
+
+    <?php endif; ?>
+    <div class="actions-toolbar fieldset">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="<?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Save')) ?>"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Save')) ?></span></button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Go back')) ?></span></a>
+        </div>
+    </div>
+</form>
+<style>#form-validate .validation-advice {display:none}</style>
+<script type="text/javascript">
+   window.setPasswordForm = function(arg){
+        if(arg){
+            $('change_pass_form').show();
+            $('current_password').addClassName('required-entry');
+            $('password').addClassName('required-entry');
+            $('password_confirmation').addClassName('required-entry');
+
+        }else{
+            $('change_pass_form').hide();
+            $('current_password').removeClassName('required-entry');
+            $('password').removeClassName('required-entry');
+            $('password_confirmation').removeClassName('required-entry');
+        }
+    }
+    require(['prototype', 'varien/form', 'Itoris_RegFields/js/main'], function(){
+        var dataForm = new VarienForm('form-validate', true);
+         <?php if($block->getChangePassword()): ?>
+            window.setPasswordForm(true);
+        <?php endif; ?>
+        //additional check for change password
+        if (document.location.href.indexOf('changepass') > -1 && !$('change-password').checked) $('change-password').click(); 
+    });
+</script>
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+        var dataForm = $('#form-validate');
+        var ignore = <?php /* @escapeNotVerified */ echo $_dob->isEnabled() ? '\'input[id$="full"]\'' : 'null'; ?>;
+
+        dataForm.mage('validation', {
+            <?php if ($_dob->isEnabled()): ?>
+            errorPlacement: function(error, element) {
+                if (element.prop('id').search('full') !== -1) {
+                    var dobElement = $(element).parents('.customer-dob'),
+                        errorClass = error.prop('class');
+                    error.insertAfter(element.parent());
+                    dobElement.find('.validate-custom').addClass(errorClass)
+                        .after('<div class="' + errorClass + '"></div>');
+                }
+                else {
+                    error.insertAfter(element);
+                }
+            },
+            ignore: ':hidden:not(' + ignore + ')'
+            <?php else: ?>
+            ignore: ignore ? ':hidden:not(' + ignore + ')' : ':hidden'
+            <?php endif ?>
+        });
+    
+    });
+</script>
+<script type="text/x-magento-init">
+    {
+        "[data-container=new-password]": {
+            "passwordStrengthIndicator": {
+                "formSelector": "form.form-edit-account-usr"
+            }
+        }
+    }
+</script>

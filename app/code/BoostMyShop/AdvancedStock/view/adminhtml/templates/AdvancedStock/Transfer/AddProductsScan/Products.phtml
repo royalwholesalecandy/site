@@ -1,0 +1,56 @@
+<form method="POST" name="edit_form" id="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <input type="hidden" name="transfer[st_reference]" value="<?php echo $this->getTransfer()->getst_reference(); ?>">
+    <input type="hidden" name="transfer[st_id]" value="<?php echo $this->getTransfer()->getId(); ?>">
+    <input type="hidden" name="transfer[st_from]" value="<?php echo $this->getTransfer()->getst_from(); ?>">
+    <input type="hidden" name="transfer[st_to]" value="<?php echo $this->getTransfer()->getst_to(); ?>">
+    <input type="hidden" name="transfer[st_website_id]" value="<?php echo $this->getTransfer()->getst_website_id(); ?>">
+    <input type="hidden" name="transfer[st_status]" value="<?php echo $this->getTransfer()->getst_status(); ?>">
+    <input type="hidden" name="transfer[st_notes]" value="<?php echo $this->getTransfer()->getst_notes(); ?>">
+    <input type="hidden" name="back" value="edit">
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="cache_grid_table">
+            <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Image'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sku'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Barcode'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Product'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty'); ?></span></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($this->getTransfer()->getItems() as $item): ?>
+                <input type="hidden" name="remaining_<?php echo $item->getst_product_id(); ?>" id="remaining_<?php echo $item->getst_product_id(); ?>" value="<?php echo $item->getTransferItem()->getPendingQty(); ?>">
+                <input type="hidden" name="name_<?php echo $item->getst_product_id(); ?>" id="name_<?php echo $item->getst_product_id(); ?>" value="<?php echo $item->getTransferItem()->getRelatedProduct()->getName(); ?>">
+
+                <tr id="tr_<?php echo $item->getst_product_id(); ?>">
+                    <td class="a-center"><img src="<?php echo $this->getImageUrl($item); ?>" width="30"></td>
+                    <td class="a-left"><a href="<?php echo $this->getProductUrl($item); ?>"><?php echo $item->getSku(); ?></a></td>
+                    <td class="a-left"><?php echo $item->getData($this->getBarcodeAttribute()); ?></a></td>
+                    <td class="a-left"><?php echo $item->getName(); ?></td>
+                    <td class="a-center">
+                        <input type="button" value="-" onclick="stockTransferScanProducts.qtyDecrease(<?php echo $item->getst_product_id(); ?>);" />
+                        <input type="text" onkeyup="stockTransferScanProducts.qtyChanged();" name="transfer[products][<?php echo $item->getst_product_id(); ?>][qty_to_transfer]" id="qty_<?php echo $item->getst_product_id(); ?>" value="<?php echo $item->getst_qty(); ?>" size="3">
+                        <input type="button" value="+" onclick="stockTransferScanProducts.qtyIncrease(<?php echo $item->getst_product_id(); ?>);" />
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<script>
+    require(["advancedstock_transfer_addproductsscan"], function(){
+        stockTransferScanProducts = new stockTransferScanProducts();
+        stockTransferScanProducts.init(<?php echo $this->getProductIdsJson(); ?>, <?php echo $this->getBarcodesJson(); ?>, '<?php echo $this->getProductInformationUrl(); ?>');
+    });
+</script>
+
+<audio id="audio_nok" src="<?php echo $this->getViewFileUrl('BoostMyShop_AdvancedStock::sound/wrong.mp3'); ?>" ></audio>
+<audio id="audio_ok" src="<?php echo $this->getViewFileUrl('BoostMyShop_AdvancedStock::sound/correct.mp3'); ?>" ></audio>

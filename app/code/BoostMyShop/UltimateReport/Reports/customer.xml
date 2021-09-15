@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<reports>
+
+    <new_account>
+        <name>Customers account created</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <series>
+            <serie>
+                <label>Account Creation</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[select
+                    DATE_FORMAT(created_at,'{group_by_date}') as x,
+                    count(*) as y
+                from
+                    {prefix}customer_entity
+                where
+                    created_at >= "{date_from}"
+                    and created_at <= "{date_to}"
+                    and store_id in ({store_ids})
+                group by DATE_FORMAT(created_at,'{group_by_date}')
+                order by created_at]]></sql>
+    </new_account>
+
+</reports>

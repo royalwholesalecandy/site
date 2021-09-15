@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-erp-margin",
+  "description": "margin management",
+  "type": "magento2-module",
+  "version": "1.0.2",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\Margin\\": ""}
+  }
+}

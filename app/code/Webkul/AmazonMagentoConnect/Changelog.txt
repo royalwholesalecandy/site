@@ -1,0 +1,49 @@
++ Features
+- Bugs 
+
+-------------------------------- Version 2.0.7 --------------------------------------
+
+    + admin can export magento product as FBA product at magento
+    + admin can update magento product as FBA product at magento
+    + admin can convert FBA to FBM and vise versa
+
+-------------------------------- Version 2.0.6 --------------------------------------
+
+    + admin can map amazon product attribute to magento product attribute
+    + admin can import product according to product status
+    + admin can export product image to amazon also
+
+-------------------------------- Version 2.0.5 --------------------------------------
+
+    + Added price rule feature
+    + Compatible with Magento ver-2.1.x & ver-2.2.x 
+
+-------------------------------- Version 2.0.4 --------------------------------------
+
+    + Multiple Amazon product images can be imported using Product Advertising API
+    + Order creation date will be same as purchase date of amazon order at Magento
+    + Removed amazon SDK from module
+
+-------------------------------- Version 2.0.3 --------------------------------------
+
+    + Export products to amazon related issue fixed.
+
+-------------------------------- Version 2.0.2 --------------------------------------
+
+    + Amazon product can be revised from Magento to Amazon 
+
+-------------------------------- Version 2.0.1 --------------------------------------
+
+    + Order can fetch between given range.
+    + Order can fetch automatically via cron.
+    + If order item does not exist at Magento, it will automatically be created.
+
+-------------------------------- Version 2.0.0 --------------------------------------
+
+    + Admin can get products from Amazon.
+    + Synchronized Amazon product work like same as Magento product.
+    + Only Admin can add or update Amazon products.
+    + Product can sync with Variation.
+    + Admin can update products which are added from Amazon.
+    + Admin can synchronize order from Amazon.
+    + Admin export the Magento product to Amazon.

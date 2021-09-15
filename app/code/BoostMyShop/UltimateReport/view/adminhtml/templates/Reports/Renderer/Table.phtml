@@ -1,0 +1,21 @@
+<?php if (!$this->hasReportData()): ?>
+    <center><p><?php echo __('No data available'); ?></p></center>
+<?php else: ?>
+
+    <table class="ur-table">
+        <tr>
+            <?php foreach($this->getColumns() as $key => $column): ?>
+                <th><?php echo $column['title']; ?></th>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach($this->getReportDatas(9) as $row): ?>
+            <tr>
+                <?php foreach($this->getColumns() as $key => $column): ?>
+                    <td align="<?php echo (isset($column['align']) ? $column['align'] : 'left'); ?>">
+                        <?php echo $this->applyRenderer($column, $key, $row); ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php endif; ?>

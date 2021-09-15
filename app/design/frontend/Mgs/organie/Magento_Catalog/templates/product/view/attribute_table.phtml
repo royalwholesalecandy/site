@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @see \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+$themeSettings = $themeHelper->getThemeSettings();
+?>
+<?php
+$_categories = $_product->getCategoryIds();
+$_expiredate = $_product->getData('expire_date');
+$_tags = $_product->getData('tags');
+?>
+<?php if ($themeSettings['product_details']['sku'] || count($_categories) > 0 || count($_expiredate) > 0 || count($_tags) > 0): ?>
+    <ul>
+        <?php if ($themeSettings['product_details']['sku']): ?>
+        <li>
+            <span class="label"><?php echo __('Sku') ?></span>
+            <span class="value"><?php echo $_product->getSku(); ?></span>            
+        </li>            
+        <?php endif; ?>
+        <?php if (count($_categories)): ?>
+        <li>
+            <span class="label"><?php echo __('Categories') ?></span>
+            <span class="value">
+                <?php $j = 0;
+                foreach ($_categories as $category_id): $j++;
+                    ?>
+                    <?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+                    <?php $currentCate = $objectManager->create('Magento\Catalog\Model\Category')->load($category_id); ?>
+                    <a href="<?php echo $currentCate->getUrl(); ?>"><?php echo $currentCate->getName(); ?></a><?php if ($j != count($_categories)): ?><span>,</span><?php endif ?>
+            <?php endforeach; ?>
+            </span>
+        </li>
+            
+        <?php endif; ?>
+    <?php if ($_expiredate): ?>
+        <li>
+            <span class="label"><?php echo __('Expire Date'); ?></span>
+            <span class="value">
+            <?php echo __('%1', $block->formatDate($_expiredate, \IntlDateFormatter::SHORT , false)); ?>
+            </span>
+        </li>            
+    <?php endif; ?>
+    <?php if ($_tags): ?>
+        <li>
+             <span class="label"><?php echo __('Tags'); ?></span>
+            <span class="value">
+            <?php echo $_tags; ?>
+            </span>
+        </li>           
+    <?php endif; ?>        
+    </ul>
+<?php endif; ?>

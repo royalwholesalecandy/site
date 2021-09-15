@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <brand_section>
+			
+			<general>
+                <enable>1</enable>
+				<sortname>brand_option_name</sortname>
+			</general>
+			
+			<home_settings>
+                <title>Our Brands</title>
+				<showno_brand>10</showno_brand>
+				<showon_row>5</showon_row>
+				<autoplay>1</autoplay>
+				<brandname>image_only</brandname>
+				<pagination>0</pagination>
+				<nvg>1</nvg>
+			</home_settings>
+			
+        </brand_section>
+    </default>
+</config>

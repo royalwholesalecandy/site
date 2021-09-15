@@ -1,0 +1,41 @@
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php $canUsePanel = $helper->acceptToUsePanel() ?>
+<?php $footer = $helper->getStoreConfig('mgstheme/general/footer') ?>
+	<div class="footer-container">
+		<section class="top-footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">						
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_block_follow_instagram')->setCanUsePanel($canUsePanel)->toHtml() ?>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="middle-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="middle-footer-content">
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_block_newsletter_footer')->setCanUsePanel($canUsePanel)->toHtml() ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="bottom-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<address>
+                                                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_title_address')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                                                    <?php /* @escapeNotVerified */ echo $block->getCopyright() ?></address>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pull-right">
+						<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_social')->setCanUsePanel($canUsePanel)->toHtml() ?>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+

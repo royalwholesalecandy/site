@@ -1,0 +1,104 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_DailyDeal
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\DailyDeal\Block\Widget $block */
+
+/** @var \Mageplaza\DailyDeal\Helper\Data $helperData */
+$helperData = $this->helper('Mageplaza\DailyDeal\Helper\Data');
+$items = $block->getProductCollection(); ?>
+
+<?php if (!empty($items) && $helperData->isEnabled()): ?>
+    <div class="mpdailydeal-widget-block">
+        <h2 class="mpdailydeal-widget-title"><?php echo $block->getTitle(); ?></h2>
+        <div class="widget-block-content">
+            <div class="products-deal-list products-grid grid">
+                <ol class="mpdailydeal-product-deal-items product-items widget-viewed-grid">
+                    <?php $iterator = 1; ?>
+                    <div class="mpdailydeal-list-items" class="owl-carousel owl-theme">
+                        <?php foreach ($items as $_item): ?>
+                            <?php echo ($iterator++ == 1) ? '<li class="mpdailydeal-product-item product-item">' : '</li><li class="mpdailydeal-product-item product-item">' ?>
+                            <div class="widget-deal-product-item-info">
+                                <?php $productUrl = $block->getProductUrl($block->getParentConfigurableProduct($_item->getId())); ?>
+                                <a class="product photo product-item-photo"
+                                    <?php if($block->label()->isLabelBottom()): ?>
+                                        style=" position: relative; padding-bottom: 10px;"
+                                   <?php endif; ?> href="<?php echo $productUrl; ?>">
+                                    <?php if ($block->label()->getShowLabelConfig() == 3): ?>
+                                        <div class="mpdailydeal-widget-label"
+                                             style="background: <?php echo $block->label()->getBackgroundColor(); ?>;
+                                                     border: solid 1px <?php echo $block->label()->getBorderColor(); ?>;
+                                                     color: <?php echo $block->label()->getTextColor(); ?>;
+                                             <?php echo $block->label()->getCssLabelOnImage(); ?>">
+                                            <?php echo $block->widgetLabel($_item->getId()); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php echo $block->getImage($_item, 'recently_viewed_products_grid_content_widget')->toHtml(); ?>
+                                </a>
+                                <div class="product details deal-product-details">
+                                    <strong class="product name product-item-name">
+                                        <a title="<?php echo $block->escapeHtml($_item->getName()); ?>" href="<?php echo $productUrl ?>">
+                                            <?php echo $block->escapeHtml($_item->getName()) ?>
+                                        </a>
+                                    </strong>
+                                    <?php $final_price = number_format($helperData->getDealPrice($_item->getId()), 2); ?>
+                                    <span class="price">
+                                        <span class="price-box price-final_price"><?php echo $block->getProductPrice($_item); ?></span>
+                                    </span>
+                                    <?php if ($block->label()->getShowLabelConfig() == 2): ?>
+                                        <br><span class="mpdailydeal-percent-underprice"
+                                              style="
+                                                      background: <?php echo $block->label()->getBackgroundColor(); ?>;
+                                                      border: solid 1px <?php echo $block->label()->getBorderColor(); ?>;
+                                                      color: <?php echo $block->label()->getTextColor(); ?>;">
+                                            <span><?php echo $block->widgetLabel($_item->getId()); ?></span>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <?php echo ($iterator == count($items) + 1) ? '</li>' : '' ?>
+                        <?php endforeach ?>
+                    </div>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <?php if ($block->getTypeDisplay() == 'slider'): ?>
+        <script>
+            require(['jquery', 'mageplaza/core/owl.carousel'], function ($) {
+                $('.mpdailydeal-list-items').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    lazyLoad:true,
+                    autoplay:true,
+                    autoplayTimeout:5000,
+                    autoWidth:0,
+                    responsive: {
+                        0: {items: 1},
+                        360: {items: 2},
+                        540: {items: 3},
+                        720: {items: 4},
+                        900: {items: 5}
+                    }
+                });
+            });
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

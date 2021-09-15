@@ -1,0 +1,20 @@
+<table border="1" width="100%" cellspacing="3" cellpadding="10" style="background-color: white;">
+    <tr>
+        <td align="center" width="25%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Total'); ?>
+            <br><?php echo $this->getInvoice()->getCurrency()->format($this->getInvoice()->getbsi_total(), [], false); ?>
+        </td>
+        <td align="center" width="25%" style="background-color: #F6E3CE; font-weight: bold;" >
+            <?php echo __('Status'); ?>
+            <br><?php echo __($this->getInvoice()->getbsi_status()); ?>
+        </td>
+        <td align="center" width="25%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Balance due'); ?>
+            <br><span id="span_balance_due"><?php echo $this->getInvoice()->getCurrency()->format($this->getInvoice()->getBalanceDue(), [], false); ?></span>
+        </td>
+        <td align="center" width="25%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Total to apply'); ?>
+            <br><?php echo $this->getInvoice()->getCurrency()->format($this->getInvoice()->getTotalToApply(), [], false); ?>
+        </td>
+    </tr>
+</table>

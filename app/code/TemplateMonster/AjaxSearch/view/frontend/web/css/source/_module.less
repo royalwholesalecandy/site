@@ -1,0 +1,123 @@
+/*
+*   TM_AjaxCatalog
+*/
+
+// Local vars
+
+@_ajax-search__dropdown-bg:      #ffffff;
+@_ajax-search__dropdown-indent:  10px;
+@_ajax-search__border:           1px #ccc;
+@_ajax-search__shadow-ambient:   0 0 2px 0 rgba(0, 0, 0, .25);
+@_ajax-search__shadow-hover:     0 0 15px 0 rgba(0, 0, 0, .15);
+@_ajax-search__dropdown-indent:  10px;
+
+@_ajax-search__product-name-size:   12px;
+@_ajax-search__product-price-size:  16px;
+@_ajax-search__product-price-color: #313131;
+
+
+// Main Styles
+
+& when (@media-target = 'mobile'){
+    #search_mini_form{
+        position: relative;
+    }
+
+    body.ajax-loading #search.input-text:focus{
+        // if input has dark background, set "loader-white.gif" for "background-image" property.
+        //background-image: url(../images/loader-dark.gif);
+        background-position:  2px 50%;
+        background-repeat:  no-repeat;
+        background-size: 15px 15px;
+    }
+
+    #search.input-text{
+        padding-left: 20px;
+    }
+
+    #search_mini_form{
+
+        input[aria-haspopup="false"] + #search_autocomplete ul[role=listbox]{
+            overflow: hidden;
+        }
+
+        .search-autocomplete {
+            overflow: hidden;
+            position: static;
+            max-height: 350px;
+            z-index: 99;
+            background: @_ajax-search__dropdown-bg;
+            box-shadow: @_ajax-search__shadow-ambient;
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: 320px;
+                left: 0;
+                z-index: 9999;
+                width: 120%;
+                height: 30px;
+
+                background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 72%);
+                background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 72%);
+                background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 72%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+            }
+
+            ul[role=listbox] {
+                overflow-y: scroll;
+                position: static;
+                max-height: 350px;
+                margin-right: -20px;
+                z-index: 10;
+                display: block;
+            }
+
+            ul li.search-item{
+                border-bottom: solid 1px #333;
+                border-top: none;
+                padding: @_ajax-search__dropdown-indent;
+                padding-right: @_ajax-search__dropdown-indent + 20px;
+
+                .amount{
+                    position: static;
+                }
+
+                a{
+                    display: block;
+                    overflow: hidden;
+                    line-height: normal;
+                    text-decoration: none;
+                    margin: -1 * @_ajax-search__dropdown-indent;
+                    padding: @_ajax-search__dropdown-indent;
+
+                    .search-thumb{
+                        float: left;
+                        width: 50px;
+                        margin-right: 10px;
+                    }
+
+                    .qs-option-name{
+                        font-size: @_ajax-search__product-name-size;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    .price{
+                        display: block;
+                        color: @_ajax-search__product-price-color;
+                        font-size: @_ajax-search__product-price-size;
+                    }
+                    &:hover{
+
+                    }
+                }
+
+                &:hover{
+                    background: none;
+                    box-shadow: @_ajax-search__shadow-hover inset;
+                }
+            }
+        }
+    }
+}

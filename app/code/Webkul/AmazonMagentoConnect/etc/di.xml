@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Webkul\AmazonMagentoConnect\Model\ResourceModel\ProductMap\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_amazon_mapped_product</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\ProductMap</argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="Webkul\AmazonMagentoConnect\Model\ResourceModel\Accounts\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_amazon_accounts</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\Accounts</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Webkul\AmazonMagentoConnect\Model\ResourceModel\OrderMap\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_amazon_maped_order</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\OrderMap</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Webkul\AmazonMagentoConnect\Model\ResourceModel\PriceRule\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_amazon_pricerule</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\PriceRule</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Webkul\AmazonMagentoConnect\Model\ResourceModel\AttributeMap\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_amazon_attribute_map</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\AttributeMap</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amazonconnect_account_map_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\Accounts\Grid\Collection</item>
+                <item name="amazonconnect_products_map_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\ProductMap\Grid\Collection</item>
+                <item name="amazonconnect_order_map_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\OrderMap\Grid\Collection</item>
+                <!-- for price rule data provider -->
+                <item name="amazonconnect_pricerule_index_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\PriceRule\Grid\Collection</item>
+                <!-- for attribute map data provider -->
+                <item name="amazonconnect_attributemap_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\AttributeMap\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Webkul\AmazonMagentoConnect\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Webkul\AmazonMagentoConnect\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">customLogHandler</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Webkul\AmazonMagentoConnect\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amazonconnect_accounts_list_data_source" xsi:type="string">Webkul\AmazonMagentoConnect\Model\ResourceModel\Accounts\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Webkul\AmazonMagentoConnect\Api\Data\ProductMapInterface" type="Webkul\AmazonMagentoConnect\Model\ProductMap" />
+    <preference for="Webkul\AmazonMagentoConnect\Api\ProductMapRepositoryInterface" type="Webkul\AmazonMagentoConnect\Model\ProductMapRepository" />
+
+    <preference for="Webkul\AmazonMagentoConnect\Api\Data\OrderMapInterface" type="Webkul\AmazonMagentoConnect\Model\OrderMap" />
+    <preference for="Webkul\AmazonMagentoConnect\Api\OrderMapRepositoryInterface" type="Webkul\AmazonMagentoConnect\Model\OrderMapRepository" />
+
+    <preference for="Webkul\AmazonMagentoConnect\Api\Data\AccountsInterface" type="Webkul\AmazonMagentoConnect\Model\Accounts" />
+    <preference for="Webkul\AmazonMagentoConnect\Api\AccountsRepositoryInterface" type="Webkul\AmazonMagentoConnect\Model\AccountsRepository" />
+
+    <preference for="Webkul\AmazonMagentoConnect\Api\Data\AmazonTempDataInterface" type="Webkul\AmazonMagentoConnect\Model\AmazonTempData" />
+    <preference for="Webkul\AmazonMagentoConnect\Api\AmazonTempDataRepositoryInterface" type="Webkul\AmazonMagentoConnect\Model\AmazonTempDataRepository" />
+
+    <preference for="Webkul\AmazonMagentoConnect\Api\Data\AttributeMapInterface" type="Webkul\AmazonMagentoConnect\Model\AttributeMap" />
+    <preference for="Webkul\AmazonMagentoConnect\Api\AttributeMapRepositoryInterface" type="Webkul\AmazonMagentoConnect\Model\AttributeMapRepository" />
+</config>

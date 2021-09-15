@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-advanced-stock",
+  "description": "Advanced inventory management with multiple warehouses support",
+  "type": "magento2-module",
+  "version": "1.1.13",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\AdvancedStock\\": ""}
+  }
+}

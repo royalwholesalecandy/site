@@ -1,0 +1,558 @@
+<?php $_akeansHelper = $this->helper( 'Akeans\ShowPriceAfterLogin\Helper\Data' ); ?>
+
+<?php if($this->enable()){ ?>
+<?php if($_akeansHelper->isCustomerlogin()) { ?>
+<div class="mwquickorder-wrapper">
+
+	<p>Type a Product Name in the first field.  The Related Products will be displayed along. Click on the desired product from the list. In <strong>Qty</strong> field enter the number of items you wish to order.  If you need more lines, Click on the <strong>Add  Rows</strong> Button. To delete a line, click on the <strong>Remove Row </strong> Button. When complete, click on <strong>Add All Items</strong> button</p>
+
+	<div class="product-add-message message" style="display:none;"></div>
+
+	<div class="product-remove-message message" style="display:none;"></div>
+
+	<div class="error-message message" style="display:none;"></div>
+
+	<div class="mwquickorder-details-wrapper">
+
+		<div class="row-buttons mwquickorder-buttons">
+
+				<button type="button" name="Add New Item" class="add-new-item" ><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/add.png'); ?>" /><span>Add Row</span></button>&nbsp;
+
+				<button type="button" name="Remove Item" class="remove-new-item" ><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/remove.png'); ?>" /><span>Remove Row</span></button>
+
+		</div>
+
+		<div class="mwquickorder">
+
+			<div class="mwquickorder-header-wrapper">
+
+					<div class="mwquickorder-name header">Name</div>
+
+					<div class="mwquickorder-sku header">SKU</div>
+
+					<div class="mwquickorder-qty header" style="margin-left: 3%;">Qty</div>
+
+					<div class="mwquickorder-price header" style="margin-left: 2%;">Price</div>
+
+					<div class="mwquickorder-total-price header" style="margin-left: 4%;">Total Price</div>
+
+					<div class="mwquickorder-action header">Action</div>
+
+			</div>
+
+			<div class="product-items-wrapper">
+
+			<?php $rowCount=$this->getRowsCount();
+
+			if(empty($rowCount) || $rowCount == 0 ) { $rowCount=3; }
+
+				for($i=0; $i<$rowCount; $i++){
+
+				?>
+
+				<div class="product-item-<?php echo $i?> product-item <?php if($i==$rowCount-1){ ?> last <?php } ?>">
+
+					<input type="hidden" name="productid" class="productid productid-<?php echo $i?>" value="">
+
+					<div class="mwquickorder-name content"><input type="text" name="pname"  class="pname product-items prod-name-<?php echo $i?>" data-id = "<?php echo $i?>" />
+
+					<div style="display:none;" class="product-suggestion-<?php echo $i ?> product-suggestion"></div></div>
+
+					<div class="mwquickorder-sku content product-items prod-sku-<?php echo $i?>"></div>
+
+					<div class="mwquickorder-qty content"><input type="text" name="pqty"  class="product-items qty prod-qty-<?php echo $i?>"/></div>
+
+					<div class="mwquickorder-price content product-items prod-price-<?php echo $i?>"></div>
+
+					<div class="mwquickorder-total-price content product-items prod-total-price-<?php echo $i?>"></div>
+
+					<div class="mwquickorder-action content">
+
+					<button type="button" name="remove" class="product-actions mwremove prod-remove-<?php echo $i?>" style="display:none;">Remove From Cart</button>
+
+					<input type="hidden" name="formkey" class="formkey prod-formkey-<?php echo $i?>"/>
+
+					<button type="button" data-url='' name="addtocart" class="product-actions mwaddtocart prod-addtocart-<?php echo $i?>" disabled="disabled">Add To Cart</button>&nbsp;
+
+					<button type="button" name="clear" class="product-actions mwclear prod-clear-<?php echo $i?>">Clear</button> 
+
+					</div>
+
+					<div class="bundle-options-items-qty-<?php echo $i ?>" style="display:none;"></div>
+
+					<div class="bundle-options-items-<?php echo $i ?>" style="display:none;"></div>
+
+					<div class="bundle-options-<?php echo $i?> bundle-options" style="display:none;"></div>
+
+				</div>
+
+				<?php } ?>
+
+			</div>
+
+		</div>
+
+	<?php 	
+
+			$charlength = $this->getProductNameCharLength(); 
+
+			$searchUrl = $block->getUrl('mwquickorder/index/searchProducts');
+
+			$productdataUrl = $block->getUrl('mwquickorder/index/productdetails');
+
+			$productViewUrl = $block->getUrl('mwquickorder/index/view');
+
+			$productConfigUrl = $block->getUrl('mwquickorder/product/details');
+
+			$productRemoveUrl = $block->getUrl('mwquickorder/product/deleteProduct');
+
+			$cartUrl = $block->getUrl('checkout/cart/index');
+
+			$checkoutUrl = $block->getUrl('checkout/');
+
+			$cartAddUrl = $block->getUrl('checkout/cart/add');
+
+		?>
+
+		<div class="bottom-buttons mwquickorder-buttons">
+
+			<button type="button" name="Add All Items" class="add-all-items" id='add-all-items'><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/add-to.png'); ?>" /><span>Add All Items</span></button>
+
+			&nbsp;
+
+			<button type="button" name="Remove All Item" class="remove-all-items" id='remove-all-items' style="display:none;"><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/remove.png'); ?>" /><span>Remove All Items</span></button>
+
+			&nbsp;
+
+			<button type="button" name="show cart" class="show cart" onclick='window.open("<?php echo $cartUrl; ?>")'><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/view.png'); ?>" /><span>Show Cart</span></button>
+
+			&nbsp;
+
+			<button type="button" name="checkout" class="checkout" onclick='window.open("<?php echo $checkoutUrl; ?>")'><img src="<?php echo $this->getViewFileUrl('Magewares_MWQuickOrder::images/checkout.png'); ?>" /><span>Checkout</span></button>
+
+		</div>
+
+	</div>
+
+	<script>
+
+		var currentlyActiveInput = '';
+
+		var iframeObject = '';
+
+		var formDataArr=[];
+
+		requirejs(['jquery', 'magnificPopup', 'mwQuickorder'],
+
+			function($,magnificPopup, mwQuickorder) {
+
+				$(document).ready(function() {
+
+					var totalRows = <?php echo $i ?>;
+
+					$('body').on('keyup', '.pname', function(){
+
+						currentlyActiveInput = $(this).attr('data-id');
+
+						var searchUrl='<?php echo $searchUrl; ?>';
+
+						var reqLength=<?php echo $charlength; ?>;
+
+						if (searchUrl.length) {
+
+							mwQuickorder.searchContent(searchUrl, currentlyActiveInput, reqLength);
+
+						}
+
+					});
+
+					// get the product details selected by the user
+
+					$('body').on('click', '.productdetails', function(){
+
+						var pid = $(this).attr('id');
+
+						var type = $(this).attr('data-type');
+
+						var producturl='<?php echo $productdataUrl; ?>';
+
+						if(type == "simple" || type == "downloadable" || type == "virtual"){
+
+							 mwQuickorder.productDetails(producturl, pid);
+
+						}else{
+
+							var productViewUrl='<?php echo $productViewUrl ?>'+'id/'+pid+'/';
+
+							mwQuickorder.showpopup(productViewUrl); 
+
+						}
+
+					});
+
+					
+
+					// adding new new row functionality
+
+					$('body').on('click', '.add-new-item', function(){
+
+						var currentlyActive= 0;
+
+						$('.product-items-wrapper .product-item').each(function(index){
+
+							currentlyActive++; 
+
+						});
+
+						mwQuickorder.addNewRow(currentlyActive-1); 
+
+					});
+
+					
+
+					// removing row functionality
+
+					$('body').on('click', '.remove-new-item', function(){
+
+						var minRows=<?php echo $rowCount; ?>;
+
+						if($('.product-item.row').length > minRows){
+
+							$('.product-items-wrapper .product-item:last').remove();
+
+							$('.product-items-wrapper .product-item:last').addClass('last');
+
+						}
+
+					});
+
+					
+
+					//clearing rows
+
+					$('body').on('click', '.mwclear', function(){
+
+						var indexUsed='';
+
+						var classes = $(this).attr('class').split(' ');
+
+						$.each(classes, function(index,value){
+
+							if(index==2){
+
+								var classInfo=classes[index].split('-');
+
+								indexUsed= classInfo[2];
+
+							}
+
+						});
+
+						$('.productid-'+indexUsed).val('');
+
+						$('.prod-name-'+indexUsed).val('');
+
+						$('.prod-price-'+indexUsed).html('');
+
+						$('.prod-sku-'+indexUsed).html('');
+
+						$('.prod-qty-'+indexUsed).val('');
+
+						$('.prod-total-price-'+indexUsed).html('');
+
+						$('.bundle-options-'+indexUsed).html('');
+
+						$('.bundle-options-items-qty-'+indexUsed).html('');
+
+						$('.bundle-options-items-'+indexUsed).html('');
+
+						$('.prod-addtocart-'+indexUsed).css('display','block');
+
+						$('.prod-addtocart-'+indexUsed).attr('data-url','');
+
+						$('.prod-clear-'+indexUsed).css('display','block');
+
+						$('.prod-remove-'+indexUsed).css('display','none');
+
+						$('.prod-addtocart-'+indexUsed).attr('disabled','true');
+
+					});
+
+					
+
+					
+
+					// add to cart for the individual page
+
+					$('body').on('click', '.mwaddtocart', function(){
+
+						var cartAddUrl='<?php echo $cartAddUrl; ?>';
+
+							var indexUsed='';
+
+							var classes = $(this).attr('class').split(' ');
+
+							$.each(classes, function(index,value){
+
+								if(index==2){
+
+									var classInfo=classes[index].split('-');
+
+									indexUsed= classInfo[2];
+
+								}
+
+							});
+
+						mwQuickorder.addToCartIndividual(cartAddUrl,indexUsed,formDataArr); 
+
+					});
+
+					
+
+					// remove from cart functionality for the individual product
+
+					$('body').on('click', '.mwremove', function(){
+
+						var productremoveurl='<?php echo $productRemoveUrl; ?>';
+
+						var indexUsed='';
+
+						var classes = $(this).attr('class').split(' ');
+
+						$.each(classes, function(index,value){
+
+							if(index==2){
+
+								var classInfo=classes[index].split('-');
+
+								indexUsed= classInfo[2];
+
+							}
+
+						});
+
+						var productId = $('.productid-'+indexUsed).val();
+
+						mwQuickorder.removeProductIndividual(productremoveurl,indexUsed);
+
+						$('.productid').each(function(index){
+
+							var productIdNew = $('.productid-'+index).val();
+
+								if(productId == productIdNew){
+
+									$('.productid-'+index).val('');
+
+									$('.prod-name-'+index).val('');
+
+									$('.prod-price-'+index).html('');
+
+									$('.prod-sku-'+index).html('');
+
+									$('.prod-qty-'+index).val('');
+
+									$('.prod-total-price-'+index).html('');
+
+									$('.bundle-options-'+index).html('');
+
+									$('.bundle-options-items-qty-'+index).html('');
+
+									$('.bundle-options-items-'+index).html('');
+
+									$('.prod-addtocart-'+index).css('display','block');
+
+									$('.prod-addtocart-'+index).attr('data-url','');
+
+									$('.prod-clear-'+index).css('display','block');
+
+									$('.prod-remove-'+index).css('display','none');
+
+									$('.prod-name-'+index).attr("readonly",false);
+
+									$('.prod-qty-'+index).attr("readonly",false);
+
+								}
+
+						});
+
+					});
+
+					
+
+					// on quantity change and total change functionality
+
+					$('body').on('keyup', '.qty', function(){
+
+						var indexUsed='';
+
+						var classes = $(this).attr('class').split(' ');
+
+						$.each(classes, function(index,value){
+
+							if(index==2){
+
+								var classInfo=classes[index].split('-');
+
+								indexUsed= classInfo[2];
+
+							}
+
+						});
+
+						if($('.prod-qty-'+indexUsed).val() > 0){
+
+						var totalPrice= ($('.prod-qty-'+indexUsed).val())*($('.prod-price-'+indexUsed).html());
+
+						$('.prod-total-price-'+indexUsed).html(totalPrice.toFixed(4));
+
+						$('.prod-addtocart-'+currentlyActiveInput).prop("disabled", false);
+
+						}else{
+
+							$('.product-remove-message').empty();
+
+							$('.product-remove-message').html('Minimum qty to add item into cart is 1');
+
+							$('.product-remove-message').css("display","block");
+
+							$('.prod-addtocart-'+currentlyActiveInput).prop("disabled", true);
+
+							$('.prod-total-price-'+indexUsed).html(0.0000);
+
+						}
+
+					});
+
+					
+
+					// Adding all items to the cart
+
+					$('body').on('click', '.add-all-items', function(){
+
+						var cartAddUrl='<?php echo $cartAddUrl; ?>';
+
+						mwQuickorder.addAll(cartAddUrl,formDataArr);					
+
+					});
+
+					
+
+					// remove all items from the cart
+
+					$('body').on('click', '.remove-all-items', function(){
+
+						var productremoveurl='<?php echo $productRemoveUrl; ?>';
+
+						mwQuickorder.removeAll(productremoveurl,formDataArr);
+
+					});
+
+					
+
+				});
+
+			});
+
+			function iframeLoad(iframe){
+
+				requirejs(['jquery','mwQuickorder'],function($,mwQuickorder){
+
+					iframeObject = iframe;
+
+					if($(iframeObject).contents().find('#bundleSummary div.product-details .box-tocart')){
+
+						$(iframeObject).contents().find('#bundleSummary div.product-details .box-tocart').css('display','none');
+
+						$(iframeObject).contents().find('#maincontent div.product-info-main .bundle-actions').css('display','none');
+
+						$(iframeObject).contents().find('#maincontent .bundle-options-container .product-add-form').css('display','block');
+
+					}
+
+					var configurl='<?php echo $productConfigUrl; ?>';
+
+					$(iframeObject).contents().find(".continue").click(function(){
+
+						$(iframeObject).contents().find('.mwquickorder-error-message').html('');
+
+						var error='';
+
+						if($(iframeObject).contents().find('.bundle-options-wrapper #product-options-wrapper').length){
+
+							//code for bundle product
+
+							mwQuickorder.getBundledetails(configurl,formDataArr,iframeObject,currentlyActiveInput);
+
+							
+
+						}else if($(iframeObject).contents().find('.table-wrapper.grouped').length){
+
+							//code for grouped product
+
+							mwQuickorder.getGroupeddetails(configurl,formDataArr,iframeObject,currentlyActiveInput);
+
+						}else{
+
+							//code for configurable product options
+
+							mwQuickorder.getConfigdetails(configurl,formDataArr,iframeObject,currentlyActiveInput);
+
+						}				
+
+					});
+
+				});
+
+			}
+
+				
+
+	</script>
+	<?php } else { ?>
+
+    <div class="form-login-msg">Please <a href="<?php echo $block->getUrl('customer/account/login'); ?>">log in</a> to see the Quick Order form</div>
+
+	<?php }?>
+	<?php } else{ ?>
+
+	<div class="mwquickorder" style="color:red;">	
+
+	<?php echo __('Please Enable Extension from Admin!!'); ?>
+
+	</div>
+
+<?php } ?>
+
+</div>
+
+
+<?php
+
+$styleUse = $this->getStyleColor();
+
+if (!$styleUse) {
+
+    $styleUse = '#ff4800';
+
+}
+
+?>
+
+<style type="text/css">
+
+.mwquickorder-details-wrapper button{
+
+ background-color: <?php echo $styleUse ?> !important;	
+
+}
+
+input[readonly]
+
+{
+
+    background-color:#f0f0f0;
+
+}
+
+</style>

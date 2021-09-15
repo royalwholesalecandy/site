@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<reports>
+
+    <turnover>
+        <name>Turnover</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <series>
+            <serie>
+                <label>Sales</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                select
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}') as x,
+                                    subtotal as y
+                                from
+                                    {prefix}sales_order tbl_order
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}')
+                                order by
+                                    tbl_order.created_at
+                                    ]]></sql>
+    </turnover>
+
+    <sales_per_store>
+        <name>Sales per store</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <y_label>Sales</y_label>
+        <sql><![CDATA[select
+                                    concat(tbl_website.name, '<br>', tbl_store.name) as x,
+                                    SUM(grand_total) as y
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}store tbl_store on (tbl_order.store_id = tbl_store.store_id)
+                                    inner join {prefix}store_website tbl_website on (tbl_store.website_id = tbl_website.website_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and tbl_order.store_id in ({store_ids})
+                                    and tbl_order.state in ("processing", "complete")
+                                group by
+                                    tbl_store.store_id]]></sql>
+    </sales_per_store>
+
+    <invoiced_per_country>
+        <name>Total Invoiced per country</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <y_label>Sales</y_label>
+        <sql><![CDATA[
+                                select
+                                    country_id as x,
+                                    country_id,
+                                    sum(tbl_invoice.base_grand_total * tbl_order.base_to_global_rate) as y
+                                from
+                                    {prefix}sales_invoice tbl_invoice
+                                    inner join {prefix}sales_order tbl_order on (tbl_order.entity_id = tbl_invoice.order_id)
+                                    inner join {prefix}sales_order_address tbl_address on (tbl_order.billing_address_id = tbl_address.entity_id)
+                                where
+                                    tbl_invoice.created_at >= "{date_from}"
+                                    and tbl_invoice.created_at <= "{date_to}"
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    country_id
+                                order by
+                                    sum(tbl_invoice.base_grand_total) desc
+                                    ]]></sql>
+    </invoiced_per_country>
+
+    <major_sales>
+        <name>Major Sales</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <table>
+            <columns>
+                <created_at>
+                    <title>Date</title>
+                    <align>center</align>
+                </created_at>
+                <increment_id>
+                    <title>Order #</title>
+                    <renderer>link</renderer>
+                    <url>sales/order/view</url>
+                    <param_name>order_id</param_name>
+                    <param_value>entity_id</param_value>
+                    <align>center</align>
+                </increment_id>
+                <customer>
+                    <title>Customer</title>
+                </customer>
+                <grand_total>
+                    <align>right</align>
+                    <title>Total</title>
+                </grand_total>
+            </columns>
+        </table>
+        <sql><![CDATA[
+                                select
+                                    entity_id,
+                                    increment_id,
+                                    created_at,
+                                    concat(customer_firstname, " ", customer_lastname) as customer,
+                                    grand_total
+                                from
+                                    {prefix}sales_order tbl_order
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and tbl_order.store_id in ({store_ids})
+                                order by
+                                    grand_total desc
+                                    ]]></sql>
+    </major_sales>
+
+</reports>

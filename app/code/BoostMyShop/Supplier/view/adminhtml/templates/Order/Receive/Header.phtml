@@ -1,0 +1,29 @@
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="back" title="Back" type="button" class="action-default scalable back" onclick="setLocation('<?php echo $this->getBackUrl(); ?>')"  data-ui-id="adminhtml-order-edit-back-button" >
+            <span><?php echo __('Back'); ?></span>
+        </button>
+        <button id="fill_all" title="fill_all" type="button" class="action-default scalable" onclick="orderReception.fillAllQuantities();"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Fill all quantities'); ?></span>
+        </button>
+        <button id="save" title="save" type="button" class="action-default scalable primary"
+                onclick="orderReception.saveNewBarcodes();jQuery('#save').prop('disabled', true);jQuery('#edit_form').submit();"
+                data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Save'); ?></span>
+        </button>
+    </div>
+</div>
+
+<div>
+    <table border="0" width="100%">
+        <tr>
+            <td width="50%">
+                <div id="div_message" style="font-size: 20px; font-weight: bold;"></div>
+            </td><td width="50%" style="font-size: 20px; font-weight: bold;">
+                <p></p><?php echo __('Products received'); ?>: <span id="summary_received"></span></p>
+                <p></p><?php echo __('Products left to receive'); ?>: <span id="summary_left_to_receive"></span></p>
+                <p></p><?php echo __('Products over received'); ?>: <span id="summary_over_received"></span></p>
+            </td>
+        </tr>
+    </table>
+</div>

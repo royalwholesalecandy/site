@@ -1,0 +1,55 @@
+<?php if (!$this->hasReportData()): ?>
+    <p><?php echo __('No data available'); ?></p>
+<?php else: ?>
+    <div id="<?php echo $this->getDivId(); ?>" style="width: 99%; height: 80%; margin: 0 auto; float: center; margin-bottom: 25px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;">
+    </div>
+<?php endif; ?>
+
+<?php if ($this->hasReportData()): ?>
+    <script type="text/javascript">
+        require(["highcharts"], function() {
+
+            jQuery('#<?php echo $this->getDivId(); ?>').highcharts({
+                    credits: {enabled: false},
+                    title: {text: ''},
+                    xAxis: {
+                        categories: <?php echo json_encode($this->getCategories()); ?>
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: '<?php echo $this->getYLabel(); ?>'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    series: <?php echo json_encode($this->getSeriesData()); ?>,
+                    plotOptions: {
+                        series: {
+                            point: {
+                                events: {
+                                    click: function () {
+                                        <?php echo $this->onClick(); ?>
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    exporting: {
+                        buttons: {
+                            contextButton: {
+                                menuItems: [{
+                                    text: 'Excel Export',
+                                    onclick: function () {
+                                        <?php echo $this->exportJs(); ?>
+                                    }
+                                }]
+                            }
+                        }
+                    }
+                });
+
+        });
+    </script>
+<?php endif; ?>

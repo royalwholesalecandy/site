@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php 
+$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+$themeSettings = $themeHelper->getThemeSettings();
+?>
+	<div class="contact-layout1">
+		<?php if($this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_contact_information')->toHtml()): ?>
+			<div class="store-information col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_contact_information')->toHtml();?>
+		    </div>
+		<?php endif ?>
+		<form class="form contact col-lg-8 col-md-8 col-sm-12 col-xs-12"
+		  action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
+		  id="contact-form"
+		  method="post"
+		  data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+		  data-mage-init='{"validation":{}}'>
+			<div class="row row-lg">
+					<h3 class="title_form"><?php echo __('Get in touch'); ?></h3>
+						<div class="form-group control-icon name required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<input placeholder="<?php echo __('Name'); ?>" name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text form-control" type="text" data-validate="{required:true}"/>
+						</div>
+						<div class="form-group control-icon email required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<input placeholder="<?php echo __('E-mail *'); ?>" name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text form-control" type="email" data-validate="{required:true, 'validate-email':true}"/>
+						</div>
+						<div class="form-group control-icon telephone col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<input placeholder="<?php echo __('Telephone'); ?>" name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Telephone') ?>" value="" class="input-text form-control" type="text" />
+						</div>
+						<div class="form-group control-icon department required col-lg-6 col-md-6 col-sm-12 col-xs-12"">
+							<input name="department" id="department" title="<?php echo __('department') ?>" value="" class="input-text hide" type="text" />
+							<select name="department" id="department_mirror">
+								<option value="" selected>--Please select Department--</option>
+								<option value="Customer Service">Customer Service</option>
+								<option value="Sales Support">Sales Support</option>
+								<option value="Billing">Billing</option>
+								<option value="Inventory">Inventory</option>
+								<option value="Purchasing">Purchasing</option>
+								<option value="Marketing">Marketing</option>
+								<option value="Orders">Orders</option>
+								<option value="Shipping and Receiving">Shipping &amp; Receiving</option>
+							</select>
+						</div>
+						<div class="form-group control-icon priority col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<input name="priority" id="priority" title="<?php echo __('Priority') ?>" value="" class="input-text hide" type="text" />
+							<select name="priority" id="priority_mirror">
+								<option value="" selected>--Please select Priority--</option>
+								<option value="Urgent">URGENT</option>
+								<option value="Asap">ASAP</option>
+								<option value="To Do">To Do</option>
+								<option value="If Time">If Time</option>
+							</select>
+						</div>
+						<div class="form-group control-icon comment required">
+							<textarea placeholder="<?php /* @escapeNotVerified */ echo __('Comment*') ?>" name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('Comment') ?>" class="input-text form-control" cols="5" rows="9" data-validate="{required:true}"></textarea>
+						</div>
+						<div class="actions-toolbar form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<input type="hidden" name="hideit" id="hideit" value="" />
+							<button type="submit" title="<?php /* @escapeNotVerified */ echo __('Post comment') ?>" class="action submit btn btn-custom btn-primary pull-right">
+								<span><?php /* @escapeNotVerified */ echo __('Submit') ?></span>
+							</button>
+						</div>
+						<div class="actions-toolbar form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<button type="reset" title="<?php /* @escapeNotVerified */ echo __('Reset') ?>" class="action btn-reset btn btn-custom btn-secondary pull-left">
+								<span><?php /* @escapeNotVerified */ echo __('Reset') ?></span>
+							</button>
+						</div>
+				</div>
+		</form>
+		
+		<!-- <?php echo $this->getLayout()->createBlock("Magento\Contact\Block\ContactForm")->setTemplate("Magento_Contact::map.phtml")->toHtml();?> -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.809188403368!2d-74.96420477787187!3d39.923286123444555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c134d27e747c5d%3A0x44223e27c2733e57!2s717+Fellowship+Rd+Unit+C%2C+Mt+Laurel%2C+NJ+08054%2C+USA!5e0!3m2!1sen!2sin!4v1551368786484" width="100%" height="450" frameborder="0" style="border:0; filter: grayscale(100%);" allowfullscreen></iframe>
+	</div>
+	

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PENDING_REGISTRATION
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="itoris_extensions" translate="label" sortOrder="101">
+            <label>ITORIS Extensions</label>
+        </tab>
+        <section id="itoris_pendingreg" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Pending Registration</label>
+            <tab>itoris_extensions</tab>
+            <resource>Itoris_PendingRegistration::config_pending_registration</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extension Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_groups" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select which Customer Groups you would like to validate manually:</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Group</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment>other groups will be activated automatically</comment>
+                </field>
+            </group>
+            <group id="events" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Events</label>
+                <field id="admin_itoris_identity" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin notification email template sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="admin_template" translate="label comment" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin notification email template</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Email</source_model>
+                </field>
+                <field id="new_itoris_identity" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New customer notification email template sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="user_template" translate="label comment" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New customer notification email template</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Email</source_model>
+                </field>
+                <field id="approved_itoris_identity" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Approved customer notification email template sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="approved_template" translate="label comment" type="select" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Approved customer notification email template</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Email</source_model>
+                </field>
+                <field id="declined_itoris_identity" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Declined customer notification email template sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="declined_template" translate="label comment" type="select" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Declined customer notification email template</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Email</source_model>
+                </field>
+            </group>
+            <group id="existing_users" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Existing users</label>
+                <field id="all_users_status" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Make all users status</label>
+                    <source_model>Itoris\PendingRegistration\Model\Settings\Source\Status</source_model>
+                </field>
+                <field id="set_status" translate="button_label" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <button_label>Set Status</button_label>
+                    <frontend_model>Itoris\PendingRegistration\Block\Adminhtml\Settings\Status</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

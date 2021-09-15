@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Currency switcher
+ *
+ * @see \Magento\Directory\Block\Currency
+ */
+?>
+<?php if ($block->getCurrencyCount() > 1): ?>
+<?php $currencies = $block->getCurrencies(); ?>
+<?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
+<?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : ''?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<div class="switcher currency switcher-currency" id="switcher-currency<?php /* @escapeNotVerified */ echo $id?>">
+	
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-currency-trigger<?php /* @escapeNotVerified */ echo $id?>">
+            <?php if($themeHelper->getStoreConfig('mgstheme/general/header') == 'header_3'): ?>
+				<span class="language-<?php echo $block->escapeHtml($block->getCurrentCurrencyCode()) ?>">
+					<i class="ion-cash"></i>
+				   <?php echo $block->escapeHtml($currentCurrencyCode) ?>
+				</span>
+			<?php else: ?>
+				<span class="language-<?php echo $block->escapeHtml($block->getCurrentCurrencyCode()) ?>">
+				   <?php echo $block->escapeHtml($currentCurrencyCode) ?>
+				</span>
+				<i class="ion-chevron-down"></i>
+			<?php endif;?>
+        </div>
+        <ul class="dropdown switcher-dropdown" style="display: none;" data-mage-init='{"dropdownDialog":{
+            "appendTo":"#switcher-currency<?php /* @escapeNotVerified */ echo $id?> > .options",
+            "triggerTarget":"#switcher-currency-trigger<?php /* @escapeNotVerified */ echo $id?>",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null,
+			"defaultDialogClass": "dropdown-menu"}}'>
+            <?php foreach ($currencies as $_code => $_name): ?>
+                <?php if ($_code != $currentCurrencyCode): ?>
+                    <li class="currency-<?php /* @escapeNotVerified */ echo $_code ?> switcher-option">
+                        <a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getSwitchCurrencyPostData($_code); ?>'><?php /* @escapeNotVerified */ echo $_code ?> - <?php /* @escapeNotVerified */ echo $_name ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,11 @@
+<table class="data table stocks" id="product-stocks-table">
+    <tbody>
+        <?php foreach($this->getStocks() as $stock): ?>
+            <tr>
+                <th class="col label" scope="row"><?php echo $stock->getw_name(); ?></th>
+                <td class="col data"><?php echo $this->getWarehouse($stock->getw_id())->getFullAddress(true); ?></td>
+                <td class="col data"><?php echo $stock->getwi_available_quantity(); ?> units available</td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

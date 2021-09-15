@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="wanexo_np" sortOrder="2000">
+            <label>Newsletter Popup</label>
+        </tab>
+        <section id="wanexo_np" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Newsletter</label>
+            <tab>wanexo_ext</tab>
+            <resource>Wanexo_Newsletterpopup::newsletterpopup</resource>
+            <group id="general" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+               
+			    <field id="status" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Popup Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+			    
+				<field id="npHeading" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>NewsLetter Heading</label>
+                </field>
+              
+                <field id="npDesciption" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>NewsLetter Desciption</label>
+                </field>
+				
+				<field id="npBtnText" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text for Subscribe button</label>
+                </field>
+				
+				<field id="npNote" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Note</label>
+                </field>
+				 
+				<field id="npTime" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Cookie Time: </label>
+					  <validate>validate-number</validate>
+                </field>
+				
+				<field id="npImageSrc" translate="label" type="image" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Backgrond image</label>
+                    <comment>Allowed file types:PNG, GIF, JPG, JPEG, SVG.</comment>
+                    <backend_model>Wanexo\Newsletterpopup\Model\Config\Backend\Image\Npimage</backend_model>
+                    <base_url type="media" scope_info="1">wanexo/newsletterpopup</base_url>
+                </field>
+				
+				<field id="np_bg_repeat" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond repeat: </label>
+					<source_model>Wanexo\Newsletterpopup\Model\System\Config\Source\Bgrepeat</source_model>
+				</field>
+				
+				<field id="np_bg_bp" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond position: </label>
+					<source_model>Wanexo\Newsletterpopup\Model\System\Config\Source\Bgposition</source_model>
+				</field>
+				
+				<field id="np_bg_atm" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond attachment: </label>
+					<source_model>Wanexo\Newsletterpopup\Model\System\Config\Source\Bgattachment</source_model>
+				</field>
+				
+				<field id="np_bg_sz" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Background size: </label>
+					<source_model>Wanexo\Newsletterpopup\Model\System\Config\Source\Bgsize</source_model>
+				</field>
+				 
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,15 @@
+<?php $_menu = $block->getHtml('level-top', 'pump', '') ?>
+<?php $mediaPath = $block->getHomeUrl(); ?>
+<?php $navHome = $this->helper('Wanexo\Mdlnavi\Helper\Data')->getConfig('wanexo_mdlnavi/navsettings/navoption_home'); ?>
+<nav class="navigation" role="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?php if($navHome==1): ?>
+        <li class="home level0"><a class="level-top 44" href="<?php echo $mediaPath ?>"><?php echo 'Home'; ?></a></li>
+        <?php elseif($navHome==2): ?>
+        <li class="home hicon level0"><a href="<?php echo $mediaPath ?>"><i class="fa fa-home"></i></a></li>
+        <?php  elseif($navHome==3): ?>
+        <li class="home level0"><a href="<?php echo $mediaPath ?>"><i class="fa fa-home home-link"></i><?php echo 'Home'; ?></a></li>
+        <?php endif; ?>
+        <?php echo $_menu; ?>
+    </ul>
+</nav>

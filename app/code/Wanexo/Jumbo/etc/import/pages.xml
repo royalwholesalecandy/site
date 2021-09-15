@@ -1,0 +1,3972 @@
+<root>
+	<pages>
+      <cms_item>
+         <title>Jumbo - Book</title>
+         <identifier>jumbo_home_book</identifier>
+		<content>
+<![CDATA[
+<div class="container c_white" style="padding-top:30px;">
+	<!-- Main Column -->
+	<div class="col-md-9 col-sm-12 upSide areaBox proArea ">
+		<div class="headingBox">
+			<div class="block-title">
+				<h2><span>New Arrivals</span></h2>
+			</div>
+			
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="12"
+				image_size="258"
+				quickview="1"
+				item_design="6"
+				hide_action="0"
+				column_count="4"
+				template="grid.phtml"
+			}}
+		</div>
+	</div>
+	
+	<!-- Side Slider -->
+	<div class="sidebar col-left-first col-md-3 col-sm-12" style="padding-top: 0;">
+		<div id="side_product">
+			<div class="block-title">
+				<h2><span>Popular Products</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="8"
+				image_size="100"
+				quickview="1"
+				hide_action="0"
+				template="side_product.phtml"
+			}}
+		</div>
+		
+		<script type="text/javascript">	 
+		require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+			$(function(){
+				$("#side_product .owl-carousel").owlCarousel({	
+					rtl:false,
+					loop:false,
+					lazyLoad:true,
+					margin:0,
+					autoHeight:true,
+					nav:true,
+					navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+					items:1,
+					onLoadLazy :function(event){
+						$(event.element).parent().addClass('img_load');
+					}
+				});
+			});
+		});			
+		</script>
+		
+		<div class="block static-block">
+			<a href="#" class="sb_3">
+				<img src="{{media url="wysiwyg/store/book/static_block/book_side_banner.jpg"}}" alt="" />
+			</a>
+		</div>
+		
+	</div>
+	
+	
+	<!-- Testimonial section -->
+	<div class="container c_white">
+		<div class="col-xs-12">
+			<div id="testimonial" class="headingBox">
+				<div class="box-title">
+					<h2><span>Testimonials</span></h2>
+					<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+				</div>
+				
+				<div class="owl-carousel navItem">
+					
+					<div class="f-block testimonial-cover">
+						<div class="testimonial-img">
+							<img src="{{media url="wysiwyg/store/book/testimonial/thumb/testimonail1.jpg"}}" alt="" />
+						</div>
+						<p>
+							Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+						</p>
+						<div class="author">
+							Kalie Woods <span> /  HR</span>
+							<i class="fa fa-quote-right" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+					<div class="f-block testimonial-cover">
+						<div class="testimonial-img">
+							<img src="{{media url="wysiwyg/store/book/testimonial/thumb/testimonail2.jpg"}}" alt="" />
+						</div>
+						<p>
+							Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+						</p>
+						<div class="author">
+							Linda Black <span> /  Relationship manager</span>
+							<i class="fa fa-quote-right" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+					
+					<div class="f-block testimonial-cover">
+						<div class="testimonial-img">
+							<img src="{{media url="wysiwyg/store/book/testimonial/thumb/testimonail1.jpg"}}" alt="" />
+						</div>
+						<p>
+							Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+						</p>
+						<div class="author">
+							Robert Smith <span> /  CTO</span>
+							<i class="fa fa-quote-right" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+					
+					<div class="f-block testimonial-cover">
+						<div class="testimonial-img">
+							<img src="{{media url="wysiwyg/store/book/testimonial/thumb/testimonail2.jpg"}}" alt="" />
+						</div>
+						<p>
+							Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+						</p>
+						<div class="author">
+							Kyla John <span> /  PHP Developer</span>
+							<i class="fa fa-quote-right" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#testimonial .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:1,
+						margin:5
+					},
+					480:{
+						items:1
+					},
+					768:{
+						items:2
+					},
+					980:{
+						items:2,
+						margin:10
+					},
+					1199:{
+						items:2
+					},
+					1200:{
+						items:2
+					}
+				}
+			});
+		});
+	});			
+	</script>
+	
+
+</div>
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml>
+		<![CDATA[
+		<referenceContainer name="sidebar.main">
+			<block class="Magento\Cms\Block\Block" name="block-slideshow" after="-">
+				<arguments>
+					<argument name="block_id" xsi:type="string">block-slide-left</argument>
+				</arguments>
+			</block>
+                       <block class="Magento\Cms\Block\Block" name="block_identifier" after="block-slideshow">
+				<arguments>
+					<argument name="block_id" xsi:type="string">home_text_block</argument>
+				</arguments>
+			</block>
+		</referenceContainer>		
+		 ]]>
+		 </layout_update_xml>
+      </cms_item>
+	  
+	  <cms_item>
+         <title>Jumbo - Cosmetics</title>
+         <identifier>jumbo_home_cosmetics</identifier>
+         <content>
+<![CDATA[
+<!-- Grid Products -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div class="headingBox">
+			<div class="box-title">
+				<h2><span>New Arrivals</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="12"
+				image_size="196"
+				quickview="1"
+				item_design="5"
+				hide_action="0"
+				column_count="6"
+				template="grid.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<!--	Team	-->
+<section class="team-wrapper f-block" >
+	<div class="container c_white">
+		<div class="team-cover f-block">
+			<ul>
+				<li class="team-item col-xs-6 col-sm-6 col-md-3">
+					<div class="team-inner f-block">
+						<div class="team-img">
+							<img src="{{media url="wysiwyg/store/cosmetic/team/test1.jpg"}}" alt="" />
+						</div>
+						<h2>Aenean Tempor</h2>
+						<h5>CEO</h5>
+						<p>Phasellus metus odio, aliquet sed lorem. Sed eget enim quis nisi hendrerit eleifend.</p>
+						<div class="social-icons">
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="team-item col-xs-6 col-sm-6 col-md-3">
+					<div class="team-inner f-block">
+						<div class="team-img">
+							<img src="{{media url="wysiwyg/store/cosmetic/team/test2.jpg"}}" alt="" />
+						</div>
+						<h2>John Smith</h2>
+						<h5>Director</h5>
+						<p>Phasellus metus odio, aliquet sed lorem. Sed eget enim quis nisi hendrerit eleifend.</p>
+						<div class="social-icons">
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="team-item col-xs-6 col-sm-6 col-md-3">
+					<div class="team-inner f-block">
+						<div class="team-img">
+							<img src="{{media url="wysiwyg/store/cosmetic/team/test3.jpg"}}" alt="" />
+						</div>
+						<h2>Proin Sodales</h2>
+						<h5>Maneger</h5>
+						<p>Phasellus metus odio, aliquet sed lorem. Sed eget enim quis nisi hendrerit eleifend.</p>
+						<div class="social-icons">
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="team-item col-xs-6 col-sm-6 col-md-3">
+					<div class="team-inner f-block">
+						<div class="team-img">
+							<img src="{{media url="wysiwyg/store/cosmetic/team/test4.jpg"}}" alt="" />
+						</div>
+						<h2>Cras Quis</h2>
+						<h5>Team Lead</h5>
+						<p>Phasellus metus odio, aliquet sed lorem. Sed eget enim quis nisi hendrerit eleifend.</p>
+						<div class="social-icons">
+							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!--	End of Team	-->
+
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  <cms_item>
+         <title>Jumbo - Default</title>
+         <identifier>jumbo_home_default</identifier>
+         <content>
+<![CDATA[
+<!-- Trending Products -->
+<div class="container c_white" style="margin-bottom:50px;">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Trending Products</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="296"
+				quickview="1"
+				hide_action="0"
+				template="grid2.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+<!--Tab 01-->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="product_tab_1" class="tabContainer">
+			<div class="tab">BestSeller</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="24"
+					product_count="4"
+					image_size="250"
+					quickview="1"
+					item_design="5"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">New</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="25"
+					product_count="4"
+					image_size="250"
+					quickview="1"
+					item_design="5"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Featured</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="26"
+					product_count="4"
+					image_size="250"
+					quickview="1"
+					item_design="5"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+require(["jquery","wx_tabjs","jquery/ui","enquirejs"],function($,tabBox){	
+	$(function(){
+		
+		var wx_tab = new tabBox('#product_tab_1 .tab', '#product_tab_1 .tab-content');
+		
+		enquire.register('(min-width: 640px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'fadeIn',
+						effectOut:'fadeOut'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+		enquire.register('(max-width: 639px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'slideDown',
+						effectOut:'slideUp'
+					},	
+					speed:500
+				});
+			}
+		});
+	
+	});
+});
+</script>
+
+<!-- Category Static Block Section -->
+<section class="f-block category-landing-wrapper" style="padding: 100px 0px; margin-bottom:60px; background-image: url('{{media url="wysiwyg/store/default/static_block/categories_block/category-landing-bg.jpg"}}');">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/default/static_block/categories_block/static-block-img01.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Trendy Shopper</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/default/static_block/categories_block/static-block-img02.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Makeup Artists</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/default/static_block/categories_block/static-block-img03.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Modern Styles</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Mini List -->
+<div class="container quickProducts c_white">
+	<div class="areaBox f-block">
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>On sale products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="14"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Latest products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="15"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>	
+		
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Featured products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="16"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Popular products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="17"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<!-- Instagram section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="insta_feed" class="headingBox">
+			<div class="box-title">
+				<h2><span>Jumbo On Instagram</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Magento\Framework\View\Element\Template"
+				instagram_Id="imdb"
+				template="Wanexo_Instagram::instagram.phtml"
+			}}
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#insta_feed .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	  <cms_item>
+         <title>Jumbo Electronics</title>
+         <identifier>jumbo_home_electronics</identifier>
+         <content>
+<![CDATA[
+<!--Tab 01-->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="product_tab_1" class="tabContainer">
+			<div class="tab">BestSeller</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="23"
+					product_count="10"
+					image_size="210"
+					quickview="1"
+					item_design="8"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">New</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="24"
+					product_count="10"
+					image_size="210"
+					quickview="1"
+					item_design="8"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Featured</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="25"
+					product_count="10"
+					image_size="210"
+					quickview="1"
+					item_design="8"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+require(["jquery","wx_tabjs","jquery/ui","enquirejs"],function($,tabBox){	
+	$(function(){
+	
+	var wx_tab = new tabBox('#product_tab_1 .tab', '#product_tab_1 .tab-content');
+
+	enquire.register('(min-width: 640px)', {
+		match: function(){
+			wx_tab.init({
+				effect:{
+					effectIn:'fadeIn',
+					effectOut:'fadeOut'
+				},	
+				speed:500
+			});
+		}
+	});
+	
+	enquire.register('(max-width: 639px)', {
+		match: function(){
+			wx_tab.init({
+				effect:{
+					effectIn:'slideDown',
+					effectOut:'slideUp'
+				},	
+				speed:500
+			});
+		}
+	});
+		
+	});
+});
+</script>
+
+
+<!--	Static Category	-->
+<section class="f-block">
+	<div class="c_white">
+		<div class="static-category-block f-block">
+			<ul style="max-width:100%;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5; padding: 0px;">
+				<li class="binoculars">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/mobile.png"}}" alt="" />
+						</span>
+						<small>Smartphones</small>
+					</a>
+				</li>
+				<li class="magician">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/laptop.png"}}" alt="" />
+						</span>
+						<small>Laptops</small>
+					</a>
+				</li>
+                <li class="flip-flops">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/appliances.png"}}" alt="" />
+						</span>
+						<small>Home Appliances</small>
+					</a>
+				</li>
+				<li class="wedding">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/entertainment.png"}}" alt="" />
+						</span>
+						<small>Home Entertainment</small>
+					</a>
+				</li>
+				<li class="bag">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/printer.png"}}" alt="" />
+						</span>
+						<small>Printers & Scanners</small>
+					</a>
+				</li>
+				<li class="crown">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/games.png"}}" alt="" />
+						</span>
+						<small>Gaming Consoles</small>
+					</a>
+				</li>
+				<li class="racing">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/watch.png"}}" alt="" />
+						</span>
+						<small>Digital Watches</small>
+					</a>
+				</li>
+				<li class="smartphone">
+					<a href="#" title="">
+						<span class="scb-icons">
+							<img src="{{media url="wysiwyg/store/electronics/static_block/icons/headphones.png"}}" alt="" />
+						</span>
+						<small>Accessories</small>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- End of	Static Category	-->
+
+        
+<!-- slider 01 -->
+<div class="container" style="margin-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Top New Arrivals</span></h2>
+				<h3 class="subheading"><span>Browse the collection of our best selling and top interesting products.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				product_count="10"
+                category_id="26"
+				image_size="210"
+				quickview="1"
+				item_design="8"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+<!--Static Block 5-->
+<div class="f-block st_type5 static-block-5" style="margin-bottom:50px;">
+	<ul style="margin:0px;">
+		<li>
+			<a href="#">
+			 <span class="nText" style="font-size:24px; font-weight:bold;">Get Lucky This Season and Get Upto 50% OFF + ASSURED SAVINGS</span>
+			</a>
+		</li>
+	</ul>
+</div>
+        
+<!-- Single Product Slider -->
+<div class="container" style="margin-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="single_product" class="headingBox">
+			<div class="box-title">
+				<h2><span>Top Products this Month</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="6"
+				product_count="4"
+				image_size="400"
+				quickview="1"
+				hide_action="0"
+				template="single_product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#single_product .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:0,
+				autoHeight:false,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				items:1,
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+<!-- Mini List -->
+<div class="container quickProducts c_white">
+	<div class="areaBox f-block">
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>On sale products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="14"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Latest products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="15"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>	
+		
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Featured products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="16"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Popular products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="17"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+		
+	</div>
+</div>
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	  <cms_item>
+         <title>Jumbo Eyewear</title>
+         <identifier>jumbo_home_eyewear</identifier>
+         <content>
+<![CDATA[
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="new_collection" class="headingBox">
+			<div class="box-title">
+				<h2><span>New collection</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#new_collection .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!--Static Block 5-->
+<div class="f-block st_type5 static-block-5" style="margin-bottom:50px;">
+	<ul style="margin:0px;">
+		<li>
+			<a href="#">
+			 <span class="nText" style="font-size:24px; font-weight:bold;">Get Lucky This Season and Get Upto 50% OFF + ASSURED SAVINGS</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+        
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Style, Comfort & Light weight Sunglasses</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="14"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+
+<!--Static Block 01-->
+		<div class="f-block static-block-1" style="background:#eeeeee; padding-top:50px; margin-top:50px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div class="col-xs-6 col-xs-full col-xxs-full">
+							<a href="#" class="sb_1">
+								<img src="{{media url="wysiwyg/store/eyewear/static_block/eyewear_block1.jpg"}}" alt="" />
+							</a>
+							<a href="#" class="sb_2">
+								<img src="{{media url="wysiwyg/store/eyewear/static_block/eyewear_block2.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+						<div class="col-xs-6 col-xs-full col-xxs-full">
+							<a href="#" class="sb_3">
+								<img src="{{media url="wysiwyg/store/eyewear/static_block/eyewear_block3.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+					</div>
+					
+					<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12">
+							<h2 style="font-size:24px;">
+								<span>Discover</span>
+								OUR HISTORY
+							</h2>
+                            <h3>Trices sapien aliquet curabitur iaculis, ullamcorper malesuada non gravida</h3>
+							<p>Lorem ipsum donec mattis mi congue non pellentesque luctus, sociosqu justo id ultrices sapien aliquet curabitur iaculis, ullamcorper malesuada neque auctor nunc tortor vestibulum non gravida taciti mauris sem sagittis lectus tellus fringilla ornare consequat, nulla auctor inceptos ullamcorper euismod massa vehicula mcorper malesuada neque auctor nunc tortor vestibulum non gravida taciti mauris habitasse.</p>
+							<p>
+							Lectus tellus fringilla ornare consequat, nulla auctor inceptos ullamcorper euismod massa. That’s fine, but you don’t have to sacrifice decent sound for an eye-catching design, though you’re likely to pay.
+                            </p>
+                            <p>
+                            Finally, for many of us headphones have become as much a fashion item as a piece of audio gear.
+							</p>
+							<a href="#" class="st_btn">Read More</a>
+						</div>
+					</div>	
+				</div>	
+			</div>
+		</div>	
+
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	  <cms_item>
+         <title>Jumbo Furniture</title>
+         <identifier>jumbo_home_furniture</identifier>
+         <content>
+<![CDATA[
+<!--Tab 02-->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="product_tab_2" class="tabContainer">
+			<div class="tab">New</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="23"
+					product_count="4"
+					image_size="210"
+					quickview="1"
+					item_design="7"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Featured</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="24"
+					product_count="4"
+					image_size="210"
+					quickview="1"
+					item_design="7"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Bestseller</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="25"
+					product_count="4"
+					image_size="210"
+					quickview="1"
+					item_design="7"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+		</div>
+		</div>
+	</div>
+
+	
+<script>
+require(["jquery","wx_tabjs","jquery/ui","enquirejs"],function($,tabBox){	
+	$(function(){
+
+		var wx_tab = new tabBox('#product_tab_2 .tab', '#product_tab_2 .tab-content');
+
+		enquire.register('(min-width: 640px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'fadeIn',
+						effectOut:'fadeOut'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+		enquire.register('(max-width: 639px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'slideDown',
+						effectOut:'slideUp'
+					},	
+					speed:500
+				});
+			}
+		});	
+		
+	});
+});
+</script>	
+
+	
+
+<!-- slider 01 -->
+<div class="container" style="margin-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Top New Arrivals</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				product_count="10"
+                category_id="26"
+				image_size="310"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+               template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+<!-- Testimonial section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="testimonial" class="headingBox">
+			<div class="box-title">
+				<h2><span>Testimonials</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			
+			<div class="owl-carousel navItem">
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail1.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						Kalie Woods <span> /  HR</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail2.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						Linda Black <span> /  Relationship manager</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail1.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						Robert Smith <span> /  CTO</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail2.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						Kyla John <span> /  PHP Developer</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail1.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						John Smith <span> /  Web Designer</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				<div class="f-block testimonial-cover">
+					<div class="testimonial-img">
+						<img src="{{media url="wysiwyg/store/furniture/testimonials/thumb/testimonail2.jpg"}}" alt="" />
+					</div>
+					<p>
+						Aliquam convallis massa porttitor neque volutpat pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat. Cras vitae odio et nibh eleifend rhoncus et in tortor. 
+					</p>
+					<div class="author">
+						John Smith <span> /  Project Maneger</span>
+						<i class="fa fa-quote-right" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#testimonial .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:1,
+						margin:5
+					},
+					480:{
+						items:1
+					},
+					768:{
+						items:2
+					},
+					980:{
+						items:2,
+						margin:10
+					},
+					1199:{
+						items:2
+					},
+					1200:{
+						items:2
+					}
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- Blog section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="blogSlide" class="headingBox">
+			<div class="box-title">
+				<h2><span>Our Blog</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\Blogs\Block\Blogs\Post"
+				item_count="10"
+				template="Wanexo_Blogs::blogs/blogs.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#blogSlide .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:1,
+						margin:5
+					},
+					480:{
+						items:1
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	  
+	  <cms_item>
+         <title>Jumbo Grocery</title>
+         <identifier>jumbo_home_grocery</identifier>
+         <content>
+<![CDATA[
+	<!-- Featured Category -->
+		<div class="f-block" style="margin-top:50px;">
+			<div class="container c_white">
+				<div class="featured_category f-block">
+					<div class="col-md-3 col-sm-6">
+						<img src="{{media url="wysiwyg/store/grocery/static_block/meat.jpg"}}" alt="" />
+						<ul>
+							<li><a href="#">Goat Meat</a></li>
+							<li><a href="#">Fish & Seafood</a></li>
+							<li><a href="#">Turkey & Chicken</a></li>
+							<li><a href="#">Beef & Becon</a></li>
+						</ul>	
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<img src="{{media url="wysiwyg/store/grocery/static_block/snacks.jpg"}}" alt="" />
+						<ul>
+							<li><a href="#">Chips & Crackers</a></li>
+							<li><a href="#">Dips & Spreads</a></li>
+							<li><a href="#">Cookies</a></li>
+							<li><a href="#">Fruits Snacks</a></li>
+						</ul>	
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<img src="{{media url="wysiwyg/store/grocery/static_block/beverages.jpg"}}" alt="" />
+						<ul>
+							<li><a href="#">Fruit Juices</a></li>
+							<li><a href="#">Cold Drinks</a></li>
+							<li><a href="#">Milk & Cream</a></li>
+							<li><a href="#">Beer, Wine & Spirits</a></li>
+						</ul>	
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<img src="{{media url="wysiwyg/store/grocery/static_block/candies.jpg"}}" alt="" />
+						<ul>
+							<li><a href="#">Candy Gifts</a></li>
+							<li><a href="#">Choclate</a></li>
+							<li><a href="#">Gummy & Chewy</a></li>
+							<li><a href="#">Hard Candy & Lollipops</a></li>
+						</ul>	
+					</div>
+				</div>
+			</div>
+		</div>	
+        
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="featuredproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Featured Products</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="2"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#featuredproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+       
+
+<!-- slider 02 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Fresh Vegetables</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="2"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>       
+
+<!-- slider 03 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="newproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Special Products</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="25"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="2"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#newproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>       
+
+
+<!-- BRANDS ON OFFER -->
+		<div class="f-block">
+			<div class="container c_white">
+				<div class="offerBrand col-sm-12 headingBox">
+					<div class="box-title">
+						<h2><span>BRANDS ON OFFER</span></h2>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/1.jpg"}}" alt="" /></span>
+								<h3>Min 40%off</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3  col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/2.jpg"}}" alt="" /></span>
+								<h3>5 Offers</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/3.jpg"}}" alt="" /></span>
+								<h3>5% Cashback</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/4.jpg"}}" alt="" /></span>
+								<h3>Min 20%off</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/5.jpg"}}" alt="" /></span>
+								<h3>10% Cashback</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/6.jpg"}}" alt="" /></span>
+								<h3>Min 10%off</h3>
+							</a>
+						</div>
+					</div>
+                    					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/7.jpg"}}" alt="" /></span>
+								<h3>5% Cashback</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3  col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/8.jpg"}}" alt="" /></span>
+								<h3>Min 4% Off</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/9.jpg"}}" alt="" /></span>
+								<h3>2 Offers</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/10.jpg"}}" alt="" /></span>
+								<h3>15% Cashback</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/11.jpg"}}" alt="" /></span>
+								<h3>MIn 10% Off</h3>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+						<div class="brand_pan">
+							<a href="#">
+								<span><img src="{{media url="wysiwyg/store/grocery/brands/12.jpg"}}" alt="" /></span>
+								<h3>3 Offers</h3>
+							</a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+        
+        
+		<!-- Services -->
+		<div class="f-block">
+			<div class="container c_white">
+				<div class="services">
+					<div class="col-sm-6 col-md-4">
+						<div class="sv_box">
+							<div class="fancy-icon">
+								<i class="fa fa-tags" aria-hidden="true"></i>
+							</div>
+							<h3 class="fancy-title">
+									<a href="#">Best Prices & Offers</a>
+							</h3>
+							<div class="fancy-description">
+								<p>Lorem ipsum dolor lit Vestibulum egetn feugiat lobortis libero sed dapibus.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-6 col-md-4">
+						<div class="sv_box">
+							<div class="fancy-icon">
+								<i class="fa  fa-thumbs-o-up" aria-hidden="true"></i>
+							</div>
+							<h3 class="fancy-title">
+								<a href="#">Wide Assortment</a>
+							</h3>
+							<div class="fancy-description">
+								<p>Vestibulum orem ipsum dolor sit amet elit Vestib Proinbero sed dapibus.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-6 col-md-4">
+						<div class="sv_box">
+							<div class="fancy-icon">
+								<i class="fa  fa-mail-reply-all" aria-hidden="true"></i>
+							</div>
+							<h3 class="fancy-title">
+								<a href="#">Easy Returns</a>
+							</h3>
+							<div class="fancy-description">
+								<p>Feugiat dolor sit amet consectetur adipiscing elits libero sed dapibus.</p>
+							</div>
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+		</div>	 	        
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	  
+	  <cms_item>
+         <title>Jumbo Jewellery</title>
+         <identifier>jumbo_home_jewellery</identifier>
+         <content>
+<![CDATA[
+<!--Tab 02-->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="product_tab_2" class="tabContainer">
+			<div class="tab">New Necklaces</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="23"
+					product_count="8"
+					image_size="220"
+					quickview="1"
+					item_design="4"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Featured Rings</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="24"
+					product_count="8"
+					image_size="196"
+					quickview="1"
+					item_design="4"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Bestseller Earrings</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="25"
+					product_count="8"
+					image_size="196"
+					quickview="1"
+					item_design="4"
+					hide_action="0"
+                    column_count="4"
+					template="grid.phtml"
+				}}
+			</div>
+		</div>
+		</div>
+	</div>
+
+<script>
+require(["jquery","wx_tabjs","jquery/ui","enquirejs"],function($,tabBox){	
+	$(function(){
+	
+		var wx_tab = new tabBox('#product_tab_2 .tab', '#product_tab_2 .tab-content');
+
+		enquire.register('(min-width: 640px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'fadeIn',
+						effectOut:'fadeOut'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+		enquire.register('(max-width: 639px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'slideDown',
+						effectOut:'slideUp'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+	});
+});
+</script>	
+	
+
+<!--Static Block 5-->
+		<div class="f-block st_type5 static-block-5" style="margin-bottom:20px;">
+					<ul>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/necklace.png"}}" alt="" />
+								</span>
+								<span class="nText">Necklaces</span>
+							</a>
+						</li>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/ring.png"}}" alt="" />
+								</span>
+								<span class="nText">Rings</span>
+							</a>
+						</li>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/pendant.png"}}" alt="" />
+								</span>
+								<span class="nText">Pendants</span>
+							</a>
+						</li>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/earrings.png"}}" alt="" />
+								</span>
+								<span class="nText">Earrings</span>
+							</a>
+						</li>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/bracelet.png"}}" alt="" />
+								</span>
+								<span class="nText">Bracelets</span>
+							</a>
+						</li>
+						<li class="col-md-2 col-sm-4 col-xs-6">
+							<a href="#">
+								<span class="nImg">								
+										<img src="{{media url="wysiwyg/store/jewellery/static_block/icons/watch.png"}}" alt="" />
+								</span>
+								<span class="nText">Watches</span>
+							</a>
+						</li>
+					</ul>
+		</div>
+        
+<!-- Single Product Slider -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="single_product" class="headingBox">
+			<div class="box-title">
+				<h2><span>Woman's Pendants Collection</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="26"
+				product_count="8"
+				image_size="400"
+				quickview="1"
+				hide_action="0"
+				template="single_product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#single_product .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:0,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				items:1,
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!--Static Block 5-->
+<div class="f-block st_type5 static-block-5" style="margin-bottom:50px;">
+			<ul style="margin:0px;">
+			<li>
+				<a href="#">
+				<span class="nText" style="font-size:24px; font-weight:bold;">AVAIL ATTRACTIVE OFFER ON JEWELLERY THIS SEASON UPTO 25% OFF</span>
+				</a>
+			</li>
+			</ul>
+</div>
+
+<!-- Mini List -->
+<div class="container quickProducts c_white">
+	<div class="areaBox f-block">
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>On sale products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="14"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Popular products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="15"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+        
+        <div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Latest products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+                    category_id="16"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>	
+		
+		<div class="col-md-3 col-sm-6">
+			<div class="mini-list">
+				<div class="box-title-mini">
+					<h2>Featured products</h2>
+				</div>
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="17"
+					product_count="3"
+					image_size="100"
+					template="mini_list.phtml"
+				}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Instagram section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="insta_feed" class="headingBox">
+			<div class="box-title">
+				<h2><span>Jumbo On Instagram</span></h2>
+			</div>
+			{{block 
+				class="Magento\Framework\View\Element\Template"
+				instagram_Id="imdb"
+				template="Wanexo_Instagram::instagram.phtml"
+			}}
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#insta_feed .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+		</content>
+        <is_active>1</is_active>
+        <page_layout>1column</page_layout>
+        <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_item>
+	  
+	  
+	  
+	<cms_item>
+	<title>Jumbo Kids</title>
+		<identifier>jumbo_home_kids</identifier>
+			<content>
+<![CDATA[
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Toy collection</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+                column_count="4"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="premium_products" class="headingBox">
+			<div class="box-title">
+				<h2><span>Premium Boutiques</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="7"
+				image_size="210"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+                column_count="4"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#premium_products .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="adorable_products" class="headingBox">
+			<div class="box-title">
+				<h2><span>Adorable collection</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="25"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+                column_count="4"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#adorable_products .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!--	Testimonial 3	-->
+<section class="testimonial-wrapper f-block" style="background:#eee;">
+	<div class="container">
+		<div id="testimonial3" class="headingBox">
+			<div class="testimoial-left-style">
+				<div class="owl-carousel navItem">
+					<!--Item 01-->
+					<div class="tls-cover">
+						<div class="tls-img">
+							<img src="{{media url="wysiwyg/store/kids/testimonials/thumb.jpg"}}" alt="" />
+						</div>
+						<div class="tls-details">
+							<div class="recent-rating">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star-half-o" aria-hidden="true"></i>
+							</div>
+							<p>Praesent quis enim non arcu scelerisque hendrerit. Vivamus dictum dolor vitae venenatis elementum. In at purus nec elit ullamcorper luctus a vel eros. Curabitur vitae neque at augue efficitur hendrerit.Sed ex ipsum, viverra et lorem eget, condimentum malesuada enim. </p>
+							<h5>Morbi Semper</h5>
+						</div>
+					</div>
+					
+					<!--Item 02-->
+					<div class="tls-cover">
+						<div class="tls-img">
+							<img src="{{media url="wysiwyg/store/kids/testimonials/thumb2.jpg"}}" alt="" />
+						</div>
+						<div class="tls-details">
+							<div class="recent-rating">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star-half-o" aria-hidden="true"></i>
+							</div>
+							<p>Praesent quis enim non arcu scelerisque hendrerit. Vivamus dictum dolor vitae venenatis elementum. In at purus nec elit ullamcorper luctus a vel eros. Curabitur vitae neque at augue efficitur hendrerit.Sed ex ipsum, viverra et lorem eget, condimentum malesuada enim. </p>
+							<h5>Morbi Semper</h5>
+						</div>
+					</div>
+					
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#testimonial3 .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:true,
+				margin:20,
+				nav:false,
+				dots:true,
+				autoplay:true,
+				items:1
+			});
+		});
+	});			
+</script>
+
+
+<!--	End of Testimonial	3 -->
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	<cms_item>
+	<title>Jumbo AboutUs</title>
+		<identifier>jumbo_about</identifier>
+			<content>
+<![CDATA[
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	<cms_item>
+	<title>Jumbo Lingerie</title>
+		<identifier>jumbo_home_lingerie</identifier>
+			<content>
+<![CDATA[
+<!--Tabs-->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="product_tab_2" class="tabContainer">
+			<div class="tab">BestSeller</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="26"
+					product_count="5"
+					image_size="210"
+					quickview="1"
+					item_design="3"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">New</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="25"
+					product_count="6"
+					image_size="210"
+					quickview="1"
+					item_design="3"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+			<div class="tab">Featured</div>
+			<div class="tab-content">
+				{{block 
+					class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+					category_id="24"
+					product_count="5"
+					image_size="210"
+					quickview="1"
+					item_design="3"
+					hide_action="0"
+					template="grid.phtml"
+				}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+require(["jquery","wx_tabjs","jquery/ui","enquirejs"],function($,tabBox){	
+	$(function(){
+		
+		var wx_tab = new tabBox('#product_tab_2 .tab', '#product_tab_2 .tab-content');
+
+		enquire.register('(min-width: 640px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'fadeIn',
+						effectOut:'fadeOut'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+		enquire.register('(max-width: 639px)', {
+			match: function(){
+				wx_tab.init({
+					effect:{
+						effectIn:'slideDown',
+						effectOut:'slideUp'
+					},	
+					speed:500
+				});
+			}
+		});
+		
+	});
+});
+</script>
+
+
+<!-- Category Static Block Section -->
+<section class="f-block category-landing-wrapper" style="padding: 100px 0px; background-image: url('{{media url="wysiwyg/store/lingerie/categories_block/lingerie_catgory_landing.jpg"}}');">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/lingerie/categories_block/lingerie-static-block-img02.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Modern Pin-Up</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/lingerie/categories_block/lingerie-static-block-img03.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Sleeping Beauty</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/lingerie/categories_block/lingerie-static-block-img01.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Retro Briefs</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
+
+<!-- slider 02 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Hot Products</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="196"
+				quickview="1"
+				item_design="3"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#hotproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+<!-- Instagram section -->
+<div class="c_white">
+	<div class="col-xs-12">
+		<div id="insta_feed" class="headingBox">
+			<div class="box-title">
+				<h2><span>Jumbo On Instagram</span></h2>
+			</div>
+			{{block 
+				class="Magento\Framework\View\Element\Template"
+				instagram_Id="imdb"
+				template="Wanexo_Instagram::instagram.phtml"
+			}}
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#insta_feed .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	
+	<cms_item>
+	<title>Jumbo Mens</title>
+		<identifier>jumbo_home_mens</identifier>
+			<content>
+<![CDATA[
+<!-- Trending Products -->
+
+<div class="container c_white" style="padding:30px 0;">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Trending Products</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="14"
+				product_count="10"
+				image_size="296"
+				quickview="1"
+				hide_action="0"
+				template="grid2.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+<!-- Category Static Block Section -->
+<section class="f-block category-landing-wrapper" style="padding: 100px 0px; background-image: url('{{media url="wysiwyg/store/mens/categories/category_bg.jpg"}}');">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/mens/categories/category1.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Mauris dapibus dolor</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Shop Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/mens/categories/category2.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Mauris dapibus dolor</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Shop Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/mens/categories/category3.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Mauris dapibus dolor</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Shop Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 
+
+
+<!-- Slider -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>The Hotlist</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="16"
+				product_count="10"
+				image_size="196"
+				quickview="1"
+				item_design="5"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:5
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	
+	
+	<cms_item>
+	<title>Jumbo Perfume</title>
+		<identifier>jumbo_home_perfume</identifier>
+			<content>
+<![CDATA[
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Fragrance collection</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="16"
+				product_count="10"
+				image_size="210"
+				quickview="1"
+				item_design="6"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- Single Product Slider -->
+<div class="container" style="margin-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="single_product" class="headingBox">
+			<div class="box-title">
+				<h2><span>Top Products this Month</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="19"
+				product_count="4"
+				image_size="400"
+				quickview="1"
+				hide_action="0"
+				template="single_product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#single_product .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:0,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				items:1,
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- Category Static Block Section -->
+<section class="f-block category-landing-wrapper" style="padding: 100px 0px; background-image: url('{{media url="wysiwyg/store/perfume/static_block/perfume_catgory_landing.jpg"}}');">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/perfume/static_block/perfume-static-block-img02.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Modern Pin-Up</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/perfume/static_block/perfume-static-block-img03.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Natural Essence</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="f-block cl-cover">
+					<div class="cl-img">
+						<img src="{{media url="wysiwyg/store/perfume/static_block/perfume-static-block-img01.jpg"}}" alt="" />
+					</div>
+					<h2><a href="#" title="">Classic Perfumes</a></h2>
+					<p>Vivamus malesuada sed lacus st non posuere. Ut laoreet, quis tempus luctus, erat nisi massa</p>
+					<div>
+						<a href="#" class="st_btn">Learn More</a>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
+
+<!-- Blog section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="blogSlide" class="headingBox">
+			<div class="box-title">
+				<h2><span>Our Blog</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\Blogs\Block\Blogs\Post"
+				item_count="10"
+				template="Wanexo_Blogs::blogs/blogs.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#blogSlide .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:1,
+						margin:5
+					},
+					480:{
+						items:1
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	<cms_item>
+	<title>Jumbo Pets</title>
+		<identifier>jumbo_home_pets</identifier>
+			<content>
+<![CDATA[
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="wowproducts" class="headingBox">
+			<div class="box-title">
+				<h2><span>Popular  Products</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="10"
+				image_size="196"
+				quickview="1"
+				item_design="7"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#wowproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+
+<!--Static Block 5-->
+<div class="f-block theme_bg" style="padding:40px 0 20px 0;">
+	<div class="container a-center">
+		<ul>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<span><img src="{{media url="wysiwyg/store/pet_supplies/static_block/icons/dog-food.png"}}" alt="" /></i></span>
+					<h3 style="font-size: 24px;font-weight: bold; color:#ffffff;">Dog Foods</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<span><img src="{{media url="wysiwyg/store/pet_supplies/static_block/icons/fish-bowl.png"}}" alt="" /></i></span>
+					<h3 style="font-size: 24px;font-weight: bold; color:#ffffff;">Pet Supplies</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<span><img src="{{media url="wysiwyg/store/pet_supplies/static_block/icons/reward.png"}}" alt="" /></i></span>
+					<h3 style="font-size: 24px;font-weight: bold; color:#ffffff;">Rewards</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<span><img src="{{media url="wysiwyg/store/pet_supplies/static_block/icons/scissors.png"}}" alt="" /></span>
+					<h3 style="font-size: 24px;font-weight: bold; color:#ffffff;">Pets Care</h3>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- Testimonial 2 -->
+<section class="f-block" style="padding: 100px 0px; background-image:url('{{media url="wysiwyg/store/pet_supplies/testimonial/pet_bg.jpg"}}'); background-size: cover;background-attachment: fixed;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="testimonial2" class="headingBox">
+					<div class="owl-carousel navItem">
+						<!--Item 01-->
+						<div class="f-block testimonial-cover testimonial-style-02">
+							<div class="testimonial-img">
+								<img src="{{media url="wysiwyg/store/pet_supplies/testimonial/thumb1.jpg"}}" alt="" />
+							</div>
+							<p class="white">
+								<i class="fa fa-quote-left" aria-hidden="true"></i>Nam porta dapibus rutrum. Fusce non purus purus. Vivamus laoreet gravida urna a elementum. <br>Vivamus tristique mauris a porttitor dictum.Aliquam convallis massa porttitor neque volutpat <br> pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat.<br> Cras vitae odio et nibh eleifend rhoncus et in tortor.<i class="fa fa-quote-right" aria-hidden="true"></i>
+							</p>
+							<div class="author white">
+								John Smith <span class="white"> /  Web Designer</span>
+							</div>
+						</div>
+						
+						<!--Item 02-->
+						<div class="f-block testimonial-cover testimonial-style-02">
+							<div class="testimonial-img">
+								<img src="{{media url="wysiwyg/store/pet_supplies/testimonial/thumb2.jpg"}}" alt="" />
+							</div>
+							<p class="white">
+								<i class="fa fa-quote-left" aria-hidden="true"></i>Nam porta dapibus rutrum. Fusce non purus purus. Vivamus laoreet gravida urna a elementum. <br>Vivamus tristique mauris a porttitor dictum.Aliquam convallis massa porttitor neque volutpat <br> pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat.<br> Cras vitae odio et nibh eleifend rhoncus et in tortor.<i class="fa fa-quote-right" aria-hidden="true"></i>
+							</p>
+							<div class="author white">
+								John Smith <span class="white"> /  Web Designer</span>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#testimonial2 .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:true,
+				margin:20,
+				nav:false,
+				dots:true,
+				autoplay:true,
+				items:1
+			});
+		});
+	});			
+</script>
+
+
+<!-- Static Block -->
+<section class="f-block">
+	<div class="container c_white">
+		<div class="col-xs-12">
+			<div class="col-sm-6">
+				<img src="{{media url="wysiwyg/store/pet_supplies/static_block/dogs.jpg"}}" alt="" />
+			</div>
+			<div class="col-sm-6 a-right">
+				<div style="padding: 20% 0 40px 0;">
+					<h4 style="font-size: 30px;font-weight: bold;">“<span class="theme_color">Pet House</span> Is <span class="theme_color">Caring Us</span>, That’s Why<br> We Are So <span class="theme_color">Naughty</span>”</h4>
+								<p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<section>	
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	
+	<cms_item>
+	<title>Jumbo Shoes</title>
+		<identifier>jumbo_home_shoes</identifier>
+			<content>
+<![CDATA[
+<!-- Trending Products -->
+
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="sliderBox" style="padding: 50px 0;">
+			<div class="box-title">
+				<h2><span>Exclusive Products</span></h2>
+				<h3 class="subheading"><span>Just some of the great subheading for your product type.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="10"
+				image_size="296"
+				quickview="1"
+				hide_action="0"
+				template="grid2.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--Static block 6-->	
+<div class="f-block static-block-6" style="margin-top:50px;">
+	<div class="container">
+		<div class="col-xs-12">
+			<ul>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></span>
+						<h3>FREE SHIPPING WORLDWIDE</h3>
+						<p>On order above $500</p>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-headphones" aria-hidden="true"></i></span>
+						<h3>24x7 Support Center</h3>
+						<p>Customer Satisfaction 4.8* </p>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6 spcl">
+					<a href="#">
+						<h3><span>25% <sup>off</sup></span></h3>
+						<p>Big Save</p>
+						<span>Shop More Save More</span>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+						<h3>Cash On Delivery</h3>
+						<p>Risk Free And Hassel Free</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<!-- Testimonial 2 -->
+<section class="f-block" style="padding:100px 0px; background-image: url('{{media url="wysiwyg/store/shoes/testimonial/testimonial_bg.jpg"}}'); background-attachment: fixed;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="testimonial2" class="sliderBox">
+					<div class="owl-carousel navItem">
+						<!--Item 01-->
+						<div class="f-block testimonial-cover testimonial-style-02">
+							<div class="testimonial-img">
+								<img src="{{media url="wysiwyg/store/shoes/testimonial/thumb/thumb1.jpg"}}" alt="" />
+							</div>
+							<p>
+								<i class="fa fa-quote-left" aria-hidden="true"></i>Nam porta dapibus rutrum. Fusce non purus purus. Vivamus laoreet gravida urna a elementum. <br>Vivamus tristique mauris a porttitor dictum.Aliquam convallis massa porttitor neque volutpat <br> pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat.<br> Cras vitae odio et nibh eleifend rhoncus et in tortor.<i class="fa fa-quote-right" aria-hidden="true"></i>
+							</p>
+							<div class="author">
+								John Smith <span> /  Web Designer</span>
+							</div>
+						</div>
+						
+						<!--Item 02-->
+						<div class="f-block testimonial-cover testimonial-style-02">
+							<div class="testimonial-img">
+								<img src="{{media url="wysiwyg/store/shoes/testimonial/thumb/thumb2.jpg"}}" alt="" />
+							</div>
+							<p>
+								<i class="fa fa-quote-left" aria-hidden="true"></i>Nam porta dapibus rutrum. Fusce non purus purus. Vivamus laoreet gravida urna a elementum. <br>Vivamus tristique mauris a porttitor dictum.Aliquam convallis massa porttitor neque volutpat <br> pellentesque. Nullam diam quam, blandit quis mauris sit amet, sodales ultrices erat.<br> Cras vitae odio et nibh eleifend rhoncus et in tortor.<i class="fa fa-quote-right" aria-hidden="true"></i>
+							</p>
+							<div class="author">
+								John Smith <span> /  Web Designer</span>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#testimonial2 .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:true,
+				margin:20,
+				nav:false,
+				dots:true,
+				autoplay:true,
+				items:1
+			});
+		});
+	});			
+</script>
+
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	
+	<cms_item>
+	<title>Jumbo Spices</title>
+		<identifier>jumbo_home_spices</identifier>
+			<content>
+<![CDATA[
+<!-- slider 01 -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="sliderBox">
+			<div class="box-title">
+				<h2><span>Hot Products</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="16"
+				product_count="10"
+				image_size="196"
+				quickview="1"
+				item_design="3"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#hotproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- slider 02 -->
+<div class="container c_white" style="padding-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="herbsproducts" class="sliderBox">
+			<div class="box-title">
+				<h2><span>Fresh Herbs</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="19"
+				product_count="7"
+				image_size="196"
+				quickview="1"
+				item_design="3"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#herbsproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!-- slider 03 -->
+<div class="container c_white" style="padding-bottom:60px;">
+	<div class="col-xs-12">
+		<div id="seasoningproducts" class="sliderBox">
+			<div class="box-title">
+				<h2><span>All Seasoning</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="7"
+				image_size="196"
+				quickview="1"
+				item_design="3"
+				hide_action="0"
+				template="product_slider.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#seasoningproducts .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:2,
+						margin:5
+					},
+					480:{
+						items:2,
+						margin:5
+					},
+					768:{
+						items:3,
+						margin:10
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:5
+					},
+					1200:{
+						items:6
+					}
+				},
+				onLoadLazy :function(event){
+					$(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+
+<!--Static Block 01-->
+		<div class="f-block static-block-1" style="padding-top:60px; background:#e5e5e5;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div class="col-xs-6 col-xs-full col-xxs-full">
+							<a href="#" class="sb_1">
+								<img src="{{media url="wysiwyg/store/spices/static_block/spice_block1.jpg"}}" alt="" />
+							</a>
+							<a href="#" class="sb_2">
+								<img src="{{media url="wysiwyg/store/spices/static_block/spice_block2.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+						<div class="col-xs-6 col-xs-full col-xxs-full">
+							<a href="#" class="sb_3">
+								<img src="{{media url="wysiwyg/store/spices/static_block/spice_block3.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+					</div>
+					
+					<div class="col-sm-12 col-md-6">
+						<div class="col-sm-12">
+							<h2 style="font-size:24px;">
+								<span>Discover</span>
+								OUR HISTORY
+							</h2>
+                            <h3>Trices sapien aliquet curabitur iaculis, ullamcorper malesuada non gravida</h3>
+							<p>Lorem ipsum donec mattis mi congue non pellentesque luctus, sociosqu justo id ultrices sapien aliquet curabitur iaculis, ullamcorper malesuada neque auctor nunc tortor vestibulum non gravida taciti mauris sem sagittis lectus tellus fringilla ornare consequat, nulla auctor inceptos ullamcorper euismod massa vehicula mcorper malesuada neque auctor nunc tortor vestibulum non gravida taciti mauris habitasse.</p>
+							<p>
+							Lectus tellus fringilla ornare consequat, nulla auctor inceptos ullamcorper euismod massa. That’s fine, but you don’t have to sacrifice decent sound for an eye-catching design, though you’re likely to pay.
+                            </p>
+                            <p>
+                            Finally, for many of us headphones have become as much a fashion item as a piece of audio gear.
+							</p>
+							<a href="#" class="st_btn">Read More</a>
+						</div>
+					</div>	
+				</div>	
+			</div>
+		</div>	
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	<cms_item>
+	<title>Jumbo Tools</title>
+		<identifier>jumbo_home_tools</identifier>
+			<content>
+<![CDATA[
+<div class="container c_white" style="padding-top:50px;">
+	<!-- Main Column -->
+	<div class="col-md-9 col-sm-12 upSide areaBox proArea">
+		<div class="sliderBox">
+			<div class="block-title">
+				<h2><span>New Arrivals</span></h2>
+			</div>
+			
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="23"
+				product_count="12"
+				image_size="260"
+				quickview="1"
+				item_design="8"
+				hide_action="0"
+				column_count="3"
+				template="grid.phtml"
+			}}
+		</div>
+	</div>
+	
+	<!-- Side Slider -->
+	<div class="sidebar col-left-first col-md-3 col-sm-12" style="padding-top: 0;">
+		<div id="side_product">
+			<div class="block-title">
+				<h2><span>Popular Products</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="24"
+				product_count="8"
+				image_size="100"
+				quickview="1"
+				hide_action="0"
+				template="side_product.phtml"
+			}}
+		</div>
+		
+		<script type="text/javascript">	 
+			require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+				$(function(){
+					$("#side_product .owl-carousel").owlCarousel({	
+						rtl:false,
+						loop:false,
+						lazyLoad:true,
+						margin:0,
+						autoHeight:true,
+						nav:true,
+						navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+						items:1,
+						onLoadLazy :function(event){
+							$(event.element).parent().addClass('img_load');
+						}
+					});
+				});
+			});			
+		</script>
+		
+		<div class="block static-block">
+			<a href="#" class="sb_3">
+				<img src="{{media url="wysiwyg/store/tools/static_block/side_tool_banner.jpg"}}" alt="" />
+			</a>
+		</div>
+		
+	</div>
+</div>    
+    
+<!-- Static Block -->
+<section class="f-block" style="background:#282828;">
+	<div class="container">
+		<div class="col-xs-12">
+			<div class="col-sm-6" style="padding:30px 0px;">
+				<img src="{{media url="wysiwyg/store/tools/static_block/tools.png"}}" alt="" />
+			</div>
+			<div class="col-sm-6 a-left">
+				<div style="padding: 10% 20px 40px 20px;">
+					<h4 style="font-size: 30px;font-weight: bold; color:#fff;"><span class="theme_color">Tool Box</span> Is <span class="theme_color">Basic Need</span>, That’s Why<br> We Have in Our <span class="theme_color">House</span></h4>
+					<p style="font-size: 14px; color:#ccc;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <h4 style="font-size: 30px;font-weight: bold; color:#fff;">UP To <span class="theme_color">20%</span> OFF</h4>
+                    <a href="#" class="st_btn">SHOP NOW</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<section>	
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	
+	<cms_item>
+	<title>Jumbo Watches</title>
+		<identifier>jumbo_home_watches</identifier>
+			<content>
+<![CDATA[
+<!-- Trending Products -->
+
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="hotproducts" class="sliderBox" style="padding: 50px 0;">
+			<div class="box-title">
+				<h2><span>Exclusive Products</span></h2>
+				<h3 class="subheading"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec neque ut lorem commodo tincidunt. Proin non ipsum ac quam elementum finibus. Nulla fermentum dui vitae enim aliquam, et rhoncus erat auctor. Donec scelerisque urna quis augue pretium, sit amet interdum odio tempo urna quis augue pretium, sit amet inert.</span></h3>
+			</div>
+			{{block 
+				class="Wanexo\ProductCollection\Block\CategoryidProductBlock"
+				category_id="6"
+				product_count="10"
+				image_size="300"
+				quickview="1"
+				hide_action="0"
+				template="grid2.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<!--Static Block 5-->
+<div class="f-block theme_bg" style="padding: 150px 0px; margin-top:50px; background-image:url('{{media url="wysiwyg/store/watches/watch_bg.jpg"}}'); background-size: cover; background-attachment: fixed;">
+	<div class="container a-center">
+		<ul>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<h2 style="font-size: 50px; font-weight: bold; color:#ffffff;">450</h2>
+					<h3 style="font-size: 18px; font-weight: normal; color:#ffffff;">Men's Watches</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<h2 style="font-size: 50px; font-weight: bold; color:#ffffff;">350</h2>
+					<h3 style="font-size: 18px; font-weight: normal; color:#ffffff;">Women's Watches</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<h2 style="font-size: 50px; font-weight: bold; color:#ffffff;">150</h2>
+					<h3 style="font-size: 18px;font-weight: normal; color:#ffffff;">Kids Watches</h3>
+				</a>
+			</li>
+			<li class="col-sm-3 col-xs-6">
+				<a href="#">
+					<h2 style="font-size: 50px; font-weight: bold; color:#ffffff;">50</h2>
+					<h3 style="font-size: 18px;font-weight: normal; color:#ffffff;">Luxury Watches</h3>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!-- Blog section -->
+<div class="container c_white">
+	<div class="col-xs-12">
+		<div id="blogSlide" class="sliderBox">
+			<div class="box-title">
+				<h2><span>Our Blog</span></h2>
+			</div>
+			{{block 
+				class="Wanexo\Blogs\Block\Blogs\Post"
+				item_count="10"
+				template="Wanexo_Blogs::blogs/blogs.phtml"
+			}}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">	 
+	require(["jquery","owlcarouseljs","jquery/ui"],function($){	
+		$(function(){
+			$("#blogSlide .owl-carousel").owlCarousel({	
+				rtl:false,
+				loop:false,
+				lazyLoad:true,
+				margin:20,
+				nav:true,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsive:{
+					0:{
+						items:1,
+						margin:5
+					},
+					480:{
+						items:1
+					},
+					768:{
+						items:3
+					},
+					980:{
+						items:4,
+						margin:10
+					},
+					1199:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				},
+				onLoadLazy :function(event){
+					jQuery(event.element).parent().addClass('img_load');
+				}
+			});
+		});
+	});			
+</script>
+
+]]>
+			</content>
+		<is_active>1</is_active>
+		<page_layout>1column</page_layout>
+		<layout_update_xml><![CDATA[]]></layout_update_xml>
+	</cms_item>
+	
+	
+	<cms_item>
+         <title>404 Not Found 2</title>
+         <identifier>no-route-2</identifier>
+         <content><![CDATA[<div class="em_error col-sm-12">
+						<div class="row">
+							<div class="error_404">
+								<h1>Oops! <span>Looks like something went completely worong.</span></h1>
+								<img src="{{media url="wysiwyg/about/error.png"}}" alt="404 page">
+							</div>
+						</div>
+					</div>]]>
+		 </content>
+         <is_active>1</is_active>
+         <page_layout>1column</page_layout>
+         <layout_update_xml><![CDATA[]]></layout_update_xml>
+    </cms_item>
+	
+    </pages>
+</root>

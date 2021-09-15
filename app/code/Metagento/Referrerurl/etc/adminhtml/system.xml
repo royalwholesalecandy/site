@@ -1,0 +1,35 @@
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../Backend/etc/system_file.xsd">
+    <system>
+        <tab id="metagento" translate="label" sortOrder="777">
+            <label>Metagento Extensions</label>
+        </tab>
+        <section id="referrerurl" translate="label" sortOrder="1" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Referrer URL</label>
+            <tab>metagento</tab>
+            <resource>Metagento_Referrerurl::config_referrerurl</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="track_order" translate="label" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Track Order Referrer URL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="track_customer" translate="label" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Track Customer Referrer URL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ignored_domains" translate="label" type="textarea" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Do NOT track following domains</label>
+                    <comment>One domain per line. Example: your paygate domains as paypal.com...</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

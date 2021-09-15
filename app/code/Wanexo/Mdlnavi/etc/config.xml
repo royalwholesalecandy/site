@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <wanexo_mdlnavi>
+            <general>
+				<status>1</status>
+			</general>
+			<navsettings>
+				<navoption_home></navoption_home>
+			</navsettings>
+        </wanexo_mdlnavi>
+    </default>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Mageside. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="shipping_method">
+            <block class="Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Method\Form"
+                   template="Mageside_CustomShippingPrice::order/create/shipping/method/custom.phtml"
+                   name="order.create.shipping.method.custom"
+                   as="custom.method"
+                   after="order.create.shipping.method.form"
+            />
+        </referenceBlock>
+    </body>
+</page>

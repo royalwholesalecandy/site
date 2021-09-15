@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_CustomerGroupPrices::system_import_export"
+             title="Import/Export Customer Group Prices by MageWorx"
+             sortOrder="50"
+             module="MageWorx_CustomerGroupPrices"
+             parent="Magento_Backend::system_convert"
+             action="mageworx_customergroupprices/importExport/express"
+             resource="MageWorx_CustomerGroupPrices::import_export"
+        />
+    </menu>
+</config>

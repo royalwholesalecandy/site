@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="supplier" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Procurement</label>
+            <tab>boostmyshop</tab>
+            <resource>BoostMyShop_Supplier::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+
+                <field id="barcode_attribute" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Barcode attribute</label>
+                    <source_model>BoostMyShop\Supplier\Model\Source\Attributes</source_model>
+                </field>
+
+                <field id="manufacturer_attribute" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Manufacturer attribute</label>
+                    <source_model>BoostMyShop\Supplier\Model\Source\Attributes</source_model>
+                </field>
+
+                <field id="location_attribute" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Shelf location attribute</label>
+                    <source_model>BoostMyShop\Supplier\Model\Source\Attributes</source_model>
+                </field>
+
+                <field id="pack_quantity" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable pack quantity</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="disable_log" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Disable logs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="pdf" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>PDF</label>
+
+                <field id="billing_address" translate="label" type="textarea" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Billing address</label>
+                </field>
+
+                <field id="shipping_address" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ship to address</label>
+                    <comment>If ERP or inventory extension are installed, we use the warehouse address</comment>
+                </field>
+
+            </group>
+
+
+            <group id="order" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Purchase order</label>
+
+                <field id="email_identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender for supplier notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+
+                <field id="email_template" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email template for supplier notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+
+                <field id="copy_to" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Copy to</label>
+                    <comment>Enter here email addresses, separated with a coma. These recipients will also receive email sent to the supplier</comment>
+                </field>
+
+            </group>
+
+            <group id="order_product" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Purchase Order Product</label>
+
+                <field id="default_price" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default buying price</label>
+                    <source_model>BoostMyShop\Supplier\Model\Source\OrderProduct\PriceImport</source_model>
+                </field>
+
+                <field id="extended_cost_method" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Landing costs distribution</label>
+                    <source_model>BoostMyShop\Supplier\Model\Source\OrderProduct\LandingCostMethod</source_model>
+                    <comment>Method to distribute landing cost to order items</comment>
+                </field>
+
+                <field id="update_cost" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Update product cost</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Update product cost value after a reception is processed</comment>
+                </field>
+
+                <field id="require_product_supplier_association" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Require product/supplier association</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Prevent to add a product to an order if the product is not associated to the supplier</comment>
+                </field>
+
+                <field id="enable_eta_at_product_level" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable custom ETA at product level</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, you can define a specific ETA for a product in a PO</comment>
+                </field>
+
+                <field id="enable_discount" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable discount</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, you can define a discount % at the product level</comment>
+                </field>
+
+                <field id="enable_margin" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show margin column</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, you will see your sale price and profit margin details</comment>
+                </field>
+
+                <field id="enable_last_buying_price" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show last buying price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+
+            <group id="product_supplier" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product / Supplier</label>
+
+
+                <field id="restrict_to_associated" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Restrict list to associated products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable this option if you experience issue in the product / supplier association screen</comment>
+                </field>
+
+            </group>
+
+            <group id="invoice" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Invoice</label>
+                <field id="allowed_payment_methods" translate="label" type="textarea" sortOrder="21" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Payment method</label>
+                    <comment>Please enter here payment methods separated with a comma</comment>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

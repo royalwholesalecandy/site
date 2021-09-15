@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_before">
+        <observer name="mageworx_customergroupprices_observer_savecustomfielddata"
+                  instance="MageWorx\CustomerGroupPrices\Observer\Adminhtml\SaveCustomFieldDataProductGroup"/>
+    </event>
+
+    <event name="catalog_product_load_after">
+        <observer name="mageworx_customergroupprices_add_group_price_to_product_adminhtml"
+                instance="MageWorx\CustomerGroupPrices\Observer\Adminhtml\AddGroupPriceDataToProduct"
+        />
+    </event>
+</config>

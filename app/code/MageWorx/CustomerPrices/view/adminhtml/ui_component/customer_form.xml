@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <fieldset name="mageworx_customer_price_fieldname">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Customer Price</item>
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="sortOrder" xsi:type="number">100</item>
+            </item>
+        </argument>
+        <container name="mageworx_customer_price_fieldname_container">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">160</item>
+                </item>
+            </argument>
+            <htmlContent name="customer_edit_tab_mageworx_customer_price_grid">
+                <argument name="block" xsi:type="object">MageWorx\CustomerPrices\Block\Adminhtml\Customer\Edit\CustomerPrice</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>
+
+

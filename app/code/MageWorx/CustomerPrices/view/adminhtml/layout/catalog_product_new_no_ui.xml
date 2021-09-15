@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product_form">
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab" name="product.mageworx_customerprices_tab">
+                <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form" name="product.edit.tab.customerprices.form"/>
+                <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Grid" name="product.edit.tab.customerprices.grid"/>
+                <arguments>
+                    <argument name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Prices per Customer</item>
+                        <item name="collapsible" xsi:type="boolean">true</item>
+                        <item name="opened" xsi:type="boolean">false</item>
+                        <item name="sortOrder" xsi:type="string">90</item>
+                        <item name="canShow" xsi:type="boolean">true</item>
+                        <item name="componentType" xsi:type="string">fieldset</item>
+                    </argument>
+                </arguments>
+                <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\Js" template="MageWorx_CustomerPrices::product/js.phtml"/>
+                <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\CustomerSearch" template="MageWorx_CustomerPrices::product/edit/customer/customersearch.phtml"/>
+                <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\CustomerSearch\Js" template="MageWorx_CustomerPrices::product/edit/customer/js.phtml" />
+            </block>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">product-mageworx-customerprices</argument>
+                <argument name="block" xsi:type="string">product.mageworx_customerprices_tab</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

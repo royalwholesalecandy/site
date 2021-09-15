@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Akeans Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.akeans.com)
+ * @package Akeans_ShowPriceAfterLogin
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+	<!--<preference for="\Magento\Weee\Block\Item\Price\Renderer" type="Akeans\ShowPriceAfterLogin\Block\Rewrite\Item\Price\CustomRenderer" />-->
+    <preference for="Magento\Quote\Model\ShippingMethodManagement" type="Akeans\ShowPriceAfterLogin\Model\ShippingMethodManagement"/>
+	<preference for="Magento\Customer\Block\Adminhtml\Group\Edit\Form" type="Akeans\ShowPriceAfterLogin\Block\Adminhtml\Group\Edit\Form"/>
+	<preference for="Magento\OfflinePayments\Block\Info\Purchaseorder" type="Akeans\ShowPriceAfterLogin\Block\Info\Purchaseorder"/>
+	<!--<preference for="Magento\Payment\Block\Form\Container" type="Akeans\ShowPriceAfterLogin\Block\Block\Onepage\Payment\Methods"/>-->
+	<type name="Magento\Customer\Controller\Adminhtml\Group\Save">
+		<plugin name="save_field" type="Akeans\ShowPriceAfterLogin\Model\Plugin\Save" sortOrder="1"/>
+	</type>
+	<!--<type name="Magento\Quote\Model\ShippingMethodManagement">
+        <plugin name="akeansShippingMethodManagement"
+                type="Akeans\ShowPriceAfterLogin\Plugin\ShippingMethodManagement"
+                sortOrder="10"/>
+    </type>-->
+	
+	<type name="Magento\SalesSequence\Model\Sequence">
+        <arguments>
+            <argument name="pattern" xsi:type="string"><![CDATA[%s%'.05d%s]]></argument>
+        </arguments>
+    </type>
+    
+</config>

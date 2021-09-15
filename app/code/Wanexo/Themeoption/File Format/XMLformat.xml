@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<Magento_Cms_Page>
+		<tables>
+			<cms_page>
+				<page_id>3</page_id>
+				<title>Home Page</title>
+				<page_layout>2columns-right</page_layout>
+				<meta_keywords>Page keywords</meta_keywords>
+				<meta_description>Page description</meta_description>
+				<identifier>homes</identifier>
+				<content_heading>Home Page</content_heading>
+				<content>Home Page</content>
+				<creation_time>2015-11-19 10:16:28</creation_time>
+				<update_time>2015-11-19 10:16:28</update_time>
+				<is_active>1</is_active>
+				<sort_order>0</sort_order>
+				<layout_update_xml />
+				<custom_theme />
+				<custom_root_template />
+				<custom_layout_update_xml />
+				<custom_theme_from />
+				<custom_theme_to />
+			</cms_page>
+			<cms_page>
+				<page_id>4</page_id>
+				<title>404 Not Found</title>
+				<page_layout>2columns-right</page_layout>
+				<meta_keywords>Page keywords</meta_keywords>
+				<meta_description>Page description</meta_description>
+				<identifier>no-route</identifier>
+				<content_heading>Whoops, our bad...</content_heading>
+				<content><![CDATA[<dl><dt>The page you requested was not found, and we have a fine guess why.</dt><dd><ul class="disc"><li>If you typed the URL directly, please make sure the spelling is correct.</li><li>If you clicked on a link to get here,the link is outdated.</li></ul></dd></dl><dl><dt>What can you do?</dt><dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd><dd><ul class="disc"><li><a onclick="history.go(-1); return false;" href="#">Go back</a> to the previous page.</li><li>Use the search bar at the top of the page to search for your products.</li><li>Follow these links to get you back on track!<br /><a href="{{store url=""}}">Store Home</a> <span class="separator">|</span> <a href="{{store url="customer/account"}}">My Account</a></li></ul></dd></dl>]]></content>
+				<creation_time>2015-11-19 10:16:28</creation_time>
+				<update_time>2015-11-19 10:16:28</update_time>
+				<is_active>1</is_active>
+				<sort_order>0</sort_order>
+				<layout_update_xml />
+				<custom_theme />
+				<custom_root_template />
+				<custom_layout_update_xml />
+				<custom_theme_from />
+				<custom_theme_to />
+			</cms_page>
+			<cms_page>
+				<page_id>6</page_id>
+				<title>Contact info123</title>
+				<page_layout>2columns-right</page_layout>
+				<meta_keywords>Page keywords</meta_keywords>
+				<meta_description>Page description</meta_description>
+				<identifier>contact-test-123</identifier>
+				<content_heading>Our Module Test</content_heading>
+				<content>This page is created due to testing purpose of our theme activate module contact info</content>
+				<creation_time>2015-11-19 10:16:28</creation_time>
+				<update_time>2015-11-19 10:16:28</update_time>
+				<is_active>1</is_active>
+				<sort_order>0</sort_order>
+				<layout_update_xml />
+				<custom_theme />
+				<custom_root_template />
+				<custom_layout_update_xml />
+				<custom_theme_from />
+				<custom_theme_to />
+			</cms_page>
+			<cms_page>
+				<page_id>7</page_id>
+				<title>Contact info privacy</title>
+				<page_layout>2columns-right</page_layout>
+				<meta_keywords>Page keywords</meta_keywords>
+				<meta_description>Page description</meta_description>
+				<identifier>contact-test-info</identifier>
+				<content_heading>Our Module Test</content_heading>
+				<content>This page is created due to testing purpose of our theme activate module contact info</content>
+				<creation_time>2015-11-19 10:16:28</creation_time>
+				<update_time>2015-11-19 10:16:28</update_time>
+				<is_active>1</is_active>
+				<sort_order>0</sort_order>
+				<layout_update_xml />
+				<custom_theme />
+				<custom_root_template />
+				<custom_layout_update_xml />
+				<custom_theme_from />
+				<custom_theme_to />
+			</cms_page>
+			<cms_page>
+				<page_id>8</page_id>
+				<title>Contact Test Test ASV</title>
+				<page_layout>2columns-right</page_layout>
+				<meta_keywords>Page keywords</meta_keywords>
+				<meta_description>Page description</meta_description>
+				<identifier>contact-test-asv</identifier>
+				<content_heading>Our Module Test</content_heading>
+				<content>This page is created due to testing purpose of our theme activate module contact Test ASv</content>
+				<creation_time>2015-11-19 10:16:28</creation_time>
+				<update_time>2015-11-19 10:16:28</update_time>
+				<is_active>1</is_active>
+				<sort_order>0</sort_order>
+				<layout_update_xml />
+				<custom_theme />
+				<custom_root_template />
+				<custom_layout_update_xml />
+				<custom_theme_from />
+				<custom_theme_to />
+			</cms_page>
+			<cms_page_store>
+				<page_id>3</page_id>
+				<store_id>0</store_id>
+			</cms_page_store>
+			<cms_page_store>
+				<page_id>6</page_id>
+				<store_id>0</store_id>
+			</cms_page_store>
+			<cms_page_store>
+				<page_id>7</page_id>
+				<store_id>0</store_id>
+			</cms_page_store>
+			<cms_page_store>
+				<page_id>8</page_id>
+				<store_id>0</store_id>
+			</cms_page_store>
+			<cms_page_store>
+				<page_id>4</page_id>
+				<store_id>0</store_id>
+			</cms_page_store>
+		</tables>
+	</Magento_Cms_Page>
+	<Magento_Cms_Block>
+		<tables>
+			<cms_block>
+				<block_id>26</block_id>
+				<title>Slide - Image1</title>
+				<identifier>slide-image1</identifier>
+				<content>Test</content>
+				<creation_time>2015-11-28 10:07:17</creation_time>
+				<update_time>2015-11-28 10:07:17</update_time>
+				<is_active>1</is_active>
+			</cms_block>
+			<cms_block>
+				<block_id>27</block_id>
+				<title>Slide - Image2</title>
+				<identifier>slide-image2</identifier>
+				<content>Test</content>
+				<creation_time>2015-11-28 10:08:36</creation_time>
+				<update_time>2015-11-28 10:08:36</update_time>
+				<is_active>1</is_active>
+			</cms_block>
+			<cms_block>
+				<block_id>3</block_id>
+				<title>Footer Links ASV</title>
+				<identifier>footer-links</identifier>
+				<content>Test</content>
+				<is_active>1</is_active>
+			</cms_block>
+			<cms_block_store>
+				<block_id>26</block_id>
+				<store_id>0</store_id>
+			</cms_block_store>
+			<cms_block_store>
+				<block_id>27</block_id>
+				<store_id>0</store_id>
+			</cms_block_store>
+			<cms_block_store>
+				<block_id>3</block_id>
+				<store_id>0</store_id>
+			</cms_block_store>
+		</tables>
+	</Magento_Cms_Block>
+</root>

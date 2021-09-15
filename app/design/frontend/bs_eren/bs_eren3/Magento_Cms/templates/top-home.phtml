@@ -1,0 +1,50 @@
+<div class="top-content-home">
+    <div class="section-home-slider">
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('candy-home-slider')->toHtml(); ?>
+    </div>
+    <div class="section-home-banners">
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('candy_home_banners')->toHtml(); ?>
+    </div>
+    <div class="subbanner_content_center">
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('home_shop_categories')->toHtml(); ?>
+    </div>
+    <div class="box-new">
+        <?php echo $block->getLayout()->createBlock('Rokanthemes\Newproduct\Block\Newproduct')->setTemplate('Rokanthemes_Newproduct::newproduct.phtml')->toHtml();?>
+    </div>
+    <div class="box-featured">
+        <div class="row">
+            <?php echo $block->getLayout()->createBlock('Rokanthemes\Featuredpro\Block\Featured')->setTemplate('Rokanthemes_Featuredpro::featured.phtml')->toHtml();?>
+        </div>
+    </div>
+    
+    
+    <div class="home-content-section-top">
+        <div class="container">
+            <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('candy-home-content')->toHtml();?>
+        </div>
+    </div>
+    <div class="home-brands-section">
+        <div class="container">
+            <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('candy-home-brands')->toHtml();?>
+        </div>
+    </div>
+    <div class="home-content-section">
+        <div class="container">
+            <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('candy-home-content-bottom')->toHtml();?>
+        </div>
+    </div>
+    <div class="box-blog">
+			<?php echo $block->getLayout()->createBlock('Magefan\Blog\Block\Sidebar\Recent')->setTemplate('Magefan_Blog::sidebar/slider.phtml')->toHtml();?>
+	</div>
+    <div class="section-newsletter">
+        <div class="container">
+            <?php echo $block->getLayout()->createBlock('Magento\Newsletter\Block\Subscribe')->setTemplate('Magento_Newsletter::subscribe.phtml')->toHtml();?>
+        </div>
+    </div>
+    <div class="section-services">
+        <div class="container">
+            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('section_services')->toHtml(); ?>
+        </div>
+    </div>
+    
+</div>

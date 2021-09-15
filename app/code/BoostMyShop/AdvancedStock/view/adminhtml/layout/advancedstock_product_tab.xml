@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\Websites" name="admin.product.websites"/>
+        <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\Stocks" name="admin.product.stocks"/>
+        <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\PendingOrders" name="admin.product.pendingorders">
+            <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\PendingOrders\Grid" name="admin.product.pendingordersgrid" />
+        </block>
+        <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\NewStockMovement" name="admin.product.newstockmovement" />
+        <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\StockMovement" name="admin.product.stockmovement">
+            <block class="BoostMyShop\AdvancedStock\Block\Product\Edit\Tab\StockMovement\Grid" name="admin.product.stockmovementgrid" />
+        </block>
+    </container>
+</layout>

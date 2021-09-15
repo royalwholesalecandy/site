@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_load_before">
+        <observer name="mageworx_customerprices_add_product_form_block_for_non_ui" instance="MageWorx\CustomerPrices\Observer\VersionResolver\AddProductFormBlock"/>
+    </event>
+
+    <event name="catalog_product_save_after">
+        <observer name="mageworx_customerprices_sales_quote" instance="MageWorx\CustomerPrices\Observer\Backend\CatalogProductSaveAfterObserver" />
+    </event>
+
+    <event name="adminhtml_customer_save_after">
+        <observer name="mageworx_customerprices_save_customer_price" instance="MageWorx\CustomerPrices\Observer\Backend\CustomerProductSaveAfterObserver" />
+    </event>
+</config>

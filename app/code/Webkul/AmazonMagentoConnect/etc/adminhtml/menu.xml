@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2018 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webkul_AmazonMagentoConnect::manager" title="Amazon Magento Connect" module="Webkul_AmazonMagentoConnect" sortOrder="10" resource="Webkul_AmazonMagentoConnect::manager"/>
+        <add id="Webkul_AmazonMagentoConnect::manage_amazon_accounts" title="Manage Amazon Accounts" module="Webkul_AmazonMagentoConnect" sortOrder="20" parent="Webkul_AmazonMagentoConnect::manager" action="amazonmagentoconnect/accounts/index" resource="Webkul_AmazonMagentoConnect::manage_amazon_accounts"/>
+        <!-- for price rule menu -->
+        <add id="Webkul_AmazonMagentoConnect::price_rule" title="Amazon Product Price Rule" module="Webkul_AmazonMagentoConnect" sortOrder="30" parent="Webkul_AmazonMagentoConnect::manager" action="amazonmagentoconnect/pricerule/index" resource="Webkul_AmazonMagentoConnect::price_rule"/>
+        <!-- for price rule menu -->
+        
+        <!-- for attribute mapping -->
+        <add id="Webkul_AmazonMagentoConnect::attribute_map" title="Attribute Map" module="Webkul_AmazonMagentoConnect" sortOrder="30" parent="Webkul_AmazonMagentoConnect::manager" action="amazonmagentoconnect/attributemap/edit" resource="Webkul_AmazonMagentoConnect::attribute_map"/>
+        <!-- / for attribute mapping -->
+    </menu>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="BoostMyShop_OrderPreparation::css/packing.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\OrderPreparation\Block\Preparation\Header" name="orderpreparation.preparation.header"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Index" name="orderpreparation.packing.index"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Order" name="orderpreparation.packing.order"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Products" name="orderpreparation.packing.products"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Confirm" name="orderpreparation.packing.confirm"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Tracking" name="orderpreparation.packing.tracking"/>
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\Footer" name="orderpreparation.packing.footer"/>
+        </referenceContainer>
+    </body>
+</page>

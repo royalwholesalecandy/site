@@ -1,0 +1,1904 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wanexo_jumbo" translate="label" sortOrder="50">
+            <label>Jumbo</label>
+        </tab>
+        
+        <section id="jumbo_design" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Theme - Design Panel</label>
+            <tab>wanexo_ext</tab>
+            <resource>Wanexo_Jumbo::theme_design</resource>
+			<!-- Theme Color -->
+			<group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+				<!-- Body Backgrond -->
+                <field id="theme_color_heading" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Theme Color</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>	
+				<field id="theme_color" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Theme Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+				
+				<!-- Body Backgrond -->
+                <field id="body_bg_heading" translate="label comment" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Backgrond settings</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="enable" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Background settings</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="body_color" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>	
+				<field id="wxo_bg" translate="label" type="image" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Body background image</label>
+					<backend_model>Wanexo\Themeoption\Model\Config\Backend\Image\Background</backend_model>
+					<base_url type="media" scope_info="1">wanexo\background</base_url>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_br" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond repeat: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgrepeat</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_bp" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond position: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgposition</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_atm" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond attachment: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgattachment</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_sz" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Background size: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgsize</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				
+				
+				<!-- Body Wrapper Bg -->
+                <field id="body_wrapper_heading" translate="label comment" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Wrapper background</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+				<field id="enable2" translate="label comment" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Background settings</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="wrapper_bg_color" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Wrapper Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+					<depends>
+                        <field id="enable2">1</field>
+                    </depends>
+                </field>
+            </group>
+			
+			<!-- Fonts Settings -->
+            <group id="font" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Font</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable fonts</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+                <field id="font_size" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Basic Font Size</label>
+                    <source_model>Wanexo\Jumbo\Model\Config\Design\Font\Size</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="font_family" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family Type</label>
+                    <source_model>Wanexo\Jumbo\Model\Config\Design\Font\Fontfamilytype</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                
+                <field id="google_font_family" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family - Google Fonts</label>
+                   <source_model>Wanexo\Jumbo\Model\Config\Design\Font\Googlefonts</source_model>
+				   <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Fonts</frontend_model>
+					
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="font_family">google</field>
+                    </depends>
+                </field>
+				
+				<field id="default_font_family" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family - Default Fonts</label>
+                   <source_model>Wanexo\Jumbo\Model\Config\Design\Font\Defaultfont</source_model>
+				   <depends>
+                        <field id="enable">1</field>
+                        <field id="font_family">dfont</field>
+                    </depends>
+                </field>
+            </group>
+			
+			
+			<!-- General color setting -->
+            <group id="colors" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General color setting</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Color</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+				<!-- Default Colors -->
+                <field id="default_color_heading" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Colors</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="text_color" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="link_color" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="link_hover_color" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Breadcrumb -->
+				<field id="breadcrumb_heading" translate="label comment" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Breadcrumbs</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                
+                <field id="bcrumbs_bg_color" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="bcrumbs_color" translate="label comment" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="bcrumbs_links" translate="label comment" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Links Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="bcrumbs_links_hover" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Links Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Headings -->
+				<field id="headings_heading" translate="label comment" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Headings</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="page_heading" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Heading Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="section_heading" translate="label comment" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Section Heading Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="section_heading_border" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Section Heading border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="section_subheading" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Section Subheading Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="side_heading" translate="label comment" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Heading Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="side_heading_border" translate="label comment" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Heading Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="side_sub_heading" translate="label comment" type="text" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Sub Heading Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="product_heading" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Heading Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="product_page_heading" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Page Heading Color (Product Name in product view)</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Next Previous -->
+				<field id="np_heading" translate="label comment" sortOrder="29" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_text" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_text_hover" translate="label comment" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons hover color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_border" translate="label comment" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons border color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_border_hover" translate="label comment" type="text" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons border hover color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_bg" translate="label comment" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons background color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="np_bg_hover" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Previous Buttons background hover color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				
+				
+				<!-- Price -->
+				<field id="price_heading" translate="label comment" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="default_price" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Price color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="old_price" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Old Price color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="special_price" translate="label comment" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Special Price color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Badge -->
+				<field id="badge_heading" translate="label comment" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Badges</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="new_badge_bg" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Badge Bg Color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="new_badge_text" translate="label comment" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Badge Text Color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="sale_badge_bg" translate="label comment" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale Badge Bg Color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="sale_badge_text" translate="label comment" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale Badge Text Color.</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+
+				<!-- Buttons color settings -->
+                <field id="button_heading" translate="label comment" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button color settings</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="button_bg" translate="label comment" type="text" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="button_hover_bg_color" translate="label comment" type="text" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Hover Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="button_text_color" translate="label comment" type="text" sortOrder="290" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                
+                <field id="button_hover_text_color" translate="label comment" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Hover Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="button_border_color" translate="label comment" type="text" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="button_border_hover" translate="label comment" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Border Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Add to Wishlist -->
+                <field id="addtolinks_heading" translate="label comment" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtowishlist_bg" translate="label comment" type="text" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtowishlist_bg_hover" translate="label comment" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist background Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="addtowishlist_color" translate="label comment" type="text" sortOrder="360" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="addtowishlist_hover_color" translate="label comment" type="text" sortOrder="370" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist Link Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtowishlist_border_color" translate="label comment" type="text" sortOrder="380" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtowishlist_border_hover" translate="label comment" type="text" sortOrder="390" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Wishlist Border Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Add to Compare -->
+				<field id="addcompare_heading" translate="label comment" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtocompare_bg" translate="label comment" type="text" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtocompare_bg_hover" translate="label comment" type="text" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Background Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="addtocompare_color" translate="label comment" type="text" sortOrder="430" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="addtocompare_hover_color" translate="label comment" type="text" sortOrder="440" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Link Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtocompare_border_color" translate="label comment" type="text" sortOrder="450" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="addtocompare_border_hover" translate="label comment" type="text" sortOrder="460" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add to Compare Border Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Quick View Button -->
+				<field id="quickview_heading" translate="label comment" sortOrder="470" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="quickview_bg" translate="label comment" type="text" sortOrder="480" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="quickview_bg_hover" translate="label comment" type="text" sortOrder="490" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="quickview_color" translate="label comment" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+                <field id="quickview_hover_color" translate="label comment" type="text" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Link Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="quickview_border_color" translate="label comment" type="text" sortOrder="520" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="quickview_border_hover" translate="label comment" type="text" sortOrder="530" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quick View Border Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>  
+            </group>
+			
+			
+			<!-- Header -->
+            <group id="header" translate="label" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+				<!-- Header Bg -->
+                <field id="header_bg_heading" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Background</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_bg" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Header Top -->
+                <field id="header_heading" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Top Row</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_top" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header top background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_top_text" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header top text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_top_link" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header top Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_top_link_hover" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header top Link hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Header Top links -->
+				<field id="tl_heading" translate="label comment" sortOrder="51" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Top Links</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="tl_text" translate="label comment" sortOrder="52" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Top links color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="tl_text_hover" translate="label comment" sortOrder="53" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Top link hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Header Center -->
+				<field id="header_center_heading" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Container</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_center_text" translate="label comment" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Center text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_center_link" translate="label comment" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Center Links Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_center_link_hover" translate="label comment" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Center Links hover Color</label>
+                     <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Header Mini Cart -->
+				<field id="header_cart" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Mini Cart</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_cart_text" translate="label comment" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Cart Text Color</label>
+                     <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_cart_icon" translate="label comment" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Cart Icon Color</label>
+                     <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_cart_bg" translate="label comment" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Cart Bg</label>
+                     <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_cart_border" translate="label comment" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Cart Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_qty_bg" translate="label comment" sortOrder="141" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Quantity Bg</label>
+                     <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_qty_color" translate="label comment" sortOrder="142" showInDefault="1" showInWebsite="1" showInStore="1">
+                     <label>Header Quantity Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Header Search -->
+				<field id="header_search" translate="label comment" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Search</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_search_bg" translate="label comment" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Search Bg Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_search_border" translate="label comment" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Search Border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_search_btn_bg" translate="label comment" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Search Button Backgrond</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="header_search_btn_icon" translate="label comment" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Search Button icon or text</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Navigation -->
+                <field id="navigation_heading" translate="label comment" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field> 
+				
+				<field id="nav_border" translate="label comment" type="text" sortOrder="221" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation border Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_bg" translate="label comment" type="text" sortOrder="222" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<field id="nav_bg_hover_color" translate="label comment" type="text" sortOrder="224" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu background Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_sep" translate="label comment" type="text" sortOrder="225" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu separator Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_text_color" translate="label comment" type="text" sortOrder="226" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_text_hover_color" translate="label comment" type="text" sortOrder="227" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_text_active_color" translate="label comment" type="text" sortOrder="228" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Active Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_sub_color" translate="label comment" type="text" sortOrder="229" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_sub_heading" translate="label comment" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Heading Color (Megamenu)</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_sub_hover_color" translate="label comment" type="text" sortOrder="231" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_sub_bg" translate="label comment" type="text" sortOrder="232" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Bg Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- For Header 8 & 9 -->
+				<field id="navigation_cat_heading" translate="label comment" sortOrder="233" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading for Header 8 and 9</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field> 
+				
+				<field id="nav_heading_bg" translate="label comment" type="text" sortOrder="234" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading background</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_heading" translate="label comment" type="text" sortOrder="235" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_heading_hover" translate="label comment" type="text" sortOrder="236" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading Hover</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_heading_icon" translate="label comment" type="text" sortOrder="237" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading Icons</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nav_heading_icon_hover" translate="label comment" type="text" sortOrder="238" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Heading Icons Hover</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+            </group>
+			
+			<!-- Fixed Header -->
+			<group id="fixed_header" translate="label" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fixed Header</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+                <field id="fixed_header_bg" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Fixed Navigation -->
+				<field id="fixed_nav_menu_color" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fixed_nav_hover" translate="label comment" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fixed_hover_bg" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Menu Hover Backgrond Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Fixed Mini Cart -->
+				<field id="fixed_cart_icon" translate="label comment" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Icon Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fixed_cart_counter_bg" translate="label comment" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Counter Bg Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fixed_cart_counter_color" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Counter Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+			</group>	
+			
+			
+			<!-- Mobile Header -->
+			<group id="mobile_header" translate="label" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mobile Header</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+                <field id="mobile_header_bg" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Mobile Cart -->
+				<field id="mobile_cart_heading" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Cart</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_cart_color" translate="label comment" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Icon color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_cart_counterBg" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Counter background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_cart_counterText" translate="label comment" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Counter Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_cart_arrow" translate="label comment" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Arrow color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Search -->
+				
+				<field id="mobile_search_heading" translate="label comment" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Search</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_searchBg" translate="label comment" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search Backgrond color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Menu Tabs -->
+				
+				<field id="mobile_tab_heading" translate="label comment" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Tabs</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_tabBg" translate="label comment" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Tabs background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_tabText" translate="label comment" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Tabs Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_tabActiveText" translate="label comment" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Tabs Active Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Navigation -->
+				
+				<field id="mobile_navigation_heading" translate="label comment" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Navigation Tab</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_menu_text" translate="label comment" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_menu_hover" translate="label comment" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation Text Hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_menu_icon" translate="label comment" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Navigation icon ( collapse expand )</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Account -->
+				<field id="mobile_account_heading" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Account Tab</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_account_text" translate="label comment" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Account Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="mobile_account_text_hover" translate="label comment" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Account Hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Settings -->
+				
+				<field id="mobile_settings_heading" translate="label comment" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Settings Tab</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="settings_heading" translate="label comment" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Settings Heading color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="settings_dropdown_text" translate="label comment" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Settings Dropdown text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="settings_dropdown_textHover" translate="label comment" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Settings Dropdown text  Hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="settings_dropdown_textHoverBg" translate="label comment" sortOrder="27" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Settings Dropdown text Hover background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+			</group>	
+			
+			
+			<!-- FOOTER -->
+            <group id="footer" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+				
+				<field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				
+				<field id="footerType" translate="label" type="select" sortOrder="20" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>Footer Type:</label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Footertype</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				
+				<field id="ft_background" translate="label comment" sortOrder="30" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				
+				<field id="footer_bg" translate="label" type="image" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Footer background image</label>
+					<backend_model>Wanexo\Themeoption\Model\Config\Backend\Image\Footer</backend_model>
+					<base_url type="media" scope_info="1">wanexo\footer</base_url>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				
+				<field id="wxo_bg_br" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond repeat: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgrepeat</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_bp" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond position: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgposition</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_atm" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Backgrond attachment: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgattachment</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="wxo_bg_sz" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Background size: </label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Bgsize</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				
+				<field id="footer_border" translate="label comment" sortOrder="70" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer border color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="footer_top_border" translate="label comment" sortOrder="71" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer top border color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">4</field>
+                    </depends>
+                </field>
+				
+				<field id="footer_top_text_color" translate="label comment" sortOrder="72" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer top text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">4</field>
+                    </depends>
+                </field>
+				
+				
+				<!-- Footer Top -->
+				<field id="footer_top" translate="label comment" sortOrder="80" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Footer Top</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,5</field>
+                    </depends>
+                </field> 
+				
+				<field id="ft_bg" translate="label comment" sortOrder="90" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,5</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_heading_color" translate="label comment" sortOrder="100" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer heading color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_text_color" translate="label comment" sortOrder="110" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2,5</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_link_color" translate="label comment" sortOrder="120" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer link color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_link_hover_color" translate="label comment" sortOrder="130" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer link hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_icon_color" translate="label comment" sortOrder="140" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer icon color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2</field>
+                    </depends>
+                </field>
+				
+				<field id="ft_icon_bg_color" translate="label comment" sortOrder="150" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer icon bg color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Footer Bottom -->
+				<field id="footer_bottom" translate="label comment" sortOrder="260" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Footer Bottom</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,5</field>
+                    </depends>
+                </field>
+
+				<!-- Footer container footer 3 & 4 -->
+				<field id="footer_container" translate="label comment" sortOrder="260" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Footer Container</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">3,4</field>
+                    </depends>
+                </field>	
+				
+				
+				<field id="fbot_bg" translate="label comment" sortOrder="270" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1,2,3,5</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_heading" translate="label comment" sortOrder="280" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Heading color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_text" translate="label comment" sortOrder="290" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_link" translate="label comment" sortOrder="300" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Link color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_link_hover" translate="label comment" sortOrder="310" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Link hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_icon" translate="label comment" sortOrder="320" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer icon color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Footer Social -->
+				<field id="footer_social" translate="label comment" sortOrder="330" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Footer Scoial Icons</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field> 
+				
+				<field id="fbot_social" translate="label comment" sortOrder="340" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Social background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">2,5</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_social_hover" translate="label comment" sortOrder="350" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Social background hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">2,5</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_social_text" translate="label comment" sortOrder="360" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Social color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="fbot_social_text_hover" translate="label comment" sortOrder="370" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Social hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Newsletter Bottom -->
+				<field id="newsletter_heading" translate="label comment" sortOrder="380" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Newsletter</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="newsletter_heading_color" translate="label comment" sortOrder="381" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter Heading</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+						<field id="footerType" separator=",">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_input_bg" translate="label comment" sortOrder="390" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter input background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_input_border" translate="label comment" sortOrder="400" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter border color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_input_text" translate="label comment" sortOrder="410" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter input text color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn" translate="label comment" sortOrder="420" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn_hover" translate="label comment" sortOrder="430" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn_bg" translate="label comment" sortOrder="440" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button background color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn_bg_hover" translate="label comment" sortOrder="450" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button background hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn_border" translate="label comment" sortOrder="460" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button border color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="nl_btn_border_hover" translate="label comment" sortOrder="461" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Footer Newsletter button border hover color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<!-- Footer Copyright -->
+				<field id="footer_copy" translate="label comment" sortOrder="470" showInDefault="9" showInWebsite="1" showInStore="1">
+                    <label>Footer Copyright</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field> 
+				
+				<field id="foocop_bg" translate="label comment" sortOrder="480" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="foocop_color" translate="label comment" sortOrder="490" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="foocop_link" translate="label comment" sortOrder="500" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Link Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="foocop_link_hover" translate="label comment" sortOrder="510" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Link Hover Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+				<field id="foocop_sep" translate="label comment" sortOrder="520" showInDefault="8" showInWebsite="1" showInStore="1">
+                    <label>Separator Color</label>
+                    <backend_model>Wanexo\Jumbo\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Wanexo\Jumbo\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				
+            </group>
+        </section>
+    </system>
+</config>

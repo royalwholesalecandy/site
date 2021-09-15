@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="megnor" translate="label" sortOrder="200">
+            <label>Magnor</label>
+        </tab>
+        <section id="megnor_category_menu" translate="label" type="text" sortOrder="42" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Advancemenu Settings</label>
+            <tab>megnor</tab>
+            <resource>Megnor_Category::megnor_category_menu</resource>  
+            <group id="menu_settings" translate="label" sortOrder="92" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advancemenu</label>
+                <comment></comment>
+                <field id="enabledisable" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment></comment>
+                </field>
+                <field id="homeenable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home link</label>
+                    <comment>Yes to Display homepage link</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="custommenuenable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu</label>
+                    <comment>Yes to Display custommenu in nav bar</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu Name</label>
+                </field>
+                <field id="customblock" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Menu Block Id</label>
+                </field>
+
+
+            </group>
+        
+        </section>
+    </system>
+</config>

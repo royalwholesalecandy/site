@@ -1,0 +1,59 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+        <css src="TemplateMonster_FilmSlider::css/slider-options.css"/>
+        <remove src="Magento_Backend::js/bootstrap/editor.js"/>
+
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/slider-app.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/editor/quill.core.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/editor/quill.snow.css"/>-->
+
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/layer-tabs/default.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/layer-tabs/folder.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/layer-tabs/modern.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/layer-tabs/react-simpletabs.css"/>-->
+        <!--<css src="TemplateMonster_FilmSlider::css/react-app/layer-tabs/side.css"/>-->
+
+        <css src="TemplateMonster_FilmSlider::css/react-app/images.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/font-awesome.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/fl-36-slim-icons.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/fl-bigmug-line.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/fl-outicons.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/material-design.css" />
+        <css src="TemplateMonster_FilmSlider::css/react-app/font-css/thin.css" />
+
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="TemplateMonster\FilmSlider\Block\Adminhtml\Slider\Edit" name="filmslider_page_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="TemplateMonster\FilmSlider\Block\Adminhtml\Slider\Edit\Tabs"
+                   name="filmslider_page_edit_tabs">
+                <block class="TemplateMonster\FilmSlider\Block\Adminhtml\Slider\Edit\Tab\Main"
+                       name="filmslider_page_edit_tab_main"/>
+                <block class="TemplateMonster\FilmSlider\Block\Adminhtml\Slider\Edit\Tab\Slides"
+                       name="filmslider_page_edit_tab_slider_item"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">filmslider_page_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">slider_items_list</argument>
+                    <argument name="block" xsi:type="string">filmslider_page_edit_tab_slider_item</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template"
+                template="TemplateMonster_FilmSlider::slider/initAccordion.phtml"
+                name="film.slider.init.accordion">
+            </block>
+            <block class="Magento\Framework\View\Element\Template"
+                   template="TemplateMonster_FilmSlider::slider/initReactSlider.phtml"
+                   name="film.slider.init.react.slider">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

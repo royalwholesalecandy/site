@@ -1,0 +1,45 @@
+<?php $block = $this->getBlock() ?>
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php $canUsePanel = $helper->acceptToUsePanel() ?>
+<div class="middle-header-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 mobile-phone"><?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_block_phone_header')->setCanUsePanel($canUsePanel)->toHtml() ?></div>
+			<div class="col-lg-6 col-md-6 col-sm-4 col-xs-4 text-center mobile-logo"><?php echo $block->getChildHtml('logo') ?></div>
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 mobile-cart"><?php echo $block->getChildHtml('minicart') ?></div>
+		</div>
+	</div>
+</div>
+
+<div class="nav-header-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="nav-header-content">
+				<?php echo $block->getChildHtml('megamenu') ?>
+				<?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Magento_Search::form.mini.phtml")->toHtml();?>
+				<div class="account-dropdown" id="top-links">
+					<a href="#" class="action toggle top-links-trigger" id="top-links-trigger">
+						<i class="fa fa-user"></i>
+					</a>
+					<div class="dropdown top-links-dropdown" style="display:none;" data-mage-init='{"dropdownDialog":{
+											 "appendTo":"#top-links",
+											 "triggerTarget":"#top-links-trigger",
+											 "closeOnMouseLeave":false,
+											 "triggerClass":"active",
+											 "parentClass":"active",
+											 "buttons":null,
+											 "defaultDialogClass":"dropdown-menu"}}'>  
+								<?php echo $block->getChildHtml('top.links') ?>
+					</div>
+				</div>  
+				<?php echo $block->getChildHtml('store_language') ?>
+				<?php echo $block->getChildHtml('currency') ?>
+				<button class="btn btn-responsive-nav ">
+					<em class="ion-navicon"></em>
+				</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

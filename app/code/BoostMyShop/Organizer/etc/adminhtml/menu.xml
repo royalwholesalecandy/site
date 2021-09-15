@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2014 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+       <add id="BoostMyShop_Organizer::organizer" module="BoostMyShop_Organizer" title="Organizer" parent="Magento_Backend::other_settings" action="organizer/organizer/index" sortOrder="3" resource="BoostMyShop_Organizer::organizer"/>
+    </menu>
+</config>

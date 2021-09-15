@@ -1,0 +1,78 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+	?>
+<?php $design = $themeHelper->checkLayoutPage($category); ?>
+<?php $design = $design->getPageLayout(); ?>
+<?php if($design =='1column'): ?>
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter one-column-filter" id="filter-one-column">
+        <div class="block-title filter-title">
+            <button class="btn btn-custom btn-border btn-secondary"><?php /* @escapeNotVerified */ echo __('Filter') ?></button>
+        </div>
+
+        <div class="block-content filter-content" style="display: none;">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php $i=0; foreach ($block->getFilters() as $filter): ?>
+                <?php if (!$wrapOptions): ?>
+                   <div class="filter-options row" id="narrow-by-list">
+                <?php $wrapOptions = true; endif; ?>
+                    <?php if ($filter->getItemsCount()): $i++; ?>
+                        <div class="col-md-3 col-sm-4 col-xs-12 <?php if($i % 4 == 1): ?> first-row-item<?php endif ?><?php if($i % 3 == 1): ?> row-2sm-first<?php endif ?><?php if($i % 2 == 1): ?> row-2xs-first<?php endif ?>">
+								<div class="filter-content form-group">
+									<label class="filter-options-title">
+										<span class="block-sub-title h6"><?php echo $block->escapeHtml(__($filter->getName())) ?></span>
+									</label>
+									<?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?>
+								</div>
+						</div>
+                    <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<script type="text/javascript">
+		require([
+		'jquery'
+	], function(jQuery){
+		(function($) {
+			$(document).ready(function() {
+				$('#filter-one-column select').on('change', function() {
+					if(this.value != ""){
+						setLocation(this.value);
+					}
+				});
+				$('#filter-one-column .block-title.filter-title button').click(function(){
+					$(this).parent().parent().find('.block-content').slideToggle('slow');					
+				});
+			});
+		})(jQuery);
+	});
+</script>
+<?php endif; ?>
+<?php endif; ?>

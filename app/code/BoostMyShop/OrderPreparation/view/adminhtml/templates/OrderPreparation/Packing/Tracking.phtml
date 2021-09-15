@@ -1,0 +1,51 @@
+<?php if ($this->canDisplay()): ?>
+<table class="tbl-order">
+    <tr>
+        <th style="background-color: #FF9900;"><?php echo __('Add tracking number'); ?></th>
+    </tr>
+    <tr>
+        <td align="center">
+
+            <form method="POST" id="form-tracking" action="<?php echo $this->getSubmitUrl(); ?>">
+                <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+                <input type="text" name="tracking" id="tracking">
+
+                <button title="Orders" type="button" size="30" onclick="document.getElementById('form-tracking').submit();" class="action-default scalable action-primary">
+                    <span><?php echo __('Add tracking'); ?></span>
+                </button>
+
+                <button title="Orders" type="button" size="30" onclick="document.getElementById('form-tracking').submit();" class="action-default scalable action-primary">
+                    <span><?php echo __('Skip tracking'); ?></span>
+                </button>
+
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+<script>
+    if (document.getElementById('tracking'))
+        document.getElementById('tracking').focus();
+</script>
+
+<?php else: ?>
+
+    <?php $trackingNumber = $this->getTrackingNumber(); ?>
+    <?php if ($trackingNumber): ?>
+
+        <table class="tbl-order">
+            <tr>
+                <th style="background-color: #FF9900;"><?php echo __('Tracking number'); ?></th>
+            </tr>
+            <tr>
+                <td align="center">
+                    <?php echo $this->getTrackingNumber(); ?>
+                </td>
+            </tr>
+
+        </table>
+    <?php endif; ?>
+
+<?php endif; ?>

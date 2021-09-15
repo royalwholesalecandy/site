@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="BoostMyShop_Margin::cogs" title="COGS" module="BoostMyShop_Margin" parent="BoostMyShop_Erp::misc" sortOrder="1" resource="BoostMyShop_Margin::cogs" action="margin/cogs"/>
+
+    </menu>
+</config>

@@ -1,0 +1,138 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php if ($themeHelper->getStoreConfig('mgstheme/general/back_to_top')): ?>
+    <a href="" class="scroll-to-top"><i class="ion-arrow-up-a"></i></a>
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function (jQuery) {
+            (function ($) {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 1) {
+                        $('.scroll-to-top').css({bottom: "25px"});
+                    } else {
+                        $('.scroll-to-top').css({bottom: "-100px"});
+                    }
+                });
+
+                $('.scroll-to-top').click(function () {
+                    $('html, body').animate({scrollTop: '0px'}, 800);
+                    return false;
+                });
+            })(jQuery);
+        });
+    </script>
+<?php endif ?>
+<?php if ($themeHelper->getStoreConfig('mgstheme/general/sticky_menu')): ?>
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function (jQuery) {
+            (function ($) {
+                $(window).scroll(function () {
+                    //alert($('body.cms-home').height());
+                    if ($('header').height() > 300) {
+                        if ($(window).scrollTop() > 1120 && $(this).width() >= 992) {
+                            $('.header').addClass('header-sticky-menu');
+                        } else {
+                            $('.header').removeClass('header-sticky-menu');
+                        }
+                    } else {
+                        if ($(window).scrollTop() > 40 && $(this).width() >= 992) {
+                            $('.header').addClass('header-sticky-menu');
+                        } else {
+                            $('.header').removeClass('header-sticky-menu');
+                        }
+                    }
+                    /*if ($(this).scrollTop() > 40 && $(this).width() >= 992) {
+                     $('.header:not(.header1)').addClass('header-sticky-menu');
+                     $('.header:not(.header4)').addClass('header-sticky-menu');
+                     } else {
+                     $('.header:not(.header1').removeClass('header-sticky-menu');
+                     $('.header:not(.header4)').removeClass('header-sticky-menu');
+                     }
+                     if($('body.cms-home').height() >= 2200){
+                     if ($(this).scrollTop() > 1120 && $(this).width() >= 992) {
+                     $('.header1').addClass('header-sticky-menu');
+                     $('.header4').addClass('header-sticky-menu');
+                     } else {
+                     $('.header1').removeClass('header-sticky-menu');
+                     $('.header4').removeClass('header-sticky-menu');
+                     }
+                     }else{
+                     if ($(this).scrollTop() > 40 && $(this).width() >= 992) {
+                     $('.header1').addClass('header-sticky-menu');
+                     $('.header4').addClass('header-sticky-menu');
+                     }else{
+                     $('.header1').removeClass('header-sticky-menu');
+                     $('.header4').removeClass('header-sticky-menu');
+                     }
+                     }*/
+
+                });
+            })(jQuery);
+        });
+    </script>
+<?php endif ?>
+
+<?php if (!$themeHelper->getStoreConfig('checkout/cart/redirect_to_cart')) : ?>
+    <script type="text/x-magento-init">
+        {
+        "[data-role=tocart-form], .form.map.checkout": {
+        "catalogAddToCart": {}
+        }
+        }
+    </script>
+<?php endif; ?>
+
+<?php if ($themeHelper->getStoreConfig('mgstheme/general/onepage_slider') && !$themeHelper->acceptToUsePanel()) : ?>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'onepageScroll'
+        ], function (jQuery) {
+            (function ($) {
+                $(document).ready(function () {                   
+                     if( $(window).width() > 767){                
+                     if ( $( '.onepage-slider' ).length > 0 ) {
+                         
+                             var $hWindows = $(window).height();
+                                $('.cms-home  .onepage-slider').onepage_scroll({
+                                    sectionContainer: ".page",
+                                    easing: "ease",
+                                    animationTime: 1000,
+                                    pagination: true
+                                });
+                                $('.cms-home .onepage-slider').css('height', $hWindows + 'px');
+                                $('.cms-home .onepage-slider .block-custom-product').css('height', $hWindows + 'px');
+                                $(window).resize(function () {
+                                    location.reload();
+                                });
+                         }
+                        
+                    }
+                });
+            })(jQuery);
+        });
+    </script>
+<?php endif; ?>
+
+
+<script type="text/javascript">
+    require([
+        'jquery'
+    ], function (jQuery) {
+        (function ($) {
+            $('.insight-accordion .title').click(function(){
+                if($(this).hasClass('active')){
+                    $(this).removeClass('active');
+                    $(this).siblings('.content').slideUp();
+                }else{
+                    $('.insight-accordion .title').removeClass('active');
+                    $(this).addClass('active');
+                    $('.insight-accordion .content').slideUp();
+                    $(this).siblings('.content').slideDown();
+                }
+            });
+        })(jQuery);
+    });
+</script>

@@ -1,0 +1,124 @@
+<?php 
+$poData = $block->getSupplierPo();
+$invoice = $block->getInvoice();
+$invOrders = $block->getLinkOrders();
+?>
+<div id="invoice-orders-section-tab">
+	<section id="associate-po-order-section" class="admin__page-section invoice-po-link">
+		<div class="admin__page-section-title">
+	        <span class="title"><?php /* @escapeNotVerified */ echo __('Link order') ?></span>
+	    </div>
+	    <?php if($poData->getSize() > 0):?>
+	    <div id="associate-po-order" class="admin__table-wrapper">
+		    <table class="data-table admin__table-primary">
+		        <thead>
+		            <tr class="headings">
+		                <th><span><?php /* @noEscape */ echo __('Order (date & reference & total to apply & status)') ?></span></th>
+		                <th><span><?php /* @noEscape */ echo __('Total') ?></span></th>
+		                <th><span><?php /* @noEscape */ echo __('Action') ?></span></th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		        	
+	                <tr>
+		                <td>
+		                	<select id="invoice-po-id" name="linkorder[po_id]" class="admin__control-select">
+				                <?php foreach ($poData as $po): ?>
+				                	<?php 
+				                	$po_total = $po->getpo_grandtotal() - $invoice->getbsi_total_applied();
+				                	$total = $invoice->getCurrency()->format($po_total, [], false);
+				                	$date = date('Y-m-d', strtotime($po->getpo_created_at()));
+				                	$poHtml = $date.' & '.$po->getpo_reference().' & '.$total.' & '.$po->getpo_status();?>
+				                    <option value="<?php echo $block->escapeHtml($po->getId()); ?>">
+				                        <?php echo $block->escapeHtml($poHtml); ?>
+				                    </option>
+				                <?php endforeach ?>
+		            		</select>
+		                </td>
+		                <td><input id="invoice-po-total" name="linkorder[po_total]" value="" class="input-text admin__control-text" type="number"></td>
+		                <td><input type="button" value="Associate" class="action-save action-secondary" id="addPoToInvoice"></td>
+		            </tr>
+	            </tbody>
+		    </table>
+		</div>
+		<?php else: ?>
+	        <span style="padding-left: 270px;"><?php echo __('There is no purchase order exist for this supplier.'); ?></span>
+	    <?php endif; ?>
+	</section>
+
+	<section class="admin__page-section invoice-po-link-data">
+		<div class="admin__page-section-title">
+	        <span class="title"><?php /* @escapeNotVerified */ echo __('Related orders') ?></span>
+	    </div>
+
+	    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+	        <table class="data-grid" id="cache_grid_table">
+	            <thead>
+	                <tr>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Date'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Reference'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Supplier reference'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Status'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Total'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Amount applied'); ?></span></th>
+	                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Remove'); ?></span></th>
+	                </tr>
+	            </thead>
+
+	            <tbody>
+	            	<?php if($invOrders->getSize() > 0):?>
+		                <?php foreach($invOrders as $order): ?>
+		                	<?php $po_url = $this->getUrl('supplier/order/edit/', ['po_id' => $order->getpo_id()]);?>
+		                    <tr id="tr_<?php echo $order->getId(); ?>">
+		                        <td class="a-center"><?php echo $order->getpo_created_at(); ?></td>
+		                        <td class="a-left"><a href="<?php echo $po_url;?>"><?php echo $order->getpo_reference(); ?></a></td>
+		                        <td class="a-left"><?php echo $order->getpo_supplier_reference(); ?></td>
+		                        <td class="a-center"><?php echo $order->getpo_status(); ?></td>
+		                        <td class="a-center"><?php echo $order->getpo_grandtotal(); ?></td>
+		                        <td class="a-center"><input name="order[<?php echo $order->getId(); ?>][bsio_total]" value="<?php echo $order->getbsio_total(); ?>" class="required-entry input-text admin__control-text" type="number"></td>
+		                        <td class="a-center"><input name="order[<?php echo $order->getId(); ?>][remove]" value="1" type="checkbox"></td>
+		                    </tr>
+		                <?php endforeach; ?>
+	                <?php else: ?>
+	                	<tr>
+	                        <td colspan="7" class="a-center"><?php echo __('No result found.'); ?></td>
+	                    </tr>
+	                <?php endif; ?>
+	            </tbody>
+	        </table>
+	    </div> 
+	</section>
+</div>
+
+<script type="text/javascript">
+    require(
+    	["jquery"],
+    	function($) {
+	        $(document).ready(function() {
+	        	/*Associate invoice with po */
+	        	$('#addPoToInvoice').on('click', function(){
+	        		var poId = $('#associate-po-order').find('#invoice-po-id').val();
+	        		var amount = $('#associate-po-order').find('#invoice-po-total').val();
+	                var url = "<?php /* @escapeNotVerified */ echo $block->getSubmitUrl() ?>";
+			        if(amount == ''){
+			        	alert('Please insert total.');
+			        	return false;
+			        }
+	                $.ajax({
+	                    url: url,
+	                    showLoader: true,
+	                    data: {
+	                    	'po_id':poId,
+	                    	'po_total':amount
+	                    },   
+	                    dataType: 'json',                
+	                    type: 'POST'
+		            }).done(function(data) {
+		            	$('#invoice-orders-section-tab').html(data);
+		            }); 
+	        	});
+	        });
+    	}
+    );
+
+</script>

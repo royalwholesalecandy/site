@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <organizer>
+            <email_notification>
+                <enable>1</enable>
+            </email_notification>
+            <general>
+                <!-- we dont include default values because magento 2.1 uses serialize, magento 2.2 uses json_encode .....
+                <categories><![CDATA[a:4:{s:18:"_1516262823992_992";a:1:{s:10:"categories";s:5:"Sales";}s:18:"_1516262832967_967";a:1:{s:10:"categories";s:10:"Purchasing";}s:17:"_1516262846095_95";a:1:{s:10:"categories";s:9:"Marketing";}s:18:"_1516262854302_302";a:1:{s:10:"categories";s:16:"Customer service";}}]]></categories>
+                <priorities><![CDATA[a:3:{s:18:"_1516272577981_981";a:1:{s:10:"priorities";s:3:"Low";}s:18:"_1516272580885_885";a:1:{s:10:"priorities";s:6:"Normal";}s:18:"_1516272593517_517";a:1:{s:10:"priorities";s:4:"High";}}]]></priorities>
+                <statuses><![CDATA[a:4:{s:18:"_1516272613837_837";a:1:{s:8:"statuses";s:3:"New";}s:18:"_1516272624237_237";a:1:{s:8:"statuses";s:7:"Pending";}s:18:"_1516272629836_836";a:1:{s:8:"statuses";s:11:"In progress";}s:18:"_1516272636708_708";a:1:{s:8:"statuses";s:4:"Done";}}]]></statuses>
+                -->
+                <categories></categories>
+                <priorities></priorities>
+                <statuses></statuses>
+            </general>
+        </organizer>
+    </default>
+</config>

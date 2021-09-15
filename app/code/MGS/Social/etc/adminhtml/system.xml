@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="mgs" translate="label" sortOrder="600">
+            <label>MGS</label>
+        </tab>
+        <section id="social" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60">
+            <class>separator-top</class>
+            <label>Social</label>
+            <tab>mgs</tab>
+            <resource>MGS_Social::config_social</resource>
+            <group id="facebook_settings" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                <label>Facebook Settings</label>
+                <field id="active" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>App ID</label>
+                    <validate>required-entry</validate>
+                    <comment><![CDATA[<a href="https://developers.facebook.com/" target="_bank">Get App ID</a>]]></comment>
+					<depends>
+						<field id="active">1</field>
+					</depends>
+                </field>
+                <field id="client_secret" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                    <label>App Secret</label>
+                    <validate>required-entry</validate>
+					<depends>
+						<field id="active">1</field>
+					</depends>
+                </field>
+                <group id="facebook_page_plugin_settings" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                    <label>Page Plugin</label>
+                    <comment><![CDATA[The Page plugin lets you easily embed and promote any Facebook Page on your website. Just like on Facebook, your visitors can like and share the Page without leaving your site.]]></comment>
+                    <field id="show_title" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="11">
+                        <label>Show Title</label>
+                        <config_path>social/facebook_page_plugin_settings/show_title</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="title" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="12">
+                        <label>Title</label>
+                        <config_path>social/facebook_page_plugin_settings/title</config_path>
+                        <depends>
+                            <field id="show_title">1</field>
+                        </depends>
+                    </field>
+                    <field id="href" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                        <label>Facebook Page URL</label>
+                        <config_path>social/facebook_page_plugin_settings/href</config_path>
+                        <comment><![CDATA[The URL of the Facebook Page.]]></comment>
+                    </field>
+                    <field id="width" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                        <label>Width</label>
+                        <config_path>social/facebook_page_plugin_settings/width</config_path>
+                        <comment><![CDATA[The pixel width of the plugin. Min. is <code style="color: #eb5202;">180</code> & Max. is <code style="color: #eb5202;">500</code>.]]></comment>
+                    </field>
+                    <field id="height" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+                        <label>Height</label>
+                        <config_path>social/facebook_page_plugin_settings/height</config_path>
+                        <comment><![CDATA[The pixel height of the plugin. Min. is <code style="color: #eb5202;">70</code>.]]></comment>
+                    </field>
+                    <field id="tabs" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60">
+                        <label>Tabs</label>
+                        <config_path>social/facebook_page_plugin_settings/tabs</config_path>
+                        <comment><![CDATA[Tabs to render i.e. <code style="color: #eb5202;">timeline, events, messages</code>. Use a comma-separated list to add multiple tabs, i.e. <code style="color: #eb5202;">timeline, events</code>.]]></comment>
+                    </field>
+                    <field id="hide_cover" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="70">
+                        <label>Hide Cover</label>
+                        <config_path>social/facebook_page_plugin_settings/hide_cover</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Hide cover photo in the header.]]></comment>
+                    </field>
+                    <field id="show_facepile" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="80">
+                        <label>Show Facepile</label>
+                        <config_path>social/facebook_page_plugin_settings/show_facepile</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Show profile photos when friends like this.]]></comment>
+                    </field>
+                    <field id="hide_cta" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="90">
+                        <label>Hide Call To Action</label>
+                        <config_path>social/facebook_page_plugin_settings/hide_cta</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Hide the custom call to action button (if available).]]></comment>
+                    </field>
+                    <field id="small_header" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                        <label>Small Header</label>
+                        <config_path>social/facebook_page_plugin_settings/small_header</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Use the small header instead.]]></comment>
+                    </field>
+                    <field id="adapt_container_width" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                        <label>Fit Inside</label>
+                        <config_path>social/facebook_page_plugin_settings/adapt_container_width</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Try to fit inside the container width.]]></comment>
+                    </field>
+                </group>
+            </group>
+            <group id="twitter_settings" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                <label>Twitter Settings</label>
+                <field id="active" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Consumer Key</label>
+                    <validate>required-entry</validate>
+                    <comment><![CDATA[<a href="https://apps.twitter.com/" target="_bank">Get Consumer Key</a>]]></comment>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="client_secret" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                    <label>Consumer Secret</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+				<field id="client_token" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+					<label>Token</label>					
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="client_tokenSecret" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+					<label>Token Secret</label>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="client_twitteruser" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60">
+					<label>Twitter User</label>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="client_blocktitle" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="70">
+					<label>Title</label>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				
+				<field id="client_count" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="80">
+					<label>Count display</label>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="client_truncate" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="90">
+					<label>Character Count</label>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+            </group>
+			<group id="instagram_setting" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Instagram Settings</label>
+                <field id="enable_instagram" translate="label" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+				<field id="access_token" translate="label" type="text" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+					<depends>
+                        <field id="enable_instagram">1</field>
+                    </depends>
+					<comment><![CDATA[<a target="_blank" href="http://instagram.pixelunion.net/">Generate Access Token</a>]]></comment>
+                </field>
+            </group>
+			<group id="flickr_setting" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Flickr Settings</label>
+                <field id="enable_flickr" translate="label" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+				<field id="api_key" translate="label" type="text" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Api Key</label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>
+					<comment><![CDATA[<a target="_blank" href="https://www.flickr.com/services/apps/create/">Create Api Key Flickr</a>]]></comment>
+                </field>
+				
+				<field id="user_id" translate="label" type="text" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>User Id</label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>
+					<comment><![CDATA[<a target="_blank" href="https://www.flickr.com/services/apps/create/">Create Api Key Flickr</a>]]></comment>
+                </field>
+								
+				<field id="count" translate="label" type="text" sortOrder="4"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Count Image</label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>					
+                </field>
+				
+				<field id="width" translate="label" type="text" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Width Image</label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>					
+                </field>
+				<field id="height" translate="label" type="text" sortOrder="6"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Height Image</label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>					
+                </field>
+				<field id="album_id" translate="label" type="text" sortOrder="7"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Album Id </label>
+					<depends>
+                        <field id="enable_flickr">1</field>
+                    </depends>					
+                </field>
+				
+            </group>
+        </section>
+    </system>
+</config>

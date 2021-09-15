@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+    <body>
+       <!--  <referenceContainer name="content">
+            <block class="Wanexo\ProductCollection\Block\HomeproductBlock" template="Wanexo_ProductCollection::homeproduct/product.phtml" />
+        </referenceContainer> -->
+    </body>
+
+</page>

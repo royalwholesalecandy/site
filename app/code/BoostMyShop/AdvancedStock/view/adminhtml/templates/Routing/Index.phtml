@@ -1,0 +1,119 @@
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="jQuery('#edit_form').submit();"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Save'); ?></span>
+        </button>
+    </div>
+</div>
+
+<p align="right"><i><?php echo __('Note : If you change the sales assignments, you must run a stock refresh using command line  php bin/magento bms_advancedstock:refresh_sellable_quantity '); ?></i></p>
+
+<form method="POST" name="edit_form" id="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="cache_grid_table">
+
+            <thead>
+                <tr>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Website'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Store'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Shipping warehouse selection'); ?></span></th>
+                    <?php foreach($this->getWarehouses() as $warehouse): ?>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Warehouse').' '.$warehouse->getw_name(); ?></span></th>
+                    <?php endforeach; ?>
+                </tr>
+            </thead>
+
+                <?php foreach($this->getWebsites() as $websiteId => $websiteName): ?>
+                    <?php foreach($this->getStoreGroups($websiteId) as $groupId => $groupName): ?>
+                        <?php foreach($this->getStores($groupId) as $storeId => $storeName): ?>
+                            <?php $prefix = 'routing['.$websiteId.']['.$groupId.']['.$storeId.']'; ?>
+                            <?php $prefixForId = str_replace(array('[', ']'), array('', ''), $prefix); ?>
+                            <?php if ($groupId > 0) continue; ?>
+                            <input type="hidden" name="<?php echo $prefix; ?>[store][dummy]" value="1" />
+                            <tr>
+                                <td class="a-left"><?php echo $websiteName; ?></td>
+                                <td class="a-left">
+                                    <?php if ($groupId): ?>
+                                        <?php echo $groupName; ?>
+                                        <?php if ($storeId): ?>
+                                            > <?php echo $storeName; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+
+                                </td>
+
+                                <!-- route mode -->
+                                <td class="a-left">
+                                    <?php if ($websiteId != 0): ?>
+                                        <input type="checkbox"
+                                               name="<?php echo $prefix; ?>[store][rs_use_default]"
+                                               onclick="syncCheckboxVisibility(this, '<?php echo $prefixForId; ?>routing_mode_value');"
+                                               value="1" <?php echo ($this->getRoutingValue($websiteId, $groupId, $storeId, 'rs_use_default') ? 'checked="1"' : ''); ?>>
+                                                Use configuration from <?php echo $this->getParentName($websiteName, $groupName, $storeName); ?>
+                                        <br>
+                                    <?php else: ?>
+                                        <input type="hidden" name="<?php echo $prefix; ?>[store][rs_use_default]" value="0">
+                                    <?php endif; ?>
+                                    <?php echo $this->getRoutingModeDropDown($prefix.'[store][rs_routing_mode]', $prefixForId.'routing_mode_value', $this->getRoutingValue($websiteId, $groupId, $storeId, 'rs_routing_mode'), $this->getRoutingValue($websiteId, $groupId, $storeId, 'rs_use_default') != 1); ?>
+                                </td>
+
+                                <!-- warehouses -->
+                                <?php foreach($this->getWarehouses() as $warehouse): ?>
+                                    <input type="hidden" name="<?php echo $prefix; ?>[warehouse][<?php echo $warehouse->getId(); ?>][dummy]" value="1" />
+                                    <td class="a-left">
+                                        <?php if ($websiteId != 0): ?>
+                                            <input type="checkbox"
+                                                   id="<?php echo $prefix; ?>[configuration_use_default]"
+                                                   name="<?php echo $prefix; ?>[warehouse][<?php echo $warehouse->getId(); ?>][rsw_use_default]"
+                                                   onclick="syncCheckboxVisibility(this, '<?php echo $prefixForId; ?><?php echo $warehouse->getId(); ?>_configuration');"
+                                                   value="1" <?php echo ($this->getWarehouseValue($websiteId, $groupId, $storeId, $warehouse->getId(), 'rsw_use_default') ? 'checked="1"' : ''); ?>>
+                                                    <?php echo __('Use configuration from '); ?> <?php echo $this->getParentName($websiteName, $groupName, $storeName); ?>
+                                            <br>
+                                            <?php else: ?>
+                                                <input type="hidden" name="<?php echo $prefix; ?>[warehouse][<?php echo $warehouse->getId(); ?>][rsw_use_default]" value="0">
+                                        <?php endif; ?>
+                                        <table style="border-style: none; <?php echo ($this->getWarehouseValue($websiteId, $groupId, $storeId, $warehouse->getId(), 'rsw_use_default') == "1" ? 'display: none;' : ''); ?>"
+                                               align="center"
+                                               id="<?php echo $prefixForId.$warehouse->getId().'_configuration'; ?>">
+                                            <tr>
+                                                <td><?php echo __('Use for sales'); ?></td>
+                                                <td><?php echo $this->getYesNoDropDown($prefix.'[warehouse]['.$warehouse->getId().'][rsw_use_for_sales]', $this->getWarehouseValue($websiteId, $groupId, $storeId, $warehouse->getId(), 'rsw_use_for_sales')); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo __('Use for shipment'); ?></td>
+                                                <td><?php echo $this->getYesNoDropDown($prefix.'[warehouse]['.$warehouse->getId().'][rsw_use_for_shipments]', $this->getWarehouseValue($websiteId, $groupId, $storeId, $warehouse->getId(), 'rsw_use_for_shipments')); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo __('Priority'); ?></td>
+                                                <td><?php echo $this->getPriorityDropDown($prefix.'[warehouse]['.$warehouse->getId().'][rsw_priority]', $this->getWarehouseValue($websiteId, $groupId, $storeId, $warehouse->getId(), 'rsw_priority')); ?></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            <tbody>
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+</form>
+
+<script>
+    function syncCheckboxVisibility(checkbox, controlId)
+    {
+        if (checkbox.checked)
+            document.getElementById(controlId).style.display = 'none';
+        else
+            document.getElementById(controlId).style.display = '';
+    }
+</script>

@@ -1,0 +1,125 @@
+
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php  
+$_productCollection = $this->getLoadedProductCollection();
+ //echo $_productCollection;die;
+//$_helper = $this->helper('Magento\Catalog\Helper\Output');
+//echo count($_productCollection);
+?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?php echo __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+<?php echo $this->getToolbarHtml();?>
+<?php //echo $this->getPagerHtml();?>
+<?php
+    if ($block->getMode() == 'grid') {
+        $viewMode = 'grid';
+        $image = 'category_page_grid';
+        $showDescription = false;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    } else {
+        $viewMode = 'list';
+        $image = 'category_page_list';
+        $showDescription = true;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIEW;
+    }
+?>
+<div class="products wrapper <?php echo $viewMode; ?> products-<?php echo $viewMode; ?>">
+   <ol class="products list items product-items">
+<?php foreach($_productCollection as $_product): ?>
+     <li class="item product product-item">
+          <div data-container="product-grid" class="product-item-info">
+               <?php
+               $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+               $productImage = $_imagehelper->init($_product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(240,300)->getUrl();
+               ?>
+               <a tabindex="-1" class="product photo product-item-photo" href="<?php echo $_product->getProductUrl() ?>">
+               <span style="width:240px;" class="product-image-container">
+                   <span style="padding-bottom: 125%;" class="product-image-wrapper">
+               <img src="<?php echo $productImage;?>" class="product-image-photo"></span>
+               </span>
+               </a>
+<div class="product details product-item-details">
+     <strong class="product name product-item-name">
+        <a href="<?php echo $_product->getProductUrl() ?>" class="product-item-link"><?php echo $_product->getName() ?></a>
+     </strong>
+<div data-product-id="4" data-role="priceBox" class="price-box price-final_price">
+     <p class="minimal-price">
+          <span class="price-container tax weee">
+                <span class="price-wrapper " data-price-type="" data-price-amount="30">
+                    <span class="price"><?php echo $block->getProductPrices($_product) ?></span>
+                    <?php if($_product->getSpecialPrice()): ?>
+                      <?php echo $this->helper('Wanexo\Myfunction\Helper\Data')->specialPriceDiscount($_product);?>
+                      <?php endif;?>
+                </span>
+          </span>
+     </p>
+</div>
+<div class="product-item-inner">
+  <div class="product actions product-item-actions">
+     <div class="actions-primary">
+          <?php $postParams = $block->getAddToCartPost($_product); ?>     
+          <form data-role="tocart-form" action="<?php  echo $postParams['action']; ?>" method="post">
+               <input type="hidden" name="product" value="<?php  echo $postParams['data']['product']; ?>">
+               <input type="hidden" name="<?php  echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+               <?php echo $block->getBlockHtml('formkey')?>
+               <button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary">
+               <span><?php echo __('Add to Cart') ?></span>
+               </button>
+          </form>
+     </div>
+<div class="actions-secondary" data-role="add-to-links">
+     <a href="#"
+          class="action towishlist"
+          title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+          aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+          data-post='<?php echo $block->getAddToWishlistParam($_product); ?>'
+          data-action="add-to-wishlist"
+          role="button">
+           <span><?php echo __('Add to Wish List') ?></span>
+     </a>
+<?php
+$compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+?>
+     <a href="#"
+        class="action tocompare"
+        title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+        aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+        data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
+        role="button">
+         <span><?php echo __('Add to Compare') ?></span>
+     </a>
+</div>
+      </div>
+    </div>
+   </div>
+ </div>
+</li>
+<?php endforeach; ?>
+     </ol>
+  </div>  
+<?php echo $this->getToolbarHtml();?>
+<script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+</script>
+<?php endif; ?>

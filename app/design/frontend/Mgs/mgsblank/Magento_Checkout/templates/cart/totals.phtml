@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Shopping cart totals template
+ * @var $block \Magento\Checkout\Block\Cart\Totals
+ */
+?>
+<div id="cart-totals" class="cart-totals boxed-checkout margin-bottom20" data-bind="scope:'block-totals'">
+	<div class="block-title">
+		<h3 id="block-discount-heading" role="heading" aria-level="2" class="title"><span><?php echo __('Totals') ?></span></h3>
+	</div>
+	<div class="content">
+		<!-- ko template: getTemplate() --><!-- /ko -->
+		<script type="text/x-magento-init">
+				{
+					"#cart-totals": {
+						"Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+					}
+				}
+		</script>
+	</div>
+</div>

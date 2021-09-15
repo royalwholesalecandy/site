@@ -1,0 +1,63 @@
+<div align="right">
+    <button title="Orders" type="button" onclick="packingObj.saveOrderItem(<?php echo $this->getInProgressItem()->getId(); ?>);" class="action-default scalable action-primary">
+        <span><?php echo __('Save'); ?></span>
+    </button>
+
+
+</div>
+
+<table border="0" width="100%">
+    <tr>
+        <td width="180">
+            <img src="<?php echo $this->getImageUrl(); ?>" width="150" height="150">
+        </td>
+        <td>
+            <h1><?php echo $this->getProduct()->getSku(); ?></h1>
+            <h1><?php echo $this->getProduct()->getName(); ?></h1>
+            <p><?php echo $this->getOptionsAsText(); ?></p>
+        </td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<form id="frm_edit_item">
+    <input type="hidden" name="item_id" value="<?php echo $this->getInProgressItem()->getId(); ?>">
+    <input type="hidden" name="new_qty" id="edit_item_new_qty" value="<?php echo $this->getCurrentQty(); ?>">
+    <input type="hidden" name="new_sku" id="edit_item_new_sku">
+    <input type="hidden" id="FORM_KEY" value="<?php echo $this->getFormKey(); ?>">
+
+    <h1><?php echo __('Edit product quantity'); ?></h1>
+
+    <table border="0" width="100%">
+
+        <tr>
+            <td width="50%" align="center">
+                <h1>
+                    <input type="button" value="-" onclick="packingObj.decreaseOrderItemQty();">
+                    <span id="div_item_edit_qty"><?php echo $this->getCurrentQty(); ?></span>
+                    <input type="button" value="+" onclick="packingObj.increaseOrderItemQty();">
+                </h1>
+            </td>
+        </tr>
+
+    </table>
+
+    <p>&nbsp;</p>
+
+
+    <h1><?php echo __('Substitute product'); ?> : <span id="div_substitution_product_description"><?php echo __('No product selected'); ?></span></h1>
+
+    <div id="substitution_options">
+
+    </div>
+
+    <p></p>
+
+</form>
+
+<?php echo $this->getChildHtml('substitution_grid'); ?>
+
+
+
+

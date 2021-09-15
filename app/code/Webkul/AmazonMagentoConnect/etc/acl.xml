@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Webkul_AmazonMagentoConnect::manager" title="Amazon Magento Connect" sortOrder="10" >
+                    <resource id="Webkul_AmazonMagentoConnect::manage_amazon_accounts" title="Amazon Magento Connect" sortOrder="10" >
+                        <resource id="Webkul_AmazonMagentoConnect::Accounts" title="Manage Amazon Accounts" sortOrder="30"/>
+                        <resource id="Webkul_AmazonMagentoConnect::Product" title="Map Products" sortOrder="10"/>
+                        <resource id="Webkul_AmazonMagentoConnect::Order" title="Map Orders" sortOrder="20"/>
+                        <resource id="Webkul_AmazonMagentoConnect::ProductToAmazon" title="Import To Amazon" sortOrder="30"/>
+                    </resource>
+                    <resource id="Webkul_AmazonMagentoConnect::price_rule" title="Amazon Product Price Rule" sortOrder="10" />
+                    <resource id="Webkul_AmazonMagentoConnect::attribute_map" title="Attribute Map" sortOrder="10" />
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Webkul_AmazonMagentoConnect::config_amazonmagentoconnect" title="Amazon Connect" sortOrder="50" >
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>   
+        </resources>
+    </acl>
+</config>

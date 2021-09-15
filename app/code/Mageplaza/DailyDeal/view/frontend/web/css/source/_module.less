@@ -1,0 +1,233 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_DailyDeal
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+//Countdown CSS
+.limit-time-label {
+  display: block;
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+#clockdiv {
+  font-family: sans-serif;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 20px;
+}
+
+#clockdiv > div {
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#clockdiv div > span {
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+.qty-items {
+  margin-top: 10px;
+  border-bottom: solid 1px #cccccc;
+  border-top: solid 1px #cccccc;
+}
+
+.remaining-qty-items {
+  display: inline-block;
+  margin: 10px 15px 10px 0px;
+  padding-right: 15px;
+  border-right: solid 1px #cecece;
+}
+
+.count-items {
+  font-weight: 700;
+}
+
+.sold-qty-items {
+  display: inline-block;
+}
+
+.items-text {
+  font-size: 12px;
+}
+
+span.mpdailydeal-percent-underprice {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 12px;
+  height: 18px;
+  padding: 3px 8px;
+  margin: 5px 0 5px 0;
+}
+
+.mpdailydeal-percent-above-image {
+  position: absolute;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 7px 15px;
+}
+
+.product.media {
+  position: relative;
+}
+
+.mpdailydeal-percent-cat-above-image {
+  position: absolute;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 12px;
+}
+
+//Widget Deal Css
+li.mpdailydeal-product-item.product-item {
+  padding-bottom: 0px;
+}
+
+ol.mpdailydeal-product-items {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.deal-product-item-info {
+  width: 100%;
+}
+
+.widget-remaining-qty-item {
+  font-size: 12px;
+}
+
+.widget-sold-qty-item {
+  font-size: 12px;
+}
+
+//CSS Widget
+.mpdailydeal-widget-title {
+  text-align: center;
+}
+
+li.widget-deal-product-item.product-item {
+  display: inline-block;
+}
+
+.mpdailydeal-widget-label {
+  position: absolute;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 12px;
+  z-index: 10;
+}
+
+//Float Css
+.product-item .price-box {
+  margin: 21px 0 0px !important;
+}
+
+.owl-carousel {
+  position: relative;
+}
+
+.owl-prev,
+.owl-next {
+  color: #fafafa !important;
+  background-color: transparent !important;
+  position: absolute;
+  top: 35%;
+  transition: all ease-in-out 0.4s;
+}
+
+.mpdailydeal-product-items:hover .owl-prev {
+  color: #999 !important;
+}
+
+.mpdailydeal-product-items:hover .owl-next {
+  color: #999 !important;
+}
+
+.owl-prev {
+  left: 0;
+}
+
+.owl-next {
+  right: 0;
+}
+
+.column.main .product-item {
+  padding-left: 13%;
+}
+
+a.product.photo.deal-product-item-photo {
+  display: inline-block;
+  width: 25%;
+  padding-right: 20px;
+}
+
+.mpdailydeal-float-block {
+  z-index: 99999;
+  width: 20%;
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  background-color: #fafafa;
+}
+
+.product.details.deal-product-item-details {
+  position: absolute;
+  display: inline-block;
+  max-width: 60%;
+}
+
+.product-item .price-box {
+  margin: 3px 0 0px !important;
+}
+
+.mpdailydeal-title-float {
+  color: #FFF;
+  background: #666;
+  padding: 3px 0 3px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+span.mpdailydeal-float-heading {
+  margin: 10px;
+}
+
+#float_close {
+  position: absolute;
+  right: 7px;
+  top: -2px;
+  z-index: 99;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}

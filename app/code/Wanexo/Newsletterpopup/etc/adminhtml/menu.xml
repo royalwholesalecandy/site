@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Wanexo_Newsletterpopup::newsletterpopup" 
+		title="Newsletter Popup" 
+		module="Wanexo_Newsletterpopup" 
+		sortOrder="200" 
+		resource="Wanexo_Newsletterpopup::newsletter" 
+		parent="Wanexo_Ext::wanexo" />
+		
+        <add id="newsletterpopup::sub_menu"
+		title="Newsletter Popup Settings" 
+		module="Wanexo_Newsletterpopup" 
+		sortOrder="901" 
+		action="adminhtml/system_config/edit/section/wanexo_np"  
+		resource="Wanexo_Newsletterpopup::sub_menu" 
+		parent="Wanexo_Newsletterpopup::newsletterpopup" /> 
+    </menu>
+</config>

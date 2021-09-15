@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Language switcher template
+ */
+?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php if (count($block->getStores())>1): ?>
+<?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : ''?>
+<div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language<?php /* @escapeNotVerified */ echo $id?>">
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-language-trigger<?php /* @escapeNotVerified */ echo $id?>">
+           <?php if($themeHelper->getStoreConfig('mgstheme/general/header') == 'header_3'): ?>
+				<span class="view-<?php echo $block->escapeHtml($block->getCurrentStoreCode()) ?>">
+					<i class="ion-earth"></i>
+					<span><?php echo $block->escapeHtml($block->getStoreName()) ?></span>
+				</span>
+			<?php else: ?>
+				<span class="view-<?php echo $block->escapeHtml($block->getCurrentStoreCode()) ?>">
+					<img src="<?php echo $block->getViewFileUrl('images/flags/'.$block->escapeHtml($block->getCurrentStoreCode()).'.png');?>" alt=""/>
+					<span class="text"><?php echo $block->escapeHtml($block->getStoreName()) ?></span>
+				</span>
+				<i class="ion-chevron-down"></i>
+			<?php endif;?>
+        </div>
+        <ul style="display: none;" class="dropdown switcher-dropdown"
+            data-mage-init='{"dropdownDialog":{
+                "appendTo":"#switcher-language<?php /* @escapeNotVerified */ echo $id ?> > .options",
+                "triggerTarget":"#switcher-language-trigger<?php /* @escapeNotVerified */ echo $id ?>",
+                "closeOnMouseLeave": false,
+				"closeOnClickOutside": false,
+				"createTitleBar": false,
+                "triggerClass":"active",
+                "parentClass":"active",
+				"defaultDialogClass": "dropdown-menu",
+                "buttons":null}}'>
+            <?php foreach ($block->getStores() as $_lang): ?>
+                <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                    <li class="view-<?php echo $block->escapeHtml($_lang->getCode()); ?> switcher-option">
+                        <a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getTargetStorePostData($_lang); ?>'>
+                          <img src="<?php echo $block->getViewFileUrl('images/flags/'.$block->escapeHtml($_lang->getCode()).'.png');?>" alt=""/><?php echo $block->escapeHtml($_lang->getName()) ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

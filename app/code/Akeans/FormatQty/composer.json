@@ -1,0 +1,18 @@
+{
+  "name": "akeans/formatqty",
+  "description": "remove decimal for qty",
+  "version": "100.0.0",
+  "license": "MIT",
+  "require": {
+    "php": "~5.5.0|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
+  },
+  "type": "magento2-module",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Akeans\\FormatQty\\": ""
+    }
+  }
+}

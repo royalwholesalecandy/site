@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="catalog_product_load_after">
+        <observer name="mageworx_add_customer_prices_to_product" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToProduct"/>
+    </event>
+
+    <event name="catalog_product_collection_load_after">
+        <observer name="mageworx_add_customer_prices_to_collection" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToCollection"/>
+    </event>
+</config>

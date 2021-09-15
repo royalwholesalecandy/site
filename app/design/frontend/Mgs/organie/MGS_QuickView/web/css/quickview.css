@@ -1,0 +1,67 @@
+.box-more-details #product-more-details-button {width: 100%; padding: 14px 17px; font-size: 1.8rem; text-align: center}
+.mgs-quickview-catalog-product-view .box-tocart .action.tocart {width: 100%;}
+.page-products .product-item .mgs-quickview {display: none;}
+.mgs-quickview-catalog-product-view .reviews-actions .add {display: none;}
+.mfp-iframe-scaler iframe {
+    background: url('../images/loader.gif') no-repeat scroll center center #fff !important;
+
+}
+/* overlay at start */
+.mfp-fade.mfp-bg {
+    opacity: 0;
+
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
+button.mfp-close {
+    color: #222 !important;
+    right: 20px !important;
+    top: 0px !important;
+    width: 44px !important;
+    z-index: 999;
+}
+.mgs-quickview-catalog-product-view{
+    padding-top: 40px;
+}
+.mgs-quickview-catalog-product-view .product-details-view{
+    margin-bottom: 40px;   
+}
+.mgs-quickview-catalog-product-view .fotorama--fullscreen{
+    margin-top: 40px !important;
+}
+.mgs-quickview-catalog-product-view .page-main{
+    width: 100% !important;
+    padding: 0 15px;    
+    min-height: auto !important;    
+}
+.mgs-quickview-catalog-product-view .column.main{
+    width: 100%;
+}
+@media (min-width: 640px) {
+    .page-products .products-grid .product-item {position: relative;}
+}

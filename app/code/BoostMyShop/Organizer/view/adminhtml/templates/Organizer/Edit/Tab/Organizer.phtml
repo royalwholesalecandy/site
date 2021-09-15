@@ -1,0 +1,18 @@
+<section class="admin__page-section edit-organizer-tab">
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Organizer'); ?></span>
+        <?php 
+        $type = $block->getCurrentObjectType();
+        $id = $block->getCurrentObject()->getId(); 
+        ?>
+        <div align="right">
+            <button id="add_new_organizer" title="<?php echo __('Add New'); ?>" type="button" class="action-default scalable add primary" 	onclick="organizer.organizerPopup(null, <?php echo $id ?>, '<?php echo $type ?>')" 
+               data-ui-id="organizer-organizer-listing-add-new-organizer-button">
+		    	<span><?php echo __('Add New'); ?></span>
+			</button>
+        </div>
+    </div>
+    <?php echo $block->getOrganizerJs() ?>
+    <?php echo $block->getBaseUrl() ?>
+	<?php echo $block->getGridHtml() ?>
+</section>

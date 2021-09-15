@@ -1,0 +1,8 @@
+{
+  "name": "mageworx/module-customergrouppricesmeta",
+  "version": "1.2.0",
+  "type": "metapackage",
+  "require": {
+    "mageworx/module-customergroupprices": "1.2.0"
+  }
+}

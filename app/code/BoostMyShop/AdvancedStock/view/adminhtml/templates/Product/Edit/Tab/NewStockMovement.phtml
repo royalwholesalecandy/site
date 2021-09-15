@@ -1,0 +1,62 @@
+<form method="POST" action="<?php echo $this->getSubmitUrl(); ?>" id="frm_new_stock_movement">
+    <input type="hidden" name="stock_movement[product_id]" value="<?php echo $this->getProductId(); ?>">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+        <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+            <h3><?php echo __('Create a new stock movement'); ?></h3>
+
+            <table class="data-grid" id="newstockmovement_grid_table">
+                <thead>
+                    <tr>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('From'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('To'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Category'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Comments'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Create'); ?></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="a-center">
+                            <select name="stock_movement[sm_from_warehouse_id]">
+                                <option value=" "> </option>
+                                <?php foreach($this->getWarehouses() as $w): ?>
+                                    <option value="<?php echo $w->getId(); ?>"><?php echo $w->getWName(); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td class="a-center">
+                            <select name="stock_movement[sm_to_warehouse_id]">
+                                <option value=" "> </option>
+                                <?php foreach($this->getWarehouses() as $w): ?>
+                                    <option value="<?php echo $w->getId(); ?>"><?php echo $w->getWName(); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" size="3" value="1" name="stock_movement[sm_qty]">
+                        </td>
+                        <td class="a-center">
+                            <select name="stock_movement[sm_category]">
+                                <option value=""> </option>
+                                <?php foreach($this->getCategories() as $k => $v): ?>
+                                    <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" value="" name="stock_movement[sm_comments]">
+                        </td>
+                        <td align="center">
+                            <button type="button" class="action-primary" onclick="jQuery('#frm_new_stock_movement').submit();">
+                                <span data-bind="text: title">Create</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+</form>

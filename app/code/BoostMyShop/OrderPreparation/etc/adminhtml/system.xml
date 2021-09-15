@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="orderpreparation" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Order preparation</label>
+            <tab>boostmyshop</tab>
+            <resource>BoostMyShop_OrderPreparation::config</resource>
+            <group id="attributes" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Attributes</label>
+
+                <field id="barcode_attribute" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Barcode attribute</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\Attributes</source_model>
+                </field>
+
+                <field id="shelflocation_attribute" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Shelf location attribute</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\Attributes</source_model>
+                </field>
+
+                <field id="manufacturer_attribute" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Manufacturer attribute</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\Attributes</source_model>
+                </field>
+
+            </group>
+
+            <group id="steps" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Order preparation steps</label>
+
+                <field id="picking" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show picking list download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="packing" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show packing list download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="create" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show create shipments and invoices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="download" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show download invoices and packing slip</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="shipping" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show shipping step</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="picking" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Picking</label>
+
+                <field id="pdf_layout" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PDF Layout</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\PdfLayout</source_model>
+                </field>
+
+                <field id="display_options" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Print custom options</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="one_page_per_order" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Include single order picklist</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="include_global_pickinglist" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Include global picklist</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="group_bundle_items" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Group bundle items</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Applies only for Small font PDF Layout</comment>
+                </field>
+
+            </group>
+
+            <group id="packing" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Packing</label>
+
+                <field id="change_order_status_after_packing" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Change order status after packing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_state_processing" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Order status to define if state is processing</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\Status</source_model>
+                </field>
+                <field id="order_state_complete" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Order status to define if state is complete</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\CompleteState</source_model>
+                </field>
+
+                <field id="allow_partial" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Allow partial packing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="create_shipment" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Create order shipment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="create_invoice" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Create order invoice</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="invoice_only_shipped" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Invoice only shipped items</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="download_invoice" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Automatic invoice download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="download_shipment" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Automatic packing slip download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="download_shipping_label" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Automatic shipping label / carrier template download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="download" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Download documents</label>
+
+                <field id="invoice" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Include invoices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="shipment" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Include packing slips</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="status_mapping" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Order statuses mapping</label>
+
+                <field id="instock" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>In stock orders</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\OrderStatuses</source_model>
+                </field>
+
+                <field id="outofstock" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Out of stock orders</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\OrderStatuses</source_model>
+                </field>
+
+                <field id="holded" translate="label" type="multiselect" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Orders on hold</label>
+                    <source_model>BoostMyShop\OrderPreparation\Model\Config\Source\OrderStatuses</source_model>
+                </field>
+
+            </group>
+
+            <group id="addresslabel" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Address label</label>
+
+                <field id="label_width" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Label width</label>
+                    <comment>in cm</comment>
+                </field>
+
+                <field id="label_height" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Label height</label>
+                    <comment>in cm</comment>
+                </field>
+
+                <field id="text_size" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text size</label>
+                </field>
+
+                <field id="top_margin" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Top margin</label>
+                    <comment>in cm</comment>
+                </field>
+
+                <field id="left_margin" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Left margin</label>
+                    <comment>in cm</comment>
+                </field>
+
+            </group>
+
+        </section>
+    </system>
+</config>

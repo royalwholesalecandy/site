@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales_order_tabs">
+            <block class="BoostMyShop\AdvancedStock\Block\Sales\Order\View\Tab\AdvancedStock" name="sales_order_advancedstock"/>
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">order_advancedstock</argument>
+                <argument name="block" xsi:type="string">sales_order_advancedstock</argument>
+                <argument name="afterTabId" xsi:type="string">order_info</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

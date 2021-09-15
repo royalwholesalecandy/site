@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="erp.products.edit.tabs">
+            <block class="BoostMyShop\AdvancedStock\Block\ErpProduct\Edit\Tab\StockMovement" name="erp.products.edit.tabs.stockmovement"/>
+            <block class="BoostMyShop\AdvancedStock\Block\ErpProduct\Edit\Tab\OrdersToShip" name="erp.products.edit.tabs.orderstoship"/>
+            <block class="BoostMyShop\AdvancedStock\Block\ErpProduct\Edit\Tab\Children" name="erp.products.edit.tabs.children"/>
+
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">stockmovement</argument>
+                <argument name="block" xsi:type="string">erp.products.edit.tabs.stockmovement</argument>
+                <argument name="after" xsi:type="string">overview</argument>
+            </action>
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">orderstoship</argument>
+                <argument name="block" xsi:type="string">erp.products.edit.tabs.orderstoship</argument>
+                <argument name="after" xsi:type="string">overview</argument>
+            </action>
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">children</argument>
+                <argument name="block" xsi:type="string">erp.products.edit.tabs.children</argument>
+                <argument name="after" xsi:type="string">overview</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

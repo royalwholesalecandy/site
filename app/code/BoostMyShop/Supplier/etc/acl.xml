@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2014 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+
+            <resource id="Magento_Backend::admin">
+
+                <resource id="BoostMyShop_Supplier::main_menu" title="Supplier main menu">
+                    <resource id="BoostMyShop_Supplier::operations" title="Supplier operations">
+                        <resource id="BoostMyShop_Supplier::suppliers" title="Suppliers" />
+                        <resource id="BoostMyShop_Supplier::product_supplier" title="Product / Supplier association" />
+                        <resource id="BoostMyShop_Supplier::purchase_orders" title="Purchase orders" />
+                        <resource id="BoostMyShop_Supplier::transit" title="Products in transit" />
+                        <resource id="BoostMyShop_Supplier::replenishment" title="Replenishment" />
+                        <resource id="BoostMyShop_Supplier::supplier_invoice" title="Supplier Invoices" />
+                        <resource id="BoostMyShop_Supplier::supplier_payments" title="Supplier Payments" />
+                        <resource id="BoostMyShop_Supplier::configuration" title="Configuration" />
+                    </resource>
+                </resource>
+
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="BoostMyShop_Supplier::config" title="Supplier section" />
+                        </resource>
+                    </resource>
+                </resource>
+
+            </resource>
+
+        </resources>
+    </acl>
+</config>

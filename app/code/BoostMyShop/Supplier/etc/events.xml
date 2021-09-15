@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="erp_product_edit_main_figures">
+        <observer name="bms_supplier_erp_product_edit_main_figures" instance="BoostMyShop\Supplier\Observer\ErpProductEditMainFigures"/>
+    </event>
+
+    <event name="erp_product_edit_main_blocks">
+        <observer name="bms_supplier_erp_product_edit_main_blocks" instance="BoostMyShop\Supplier\Observer\ErpProductEditMainBlocks"/>
+    </event>
+
+    <event name="erp_product_edit_save">
+        <observer name="bms_supplier_erp_product_edit_save" instance="BoostMyShop\Supplier\Observer\ErpProductEditSave"/>
+    </event>
+
+</config>

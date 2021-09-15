@@ -1,0 +1,64 @@
+#messagePopupMask {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 980;
+}
+
+.messagePopup {
+    background: #ffffff none repeat scroll 0 0;
+    left: 50%;
+    padding: 35px;
+    position: fixed;
+    top: -50%;
+    transform: translate(-50%, 0px);
+	-webkit-transform: translate(-50%, 0px);
+    transition: top 0.5s ease 0s;
+	-webkit-transition: top 0.5s ease 0s;
+    width: 50%;
+    z-index: 990;
+	box-shadow: 0 0 48px 26px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 48px 26px rgba(0, 0, 0, 0.5);
+}
+.messagePopup.show{
+	top:0;
+}
+.messagetext {
+    font-size: 14px;
+    margin: 0;
+    padding: 20px 20px 20px 60px;
+	background-repeat:no-repeat;
+	background-position:11px 11px;
+	background-size:35px auto;
+}
+
+.messagetext.success {
+    background-image:url("../images/checked.svg");
+	background-color:#eef8ee;
+}
+
+.messagetext.error {
+    background-image:url("../images/cancel.svg");
+	background-color:#fedfdf;
+}
+
+.messagePopup a.close {
+    background: rgba(0, 0, 0, 0) url("../images/close_black.svg") no-repeat scroll 10px 10px / 15px auto;
+    cursor: pointer;
+    float: right;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    width: 40px;
+}
+.messagePopup a.close span {
+    font-size:0;
+}

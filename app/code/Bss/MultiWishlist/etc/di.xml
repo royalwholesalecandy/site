@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_MultiWishlist
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Wishlist\Controller\Index\Add" type="Bss\MultiWishlist\Controller\Index\AssignWishlist"/>
+    <preference for="Magento\Wishlist\Model\Wishlist" type="Bss\MultiWishlist\Model\Wishlist"/>
+    <preference for="Magento\Wishlist\Controller\Index\Fromcart" type="Bss\MultiWishlist\Controller\Index\AssignWishlistFromCart"/>
+    <preference for="Magento\Wishlist\Controller\Index\Allcart" type="Bss\MultiWishlist\Controller\Index\Allcart"/>
+    <preference for="Magento\Wishlist\Model\ItemCarrier" type="Bss\MultiWishlist\Model\ItemCarrier"/>
+
+    <preference for="Magento\Wishlist\Model\ResourceModel\Item\Collection\Grid" type="Bss\MultiWishlist\Model\ResourceModel\Item\Collection\Grid"/>
+
+    <!-- Fix bug logout account: https://github.com/magento/magento2/pull/16386 -->
+    <preference for="Magento\Customer\Model\Plugin\CustomerFlushFormKey" type="Bss\MultiWishlist\Plugin\Customer\Model\Plugin\FixCustomerFlushFormKey"/>
+
+    <!-- add item wishlist to cart -->
+    <type name="Magento\Wishlist\Model\Item">
+        <plugin name="bss_multiwishlist_plugin_add_item_to_cart" type="Bss\MultiWishlist\Plugin\Wishlist\Model\Item"/>
+    </type>
+    <!-- end add item wishlist to cart -->
+</config>

@@ -1,0 +1,85 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$post = $block->getCurrentPost();
+$showImage = $this->getConfig('general_settings/show_image');
+$showAction = $this->getConfig('general_settings/show_action');
+if ($this->getConfig('general_settings/image_width') != '') {
+    $width = $this->getConfig('general_settings/image_width');
+} else {
+    $width = 1240;
+}
+if ($this->getConfig('general_settings/image_height') != '') {
+    $height = $this->getConfig('general_settings/image_height');
+} else {
+    $height = 600;
+}
+?>
+<div class="blog-post">
+<div class="blog-content">
+    <div class="post-info">
+        <?php if ($showImage): ?>
+            <div class="post-thumbnail">
+                <?php echo $helper->getThumbnailPost($post); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($post->getUpdatedByUser()): ?>
+            <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUpdatedByUser()); ?></a></em></div>
+        <?php else: ?>
+            <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUser()); ?></a></em></div>
+        <?php endif; ?>
+    </div>
+	<h2 class="post-title h3"> <?php echo $post->getTitle(); ?></h2>
+    <?php if ($post->getContent()): ?>
+        <div class="post-content">
+			<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+			<?php echo $objectManager->get('\Magento\Cms\Model\Template\FilterProvider')->getBlockFilter()->filter($post->getContent()); ?>
+        </div>
+    <?php endif; ?>
+	<div>
+        <?php if ($post->getTags()): ?>
+        <?php $tags = explode(',', $post->getTags()); ?>
+        <div class="post-tags col-sm-9 col-xs-12">
+            <i class="fa fa-tags"></i>
+            <?php foreach ($tags as $tag): ?>
+                <a class="h5" title="<?php echo trim($tag); ?>" href="<?php echo $helper->getTagUrl(trim($tag)); ?>">
+				<em> <?php echo trim($tag); ?></em>
+				</a>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <?php if ($this->getConfig('general_settings/use_sharethis')): ?>
+		<div class="col-sm-3 col-xs-12"><div class="row">
+            <div class="sharethis-inline-share-buttons">
+                <span class="st_sharethis" displayText="Share this post"></span>
+			</div> 
+		</div></div>
+        <?php endif; ?>
+	</div>
+	<div class="clearfix"></div>
+</div>
+	<?php if($showAction): ?>
+		<div class="post-actions">
+		    <div class="row">
+			<?php $prevPost = $this->getPrevPost($post->getId()); ?>
+			<?php if($post->getId() != $prevPost['id']): ?>
+				<div class="prev-action action col-xs-6">
+					<h4><a href="<?php echo $prevPost['url']; ?>">
+					<i class="fa fa-angle-double-left"></i>
+					<?php echo $prevPost['name']; ?>
+					</a></h4>
+				</div>
+			<?php endif ?>
+			<?php $nextPost = $this->getNextPost($post->getId()); ?>
+				<?php if($post->getId() != $nextPost['id']): ?>
+				<div class="next-action action col-xs-6">
+					<h4><a href="<?php echo $nextPost['url']; ?>">
+					<?php echo $nextPost['name']; ?>
+					<i class="fa fa-angle-double-right"></i>
+					</a></h4>
+				</div>
+			<?php endif ?>
+			</div>
+		</div>
+	<?php endif ?>
+    <?php echo $block->getChildHtml('post_view_comment'); ?>
+</div>

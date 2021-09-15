@@ -1,0 +1,26 @@
+<?php if ($this->getOrders()->getSize() > 0): ?>
+    <table class="admin__table-primary dashboard-data">
+        <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-customer"><span><?php echo __('Supplier'); ?></span></th>
+                <th class="data-grid-th  no-link col-customer"><span><?php echo __('Order #'); ?></span></th>
+                <th class="data-grid-th  no-link col-items"><span><?php echo __('ETA'); ?></span></th>
+                <th class="data-grid-th  no-link col-total"><span><?php echo __('Qty'); ?></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->getOrders() as $order): ?>
+                <tr>
+                    <td class=" col-customer "><?php echo $order->getsup_name(); ?></td>
+                    <td class=" col-customer "><a href="<?php echo $this->getOrderUrl($order->getpo_id()); ?>"><?php echo $order->getpo_reference(); ?></a></td>
+                    <td class=" col-items col-number "><?php echo substr($order->getreal_eta(), 0, 10); ?></td>
+                    <td class=" col-total a-right last"><?php echo $order->getPendingQty(); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else: ?>
+    <center>
+        <p><i><?php echo __('There is no purchase order expected for this product'); ?></i></p>
+    </center>
+<?php endif; ?>

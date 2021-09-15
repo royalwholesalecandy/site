@@ -1,0 +1,32 @@
+<table border="1" width="100%" cellspacing="3" cellpadding="10" style="background-color: white; margin-bottom: 20px">
+    <tr>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;" >
+            <?php echo __('Status'); ?>
+            <br><?php echo __($this->getOrder()->getpo_status()); ?>
+        </td>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Estimated time of arrival'); ?>
+            <br><?php echo $this->formatDate($this->getOrder()->getpo_eta()); ?>
+        </td>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Delivery progress'); ?>
+            <br><?php echo $this->getOrder()->getpo_delivery_progress(); ?>%
+        </td>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Total'); ?>
+            <br><?php echo $this->getOrder()->getCurrency()->format($this->getOrder()->getpo_grandtotal(), [], false); ?>
+        </td>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Total invoiced'); ?>
+            <br><?php echo $this->getOrder()->getCurrency()->format($this->getOrder()->getTotalInvoiceApplied(), [], false); ?>
+        </td>
+        <td align="center" width="15%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Missing prices'); ?>
+            <br><?php echo ($this->getOrder()->getpo_missing_price() ? __('Yes') : __('No')); ?>
+        </td>
+        <td align="center" width="14%" style="background-color: #F6E3CE; font-weight: bold;">
+            <?php echo __('Verified'); ?>
+            <br><?php echo ($this->getOrder()->getpo_verified() ? __('Yes') : __('No')); ?>
+        </td>
+    </tr>
+</table>

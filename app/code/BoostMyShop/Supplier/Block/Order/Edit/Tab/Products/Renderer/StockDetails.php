@@ -1,0 +1,31 @@
+<?php
+
+namespace BoostMyShop\Supplier\Block\Order\Edit\Tab\Products\Renderer;
+
+use Magento\Framework\DataObject;
+use Magento\Store\Model\StoreManagerInterface;
+
+class StockDetails extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractRenderer
+{
+    protected $_productHelper = null;
+
+    /**
+     * @param \Magento\Backend\Block\Context $context
+     * @param array $data
+     */
+    public function __construct(\Magento\Backend\Block\Context $context,
+                                \BoostMyShop\Supplier\Model\Product $productHelper,
+                                array $data = [])
+    {
+
+        parent::__construct($context, $data);
+        $this->_authorization = $context->getAuthorization();
+        $this->_productHelper = $productHelper;
+    }
+
+    public function render(DataObject $row)
+    {
+        $productId = $row->getpop_product_id();
+        return $this->_productHelper->getStockDetails($productId);
+    }
+}

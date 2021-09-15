@@ -1,0 +1,63 @@
+<?php
+$brands = $this->getBrands();
+$featured = $this->getFeaturedBrands();
+$media = $this->getImageMediaPath();
+?>
+
+    <div class="page-title-wrapper">
+        <h1 class="page-title" role="heading" aria-level="2"><?php echo __('Manufacture Products');?></h1>
+    </div>
+
+<div class="manufacturer-list products  wrapper grid products-grid" data-bind="scope: 'brandProducts'" data-role="brand-products-sidebar">
+
+    <ul class="products list items product-items">
+   
+    	<?php foreach (range('0', '9') as $char) :?>
+		<?php if(isset($brands[$char])):?>
+			
+				<!-- <strong> # <?php echo $char;?></strong> -->
+				<?php foreach($brands[$char] as $_brand):?>
+					<li class="item product product-item">
+					<div class="product-block product-item-info">					
+					<?php if($_brand->getUrlKey()):?>
+						<a href="#"><!-- <?php echo $_brand->getName();?> -->
+							<img class="barnd-img" src="<?php echo $media.$_brand->getLogo() ?>" title="<?php echo $_brand->getName();?>" alt="<?php echo $_brand->getName();?>" />
+						</a>
+					<?php else:?>
+						<a href="#"><!-- <?php echo $_brand->getName();?> -->
+						<img class="barnd-img" src="<?php echo $media.$_brand->getLogo() ?>" title="<?php echo $_brand->getName();?>" alt="<?php echo $_brand->getName();?>" />
+						</a>
+					<?php endif;?>
+					</div>
+					</li>
+				<?php endforeach;?>
+			
+		<?php endif;?>
+	<?php endforeach;?>
+
+	<?php  
+	foreach (range('A', 'Z') as $char) :?>
+		<?php if(isset($brands[$char])):?>
+	
+<!-- 				<strong> # <?php echo $char;?></strong> -->
+				<?php foreach($brands[$char] as $_brand):?>
+					<li class="item product product-item">
+					<div class="product-block product-item-info">					
+					<?php if($_brand->getUrlKey()):?>
+						<a href="#"><!-- <?php echo $_brand->getName();?> -->
+							<img class="barnd-img" src="<?php echo $media.$_brand->getLogo() ?>" title="<?php echo $_brand->getName();?>" alt="<?php echo $_brand->getName();?>" />
+						</a>
+					<?php else:?>
+						<a href="#"><!-- <?php echo $_brand->getName();?> -->
+						<img class="barnd-img" src="<?php echo $media.$_brand->getLogo() ?>" title="<?php echo $_brand->getName();?>" alt="<?php echo $_brand->getName();?>" />
+						</a>
+					<?php endif;?>
+					</div>
+					</li>
+				<?php endforeach;?>
+			
+		<?php endif;?>
+	<?php endforeach;?>
+	
+	</ul>
+</div>

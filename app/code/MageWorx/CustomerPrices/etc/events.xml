@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_item_collection_products_after_load">
+        <observer
+                name="mageworx_add_customer_price_to_product_in_quote_item"
+                instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToCollection"
+        />
+    </event>
+    <event name="mageworx_customerprices_product_ids">
+        <observer name="mageworx_customerprices_product_id" instance="MageWorx\CustomerPrices\Observer\ProductIds"/>
+    </event>
+
+    <event name="catalog_product_load_after">
+        <observer name="mageworx_add_customer_prices_to_product" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToProduct"/>
+    </event>
+
+    <event name="catalog_product_get_final_price">
+        <observer name="mageworx_add_customer_prices_to_product" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToProduct"/>
+    </event>
+
+    <event name="catalog_product_collection_load_after">
+        <observer name="mageworx_add_customer_prices_to_collection" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToCollection"/>
+    </event>
+
+    <event name="sales_quote_item_set_product">
+        <observer name="mageworx_add_customer_prices_quote_to_product" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToProduct"/>
+    </event>
+
+    <event name="checkout_cart_product_add_after">
+        <observer name="mageworx_add_customer_prices_checkout_cart" instance="MageWorx\CustomerPrices\Observer\ApplyCustomerPricesToCart" />
+    </event>
+
+</config>

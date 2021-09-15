@@ -1,0 +1,16 @@
+<?php echo $this->getChildHtml('orderpreparation.shipping.header'); ?>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><?php echo __('Orders to ship'); ?></h2>
+
+<div style="float: right;">
+    <button title="save" type="button" class="action-default scalable action-primary save" onclick="jQuery('#shipping_form').submit();" >
+        <span><?php echo __('Save tracking numbers'); ?></span>
+    </button>
+</div>
+
+<form method="POST" action="<?php echo $this->getSaveUrl(); ?>" id="shipping_form" enctype="multipart/form-data">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <?php echo $this->getChildHtml('orderpreparation.shipping.orders'); ?>
+</form>

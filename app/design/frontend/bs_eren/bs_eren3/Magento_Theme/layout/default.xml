@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<!--
+
+/**
+
+ * Copyright © 2015 Magento. All rights reserved.
+
+ * See COPYING.txt for license details.
+
+ */
+
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+
+      <attribute name="class" value="eren-page-preloader"/>
+
+      <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+
+      <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+      <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+     <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="-" template="Magento_Store::switch/stores.phtml"/>
+        </referenceContainer>    
+		
+  <referenceContainer name="content">
+        <block name="customer.section.config" class="Magento\Customer\Block\SectionConfig"
+               template="Magento_Customer::js/section-config.phtml"/>
+        <block name="customer.customer.data"
+               class="Magento\Customer\Block\CustomerData"
+               template="Magento_Customer::js/customer-data.phtml"/>
+    </referenceContainer>
+
+    </body>
+
+</page>
+

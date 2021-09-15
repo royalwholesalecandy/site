@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <body>
+		<!--referenceBlock name="catalog.topnav" remove="false"/-->
+		<!--<update handle="catalog.topnav"/>-->
+		<move element="wanexo.topnav" destination="store.menu" before="-"/>
+        <referenceContainer name="page.top">
+            <block class="Wanexo\Mdlnavi\Block\Mdlnavi" template="Wanexo_Mdlnavi::mdlnavi/mdlnavi.phtml" ifconfig="wanexo_mdlnavi/general/status" name="wanexo.topnav"/>
+		</referenceContainer>
+    </body>
+</page>

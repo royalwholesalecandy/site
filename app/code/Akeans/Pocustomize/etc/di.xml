@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!--
+
+/**
+
+ * @author Akeans Team
+
+ * @copyright Copyright (c) 2018 Amasty (https://www.akeans.com)
+
+ * @package Akeans_Pocustomize
+
+ */
+
+-->
+
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+  <preference for="Magento\Sales\Model\Order\Payment" type="Akeans\Pocustomize\Model\Order\Popayment"/>
+  <preference for="Magento\Sales\Block\Order\Recent" type="Akeans\Pocustomize\Block\Order\Recent"/>
+
+</config>
+

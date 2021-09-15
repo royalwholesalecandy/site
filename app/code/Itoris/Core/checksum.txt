@@ -1,0 +1,10 @@
+582e715cb0dabeb0924c64cbc9ef690f	app/code/Itoris/Core/Observer/CheckNotifications.php
+85a4ad2c525f935ffe70bf19d2b3a4ed	app/code/Itoris/Core/Model/Feed.php
+8e3eded6a4e2b6b877c1235eda8200d7	app/code/Itoris/Core/registration.php
+193cc500808cb71385dc60f8e3d8ca6d	app/code/Itoris/Core/Setup/InstallSchema.php
+a77d62f61e7c25c2607ecb5e086f7c6e	app/code/Itoris/Core/composer.json
+242aef2b840b8d613faf402119c4acf2	app/code/Itoris/Core/Block/System/Installed.php
+484c65f17180564f4ebd88677cdea650	app/code/Itoris/Core/etc/adminhtml/system.xml
+98f0eb947ad262d756b7ac2b61e4e98d	app/code/Itoris/Core/etc/adminhtml/events.xml
+14299f3f54a2362f7ee39142d8c18c17	app/code/Itoris/Core/etc/module.xml
+9368140aabdbfadf016f5ca204b926d9	app/code/Itoris/Core/etc/config.xml

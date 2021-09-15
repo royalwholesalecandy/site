@@ -1,0 +1,6 @@
+<?php $ingredients = $this->getParentBlock()->getProduct()->getData('ingredients');?>
+<?php if ( $ingredients ): ?>
+    <div class="std">
+        <?php echo nl2br($ingredients);?>
+    </div>
+<?php endif; ?>

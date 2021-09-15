@@ -1,0 +1,31 @@
+<?php $suppliers = $this->getSuppliers(); ?>
+<?php if ($suppliers->getSize() > 0): ?>
+    <table width="100%">
+        <tr>
+            <th style="padding-bottom: 5px;"><?php echo __('Supplier'); ?></th>
+            <th style="padding-bottom: 5px;"><?php echo __('Supplier sku'); ?></th>
+            <th style="padding-bottom: 5px;"><?php echo __('Buying price'); ?></th>
+        </tr>
+        <tr>
+            <td align="center">
+                <select name="addsupplier[supplier]">
+                    <option></option>
+                        <?php foreach($suppliers as $supplier): ?>
+                        <option value="<?php echo $supplier->getId(); ?>"><?php echo $supplier->getsup_name(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+            <td align="center">
+                <input type="text" name="addsupplier[sku]">
+            </td>
+            <td align="center">
+                <input type="text" name="addsupplier[price]">
+            </td>
+        </tr>
+    </table>
+
+<?php else: ?>
+
+    <p><?php echo __('No supplier available for association'); ?></p>
+
+<?php endif; ?>

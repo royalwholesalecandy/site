@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Akeans_ShowPriceAfterLogin extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Akeans
+ * @package   Akeans_ShowPriceAfterLogin
+ * @copyright Copyright (c) 2018
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="multishipping/checkout/addresses">
+        <section name="cart"/>
+    </action>
+</config>

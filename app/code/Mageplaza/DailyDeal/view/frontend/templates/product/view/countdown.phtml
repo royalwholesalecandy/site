@@ -1,0 +1,61 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_DailyDeal
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\DailyDeal\Block\Product\View\Countdown $block */
+
+/** @var \Mageplaza\DailyDeal\Helper\Data $helperData */
+$helperData = $this->helper('Mageplaza\DailyDeal\Helper\Data');
+$productId  = $block->getRequest()->getParam('id');
+
+if ($block->_helperData->checkDealProduct($productId) && $block->isShowCountdown()):?>
+    <span class="limit-time-label"><?php echo __("Limited Time Remaining!"); ?></span>
+    <div id="clockdiv" data-mage-init='{"dataTimeCountdown": <?php echo $block->getTimeCountdownData($productId); ?>}'>
+        <div class="bg-outer">
+            <span class="days"></span>
+            <div class="smalltext"><?php echo __("Days"); ?></div>
+        </div>
+        <div class="bg-outer">
+            <span class="hours"></span>
+            <div class="smalltext"><?php echo __("Hours"); ?></div>
+        </div>
+        <div class="bg-outer">
+            <span class="minutes"></span>
+            <div class="smalltext"><?php echo __("Minutes"); ?></div>
+        </div>
+        <div class="bg-outer">
+            <span class="seconds"></span>
+            <div class="smalltext"><?php echo __("Seconds"); ?></div>
+        </div>
+    </div>
+    <style>
+        #clockdiv {
+            color: <?php echo $block->getTextColorCountdown(); ?>
+        }
+
+        .bg-outer {
+            background: <?php echo $block->getOuterCountdownBg(); ?>
+        }
+
+        .bg-outer > span {
+            background: <?php echo $block->getInnerCountdownBg(); ?>
+        }
+    </style>
+<?php endif; ?>

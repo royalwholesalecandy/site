@@ -1,0 +1,336 @@
+/* Not Bootstrap */
+* {
+    box-sizing: border-box;
+}
+ul, li {
+	list-style: none;
+}
+.dropdown-menu {
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  display: none;
+  float: left;
+  font-size: 14px;
+  left: 0;
+  list-style: outside none none;
+  margin: 2px 0 0;
+  min-width: 160px;
+  padding: 5px 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  z-index: 1000;
+}
+nav.navigation {
+	z-index: 999 !important;
+	font-weight: 400;
+	
+}
+.navigation .mega-menu-item .level2 > ul {
+	position: static !important;
+}
+.navigation .mega-menu-item .level2 > ul .level3 {
+	padding-left: 15px;
+}
+.navigation ul.container {
+    position:  relative;
+    padding-left:  0;
+    padding-right:  0;
+}
+.navigation ul.container .level0 {
+    display:  inline-block;
+    padding:  15px;
+    vertical-align:  middle;
+    position:  relative;
+    font-size:  14px;
+    text-align:  left;
+    margin:  0;
+	border: none;
+
+}
+.navigation ul.container .level0 a:hover, .navigation ul.container .level0 a:focus {
+    background:  none;
+}
+.navigation ul.container .level0 > a {
+    color:  #333;
+    font-size:  13px;
+    text-transform:  uppercase;
+    padding:  0;
+	font-weight: 700;
+    background:  none;
+}
+.navigation ul.container .level0 > a:hover, .navigation ul.container .level0 > a:focus, .navigation ul.container .level0 > a:active {
+    background:  none;
+}
+.navigation ul.container .level0 > ul {
+    list-style:  none;
+    padding:  0;
+    z-index:  999;
+    margin:  0;
+    padding: 15px 0;
+    border-radius:  0;
+    -webkit-border-radius:  0;
+    -moz-border-radius:  0;
+    -o-border-radius:  0;
+}
+.navigation ul.container .level0 > ul li.level1 {
+    position:  relative;
+}
+.navigation ul.container .level0 > ul li.level1 > ul {
+    padding: 15px 0;
+    list-style:  none;
+    position:  absolute !important;
+    min-width:  220px;
+}
+.navigation ul.container .level0.mega-menu-item > ul li.level1 > ul {
+	padding: 0;
+}
+.navigation ul.container .level0.mega-menu-item > ul {
+    width:  100%}
+.navigation ul.container .level0.mega-menu-item .level1 > a {
+    font-size:  14px;
+    text-transform:  uppercase;
+}
+.navigation ul.container .level0.mega-menu-item .level1 > ul {
+    position:  relative !important;
+    left:  15px !important;
+}
+.navigation ul.container .level0:hover > a {
+    text-decoration:  none;
+}
+.navigation ul.container .level1, .navigation ul.container .level2 {
+    position:  relative;
+}
+.navigation ul.container .level1 > ul, .navigation ul.container .level2 > ul {
+    top:  0;
+    left:  100%;
+    border-radius:  0;
+    -webkit-border-radius:  0;
+    -moz-border-radius:  0;
+    -o-border-radius:  0;
+    border:  none;
+	position: absolute;
+	padding: 15px 0;
+}
+.vertical-menu {
+    background-color:  #f0f0f0;
+	padding: 20px;
+}
+.vertical-menu a {
+    color:  #333;
+}
+.vertical-menu li {
+    width:  100% !important;
+    margin-left:  0 !important;
+    position:  relative;
+	clear: both;
+}
+.vertical-menu li.level0.mega-menu-item > ul {
+    width:  800px;
+}
+.vertical-menu li.level0.mega-menu-item .level1 > a {
+    font-size:  14px;
+    text-transform:  uppercase;
+}
+.vertical-menu li.level0.mega-menu-item .level1 > ul {
+    margin-left:  10px;
+}
+.vertical-menu li a:hover, .vertical-menu li a:focus, .vertical-menu li a:active {
+    background:  none;
+}
+.vertical-menu .dropdown-menu {
+    top:  0;
+    left:  100%;
+    border:  none;
+    border-radius:  0;
+    padding:  15px;
+}
+.vertical-menu ul {
+	padding: 0;
+}
+.vertical-menu .dropdown-menu > li > a {
+    padding:  3px 0;
+}
+.vertical-menu .icon-next {
+    position:  absolute;
+    right:  15px;
+}
+
+@media (min-width: 992px) {
+    .vertical-menu {
+		width:  300px;
+	}
+	.vertical-menu .level0:hover > ul, .vertical-menu .level1:hover > ul, .vertical-menu .level2:hover > ul, .vertical-menu .level3:hover > ul {
+		display:  block;
+	}
+	.navigation ul.container .level0 > ul {
+		min-width:  220px;
+		position:  absolute;
+		top:  100% !important;
+	}
+	.navigation ul.container .level0.mega-menu-item {
+		position:  static;
+	}
+	.navigation ul.container .level1 > ul {
+		left:  100% !important;
+		top:  0 !important;
+	}
+	.navigation ul.container .level0:hover > ul, .navigation ul.container .level1:hover > ul, .navigation ul.container .level2:hover > ul {
+		display:  block;
+	}
+	.nav-responsive {
+		display:  none;
+	}
+	.toggle-menu {
+		display: none;
+	}
+}
+@media (max-width: 991px) {
+	.navigation ul {
+		padding: 0 !important;
+	}
+	.navigation ul.container .level0 > ul {
+		background: none;
+	}
+    .navigation ul.container > li {
+		width:  100%}
+	.navigation ul.container .toggle-menu {
+		height:  30px;
+		padding-top:  5px;
+		position:  absolute;
+		right:  10px;
+		text-align:  center;
+		top:  1px;
+		width:  30px;
+	}
+	.navigation ul.container .level0 {
+		padding:  5px 0;
+	}
+	.navigation ul.container .level0 > ul {
+		position:  relative;
+		width:  100%;
+		box-shadow:  none;
+		border:  none;
+		padding:  0;
+	}
+	.navigation ul.container .level0 > ul li.level1, .navigation ul.container .level0 > ul li.level2 {
+		clear:  both;
+	}
+	.navigation ul.container .level0 > ul li.level1 > a, .navigation ul.container .level0 > ul li.level2 > a {
+		padding:  3px 0;
+	}
+	.navigation ul.container .level0 > ul li.level1 > ul, .navigation ul.container .level0 > ul li.level2 > ul, .navigation ul.container .level0 > ul li.level3 > ul {
+		position:  relative !important;
+		left:  15px !important;
+		box-shadow:  none;
+		width:  100%}
+	.navigation ul.container .level1 {
+		padding-left:  15px;
+	}
+	.navigation ul.container img {
+		display:  none;
+	}
+	.vertical-menu .toggle-menu {
+		height:  30px;
+		padding-top:  5px;
+		position:  absolute;
+		right:  10px;
+		text-align:  center;
+		top:  1px;
+		width:  30px;
+	}
+	.vertical-menu li.level0.mega-menu-item > ul {
+		width:  100%;
+		left:  0;
+		padding:  5px 0 5px 25px;
+		position:  relative;
+	}
+	.vertical-menu img {
+		display:  none;
+	}
+	.vertical-menu li.level0 > a {
+		padding:  5px 15px;
+	}
+	.vertical-menu .dropdown-menu {
+		position:  relative;
+		left:  0;
+		width:  100%;
+		background: none;
+		border: none;
+		box-shadow: none;
+	}
+	.vertical-menu .dropdown-menu .level1 {
+		padding-left:  10px;
+	}
+	.nav-responsive {
+		background:  none;
+		border:  none;
+		color:  #333;
+		font-size:  24px;
+		margin-left:  20px;
+		text-align: left;
+	}
+	.nav-responsive:hover, .nav-responsive:focus, .nav-responsive:active {
+		background: none;
+		border: none;
+	}
+	.navigation {
+		display:  none;
+		padding-left: 35px !important;
+	}
+	.navigation a {
+		padding: 0 !important;
+	}
+	.navigation.nav-active {
+		display:  block;
+	}
+	.category-menu .dropdown-menu.active .sub-menu .sub-menu{display:none}
+	.toggle-menu a.active .fa-plus:before {content: "\f068";}
+	.dropdown-toggle .icon-next {
+		display: none;
+	}
+}
+/*custom*/
+.navigation ul.container .dropdown-menu li {width: 100%;margin:0;float:left;}
+.navigation ul.container .dropdown-menu {
+	min-width: 220px;
+}
+.navigation ul.container .dropdown-menu li:after{
+	content:" ";
+	display: table;
+	clear: both;
+}
+.navigation ul.container .level0:hover{
+	background-color: rgba(0,0,0,0.15);	
+}
+.navigation ul{padding: 0;}
+
+.navigation ul.container li.dropdown .dropdown-menu a{
+	color:#333;
+	padding: 5px 15px;
+	font-weight: 400;
+	float:left;
+}
+.navigation ul.container li.dropdown .dropdown-menu a:hover{
+	color:#1979c3;
+}
+.navigation ul.container li.mega-menu-item .dropdown-menu li.level1 .block-category-link-inline > a,
+.navigation ul.container .title,
+.navigation ul.container li.mega-menu-item .dropdown-menu li.level1 > a{
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.navigation .block-category-link.widget{
+	margin:0;
+}
+.navigation ul.container li.level0.right {
+	float: right;
+}
+.navigation ul.container li.level0.right .dropdown-menu{
+	right: 0;
+	left: auto;
+	padding: 15px;
+}

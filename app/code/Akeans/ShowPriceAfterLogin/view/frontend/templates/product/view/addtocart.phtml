@@ -1,0 +1,152 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+
+<?php $_product = $block->getProduct(); 
+
+$_akeansHelper = $this->helper('Akeans\ShowPriceAfterLogin\Helper\Data');
+// check true or false to show hide price or add to cart button
+$akeans_check = $_akeansHelper->checkVisible($_product);
+
+// Get Redirect url
+$redirect_url = $_akeansHelper->getRedirectUrl();
+
+
+?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+            <div class="control">
+                <input type="number"
+                       name="qty"
+                       id="qty"
+                       value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                       class="input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+            </div>
+        </div>
+        <?php endif; ?>
+		<?php if(!$_akeansHelper->isCustomerlogin() && $_akeansHelper->isEnableShowPriceAfterLogin() && $akeans_check): ?>
+				
+		<?php 
+		// Get button label		
+		$button_label = $_akeansHelper->getButtonTitle();
+		if($redirect_url){
+			$loginbutton='<a  class="action tocart primary" href="'.$block->getUrl($redirect_url).'">'.$button_label.'</a>';
+		}else{
+			$loginbutton='<a  class="action tocart primary" href="'.$block->getUrl('customer/account/login').'">'.$button_label.'</a>';
+		}
+		
+		?> 
+		<div class="actions">
+			<button type="submit"
+					title=""
+					class="action primary tocart"
+					id="product-addtocart-button">
+				<span></span>
+			</button>
+				
+		</div>
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'domReady!'
+			], function($) {
+				'use strict';
+				jQuery('.price-box').html('');
+				jQuery('.box-tocart .actions').html('<?php  echo $loginbutton;?>');
+				if(jQuery('.prices-tier').length>0) {
+					jQuery('.prices-tier').remove();
+				}
+				if(jQuery('.product-addto-links .tocompare').length>0)
+				{
+					jQuery('.product-addto-links .tocompare').remove();
+				}
+			});
+		</script>
+		<?php elseif($_akeansHelper->isCustomerlogin() && $_akeansHelper->isEnableShowPriceAfterLogin() && !$akeans_check):?>	
+		<?php 
+		// Get call price label		
+		$call_price_label = $_akeansHelper->getCallPriceLabel();
+		if($redirect_url){
+			$loginbutton='<a  class="action tocart primary" href="'.$block->getUrl($redirect_url).'">'.$call_price_label.'</a>';
+		}else{
+			$loginbutton='<a  class="action tocart primary" href="'.$block->getUrl('customer/account/login').'">'.$call_price_label.'</a>';
+		}
+		
+		?> 
+		<div class="actions">
+			<button type="submit"
+					title=""
+					class="action primary tocart"
+					id="product-addtocart-button">
+				<span></span>
+			</button>
+				
+		</div>
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'domReady!'
+			], function($) {
+				'use strict';
+				jQuery('.price-box').html('');
+				jQuery('.box-tocart .actions').html('<?php  echo $loginbutton;?>');
+				if(jQuery('.prices-tier').length>0) {
+					jQuery('.prices-tier').remove();
+				}
+				if(jQuery('.product-addto-links .tocompare').length>0)
+				{
+					jQuery('.product-addto-links .tocompare').remove();
+				}
+			});
+		</script>
+		<?php else:?>
+			<div class="actions">
+				<button type="submit"
+						title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+						class="action primary tocart"
+						id="product-addtocart-button">
+					<span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+				</button>
+				<?= $block->getChildHtml('', true) ?>
+			</div>
+		<?php endif; ?>
+        
+    </div>
+</div>
+<?php endif; ?>
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php else : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+<?php endif; ?>
+

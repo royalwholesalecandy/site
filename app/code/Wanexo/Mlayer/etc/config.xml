@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <wanexo_mlayer>
+            <banner>
+				<status>1</status>
+				<bannertype>1</bannertype>
+				<right_block>1</right_block>
+				<hide_banner>0</hide_banner>
+				<bannereffect><![CDATA[random]]></bannereffect>
+				<animation><![CDATA[fadeUp]]></animation>
+				<owlcolumn>3</owlcolumn>
+				<owlbannereheight>1</owlbannereheight>
+				<bannercontent>1</bannercontent>
+				<loadertype><![CDATA[bar]]></loadertype>
+				<bannerheight>38</bannerheight>
+				<bannerpagination>1</bannerpagination>
+				<bannerpause>1</bannerpause>
+				<bannertime>2000</bannertime>
+				<bannerspeed>200</bannerspeed>
+			</banner>
+        </wanexo_mlayer>
+    </default>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magento_Catalog::catalog/category-selector.css"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Wanexo\Brand\Block\Adminhtml\Brand\Edit" name="wanexo_brand_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Wanexo\Brand\Block\Adminhtml\Brand\Edit\Tabs" name="wanexo_brand_edit_tabs">
+                <block class="Wanexo\Brand\Block\Adminhtml\Brand\Edit\Tab\Brand" name="wanexo_brand_edit_tab_brand"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">brand</argument>
+                    <argument name="block" xsi:type="string">wanexo_brand_edit_tab_brand</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

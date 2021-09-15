@@ -1,0 +1,9 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+           <megnor_category_menu>
+                <menu_settings>
+                    <enabledisable>1</enabledisable>
+                </menu_settings>
+           </megnor_category_menu>
+    </default>
+</config>

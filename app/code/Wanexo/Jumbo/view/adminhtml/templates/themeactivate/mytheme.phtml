@@ -1,0 +1,482 @@
+<script type="text/javascript">
+//&lt;![CDATA[
+	 require(['jquery'],function($){	
+		function openMessagePopup() {
+			var height = $('html-body').height();
+			jQuery('#messagePopupMask').show();
+			jQuery('#messagePopupMask').css({'height':height});
+			jQuery('#le').addClass('show');
+		}
+		window.openMessagePopup=openMessagePopup;
+		function closeMessagePopup() {
+			jQuery('#messagePopupMask').hide();
+			jQuery('#le').removeClass('show');
+		}
+		window.closeMessagePopup=closeMessagePopup;
+	});
+//]]&gt;
+</script>
+
+<div class="admin__data-grid-wrap">
+    <table class="data-grid data-grid-draggable">
+       <thead>
+            <tr>
+                <th class="data-grid-th _sortable _draggable" style="width:70%;">
+                    <span class="data-grid-cell-content">Data</span>
+                </th>
+                <th class="data-grid-th _sortable _draggable">
+                    <span class="data-grid-cell-content">Overwrite</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content">Action</span>
+                </th>
+            </tr>
+        </thead>
+       <tbody>
+        <tr class="data-row">
+				<td>
+                    <div class="data-grid-cell-content">Import Static Blocks</div>
+                </td>
+                 <td>
+                    <label class="data-grid-checkbox-cell-inner" style="text-align:center; overflow:hidden;">
+                        <input type="checkbox" class="admin__control-checkbox" id="import_st_blocks" value="1">
+                        <label for="idscheck1"></label>
+                    </label>
+                </td>
+                 <td>
+                    <div class="data-grid-cell-content">
+                        <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+                        ?>
+                        <script>//<![CDATA[
+                            require(['prototype'],
+                                    function(){
+										function importblocks(){
+										var resultMessage=$('import_resultblocks');
+										if (jQuery('#import_st_blocks').is(":checked")) {
+										   var overwrite = jQuery('#import_st_blocks').val();
+										}
+										else
+										{
+											var overwrite = 0; 
+										}
+										jQuery('#le .messagetext').removeClass('success');
+										jQuery('#le .messagetext').removeClass('error');
+										
+										params={import_type:'blocks',overwrite:overwrite};
+										new Ajax.Request('<?php echo $this->getUrl('jumbo_admin/system_config_cms/import');?>', {
+											parameters:params,
+										   
+											onSuccess: function(response) {
+												if(response.responseText.isJSON()){
+                                                        response=response.responseText.evalJSON();
+                                                        result=response.message;
+                                                        }
+												jQuery('#le .messagetext').html(result).addClass('success');
+												openMessagePopup();
+											},
+											onFailure: function(response) {
+												if(response.responseText.isJSON()){
+                                                        response=response.responseText.evalJSON();
+                                                        result=response.message;
+                                                        }
+												jQuery('#le .messagetext').html(result).addClass('error');
+												openMessagePopup();
+											}
+										});
+									} 
+									window.importblocks=importblocks;
+                                });
+                            //]]>
+                        </script>
+                        <div class="actions actions-import-data">
+                            <button id="jumbo_settings_install_import_blocks" type="button" class="action-import-data" onclick="javascript:importblocks(); return false;">
+                                <span>Import</span>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+        </tr>
+         <tr class="data-row _odd-row">
+                <td>
+                    <div class="data-grid-cell-content">Import CMS Pages</div>
+                </td>
+                 <td>
+                    <label class="data-grid-checkbox-cell-inner" style="text-align:center; overflow:hidden;">
+                        <input type="checkbox" class="admin__control-checkbox" id="import_st_pages" value="1">
+                        <label for="idscheck1"></label>
+                    </label>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content">
+                        <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+                        ?>
+                        <script>//<![CDATA[
+                            require(['prototype'],
+                                    function(){
+										
+										function importpages(){
+										var resultMessage=$('import_resultpages');
+										if (jQuery('#import_st_pages').is(":checked")) {
+										   var overwrite = jQuery('#import_st_pages').val();
+										}
+										else
+										{
+											var overwrite = 0; 
+										}
+										jQuery('#le .messagetext').removeClass('success');
+										jQuery('#le .messagetext').removeClass('error');
+										params={import_type:'pages',overwrite:overwrite};
+										new Ajax.Request('<?php echo $this->getUrl('jumbo_admin/system_config_cms/import'); ?>', {
+											parameters:params,
+											onSuccess: function(response) {
+												if(response.responseText.isJSON()){
+                                                        response=response.responseText.evalJSON();
+                                                        result=response.message;
+                                                        }
+												jQuery('#le .messagetext').html(result).addClass('success');
+												openMessagePopup();
+											},
+											onFailure: function(response) {
+												if(response.responseText.isJSON()){
+                                                        response=response.responseText.evalJSON();
+                                                        result=response.message;
+                                                        }
+												jQuery('#le .messagetext').html(result).addClass('error');
+												openMessagePopup();
+											}
+										});
+									}
+									window.importpages=importpages;
+                                });
+                            //]]>
+                        </script>
+                        <div class="actions actions-import-data">
+                            <button id="jumbo_settings_install_import_pages" type="button" class="action-import-data" onclick="javascript:importpages(); return false;">
+                                <span>Import</span>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+       </tbody>
+    </table>
+    <br/><br/><br/>
+	
+	
+    <table class="data-grid data-grid-draggable">
+       <thead>
+            <tr>
+                <th class="data-grid-th _sortable _draggable" style="width:70%;">
+                    <span class="data-grid-cell-content">Data</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content">Action</span>
+                </th>
+            </tr>
+        </thead>
+		
+        <tbody>
+			<script>//<![CDATA[
+				require(['prototype'],
+						function(){
+							
+							function importdemo(dNumber){
+							params={import_type:'demo',demo_version:dNumber};
+							new Ajax.Request('<?php echo $this->getUrl("jumbo_admin/system_config_demo/import")?>', {
+								parameters:params,
+								onSuccess:function(response){
+									if(response.responseText.isJSON()){
+										response=response.responseText.evalJSON();
+										result=response.message;
+									}
+									jQuery('#le .messagetext').html(result).addClass('success');;
+									openMessagePopup();
+								},
+								onFailure: function(response) {
+									if(response.responseText.isJSON()){
+										response=response.responseText.evalJSON();
+										result=response.message;
+									}
+									jQuery('#le .message-icon').html('Error!!');
+									jQuery('#le .messagetext').html(result).addClass('error');;
+									openMessagePopup();
+								}
+							});
+						}
+						window.importdemo=importdemo;
+					});
+				//]]>
+			</script>
+			
+			<!--Default Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Default Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('default_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			<!--Book Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Book Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('book_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Cosmetics Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Cosmetics Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('cosmetics_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Electronics Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Electronics Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('electronics_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Eyewear Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Eyewear Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('eyewear_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Furniture Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Furniture Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('furniture_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Grocery Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Grocery Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('grocery_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Jewellery Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Jewellery Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('jewellery_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Kids Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Kids Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('kids_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Lingerie Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Lingerie Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('lingerie_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			
+			
+			<!--Mens Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Mens Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('mens_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+
+			
+			<!--Perfume Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Perfume Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('perfume_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+
+
+			<!--Pet Supplies Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Pet Supplies Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('pet_supplies_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+
+
+			<!--Shoes Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Shoes Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('shoes_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+
+
+			<!--Spices Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Spices Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('spices_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+
+
+
+			<!--Tools Store-->
+            <tr class="data-row _odd-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Tools Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('tools_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>	
+			
+			
+			
+			<!--Watches Store-->
+            <tr class="data-row">
+				<td>
+					<div class="data-grid-cell-content"><?php echo __('Watches Store') ?></div>
+				</td>
+				<td>
+					<div class="actions actions-import-data">
+						<button type="button" class="action-import-data" onclick="javascript:importdemo('watches_store'); return false;">
+							<span>Import</span>
+						</button>
+					</div>
+				</td>
+			</tr>	
+			
+			
+				
+        </tbody>
+    </table>
+</div>
+
+<div id="messagePopupMask" style="display:none;"></div>
+<div id="le" class="messagePopup">
+    <a class="close" href="#" onclick="closeMessagePopup(); return false;" title="close"><span>close</span></a>
+    <div class="messagePopupContent">
+        <p class="messagetext"></p>
+    </div>
+</div>

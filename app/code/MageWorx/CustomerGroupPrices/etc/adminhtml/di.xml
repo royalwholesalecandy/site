@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\CatalogStaging\Ui\DataProvider\Product\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="mageworx-customergroupprices-groupprices" xsi:type="array">
+                    <item name="class" xsi:type="string">MageWorx\CustomerGroupPrices\Ui\DataProvider\Product\Form\Modifier\GroupPrices</item>
+                    <item name="sortOrder" xsi:type="number">91</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="mageworx-customergroupprices-groupprices" xsi:type="array">
+                    <item name="class" xsi:type="string">MageWorx\CustomerGroupPrices\Ui\DataProvider\Product\Form\Modifier\GroupPrices</item>
+                    <item name="sortOrder" xsi:type="number">92</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorx\CustomerGroupPrices\Ui\DataProvider\Product\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array"></argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\CustomerGroupPrices\Ui\DataProvider\Product\Form\Modifier\GroupPrices">
+        <arguments>
+            <argument name="pool" xsi:type="object">MageWorx\CustomerGroupPrices\Ui\DataProvider\Product\Form\Modifier\Pool</argument>
+        </arguments>
+    </type>
+
+    <!-- Add Field Customer Group -->
+    <type name="Magento\Customer\Block\Adminhtml\Group\Edit\Form">
+        <plugin name="mageworx_customergroupprices_addCustomFieldCustomerGroup"
+                type="MageWorx\CustomerGroupPrices\Plugin\Group\AddCustomerGroupPriceFieldPlugin"/>
+    </type>
+
+    <!-- Save Field Customer Group -->
+    <type name="Magento\Customer\Model\ResourceModel\Group">
+        <plugin name="mageworx_customergroupprices_saveCustomFieldCustomerGroup"
+                type="MageWorx\CustomerGroupPrices\Plugin\Group\SaveCustomerGroupPriceDataPlugin"/>
+    </type>
+
+</config>

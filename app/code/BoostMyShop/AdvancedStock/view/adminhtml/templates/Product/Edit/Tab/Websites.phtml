@@ -1,0 +1,35 @@
+<div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+    <h3><?php echo __('Available stock per website'); ?></h3>
+
+    <table class="data-grid" id="stocks_grid_table">
+        <thead>
+        <tr>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Website'); ?></span></th>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity'); ?></span></th>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Backorders'); ?></span></th>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sellable'); ?></span></th>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sellable (index)'); ?></span></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach($this->getWebsites() as $website): ?>
+            <tr>
+                <td class="a-left"><?php echo $website->getName(); ?></td>
+                <td class="a-center"><?php echo $website->getQty(); ?></td>
+                <td class="a-center"><font color="<?php echo ($website->getBackorders() ? __('green') : __('red')); ?>"><?php echo ($website->getBackorders() ? __('Yes') : __('No')); ?></font></td>
+                <td class="a-center"><font color="<?php echo ($website->getis_in_stock() ? __('green') : __('red')); ?>"><?php echo ($website->getis_in_stock() ? __('Yes') : __('No')); ?></font></td>
+                <td class="a-center">
+                    <?php if ($this->getSellableIndex($website->getWebsiteId())): ?>
+                        <font color="green"><?php echo __('Yes'); ?></font>
+                    <?php else: ?>
+                        <font color="red"><?php echo __('No'); ?></font>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,87 @@
+<?php 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */ 
+?>
+<?php
+	$tempTableStatus = $block->getTempCount() ? '' :'disabled=disabled';
+?>
+<?php if(empty($block->checkCurrencyRate())) : ?>
+<div class = "wk-warning-msg">
+	<div class="message message-warning warning">
+		<div data-ui-id="messages-message-warning">
+			<?php echo __('Please configure currency options and currency rate as per your Amazon Marketplace currency.' ) ?>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+<div class="page-main-actions">
+	<div class="wk-order-button-container">
+		<button id="amazonconnect-accounts-order-import" title="<?php echo __('Import Order From Amazon')?>" type="button" class="action-default scalable save primary"><span class="ui-button-text">
+		    <span><?php echo __('Import Order From Amazon')?></span>
+		</span></button>
+
+		<button id="amazonconnect-import-order-create" title="<?php echo __('Run Profiler For Create Imported Orders')?>" type="button" class="action-default scalable save primary" <?php echo $tempTableStatus ?>><span class="ui-button-text">
+		    <span><?php echo __('Create Imported Order In Store')?></span>
+		</span></button>
+	</div>
+</div>
+
+<div class="ask-que">
+	<div id="wk-mp-ask-data">
+		<div class="modals-wrapper">
+			<aside tabindex="0" data-type="popup" data-role="modal" class="modal-popup modal-slide _inner-scroll wk-mp-model-popup">
+			    <div tabindex="0" data-role="focusable-start"></div>
+			    <div data-role="focusable-scope" class="modal-inner-wrap">
+					<header class="modal-header">
+						<?php if($block->getLastPurchaseDate()) {
+								$date = new \DateTime($block->getLastPurchaseDate());
+								$lastFetchData = $date->format('d.M.Y');
+							} ?>
+						<h4 class="modal-title"><?php echo __('Amazon Order Range') ?></h4>
+						<hr>
+						<?php if (isset($lastFetchData)) { ?>
+						<h5><?php echo 'Amazon order(s) fetched till  '.$lastFetchData ?></h5>
+						<?php } ?>
+						<button type="button" data-role="closeBtn" class="action-close wk-close">
+			                <span>Close</span>
+			            </button>
+						<span  class="wk-clear" ></span>
+					</header>
+					<form id="order-date-range-form" method="post" action="#" class="fieldset">
+						<div class="modal-body form-list field required">
+							<div class="range-container">
+								<label class="label"><?php echo __('Amazon Order From') ?> :</label>
+								<input type="text" name="order_from" class="order_from required-entry" value="" id="order_from" />
+							</div>
+							
+							<div>
+								<label class="label"><?php echo __('Amazon Order to') ?> :</label>
+								<input type="text" name="order_to" class="order_to required-entry" value="" id="order_to" />
+							</div>
+							
+						</div>
+						<div class="modal-footer">
+							<span class="error"></span>
+							<input type="reset" value="<?php echo __('Reset') ?>" id="resetbtn" class="wk-btn wk-btn_default action-primary "/>
+							<input type="submit" value="<?php echo __('Submit') ?>" id="range-button" class="wk-btn wk-btn-primary clickask action-primary"/>
+							<span class="wk-clear"></span>
+						</div>
+					</form>     
+			    </div>
+			    <div tabindex="0" data-role="focusable-end"></div>
+			</aside>
+		</div>
+	</div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "body": {
+			"orderimportscript": {"importUrl":"<?php echo $block->getImportUrl()?>", "profilerUrl":"<?php echo $block->getProfilerUrl()?>","reportUrl":"<?php echo $block->getGenerateReportUrl()?>"}
+        }
+    }
+</script>

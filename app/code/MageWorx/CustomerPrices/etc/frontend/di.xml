@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config>
+    <type name="Magento\Catalog\Model\Layer\Category\CollectionFilter">
+        <plugin name="apply_customer_prices_after_filter"
+                type="MageWorx\CustomerPrices\Plugin\Layer\Category\ApplyCustomerPricesToCollection"/>
+    </type>
+
+    <type name="Magento\CatalogSearch\Model\Adapter\Mysql\Dynamic\DataProvider">
+        <plugin name="apply_customer_prices_around_adapter"
+                type="MageWorx\CustomerPrices\Plugin\Adapter\Mysql\Dynamic\ApplyCustomPriceToAggregations"/>
+    </type>
+
+    <type name="Magento\CatalogSearch\Model\Adapter\Mysql\Filter\Preprocessor">
+        <plugin name="apply_customer_prices_process"
+                type="MageWorx\CustomerPrices\Plugin\CatalogSearch\ApplyCustomerPricesToProcess"/>
+    </type>
+</config>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="BoostMyShop_OrderPreparation::operation" title="Order preparation" module="BoostMyShop_OrderPreparation" sortOrder="20" parent="Magento_Sales::sales" resource="BoostMyShop_OrderPreparation::operations" />
+        <add id="BoostMyShop_OrderPreparation::prepare_orders" title="Prepare orders" module="BoostMyShop_OrderPreparation" sortOrder="10" parent="BoostMyShop_OrderPreparation::operation" action="orderpreparation/preparation" resource="BoostMyShop_OrderPreparation::preparation"/>
+        <add id="BoostMyShop_OrderPreparation::carrier_template" title="Shipping label templates" module="BoostMyShop_OrderPreparation" sortOrder="11" parent="BoostMyShop_OrderPreparation::operation" action="orderpreparation/carrierTemplate" resource="BoostMyShop_OrderPreparation::carrier_template"/>
+        <add id="BoostMyShop_OrderPreparation::configuration" title="Configuration" module="BoostMyShop_OrderPreparation" parent="BoostMyShop_OrderPreparation::operation" action="orderpreparation/configuration" sortOrder="100" resource="BoostMyShop_OrderPreparation::configuration"/>
+    </menu>
+</config>

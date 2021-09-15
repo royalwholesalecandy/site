@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="invoice_paid">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="type" xsi:type="string">invoice_paid</item>
+                            <item name="label" xsi:type="string" translate="true">Mark As Paid</item>
+                            <item name="url" xsi:type="url" path="pocustomize/invoice/paid"/>
+                            <item name="confirm" xsi:type="array">
+                                <item name="title" xsi:type="string" translate="true">Label</item>
+                                <item name="message" xsi:type="string" translate="true">Are you sure to do selected items as paid?</item>
+                            </item>
+                        </item>
+                    </argument>
+                </action>
+        </massaction>
+    </listingToolbar>
+	<columns name="sales_order_invoice_columns">
+    <actionsColumn name="paid" class="Akeans\Pocustomize\Ui\Component\Listing\Column\PaidAction">
+        <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="paidUrlPath" xsi:type="string">pocustomize/invoice/paidview</item>
+                    <item name="urlEntityParamName" xsi:type="string">invoice_id</item>
+                </item>
+            </argument>
+            <settings>
+                <indexField>increment_id</indexField>
+            </settings>
+    </actionsColumn>
+	</columns>
+</listing>

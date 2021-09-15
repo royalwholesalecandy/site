@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_shipment = $block->getShipment() ?>
+<?php $_order    = $block->getOrder() ?>
+<?php if ($_shipment && $_order): ?>
+    <table class="email-items">
+        <thead>
+            <tr>
+                <th class="item-info">
+                    <?= /* @escapeNotVerified */  __('Items') ?>
+                </th>
+                <th class="item-qty">
+                    <?= /* @escapeNotVerified */  __('Qty') ?>
+                </th>
+            </tr>
+        </thead>
+        <?php foreach ($_order->getAllItems() as $_item): ?>
+            <?php if (!$_item->getParentItem()) : ?>
+                <tbody>
+					<tr>
+						<td><p><strong><?php echo $_item->getName()?></strong></p><p><?php echo 'SKU: '.$_item->getSku()?></p></td>
+						<td><?php echo (int)$_item->getQtyShipped()?></td>
+					</tr>
+                    
+                </tbody>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </table>
+<?php endif; ?>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="ur-empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\UltimateReport\Block\Reports">
+                <action method="addReport"><argument name="report_code" xsi:type="string">orderpreparation.in_progress</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">orderpreparation.in_progress_per_user</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">orderpreparation.pending_orders</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">orderpreparation.items_shipped</argument></action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

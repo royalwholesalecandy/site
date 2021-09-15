@@ -1,0 +1,13 @@
+<?php if ($this->getProductId()): ?>
+
+    <?php echo $this->getChildHtml('admin.product.websites'); ?>
+    <?php echo $this->getChildHtml('admin.product.stocks'); ?>
+    <?php echo $this->getChildHtml('admin.product.pendingorders'); ?>
+    <?php echo $this->getChildHtml('admin.product.newstockmovement'); ?>
+    <?php echo $this->getChildHtml('admin.product.stockmovement'); ?>
+
+<?php else: ?>
+
+    <?php echo __('This tab is not available during product creation.'); ?>
+
+<?php endif; ?>

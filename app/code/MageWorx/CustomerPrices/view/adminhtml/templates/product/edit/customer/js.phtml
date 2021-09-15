@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<script>
+    require(["jquery",'Magento_Ui/js/modal/modal'], function($, modal){
+        var customerSearchModal = $('#customer-search-modal-content').modal({
+            type: 'slide',
+            responsive: true,
+            innerScroll: true,
+            title: '<?php echo $block->getModalTitle() ?>',
+            buttons: [{
+                text: '<?php echo $block->getCloseButtonText()?>',
+                'class': 'action-secondary',
+                click: function () {
+                    this.closeModal();
+                } 
+            }]
+        });
+
+        $('#action-customer-search').click(function(){
+            customerSearchModal.modal('openModal');
+        });
+        
+        window.customerSearchModal = customerSearchModal;
+    });
+</script>
+

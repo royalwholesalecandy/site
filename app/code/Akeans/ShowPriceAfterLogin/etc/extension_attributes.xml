@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <extension_attributes for="Magento\Customer\Api\Data\GroupInterface">
+        <!--Data interface can be used as a type of attribute, see example in CatalogInventory module-->
+        <attribute code="order_prefix" type="string">
+            
+        <join reference_table="customer_group" reference_field="customer_group_id" join_on_field="customer_group_id">
+                <field>order_prefix</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+</config>

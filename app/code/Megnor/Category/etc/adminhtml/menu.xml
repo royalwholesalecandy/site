@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Megnor_Category::view" title="Megnor" module="Megnor_Category" sortOrder="60" resource="Megnor_Category::category"/>
+        <add id="Megnor_Category::category_settings" title="Advance Menu Settings" module="Megnor_Category" sortOrder="20" parent="Megnor_Category::view" action="adminhtml/system_config/edit/section/megnor_category_menu" resource="Megnor_Category::category"/>
+		<!-- <add id="Megnor_Category::items" title="Manage Featured Products" module="Megnor_Category" sortOrder="40" parent="Megnor_Category::view" action="categoryadmin/" resource="Megnor_Category::items"/>-->
+		
+    </menu>
+</config>

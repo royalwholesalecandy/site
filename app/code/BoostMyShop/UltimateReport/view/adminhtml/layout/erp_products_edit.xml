@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="BoostMyShop_UltimateReport::css/ultimatereport.css"/>
+    </head>
+    <body>
+        <referenceBlock name="erp.products.edit.tabs">
+            <block class="BoostMyShop\UltimateReport\Block\Erp\Product\Edit\Tab\Report" name="erp.products.edit.tabs.report"/>
+
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">report</argument>
+                <argument name="block" xsi:type="string">erp.products.edit.tabs.report</argument>
+                <argument name="after" xsi:type="string">overview</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,224 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /** @var \MageWorx\CustomerGroupPrices\Block\Adminhtml\ImportExport\ImportExport $block */ ?>
+<div class="import-export-customergroupprices">
+    <?php if (!$block->getIsReadonly()): ?>
+        <div class="import-customergroupprices">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="import-form"
+                  class="admin__fieldset"
+                  action="<?php echo $block->getUrl('mageworx_customergroupprices/importExport/expressimportpost') ?>"
+                  method="post"
+                  enctype="multipart/form-data">
+                <?php endif; ?>
+                <?php echo $block->getBlockHtml('formkey') ?>
+                <div class="fieldset admin__field">
+                    <label for="import_customergroupprices_file" class="admin__field-label">
+                        <span><?php echo __('Magento 2 Import') ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input type="file"
+                               id="import_customergroupprices_file"
+                               name="import_customergroupprices_file"
+                               class="input-file required-entry"
+                        />
+                        <?php
+                        echo $block->getButtonHtml(__('Import'), '', 'import-submit');
+                        ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+
+                    jQuery('#import-form').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="import_customergroupprices_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+
+                });
+            </script>
+        </div>
+    <?php endif; ?>
+    <div class="<?php echo $block->getExportCustomerGroupPricesClasses(); ?>">
+        <?php if ($block->getUseContainer()): ?>
+        <form id="export_form"
+              class="admin__fieldset"
+              action="<?php echo $block->getUrl('mageworx_customergroupprices/importExport/expressexportpost') ?>"
+              method="post"
+              enctype="multipart/form-data">
+            <?php endif; ?>
+            <?php echo $block->getBlockHtml('formkey') ?>
+            <div class="fieldset admin__field">
+                <span class="admin__field-label">
+                    <span><?php echo __('Magento 2 Export') ?></span>
+                </span>
+                <div class="admin__field-control">
+                    <?php
+                    echo $block->getButtonHtml(
+                        __('Export'),
+                        "this.form.submit()"
+                    );
+                    ?>
+                </div>
+            </div>
+            <?php if ($block->getUseContainer()): ?>
+        </form>
+    <?php endif; ?>
+    </div>
+    <div class="<?php echo $block->getExportCustomerGroupPricesClasses(); ?>">
+        <?php if ($block->getUseContainer()): ?>
+        <form id="example_export_form"
+              class="admin__fieldset"
+              action="<?php echo $block->getUrl(
+                  'mageworx_customergroupprices/importExport/expressexportexamplepost'
+              ) ?>"
+              method="post"
+              enctype="multipart/form-data">
+            <?php endif; ?>
+            <?php echo $block->getBlockHtml('formkey') ?>
+            <div class="fieldset admin__field">
+                <span class="admin__field-label">
+                    <span><?php echo __('Download Magento 2 example CSV file'); ?></span>
+                </span>
+                <div class="admin__field-control" style="line-height: 32px;">
+                    <a href="<?php echo $block->getUrl(
+                        'mageworx_customergroupprices/importExport/ExpressExportExamplePost'
+                    ) ?>"><?php echo __('Download'); ?></a>
+                </div>
+            </div>
+            <?php if ($block->getUseContainer()): ?>
+        </form>
+    <?php endif; ?>
+    </div>
+    <!-- Migration from m1 -->
+    <?php if (!$block->getIsReadonly()): ?>
+    <a id="migration" href="#" return false"><?php echo __(
+        'Want to import customer group prices from Magento 1?'
+    ); ?></a>
+
+    <div class="box" style="display: none;">
+        <div class="import-customergroupprices">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="import-form-group-price-migtation"
+                  class="admin__fieldset"
+                  action="<?php echo $block->getUrl('mageworx_customergroupprices/importExport/expressimportpost') ?>"
+                  method="post"
+                  enctype="multipart/form-data">
+                <?php endif; ?>
+                <?php echo $block->getBlockHtml('formkey') ?>
+                <div class="fieldset admin__field">
+                    <label for="import_migration_group_prices_file" class="admin__field-label">
+                        <span><?php echo __('Import Group Price from Magento 1') ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input type="file"
+                               id="import_migration_group_prices_file"
+                               name="import_migration_group_prices_file"
+                               class="input-file required-entry"
+                        />
+                        <?php
+                        echo $block->getButtonHtml(__('Import'), '', 'import-submit');
+                        ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+
+                    jQuery('#import-form-group-price-m1').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="import_migration_group_prices_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+
+                });
+            </script>
+        </div>
+
+        <div class="import-customergroupprices">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="import-form-special-group-price-migtation"
+                  class="admin__fieldset"
+                  action="<?php echo $block->getUrl('mageworx_customergroupprices/importExport/expressimportpost') ?>"
+                  method="post"
+                  enctype="multipart/form-data">
+                <?php endif; ?>
+                <?php echo $block->getBlockHtml('formkey') ?>
+                <div class="fieldset admin__field">
+                    <label for="import_migration_special_group_prices_file" class="admin__field-label">
+                        <span><?php echo __('Import Special Group Price from Magento 1') ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input type="file"
+                               id="import_migration_special_group_prices_file"
+                               name="import_migration_special_group_prices_file"
+                               class="input-file required-entry"
+                        />
+                        <?php
+                        echo $block->getButtonHtml(__('Import'), '', 'import-submit');
+                        ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+
+                    jQuery('#import-form-special-group-price-m1').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="import_migration_special_group_prices_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+
+                });
+            </script>
+        </div>
+        <?php endif; ?>
+        <script>
+            require(['jquery'], function (jQuery) {
+                (function ($) {
+                    $('#migration').click(function () {
+                        if ($('.box').is(':hidden')) {
+                            $('.box').show();
+                        } else {
+                            $('.box').hide();
+                        }
+
+                    });
+                })(jQuery);
+            });
+        </script>
+    </div>
+</div>

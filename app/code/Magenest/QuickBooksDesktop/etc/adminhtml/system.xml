@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="200">
+            <label>Magenest</label>
+        </tab>
+        <section id="qbdesktop" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>QuickBooks Desktop</label>
+            <tab>magenest</tab>
+            <resource>Magenest_QuickBooksDesktop::config_qbdesktop</resource>
+            <group id="qbd_setting" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Export QWC Files</label>
+                <field id="company" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1"	showInStore="1">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Connection</frontend_model>
+                </field>
+                <field id="quickbook_version" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"	showInStore="1">
+                    <label>QuickBooks Desktop Version</label>
+                    <source_model>Magenest\QuickBooksDesktop\Model\Config\Source\Version</source_model>
+                </field>
+                <field id="number_tax" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1"	showInStore="1">
+                    <label>Number of Tax Codes in QuickBooks Desktop</label>
+                </field>
+                <field id="user_name" translate="label" type="select" sortOrder="30" showInDefault="1" showInStore="1"  >
+                    <label>User Name</label>
+                    <source_model>Magenest\QuickBooksDesktop\Model\Config\Source\Templates</source_model>
+                </field>
+                <field id="scheduler" translate="label" type="text" sortOrder="60" showInDefault="1" showInStore="1"  >
+                    <label>Schedule</label>
+                    <tooltip><![CDATA[Public send request in minutes. If field is empty default value 100 will be saved.]]>
+                    </tooltip>
+                    <validate>validate-digits validate-digits-range digits-range-1-10000</validate>
+                </field>
+                <field id="query_company" type="button" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCCompany</frontend_model>
+                    <tooltip><![CDATA[Connect to your current QuickBooks Company]]>
+                    </tooltip>
+                </field>
+                <field id="export_map" type="button" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCMap</frontend_model>
+                    <tooltip><![CDATA[Mapping the taxes from QuickBooks, Go to the menu Mapping Tax Codes after the process is done.]]>
+                    </tooltip>
+                </field>
+				<field id="export_map_inventory" type="button" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCMapInventory</frontend_model>
+                    <tooltip><![CDATA[Mapping the inventories from QuickBooks.]]>
+                    </tooltip>
+                </field>
+				
+				<!-- <field id="export_map_orderprocessing" type="button" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCOrderprocessing</frontend_model>
+                    <tooltip><![CDATA[Update Order in Magento from QB.]]>
+                    </tooltip>
+                </field> -->
+				
+                <field id="query_sync" type="button" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCSync</frontend_model>
+                    <tooltip><![CDATA[Send data from your Magento site to QuickBooks by queues in Manage Queues menu.]]>
+                    </tooltip>
+                </field>
+				
+            </group>
+            <group id="account_setting" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Account Type Setting</label>
+                <comment>Setting account name using when sync Product to QuickBooks</comment>
+                <field id="income" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1"  >
+                    <label>Income Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="expense" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1"  >
+                    <label>Expense Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="asset" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1"  >
+                    <label>Asset Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="cogs" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1"  >
+                    <label>Cost of Goods Sold Account</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+			<!--<group id="magento_sync" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Magento Sync Setting</label>
+				<field id="inventory" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+					   <label>QB to Magento Sync</label>
+					   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>-->
+        </section>
+    </system>
+</config>

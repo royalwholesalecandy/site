@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Magento\Theme\Block\Html\Breadcrumbs $block */
+/** @var \Magento\Catalog\ViewModel\Product\Breadcrumbs $viewModel */
+$viewModel = $block->getData('viewModel');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+?>
+<?php $bg_breadcrumb = $block->getChildHtml('organie_breadcrumb_background');?>
+<?php if($bg_breadcrumb): ?>
+    <?php preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $bg_breadcrumb, $matches); ?>
+<?php endif ?>
+
+<div class="breadcrumbs" data-mage-init='{
+    "breadcrumbs": {
+        "categoryUrlSuffix": "<?= $block->escapeHtml($viewModel->getCategoryUrlSuffix()); ?>",
+        "useCategoryPathInUrl": <?= (int)$viewModel->isCategoryUsedInProductUrl(); ?>,
+        "product": "<?= $block->escapeHtml($viewModel->getProductName()); ?>"
+    }
+}' style="background-image: url('<?php echo $matches[1][0];?>')">
+	
+    <h1><?php echo $_product->getName(); ?></h1>
+</div>

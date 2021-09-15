@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        
+		<add id="Wanexo_Jumbo::jumbo_theme" title="Jumbo" module="Wanexo_Jumbo" sortOrder="10" parent="Wanexo_Ext::wanexo" resource="Wanexo_Core::all"/>
+		
+		<add id="Wanexo_Jumbo::theme_design_activate" title="Activate Themes" module="Wanexo_Jumbo" sortOrder="20" parent="Wanexo_Jumbo::jumbo_theme" action="jumbo_admin/themeactivate" resource="Wanexo_Jumbo::theme_design"/>
+        
+		<add id="Wanexo_Jumbo::general_theme_settings" title="General Settings" module="Wanexo_Jumbo" sortOrder="30" parent="Wanexo_Jumbo::jumbo_theme" action="adminhtml/system_config/edit/section/wanexo_themeoption/" resource="Wanexo_Jumbo::configuration"/>
+		
+        <add id="Wanexo_Jumbo::theme_design" title="Design Panel" module="Wanexo_Jumbo" sortOrder="40" parent="Wanexo_Jumbo::jumbo_theme" action="adminhtml/system_config/edit/section/jumbo_design" resource="Wanexo_Jumbo::theme_design"/>
+		
+    </menu>
+</config>

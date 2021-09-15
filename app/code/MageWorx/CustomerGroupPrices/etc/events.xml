@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_item_collection_products_after_load">
+        <observer
+                name="mageworx_customergroupprices_add_group_price_to_product_in_quote_item"
+                instance="MageWorx\CustomerGroupPrices\Observer\ApplyGroupPriceToCollection"
+        />
+    </event>
+</config>
+
+
+
+
+
+
+
+
+
+
+
+
+

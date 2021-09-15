@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/** @var \MageWorx\CustomerPrices\Block\Adminhtml\Customer\Edit\CustomerPrice $block */
+/** @var \MageWorx\CustomerPrices\Block\Adminhtml\Customer\Edit\Tab\CustomerPrice $blockGrid */
+$blockGrid = $block->getBlockGrid();
+$gridJsObjectName = $blockGrid->getJsObjectName();
+?>
+<?= $block->getGridHtml() ?>
+<input type="hidden" name="select_products"
+       id="<?= $block->getFieldId() ?>"
+       data-form-part='customer_form'
+       value=""
+/>
+
+<input type="hidden" name="select_products_price"
+       id="<?= $block->getFieldPriceId() ?>"
+       data-form-part='customer_form'
+       value=""
+/>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "MageWorx_CustomerPrices/js/assign-products": {
+                "fieldId": "<?= $block->getFieldId() ?>",
+                "fieldPriceId": "<?= $block->getFieldPriceId() ?>",
+                "selectedProducts": <?= $block->getProductsJson() ?>,
+                "selectedProductsPrice": <?= $block->getProductsPriceJson() ?>,
+                "gridJsObjectName": <?= '"' . $gridJsObjectName . '"' ?: '{}' ?>
+            }
+        }
+    }
+</script>
+<script>
+    require('mage/apply/main').apply();
+</script>

@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-erp",
+  "description": "Embedded ERP : inventory, purchasing and order preparation",
+  "type": "magento2-module",
+  "version": "1.3.0", 
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\Erp\\": ""}
+  }
+}

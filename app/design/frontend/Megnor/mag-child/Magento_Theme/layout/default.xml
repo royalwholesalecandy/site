@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceContainer name="header.panel.wrapper">
+			<container name="tm_header_outer" as="tm_header_outer" label="tm_header_outer" htmlTag="div" htmlClass="tm_header_outer" >
+			<container name="tm_header_top" as="tm_header_top" label="tm_header_top" htmlTag="div" htmlClass="tm_header_top container-width" >
+				<container name="tm_header_top_left" as="tm_header_top_left" label="tm_header_top_left" htmlTag="div" htmlClass="tm_header_top_left" >
+					<container name="tm_header_sale_cms" as="tm_header_sale_cms" label="tm_header_sale_cms" htmlTag="div" htmlClass="tm_header_sale_cms" before="-">
+						<block class="Magento\Cms\Block\Block" name="header-sale-cms">
+							<arguments>
+								<argument name="block_id" xsi:type="string">header_sale_cms</argument>
+							</arguments>
+						</block>
+					</container>
+				 </container>
+				<container name="header-top-right" as="header-top-right" label="header-top-right" htmlTag="div" htmlClass="header-top-right" after="-">
+					<container name="header-top-message" as="header-top-message" label="header-top-message" htmlTag="ul" htmlClass="header-top-message" after="-">
+						<block class="Magento\Theme\Block\Html\Header" name="header-welcome" as="header-welcome" before="-">
+				            <arguments>
+				                <argument name="show_part" xsi:type="string">welcome</argument>
+				            </arguments>
+				        </block>
+				    </container>  
+			    </container>
+			</container>
+			</container>
+		</referenceContainer>
+		<referenceContainer name="header-wrapper">
+			<container name="tm_header" as="tm_header" label="tm_header" htmlTag="div" htmlClass="tm_header container-width" >
+				<container name="header-top" as="header-top" label="header-top" htmlTag="div" htmlClass="header-top">
+					<container name="header-left" as="header-left" label="header-left" htmlTag="div" htmlClass="header-left" before="-">
+						<container name="header-logo" as="header-logo" label="header-logo" htmlTag="div" htmlClass="header-logo">
+							<block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+								<arguments>
+									<argument name="logo_file" xsi:type="string">images/logo.png</argument>
+								</arguments>
+							</block>
+						</container>
+					</container>
+					<container name="header-center" as="header-center" label="header-center" htmlTag="div" htmlClass="header-center" after="header-left">
+					</container>
+					<container name="header-right" as="header-right" label="header-right" htmlTag="div" htmlClass="header-right" after="header-center">
+						<container name="tm_headerlinkmenu" as="tm_headerlinkmenu" label="tm_headerlinkmenu" htmlTag="div" htmlClass="tm_headerlinkmenu" >
+							<container name="tm_headerlinks_inner" as="tm_headerlinks_inner" label="tm_headerlinks_inner" htmlTag="div" htmlClass="tm_headerlinks_inner">
+								<container name="headertoggle_img" as="headertoggle_img" label="headertoggle_img" htmlTag="div" htmlClass="headertoggle_img">
+									<block class="Magento\Framework\View\Element\Template" name="myaccount-block" before="-" template="Magento_Theme::myaccount.phtml" />
+									
+								</container>
+							</container>
+							<container name="tm_headerlinks" as="tm_headerlinks" label="tm_headerlinks" htmlTag="div" htmlClass="tm_headerlinks">
+							</container>
+							
+						</container>
+						<container name="header-wishlist" as="header-wishlist" label="header-wishlist" htmlTag="div" htmlClass="header-wishlist" after="tm_headerlinkmenu" >
+							<block class="Magento\Wishlist\Block\Link" name="wish-list-link"/>
+						</container>
+					</container>
+				</container>
+				<container name="header-bottom" as="header-bottom" label="header-bottom" htmlTag="div" htmlClass="header-bottom">
+					<block class="Magento\Cms\Block\Block" name="header-easy-access-cms">
+							<arguments>
+								<argument name="block_id" xsi:type="string">tm_easy_access_CMS</argument>
+							</arguments>
+						</block>
+				</container>
+			</container>
+		</referenceContainer>	   		
+		<referenceContainer name="page.top"> 
+			<container name="header-menu-outer" as="header-menu-outer" label="header-menu-outer" htmlTag="div" htmlClass="header-menu-outer">
+			<container name="header-menu" as="header-menu" label="header-menu" htmlTag="div" htmlClass="header-menu">
+				<container name="header-nav" as="header-nav" label="Header Nav" htmlTag="div" htmlClass="header-nav">
+					<container name="header-nav-inner" as="header-nav-inner" label="Header Nav Inner" htmlTag="div" htmlClass="header-nav-inner">
+						
+						<block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+			                <arguments>
+			                    <argument name="group_name" xsi:type="string">navigation-sections</argument>
+			                    <argument name="group_css" xsi:type="string">nav-sections</argument>
+			                </arguments>
+			
+			                <block class="Megnor\Category\Block\Html\Topmega" name="store.menu" group="navigation-sections" template="Magento_Theme::html/Custommenu.phtml">
+			                    <arguments>
+			                        <argument name="title" translate="true" xsi:type="string">Menu</argument>
+			                    </arguments>
+			                   <!--  <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="Magento_Theme::html/topmenu.phtml" ttl="3600" before="-"/> -->
+			                   <block class="Megnor\Category\Block\Html\Topmega" name="catalog.topnav" template="Magento_Theme::html/Custommenu.phtml" after="-"/>
+			                </block>
+			            </block>
+
+			        </container>
+			        
+			   	</container>	
+			</container>
+			</container>
+		</referenceContainer>
+		<referenceContainer name="main">
+			<container name="breadcumbs-outer" as="header-breadcumbs-outer" label="Breadcumbs outer" htmlTag="div" htmlClass="breadcumb_outer" before="-">
+				<container name="breadcumbs-inner" as="header-breadcumbs-inner" label="Breadcumbs inner" htmlTag="div" htmlClass="breadcumb_inner">
+				</container>
+			</container>
+		</referenceContainer>
+
+		<move element="store_language" destination="header-top-right" after="-"/>
+		<move element="currency" destination="header-top-right" before="store_language"/>
+		<move element="minicart" destination="header-right" after="header-wishlist"/>
+		<move element="top.search" destination="header-center" after="header-menu-outer"/>
+		
+		<move element="top.links" destination="tm_headerlinks"/>
+		<move element="header-menu-outer" destination="header-center" before="-"/>
+
+		<block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+
+		<referenceContainer name="footer-container">
+		 <container name="footer-first" as="footer-first" label="Footer First" htmlTag="div" htmlClass="footer-inner" before="footer">
+		 			<block class="Magento\Cms\Block\Block" name="footer_newsletter" before="footer-wrapper">
+							<arguments>
+								<argument name="block_id" xsi:type="string">tm_footer_newsletter</argument>
+							</arguments>
+					</block>
+
+			<container name="footer-wrapper" as="footer-wrapper" label="Footer Wrapper" htmlTag="div" htmlClass="footer-wrapper">
+			<container htmlTag="div" htmlClass="container-width">
+				<container name="footer-wrapper-inner" as="footer-wrapper-inner" label="Footer Wrapper Inner" htmlTag="div" htmlClass="footer-wrapper-inner">
+				
+				<container name="footer-left" as="footer-left" label="Footer Left" htmlTag="div" htmlClass="footer-left" before="footer-right">
+					<block class="Magento\Cms\Block\Block" name="footer_logo">
+							<arguments>
+								<argument name="block_id" xsi:type="string">tm_footer_contactus</argument>
+							</arguments>
+					</block>
+				
+					<container name="footer-staticlink1" as="footer-staticlink1" label="Footer staticlink1">
+						<block class="Magento\Cms\Block\Block" name="footer_center1">
+							<arguments>
+									<argument name="block_id" xsi:type="string">tm_footer_paymentlinks</argument>
+								</arguments>
+						</block>
+					</container>
+				</container>
+
+				<container name="footer-right" as="footer-right" label="Footer Right" htmlTag="div" htmlClass="footer-right">
+					<container name="footer-staticlink2" as="footer-staticlink2" label="Footer staticlink2">
+						 <block class="Magento\Cms\Block\Block" name="footer_center2">
+								<arguments>
+									<argument name="block_id" xsi:type="string">tm_footer_staticlinks</argument>
+								</arguments>
+						 </block>
+					</container>
+
+					<container name="footer-staticlink" as="footer-staticlink" label="Footer staticlink" htmlTag="div" htmlClass="footer-area" htmlId="block_4" after="footer-staticlink2">
+						<block class="Magento\Cms\Block\Block" name="tm_blog">
+								<arguments>
+									<argument name="block_id" xsi:type="string">tm_blog</argument>
+								</arguments>
+						 </block>
+	            	</container>
+	            </container>
+
+				</container>
+			</container>
+				<container name="footer-bottom" as="footer-bottom" label="Footer Bottom" htmlTag="div" htmlClass="footer-bottom">
+					<container name="footer-bottom-outer" as="footer-bottom-outer" label="Footer Bottom Outer" htmlTag="div" htmlClass="footer-bottom-outer container-width">
+					<container name="footer-bottom-inner" as="footer-bottom-inner" label="Footer Bottom Inner" htmlTag="div" htmlClass="footer-bottom-inner"> 
+						
+					</container>
+					</container>
+				</container>				
+			</container>
+		</container>
+		</referenceContainer> 
+		<move element="footer_links" destination="footer-bottom-inner" before="copyright" />
+		<!-- <move element="form.subscribe" destination="footer-first" before="footer-wrapper"/> -->
+		<referenceBlock name="form.subscribe" remove="true"/>
+		<move element="copyright" destination="footer-bottom-inner"/>
+		<move element="page.main.title"  destination="breadcumbs-inner" before="-"/>
+		<move element="breadcrumbs"  destination="breadcumbs-inner" before="-"/>
+		<move element="catalog.leftnav"  destination="sidebar.main" before="catalog.navigation.renderer"/>
+		<move element="page.messages"  destination="main" before="-"/>
+	</body>
+</page>

@@ -1,0 +1,99 @@
+<script>
+
+    var quantitiesForPo = new Array();
+
+    function updateQty(productId)
+    {
+        quantitiesForPo[productId] = jQuery('#qty_' + productId).val();
+    }
+
+    function restoreQuantitiesForPo()
+    {
+        for (var key in quantitiesForPo) {
+            if (parseInt(key) > 0)
+            {
+                if (jQuery('#qty_' + key))
+                    jQuery('#qty_' + key).val(quantitiesForPo[key]);
+            }
+        }
+    }
+
+    function createPo(supplierId)
+    {
+        jQuery('#sup_id').val(supplierId);
+
+        var tmp = '';
+        for (var key in quantitiesForPo) {
+            if (parseInt(key) > 0)
+                tmp += key + '=' + quantitiesForPo[key] + ';';
+        }
+        jQuery('#products').val(tmp);
+        jQuery('#form_create_po').submit();
+    }
+
+    function fillMin()
+    {
+        jQuery( ".btn_min_qty" ).each(function( index ) {
+            jQuery( this).trigger('click');
+        });
+    }
+
+    function fillMax()
+    {
+        jQuery( ".btn_max_qty" ).each(function( index ) {
+            jQuery( this).trigger('click');
+        });
+    }
+
+</script>
+
+<form id="form_create_po" method="POST" action="<?php echo $this->getSaveUrl() ;?>">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <input type="hidden" name="sup_id" id="sup_id">
+    <input type="hidden" name="products" id="products">
+
+</form>
+
+
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+
+        <div id="create_po_button" title="Create a new Purchase Order" class="actions-split" data-mage-init='{"dropdown":{}}'>
+            <button id="create_po_button" title="Create a new Purchase Order" class="action-default primary add">
+                <span><?php echo __('Create a new Purchase Order'); ?></span>
+            </button>
+            <button title="Create a new Purchase Order" class="action-toggle primary add" data-toggle="dropdown">
+                <span>Select</span>
+            </button>
+            <ul class="dropdown-menu">
+                <?php foreach($this->getSuppliers() as $supplier): ?>
+                    <li>
+                        <span title="<?php echo $supplier->getSupName(); ?>" class="item" data-ui-id="createpo-supplier-<?php echo $supplier->getId(); ?>" onclick="createPo(<?php echo $supplier->getId(); ?>);"><?php echo $supplier->getSupName(); ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <button id="import" title="import" type="button" class="action-default scalable" onclick="fillMin();" >
+            <span><?php echo __('Fill with min qty'); ?></span>
+        </button>
+
+        <button id="import" title="import" type="button" class="action-default scalable" onclick="fillMax();" >
+            <span><?php echo __('Fill with max qty'); ?></span>
+        </button>
+
+
+
+    </div>
+
+
+    <p>&nbsp;</p>
+
+<script>
+    require(['jquery'], function($){
+
+        $('.actions-split')
+            .on('click.splitDefault', '.action-default', function() {
+                $(this).siblings('.dropdown-menu').find('.item-default').trigger('click');
+            });
+    });
+</script>

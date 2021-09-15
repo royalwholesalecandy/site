@@ -1,0 +1,176 @@
+/**
+ * Copyright © TemplateMonster. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// Local vars
+@cat-img-grid_category-link-size: 24px;
+@cat-img-grid_category-link-size-small: 16px;
+@cat-img-grid_category-link-color: #000000;
+@cat-img-grid_category-link-color-hover: #7d7d7d;
+
+@cat-img-grid_subcategory-link-size: 18px;
+@cat-img-grid_subcategory-link-size-small: 14px;
+@cat-img-grid_subcategory-link-color: #000000;
+@cat-img-grid_subcategory-link-color-hover: #7d7d7d;
+
+@cat-img-grid_link-size: 16px;
+@cat-img-grid_link-color: #1979c3;
+@cat-img-grid_link-color-hover: #000000;
+
+
+& when (@media-target = 'mobile'){
+// Main styles
+    .catalog-image-grid {
+        margin-bottom: 20px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+//Category
+        .category-grid,
+        .category-list {
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -8px;
+
+            > li {
+                padding: 0 8px;
+                margin: 0 0 20px;
+                box-sizing: border-box;
+
+                @media (max-width: 767px) {
+                    flex-basis: 33.333%;
+                }
+                @media (max-width: 500px) {
+                    flex-basis: 50%;
+                }
+                @media (max-width: 350px) {
+                    flex-basis: 100%;
+                }
+
+                .grid-inner {
+                    box-sizing: border-box;
+                }
+            }
+
+            .category-link {
+                display: inline-block;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: @cat-img-grid_category-link-size;
+                color: @cat-img-grid_category-link-color;
+                &:hover {
+                    color: @cat-img-grid_category-link-color-hover;
+                }
+
+                @media (max-width: 767px) {
+                    font-weight: 600;
+                    font-size: @cat-img-grid_category-link-size-small;
+                }
+
+                .category-name {
+                    display: inline-block;
+                    margin-bottom: 10px;
+                }
+
+                .category-image {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                .category-icon {
+                    display: inline-block;
+                    font-style: normal;
+                    &:before {
+                        line-height: normal;
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .button-more {
+                text-decoration: none;
+                font-size: @cat-img-grid_link-size;
+                color: @cat-img-grid_link-color;
+                &:hover {
+                    color: @cat-img-grid_link-color-hover;
+                }
+            }
+
+//SubCategory
+            .subcategory-grid {
+
+                margin-bottom: 10px;
+
+                > li {
+                    padding: 0;
+                    margin: 0;
+                    line-height: 30px;
+                }
+                .subcategory-link {
+                    display: inline-block;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: @cat-img-grid_subcategory-link-size;
+                    color: @cat-img-grid_subcategory-link-color;
+
+                    &:hover {
+                        color: @cat-img-grid_subcategory-link-color-hover;
+                    }
+
+                    @media (max-width: 767px) {
+                        font-size: @cat-img-grid_subcategory-link-size-small;
+                    }
+
+                    .subcategory-name,
+                    .subcategory-image {
+                        display: inline-block;
+                    }
+
+                    .subcategory-image {
+                        vertical-align: middle;
+                        margin-right: 10px;
+
+                        img {
+                            vertical-align: middle;
+                        }
+                    }
+
+                    .category-icon {
+                        display: inline-block;
+                        font-style: normal;
+
+                        &:before {
+                            line-height: normal;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .grid-wrapper {
+            overflow: hidden;
+
+            .category-image {
+                float: left;
+                width: 33%;
+                margin-right: 20px;
+            }
+
+            .subcategories {
+                overflow: hidden;
+                float: left;
+            }
+        }
+    }
+}

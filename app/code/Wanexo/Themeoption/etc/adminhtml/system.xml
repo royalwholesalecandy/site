@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+<system>
+<!-- Tab -->
+   <section id="wanexo_themeoption" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+     <label>General Settings</label>
+       <tab>wanexo_ext</tab>
+        <resource>Wanexo_Themeoption::config_themeoption</resource>
+			
+			<group id="genral_setting" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General Settings</label>
+				<field id="navfix" translate="label" type="select" sortOrder="1" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>Navigation scroll fix</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="boxed" translate="label" type="select" sortOrder="1" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>Boxed design</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				
+				<field id="rtl" translate="label" type="select" sortOrder="1" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>RTL Language</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				
+				<field id="wxo_heading" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Heading Style:</label>
+					<comment>Heading Style type</comment>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Headingtype</source_model>
+				</field>
+			</group>
+			
+			<group id="wxo_general_theme_setting" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Logo Setting</label>
+				
+				<!-- Logo -->
+                <field id="logo_heading" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo type</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field> 
+				
+				<field id="wxo_logo" translate="label comment" type="image" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Logo Image</label>
+					<backend_model>Wanexo\Themeoption\Model\Config\Backend\Image\Logo</backend_model>
+					<base_url type="media" scope_info="1">wanexo\logo</base_url>
+					<comment>Main logo</comment>
+				</field>
+				
+				<field id="wxo_logo_fx" translate="label" type="image" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Fix Logo image</label>
+					<backend_model>Wanexo\Themeoption\Model\Config\Backend\Image\Logo</backend_model>
+					<base_url type="media" scope_info="1">wanexo\logo</base_url>
+					<comment>Logo for small devices</comment>
+				</field>
+				
+				<field id="wxo_logo_sm" translate="label" type="image" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Small Device Logo</label>
+					<backend_model>Wanexo\Themeoption\Model\Config\Backend\Image\Logo</backend_model>
+					<base_url type="media" scope_info="1">wanexo\logo</base_url>
+					<comment>Logo small devices</comment>
+				</field>
+			</group>
+			
+			<group id="wxo_header_setting" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Header setting</label>
+				<field id="wxo_header" translate="label" type="select" sortOrder="1" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>Header type:</label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Headertype</source_model>
+				</field>
+			</group>
+
+			<group id="wxo_google_map" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Google map settings.</label>
+				<field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>enable/disable Google map:</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="wxo_latitude" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Latitude:</label>
+					<comment>Here you can add Latitude Point</comment>
+					<depends><field id="enable">1</field></depends>
+				</field>
+				<field id="wxo_longitude" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Longitude:</label>
+					<comment>Here you can add Longitude Point</comment>
+					<depends><field id="enable">1</field></depends>
+				</field>
+				<field id="wxo_title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Heading Text:</label>
+					<comment>Here you can add description heading</comment>
+					<depends><field id="enable">1</field></depends>
+				</field>
+				<field id="wxo_description" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Description Text:</label>
+					<comment>Here you can add description</comment>
+					<depends><field id="enable">1</field></depends>
+				</field>
+				<field id="wxo_map_height" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Map height:</label>
+					<comment>Here you can set Map box height</comment>
+					<depends><field id="enable">1</field></depends>
+				</field>
+			</group>
+			
+			<group id="wxo_footer_setting" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Footer Setting</label>
+				<field id="wxo_footer" translate="label" type="select" sortOrder="1" showInDefault="13" showInWebsite="1" showInStore="1">
+					<label>Footer Type:</label>
+					<source_model>Wanexo\Themeoption\Model\System\Config\Source\Footertype</source_model>
+				</field>
+			</group>
+			
+			<group id="wxo_class_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Custom Body Class Setting</label>
+				<field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable setting</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment>If you want to enable please select "yes".</comment>
+				</field>
+				<field id="home_page" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Class On Home Page</label>
+					<depends><field id="enable">1</field></depends>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="home_page_class" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Home Page Class</label>
+					<depends><field id="enable">1</field><field id="home_page">1</field></depends>
+				</field>
+				<field id="all_pages" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Class On All Pages</label>
+					<depends><field id="enable">1</field></depends>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="all_pages_class" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>All Pages Class</label>
+					<depends><field id="enable">1</field><field id="all_pages">1</field></depends>
+				</field>
+				<field id="cat_page" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Add Custom Class On Category Page</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="enable">1</field></depends>
+				</field>
+				<field id="cat_class" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Category Class</label>
+					<depends><field id="enable">1</field><field id="cat_page">1</field></depends>
+				</field>
+				<field id="cat_image_class" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>If Category Image Upload</label>
+					<depends><field id="enable">1</field><field id="cat_page">1</field></depends>
+				</field>
+			</group>
+			
+   </section>
+</system>
+</config>

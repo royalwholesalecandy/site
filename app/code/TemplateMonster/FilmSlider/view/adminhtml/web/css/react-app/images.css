@@ -1,0 +1,11 @@
+.slide-image [class*=file-upload-component] [class*=dropzone] {
+    background: url("../../images/gallery-add.png") top center no-repeat;
+    background-size: 70px;
+}
+
+.slider-app-container .layers-modal .slide-image.no-image,
+.slider-app-container .slide-modal .slide-image.no-image,
+.filmslider-slider-edit .layers-modal .slide-image.no-image,
+.filmslider-slider-edit .slide-modal .slide-image.no-image {
+    background: url("../../images/no-image.png") top center no-repeat;
+    background-size: contain; }

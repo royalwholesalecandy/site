@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PENDING_REGISTRATION
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_front_init_before">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\FixOverride" />
+    </event>
+    <event name="customer_save_after">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Save\SaveCustomer" />
+    </event>
+    <event name="adminhtml_customer_prepare_save">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Save\SetItorisFlag" />
+    </event>
+    <event name="customer_login">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Login\CheckLoginAbility" />
+    </event>
+    <event name="controller_action_predispatch_customer_account_createpost">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Register\SendEmails" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Register\RegisterSuccess" />
+    </event>
+    <event name="admin_system_config_changed_section_itoris_pendingreg">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Config\CustomergroupsPost" />
+    </event>
+    <event name="itoris_regfields_pendigs_error">
+        <observer name="itoris_pendingregistration" instance="Itoris\PendingRegistration\Observers\Register\PendingRegFIelds" />
+    </event>
+</config>

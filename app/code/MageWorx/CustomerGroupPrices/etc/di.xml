@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageWorx\CustomerGroupPrices\Api\ExportHandlerInterface" type="MageWorx\CustomerGroupPrices\Model\ImportExport\ExportHandler" />
+    <preference for="MageWorx\CustomerGroupPrices\Api\ImportHandlerInterface" type="MageWorx\CustomerGroupPrices\Model\ImportExport\ImportHandler" />
+    <!-- REINDEX Product Price Magento <= 2.2.5 -->
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\DefaultPrice">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_after_reindex_default_price"
+                type="MageWorx\CustomerGroupPrices\Plugin\Indexer\MagentoTill225\AddCustomerGroupPricesToProductPriceIndexPlugin"/>
+    </type>
+
+    <!-- REINDEX Product Price Magento >= 2.2.6 -->
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\Query\BaseFinalPrice">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_after_reindex_product_price"
+                type="MageWorx\CustomerGroupPrices\Plugin\Indexer\MagentoFrom226\FinalPricePlugin"/>
+    </type>
+
+    <type name="Magento\Bundle\Model\ResourceModel\Indexer\Price">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_after_reindex_bundle_product_price"
+                type="MageWorx\CustomerGroupPrices\Plugin\Indexer\MagentoFrom226\BundlePricePlugin"/>
+    </type>
+
+    <!-- Join attribute process -->
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\Query\JoinAttributeProcessor">
+        <plugin name="mageworx_customergroupprices_join_attribute_processor"
+                type="MageWorx\CustomerGroupPrices\Plugin\Indexer\MagentoFrom226\AttributeProcessPlugin"/>
+    </type>
+
+    <!-- REINDEX Catalog Rule-->
+    <type name="Magento\CatalogRule\Model\Indexer\IndexBuilder">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_before_catalog_rule"
+                type="MageWorx\CustomerGroupPrices\Plugin\AddCustomerGroupPricesToCatalogRuleIndexPlugin"/>
+    </type>
+
+    <!-- REINDEX Catalog Rule-->
+    <type name="Magento\CatalogRule\Model\Indexer\RuleProductsSelectBuilder">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_before_catalog_rule_product_select_builder"
+                type="MageWorx\CustomerGroupPrices\Plugin\AddCustomerGroupPricesToRuleProductsPlugin"/>
+    </type>
+
+    <!-- change create temp table search_tmp_********  for Magento <= 2.1.7 -->
+    <type name="Magento\CatalogSearch\Model\Search\TableMapper">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_table_mapper"
+                type="MageWorx\CustomerGroupPrices\Plugin\Search\ApplyCustomerGroupPricesToTableMapper"/>
+    </type>
+
+     <!-- change create temp table search_tmp_********  for Magento >= 2.1.8 -->
+    <type name="Magento\CatalogSearch\Model\Search\FilterMapper\ExclusionStrategy">
+        <plugin name="mageworx_customergroupprices_apply_group_prices_filter_mapper"
+                type="MageWorx\CustomerGroupPrices\Plugin\Search\ApplyCustomerGroupPricesToFilterMapper"/>
+    </type>
+
+</config>

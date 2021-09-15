@@ -1,0 +1,168 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_REGISTRATION_FIELDS_MANAGER
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php
+/** @var \Itoris\RegFields\Block\Form\Fieldset\Renderer $block */
+/** @var \Magento\Framework\Data\Form\Element\AbstractElement $_element */
+$_element = $block->getElement();
+/** @var $form \Magento\Framework\Data\Form */
+$form = $_element->getForm();
+$useFor = $block->getRequest()->getParam('store') ? $block->escapeHtml(__('Use Website')) : null;
+/** @var $helper \Itoris\RegFields\Helper\Data */
+$helper = \Magento\Framework\App\ObjectManager::getInstance()->create('Itoris\RegFields\Helper\Data');
+/** @var \Itoris\RegFields\Model\Form $formModel */
+$formModel = $helper->getObjectManager()->create('Itoris\RegFields\Model\Form');
+$useDefault = $formModel->load($block->getRequest()->getParam('store'), 'view_id')->getData('use_default');
+$useDefaultFlag = false;
+if(($useDefault == 'on' || $useDefault === null) && $useFor !== null) $useDefaultFlag = true;
+?>
+<?php if ($_element->getFieldsetContainerId()): ?>
+<div id="<?php echo $_element->getFieldsetContainerId(); ?>">
+    <?php endif; ?>
+    <?php if ($_element->getLegend()): ?>
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend">
+                <?php echo $_element->getLegend() ?>
+                <?php if ($useFor): ?>
+                    <input type="checkbox" name="use_default" style="margin-left:100px;margin-right: 5px;" <?php if ($useDefaultFlag /*&& $form->getUseParentValue()*/):?>  checked="checked" <?php  endif; ?>
+                           onclick="
+                        if (this.checked) {
+				   		$('field-manager-area').hide();
+				   		$('add-new-section').hide();
+				   		$('reset-form-to-default').hide();
+				   		$('form_active_value').disabled = true;
+				   } else {
+				   		$('field-manager-area').show();
+				   		$('add-new-section').show();
+				   		$('reset-form-to-default').show();
+				   		$('form_active_value').disabled = false;
+				   }"
+                        />
+                    <span><?php echo $useFor ?></span>
+                <?php endif; ?>
+                <input id="form_active_value" type="hidden" name="settings[form_active][value]" value="1" <?php if ($form->getUseParentValue()):?> disabled="disabled" <?php endif; ?>/>
+            </h4>
+            <div class="form-buttons"><?php echo $_element->getHeaderBar() ?>
+                <button id="reset-form-to-default" class="scalable" type="button" <?php if ($useFor && $form->getUseParentValue()):?> style="display:none;" <?php endif; ?>><span><?php echo $block->escapeHtml(__('Reset Form to Default')) ?></span></button>
+                <button id="add-new-section" class="scalable add" type="button" <?php if ($useFor && $form->getUseParentValue()):?> style="display:none;" <?php endif; ?>><span><?php echo $block->escapeHtml(__('Add New Section')) ?></span></button>
+            </div>
+        </div>
+    <?php endif; ?>
+    <div class="fieldset <?php echo $_element->getClass() ?>" id="<?php echo $_element->getHtmlId() ?>">
+        <div class="hor-scroll" id="field-manager-area" <?php if ($useDefaultFlag /*&& $form->getUseParentValue()*/):?> style="display:none;" <?php endif; ?>>
+        </div>
+        <?php echo $_element->getSubFieldsetHtml() ?>
+    </div>
+    <?php if ($_element->getFieldsetContainerId()): ?>
+</div>
+<?php endif; ?>
+<script type="text/javascript">
+    require(['itoris_regfields_manager','itoris_regfields_settings','prototype'], function(Itoris) {
+        <?php
+            $translates = [
+                'sectionLabel'    => $block->escapeHtml(__('Section Label')),
+                'moveDown'        => $block->escapeHtml(__('Move Down')),
+                'moveUp'          => $block->escapeHtml(__('Move Up')),
+                'remove'          => $block->escapeHtml(__('Remove')),
+                'removeLCase'     => $block->escapeHtml(__('remove')),
+                'fieldConfig'     => $block->escapeHtml(__('Field Configuration')),
+                'removeSection'   => $block->escapeHtml(__('Do you really want to remove this section?')),
+                'columns'         => $block->escapeHtml(__('Columns')),
+                'cols'            => $block->escapeHtml(__('Columns')),
+                'rows'            => $block->escapeHtml(__('Rows')),
+                'label'           => $block->escapeHtml(__('Label')),
+                'fieldType'       => $block->escapeHtml(__('Field Type')),
+                'input_box'       => $block->escapeHtml(__('Input Box')),
+                //'password_box'    => $block->escapeHtml(__('Password Box')),
+                'checkbox'        => $block->escapeHtml(__('Checkbox(es)')),
+                'radio'           => $block->escapeHtml(__('Radio(s)')),
+                'select_box'      => $block->escapeHtml(__('Select Box')),
+                'list_box'        => $block->escapeHtml(__('List Box')),
+                'multiselect_box' => $block->escapeHtml(__('Multi-select List Box')),
+                'textarea'        => $block->escapeHtml(__('Textarea')),
+                'file'            => $block->escapeHtml(__('File Upload')),
+                'static_text'     => $block->escapeHtml(__('Static Text')),
+                'captcha'         => $block->escapeHtml(__('Captcha')),
+                'required'        => $block->escapeHtml(__('Required')),
+                'yes'             => $block->escapeHtml(__('Yes')),
+                'no'              => $block->escapeHtml(__('No')),
+                'please_select'   => $block->escapeHtml(__('--Please select--')),
+                'email'           => $block->escapeHtml(__('Email')),
+                'name'            => $block->escapeHtml(__('Name')),
+                'number'          => $block->escapeHtml(__('Number')),
+                'money'           => $block->escapeHtml(__('Money')),
+                'phone'           => $block->escapeHtml(__('Phone')),
+                'validation'      => $block->escapeHtml(__('Validation')),
+                'default_value'   => $block->escapeHtml(__('Default Value')),
+                'css_class'       => $block->escapeHtml(__('CSS Class')),
+                'html_arg'        => $block->escapeHtml(__('HTML Arguments')),
+                'apply'           => $block->escapeHtml(__('Apply')),
+                'cancel'          => $block->escapeHtml(__('Cancel')),
+                'file_extensions' => $block->escapeHtml(__('File Extensions Allowed')),
+                'max_file_size'   => $block->escapeHtml(__('Max file size in bytes')),
+                'quantity'        => $block->escapeHtml(__('Quantity')),
+                'itemLabel'       => $block->escapeHtml(__('Item Label')),
+                'itemValue'       => $block->escapeHtml(__('Item Value')),
+                'checked'         => $block->escapeHtml(__('Checked')),
+                'selected'        => $block->escapeHtml(__('Selected')),
+                'cannotChangeQuantity' => $block->escapeHtml(__('Cannot change quantity. Please remove unnecessary items.')),
+                'removeItem'           => $block->escapeHtml(__('Do you really want to remove this item?')),
+                'removeField'          => $block->escapeHtml(__('Do you really want to remove this field?')),
+                'onlyOneItem'          => $block->escapeHtml(__('Cannot delete this item. Field should contain at least one item.')),
+                'minRequired'          => $block->escapeHtml(__('Minimum Required')),
+                'size'                 => $block->escapeHtml(__('Size')),
+                'alikon_mod'           => $block->escapeHtml(__('Alikon mod')),
+                'captcha_form'         => $block->escapeHtml(__('Captcha form')),
+                'secur_image'          => $block->escapeHtml(__('SecurImage')),
+                'name'                 => $block->escapeHtml(__('Name')),
+                'noteNameDb'           => $block->escapeHtml(__('This name will be used for saving field value in database.')),
+                'noteHtmlArgs'         => $block->escapeHtml(__('Don\'t use name attribute here. It is in the field below.')),
+                'noteFileSize'         => $block->escapeHtml(__('in bytes')),
+                'noteFileExt'          => $block->escapeHtml(__('example: png, jpg, jpeg, gif')),
+                'cannotResizeTable'    => $block->escapeHtml(__('Cannot resize table. Please remove or move bordered fields.')),
+                'nameUsed'             => $block->escapeHtml(__('Entered name is used. Please enter other name.')),
+                'valueUsed'            => $block->escapeHtml(__('Entered value is used. Please enter other value.')),
+                'captchaNote'          => $block->escapeHtml(__('Please, enter the text shown in the image into the field below')),
+                'noteMaxCols'          => $block->escapeHtml(__('maximum: 35')),
+                'minRequiredCheckboxes' => $block->escapeHtml(__('Min required should be equal or less than quantity of checkboxes')),
+                'onlyOneItemChecked'    => $block->escapeHtml(__('Only one item can be checked at the same time')),
+                'selectDefaultField'    => $block->escapeHtml(__('--select default field--')),
+                'date'                  => $block->escapeHtml(__('Date')),
+                'zip'                   => $block->escapeHtml(__('Zip Code')),
+                'resetForm'             => $block->escapeHtml(__('Are you sure want to reset the form? This will discard all changes you have made.'))
+            ];
+        ?>
+        fieldManager = new Itoris.FieldManager(
+            <?php echo $form->getSections() ?>,
+            <?php echo $block->getRegFieldsHelper()->getFieldTypesJson() ?>,
+            <?php echo \Zend_Json::encode($translates) ?>,
+            <?php echo $block->getRegFieldsHelper()->getValidationTypesJson() ?>,
+            <?php echo $block->getRegFieldsHelper()->getCaptchaTypesJson() ?>,
+            <?php echo \Zend_Json::encode($block->getRegFieldsHelper()->getAdditionalDefaultFields()) ?>,
+            '<?php echo $block->getBaseUrl() ?>',
+            <?php echo $form->getDefaultSections() ?>
+        );
+    });
+</script>

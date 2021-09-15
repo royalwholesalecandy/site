@@ -1,0 +1,31 @@
+<?php
+/**
+ * @category    Royal
+ * @package     Royal_Badges
+ * @author      Gowithmagento <adrian@gowithmagento.com>
+ */
+?>
+
+
+<?php /** @var array|string $badges */
+$badges = $this->getProduct()->getAttributeText('badges'); ?>
+<?php if ($badges): ?>
+    <div class="product-badges top-border">
+        <ul class="unstyled clearfix">
+            <?php if (is_array($badges)): ?>
+                <?php foreach ($badges as $badge) { 
+                $file = 'images/'.strtolower(str_replace(" ", "-", $badge)).'.png';
+                ?>
+                    <li class="product-badge">
+                        <img src="<?php echo $block->getViewFileUrl($file); ?>" class="badge-img"/>
+                    </li>
+                <?php } ?>
+            <?php else: ?>
+                <li class="product-badge">
+                    <img src="<?php echo $block->getMediaUrl() ?>" class="badge-img"/>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif ?>
+

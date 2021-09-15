@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+<?php $order = $block->getOrder();
+$totalQty = 0;
+$pickTime = 0;
+foreach($order->getAllItems() as $oItem){
+	$totalQty += $oItem->getQtyOrdered();
+}
+$totalLineItemQty = count($order->getAllItems()) + $totalQty;
+if($totalLineItemQty > 1){
+	$pickTime = (ceil($totalLineItemQty/6)+1) * 2;
+}
+?>
+<tr>
+	<th>Line Items: </th>
+	<td><?php echo count($order->getAllItems());?></td>
+</tr>
+<tr>
+	<th>Line Items QTY:</th>
+	<td> <?php echo $totalQty;?></td>
+</tr>
+<tr>
+	<th>Order Work Time:</th>
+	<td><?php echo ceil($pickTime);?></td>
+</tr>

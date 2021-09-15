@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <jumbo_settings>
+            <install>
+                <overwrite_blocks>0</overwrite_blocks>
+				<overwrite_pages>0</overwrite_pages>
+            </install>
+        </jumbo_settings>
+		
+		<jumbo_design>
+            <general>
+                <theme_color>#c0a062</theme_color>
+            </general>
+        </jumbo_design>
+    </default>
+</config>

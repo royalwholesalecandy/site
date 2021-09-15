@@ -1,0 +1,37 @@
+
+<div id="assign-barcode-modal" style="display:none;">
+
+    <h1><?php echo __('Assign new barcode to product'); ?></h1>
+
+    <h2><?php echo __('Barcode to assign'); ?> : <span id="div-barcode-to-assign"></span></h2>
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="assign_product_table">
+            <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Image'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sku'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Barcode'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Product'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Assign'); ?></span></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($this->getOrder()->getAllItems() as $item): ?>
+                <tr>
+                    <td class="a-center"><img src="<?php echo $this->getImageUrl($item); ?>" width="30"></td>
+                    <td class="a-left"><a href="<?php echo $this->getProductUrl($item); ?>"><?php echo $item->getpop_sku().' / '.$item->getpop_supplier_sku(); ?></a></td>
+                    <td class="a-left"><?php echo $this->getProductBarcode($item); ?></td>
+                    <td class="a-left"><?php echo $item->getpop_name(); ?></td>
+                    <td class="a-center">
+                        <input type="button" value="<?php echo __('Assign'); ?>" onclick="orderReception.assignBarcode(<?php echo $item->getpop_product_id(); ?>);">
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>

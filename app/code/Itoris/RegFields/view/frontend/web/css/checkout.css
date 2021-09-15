@@ -1,0 +1,20 @@
+#itoris-regform-validate .field .input-text.date,
+#itoris_quickcheckout .form-list .wide input.input-text.date {
+	width: 234px;
+}
+#itoris_quickcheckout .form-list li.wide .input-box {
+	width: 270px;
+}
+#itoris-regform-validate .field .date-trig,  #itoris_quickcheckout .field .date-trig {
+	vertical-align: middle;
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+.form-list .reload-captcha {
+	height: 16px;
+	width: 16px;
+	background-image: url(../image/refresh.gif);
+	cursor: pointer;
+	float: left;
+}

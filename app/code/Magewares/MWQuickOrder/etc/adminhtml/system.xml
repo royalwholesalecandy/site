@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+		<tab id="magewares" translate="label" sortOrder="101">
+            <label>MWQuick Order</label>
+        </tab>
+        <section id="mwquickorder" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>MWQuick Order</label>
+            <tab>magewares</tab>
+			<resource>Magewares_MWQuickOrder::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Module Enable/Disable</comment>
+                </field>
+				<field id="min_char" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autocomplete minimum character length</label>
+					<validate>required-entry validate-number</validate>
+					<comment>Use High Number for accurate search i.e Ex: 3</comment>
+                </field>
+				<field id="default_rows" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Number Of rows to display</label>
+					<validate>required-entry validate-number</validate>
+					<comment>Number of rows which you want to see on the quick order page.</comment>
+                </field>
+            </group>
+			<group id="style_management" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Style Management</label>
+                <field id="style" translate="label" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Magewares\MWQuickOrder\Block\System\Config\FieldStyle</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <htmlContent name="product.mageworx_customerprices_tab" sortOrder="90">
+        <argument name="data" xsi:type="array">
+            <item name="wrapper" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Prices per Customer</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <settings>
+            <wrapper>
+                <canShow>true</canShow>
+                <componentType>fieldset</componentType>
+            </wrapper>
+        </settings>
+        <block name="product.mageworx_customerprices_tab" class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab">
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form" name="product.edit.tab.customerprices.form"/>
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Grid" name="product.edit.tab.customerprices.grid"/>
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\Js" template="MageWorx_CustomerPrices::product/js.phtml"/>
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\CustomerSearch" template="MageWorx_CustomerPrices::product/edit/customer/customersearch.phtml"/>
+            <block class="MageWorx\CustomerPrices\Block\Adminhtml\Catalog\Product\Edit\Tab\Form\CustomerSearch\Js" template="MageWorx_CustomerPrices::product/edit/customer/js.phtml" />
+        </block>
+    </htmlContent>
+</form>

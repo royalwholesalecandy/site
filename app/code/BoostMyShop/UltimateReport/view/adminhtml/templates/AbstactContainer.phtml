@@ -1,0 +1,61 @@
+<div id="ultimatereport_filters">
+
+    <?php if ($this->canShowFilter('store')): ?>
+        <select id="ur_filter_store" name="filter[store_ids]">
+            <?php foreach($this->getStoreFilterOptions() as $k => $v): ?>
+                <?php $selected = ((string)$k == $this->getFilterValue('store_ids') ? ' selected ' : ''); ?>
+                <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php endforeach; ?>
+        </select>
+    <?php endif; ?>
+
+    <?php if ($this->canShowFilter('interval')): ?>
+        <select id="ur_filter_interval" name="filter[interval]" onchange="objUltimateReport.syncInterval()">
+            <?php foreach($this->getIntervalOptions() as $k => $v): ?>
+                <?php $selected = ($k == $this->getFilterValue('interval') ? ' selected ' : ''); ?>
+                <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <input type="text" id="ur_date_from" name="filter[date_from]" value="">
+        <input type="text" id="ur_date_to" name="filter[date_to]" value="">
+        <script>
+
+        </script>
+    <?php endif; ?>
+
+    <?php if ($this->canShowFilter('group_by_date')): ?>
+        <select id="ur_filter_group" name="filter[group_by_date]">
+            <?php foreach($this->getGroupByDateOptions() as $k => $v): ?>
+                <?php $selected = ($k == $this->getFilterValue('group_by_date') ? ' selected ' : ''); ?>
+                <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php endforeach; ?>
+        </select>
+    <?php endif; ?>
+
+    <button id="refresh" title="refresh" type="button" class="action-default scalable primary" onclick="objUltimateReport.refresh();"  data-ui-id="adminhtml-order-edit-save-button" >
+        <span><?php echo __('Refresh'); ?></span>
+    </button>
+
+    <?php foreach($this->getHiddenfields() as $id => $value): ?>
+        <input type="hidden" name="filter[<?php echo $id; ?>]" value="<?php echo $value; ?>">
+    <?php endforeach; ?>
+
+</div>
+
+<div id="ultimatereport_reports"></div>
+
+<script>
+
+    require(["form","ultimate_report", "loaderAjax"], function(){
+        objUltimateReport = new AdminUltimateReport();
+        objUltimateReport.init('<?php echo $this->getReportUrl(); ?>?isAjax=true', '<?php echo $this->getPageCode(); ?>');
+        objUltimateReport.syncInterval();
+
+            jQuery( document ).ready(function() {
+                objUltimateReport.refresh();
+            });
+
+    });
+
+</script>
+

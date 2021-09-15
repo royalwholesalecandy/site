@@ -1,0 +1,57 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$showThumbnail = $this->getConfig('general_settings/show_thumbnail');
+if ($this->getConfig('general_settings/thumbnail_width') != '') {
+    $width = $this->getConfig('general_settings/thumbnail_width');
+} else {
+    $width = 240;
+}
+if ($this->getConfig('general_settings/thumbnail_height') != '') {
+    $height = $this->getConfig('general_settings/thumbnail_height');
+} else {
+    $height = 180;
+}
+$categoryId = (int)$this->getRequest()->getParam('category_id', false);
+?>
+<?php if (!count($collection)): ?>
+    <div class="message info empty">
+        <div><?php echo __('Have no posts.') ?></div>
+    </div>
+<?php else: ?>
+    <div class="blog-list">
+        <?php foreach ($collection as $post): ?>
+            <div class="blog-post">
+			    <?php if ($showThumbnail): ?>
+                    <div class="post-thumbnail">
+                        <?php echo $helper->getThumbnailPost($post); ?>
+                    </div>
+                <?php endif; ?>
+				<div class="post-info">
+                    <?php if ($post->getUpdatedByUser()): ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUpdatedByUser()); ?></a></em></div>
+                    <?php else: ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUser()); ?></a></em></div>
+                    <?php endif; ?>
+                </div>
+                <h2 class="post-title">
+                    <a class="post-title-link h3" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a>
+                </h2>
+                <?php if ($post->getShortContent()): ?>
+                    <div class="post-content">
+                        <?php echo $post->getShortContent(); ?>
+						<div class="post-link">
+							<a class="btn btn-sm btn-primary" title="<?php echo __('Read More'); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('Read More'); ?></a>
+							<?php if ($this->getConfig('general_settings/use_sharethis')): ?>
+                                <div class="sharethis-inline-share-buttons">
+								<span class="st_sharethis" displayText="Share this post"></span>
+								</div>
+                            <?php endif; ?>
+						</div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="blog-post-list-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif; ?>

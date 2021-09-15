@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\Supplier\Block\Order\Edit\Summary" name="adminhtml.order.summary"/>
+            <block class="BoostMyShop\Supplier\Block\Order\Edit\Tabs" name="adminhtml.order.edit.tabs"/>
+            <block class="BoostMyShop\Supplier\Block\Order\Edit" name="adminhtml.order.edit"/>
+            <block class="BoostMyShop\Supplier\Block\Order\Js" name="adminhtml.order.js"/>
+        </referenceContainer>
+    </body>
+</page>

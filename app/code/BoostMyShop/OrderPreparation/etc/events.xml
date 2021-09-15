@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="sales_order_shipment_track_save_after">
+        <observer name="bms_orderpreparation_sales_order_shipment_track_save_after" instance="BoostMyShop\OrderPreparation\Observer\SalesOrderShipmentTrackSaveAfter"/>
+    </event>
+
+    <event name="sales_order_shipment_save_after">
+        <observer name="bms_orderpreparation_sales_order_shipment_save_after" instance="BoostMyShop\OrderPreparation\Observer\SalesOrderShipmentSaveAfter"/>
+    </event>
+
+    <event name="controller_action_predispatch_sales_order_view">
+        <observer name="bms_orderpreparation_controller_action_predispatch_sales_order_view" instance="BoostMyShop\OrderPreparation\Observer\ControllerActionPredispatchSalesOrderView"/>
+    </event>
+
+</config>

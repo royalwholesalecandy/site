@@ -1,0 +1,512 @@
+<install>
+	<static_block>
+		<item>
+			<title>Organie Slider Home 6</title>
+			<identifier>organie_slider_home_6</identifier>
+			<content><![CDATA[<div><a href="#"><img src="{{media url="wysiwyg/slider-flower1.jpg"}}" alt="" class="img-responsive" /></a></div>
+<div><a href="#"><img src="{{media url="wysiwyg/slider-flower2.jpg"}}" alt="" class="img-responsive" /></a></div>]]></content>
+		</item>	
+		<item>
+			<title>MGS Top Header 6</title>
+			<identifier>mgs_top_header</identifier>
+			<content><![CDATA[<div>{{widget type="MGS\Mpanel\Block\Widget\Slider" block_id="25" banner_full="1" banner_height="800" animate="1" banner_owl_auto="1" banner_owl_speed="6000" banner_owl_nav="1" banner_owl_dot="1" banner_owl_loop="1"}}</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Contact Footer</title>
+			<identifier>organie_contact_ft</identifier>
+			<content><![CDATA[<div class="block-contact">
+<h4>Contact</h4>
+<div class="block-content">
+<ul>
+<li><span><i class="ion-ios-home">&nbsp;</i></span> 2/45 Tower Street, New York, USA</li>
+<li><span><i class="ion-ios-telephone">&nbsp;</i></span> 0012 678 8899</li>
+<li><span><i class="ion-android-mail">&nbsp;</i></span>contact@organie.com</li>
+<li><span><i class="ion-android-globe">&nbsp;</i></span><a href="#">www.organiestore.com</a></li>
+</ul>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Infomation Footer</title>
+			<identifier>organie_info_ft</identifier>
+			<content><![CDATA[<div class="block-info">
+<h4>Infomation</h4>
+<div class="block-content">
+<ul>
+<li><a href="#">New Products</a></li>
+<li><a href="#">Top Sellers</a></li>
+<li><a href="#">Our Blog</a></li>
+<li><a href="#">About Our Shop</a></li>
+<li><a href="#">Secure Shopping</a></li>
+</ul>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie My Account Footer</title>
+			<identifier>organice_account_ft</identifier>
+			<content><![CDATA[<div class="block-account">
+<h4>My Account</h4>
+<div class="block-content">
+<ul>
+<li><a href="#">My Account</a></li>
+<li><a href="#">Personal infomation</a></li>
+<li><a href="#">Addresses</a></li>
+<li><a href="#">Discount</a></li>
+<li><a href="#">Orders history</a></li>
+</ul>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Social </title>
+			<identifier>organie_social</identifier>
+			<content><![CDATA[<div class="block-social">
+<ul>
+<li><a href="#"><i class="ion-social-facebook">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-twitter">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-youtube">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-vimeo">&nbsp;</i></a></li>
+</ul>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Cake Newsletter Footer</title>
+			<identifier>organie_newsletter_footer</identifier>
+			<content><![CDATA[<div class="block-newsletter-ft"><img src="{{media url="wysiwyg/bg-newsletter-cake.jpg"}}" alt="" />
+<div class="box-text">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<h4>Subscribe To Our Newsletter</h4>
+</div>
+<div class="col-md-8">{{block class="Magento\Newsletter\Block\Subscribe" template="Magento_Newsletter::footer_subscribe.phtml"}}</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organic Footer Links Block</title>
+			<identifier>footer_links_block</identifier>
+			<content><![CDATA[<ul class="footer-links">
+<li><a href="#">Privacy policy </a></li>
+<li><a href="#">Term and conditions</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Organic Flickr Cake</title>
+			<identifier>footer_widget_flickr</identifier>
+			<content><![CDATA[<div class="block-flickr">
+<h4 style="margin-bottom: 38px;">Photo in Flickr</h4>
+<div class="block-content">{{block class="MGS\Social\Block\Flickr" template="MGS_Social::flickr.phtml"}}</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Block Phone Header</title>
+			<identifier>organie_block_phone_header</identifier>
+			<content><![CDATA[<div class="block-phone">
+<div class="phone-left">
+<p>Call us now</p>
+<p class="h4">0122 333 8889</p>
+</div>
+<span class="icon-phone"><em class="ion-ios-telephone-outline"></em></span></div>]]></content>
+		</item>
+		<item>
+			<title>Organie Title Header</title>
+			<identifier>organie_title_header</identifier>
+			<content><![CDATA[<div style="line-height: 35px;"><span>Free shipping on all orders over <span style="color: #fff;">$100</span></span></div>]]></content>
+		</item>
+		<item>
+			<title>Organie Block Follow Instagram </title>
+			<identifier>organie_block_follow_instagram</identifier>
+			<content><![CDATA[<div class="block-follow-instagram text-center">
+<p>follow us on instagram</p>
+<a class="user-instagram h4" href="#">@organine_store</a></div>]]></content>
+		</item>
+		<item>
+			<title>Organie Block Newsletter Flower</title>
+			<identifier>organie_block_newsletter_footer</identifier>
+			<content><![CDATA[<div class="block-newsletter-flower">
+<div class="title-block">
+<h4>Subscribe To Our Newsletter</h4>
+</div>
+{{block class="Magento\Newsletter\Block\Subscribe" template="Magento_Newsletter::footer_subscribe.phtml"}}</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Address Footer</title>
+			<identifier>organie_title_address</identifier>
+			<content><![CDATA[<p style="margin-top: 0; margin-bottom: 15px;">14 L.E Goulburn St, Sydney 2000NSW - (088) 1990 6886</p>]]></content>
+		</item>
+		<item>
+			<title>Organie breadcrumb background</title>
+			<identifier>organie_breadcrumb_background</identifier>
+			<content><![CDATA[<p><img class="img-responsive" src="{{media url="wysiwyg/bg-breadcrumb.png"}}" /></p>]]></content>
+		</item>
+		<item>
+			<title>Organie contact information 2</title>
+			<identifier>organie_contact_information_2</identifier>
+			<content><![CDATA[<div class="col-sm-6 col-xs-12 image"><img class="img-responsive" src="{{media url="wysiwyg/contact.png"}}" alt="alt" /></div>
+<div class="col-sm-6 col-xs-12 info">
+<div class="title_section">
+<h2 class="text-uppercase">Get in touch</h2>
+</div>
+<p class="base-color h5"><em>Vestibulum quis posuere ligula. Fusce in odio ac diam finibus tempus. Suspen disse potenti. Etiam accu msan purus magna, ever ara mus consequat, felis at aliquam consect etur.</em></p>
+<div class="item_contact col-sm-6 col-xs-12">
+<h3>Address</h3>
+<p>800 Abbot Kinney Blvd. Unit D &amp; E</p>
+<p>Venice, CA 90291</p>
+</div>
+<div class="item_contact col-sm-6 col-xs-12">
+<h3>Phone</h3>
+<p>Mobile: (+88) - 1990 - 6886</p>
+<p>Hotline: 1800 - 1102</p>
+</div>
+<div class="item_contact col-xs-12">
+<h3>Email</h3>
+<a href="mailto:#">support@organie.com</a> <br /><a href="mailto:#">contact@organie_store.com</a></div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie Block Social Header</title>
+			<identifier>organie_block_social_header</identifier>
+			<content><![CDATA[<div class="box-social-header"><span class="h4">Contact us</span>
+<div class="block-social-header">
+<ul>
+<li><a href="#"><em class="ion-social-facebook">&nbsp;</em></a></li>
+<li><a href="#"><em class="ion-social-twitter">&nbsp;</em></a></li>
+<li><a href="#"><em class="ion-social-youtube">&nbsp;</em></a></li>
+<li><a href="#"><em class="ion-social-vimeo">&nbsp;</em></a></li>
+</ul>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie contact information</title>
+			<identifier>organie_contact_information</identifier>
+			<content><![CDATA[<div class="item_contact">
+<h3>Address</h3>
+<p>800 Abbot Kinney Blvd. Unit D &amp; E</p>
+<p>Venice, CA 90291</p>
+</div>
+<div class="item_contact">
+<h3>Phone</h3>
+<p>Mobile: (+88) - 1990 - 6886</p>
+<p>Hotline: 1800 - 1102</p>
+</div>
+<div class="item_contact">
+<h3>Email</h3>
+<a href="mailto:#">support@organie.com</a> <a href="mailto:#">contact@organie_store.com</a></div>
+<div class="item_contact block-social">
+<h3>Social</h3>
+<ul>
+<li><a href="#"><i class="ion-social-facebook">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-twitter">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-youtube">&nbsp;</i></a></li>
+<li><a href="#"><i class="ion-social-vimeo">&nbsp;</i></a></li>
+</ul>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie blog ads</title>
+			<identifier>organie_blog_ads</identifier>
+			<content><![CDATA[<div class="block block-blog-ads"><img class="img-responsive" src="{{media url="wysiwyg/ads_blog.png"}}" width="270" height="370" />
+<div class="top">
+<h2>Summer sale</h2>
+</div>
+<div class="bottom">
+<h2>sale</h2>
+<span>50% off</span>
+<p class="h5"><em>everything</em></p>
+</div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>MGS Panel Sidebar Custom Block</title>
+			<identifier>mgs_panel_sidebar_custom_block</identifier>
+			<content><![CDATA[<div class="block custom-block">
+<div class="block-title">
+<h3>Custom Html Block</h3>
+</div>
+<div class="block-content">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non tellus</p>
+</div>
+</div>]]></content>
+		</item>
+		
+	</static_block>	
+	<cms_page>
+		<item>
+			<title>Organie 404 Not Found</title>
+			<identifier>orgnie-no-route</identifier>
+			<content_heading></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div class="center col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+<h3>Opp! Page not found!</h3>
+<span>Please go back to</span> <a href="{{store url=""}}">Home page</a>
+<div class="img"><img class="img-responsive" src="{{media url="wysiwyg/img-404.png"}}" alt="" /></div>
+</div>]]></content>
+		</item>
+		<item>
+			<title>Organie About Us</title>
+			<identifier>organie-about-us</identifier>
+			<content_heading></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div class="about_us_1"><section class="about_us_stores">
+<div class="container">
+<div class="row">
+<div class="title_about"><img class="img-responsive image_title_about" src="{{media url="wysiwyg/title_about.png"}}" width="399" height="145" alt=""/>
+<p class="col-lg-8 col-md-offset-2 h5"><em>We are <span>Online Market</span> of organic fruits, vegetables, juices and dried fruits. Visit our site for a complete list of exclusive we are stocking.</em></p>
+</div>
+<div class="store_content">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 left"><img class="img-responsive image_1" src="{{media url="wysiwyg/about-us-store-1.png"}}" width="670" height="420" alt=""/>
+<div><img class="img-responsive image_3 col-lg-6 col-md-6 col-sm-6 col-xs-12" src="{{media url="wysiwyg/about-us-store-3.png"}}" width="370" height="470" alt="" />
+<div class="item_4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="title_organic">
+<h2>organic store</h2>
+<p class="h4"><em>-Since 1990-</em></p>
+</div>
+<img class="img-responsive image_4" src="{{media url="wysiwyg/about-us-store-4.png"}}" width="222" height="194" alt="" /></div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 right"><img class="img-responsive image_2" src="{{media url="wysiwyg/about-us-store-2.png"}}" width="268" height="355" alt=""/>
+<div class="short_desc_organic">
+<p class="h5"><em>Organie store is the greatest online health food shop. I&rsquo;m always going to be one.</em></p>
+<h2>Jerry Hansen</h2>
+<em class="h5">/ Director Organie</em></div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="about_us_steps">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 step_left">
+<div class="step_item"><i class="farm icon-lettuce"></i>
+<div class="step_text">
+<h3>Always Fresh</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+</div>
+</div>
+<div class="step_item"><i class="farm icon-lemon"></i>
+<div class="step_text">
+<h3>Keep You Healthy</h3>
+<p>Uisque euismod convallis eros quis lacinia enim rhoncu ur tantas regiones barbarorum peat dibus obiit</p>
+</div>
+</div>
+<div class="step_item  item_3"><i class="farm icon-cucumber"></i>
+<div class="step_text">
+<h3>Khealthy Cooking</h3>
+<p>Consectetur adipisicing elitur tantas regiones barbarorum peat dibus obiit, tot mariataelitur</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 step_center"><img class="img-responsive" src="{{media url="wysiwyg/panel/img-about.png"}}" width="383" height="643" alt="" />
+<div class="text_center">
+<div class="bg_border">
+<div class="title_section">
+<h2>6 STEPS</h2>
+<p class="h4"><em>-to a longer life-</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 step_right">
+<div class="step_item"><i class="farm icon-broccoli"></i>
+<div class="step_text">
+<h3>Make Exercises</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+</div>
+</div>
+<div class="step_item"><i class="farm icon-carrot"></i>
+<div class="step_text">
+<h3>Healthy Recipes</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+</div>
+</div>
+<div class="step_item"><i class="farm icon-tomato"></i>
+<div class="step_text">
+<h3>Healthy Diets</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="about_us_farm_services">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title_farm_services title_section">
+<h2 class="text-uppercase">Farm services</h2>
+<p class="h4"><em>-The best services for you-</em></p>
+</div>
+<div class="farm_services_items">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farm_services_item"><i class="farm icon-carrot"></i>
+<h3>Organic Products</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<em class="h5"><a href="#">Read more</a></em></div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farm_services_item"><i class="farm icon-tractor"></i>
+<h3>RFS Machines</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<em class="h5"><a href="#">Read more</a></em></div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farm_services_item"><i class="farm icon-lettuce"></i>
+<h3>Food Strategy</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<em class="h5"><a href="#">Read more</a></em></div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farm_services_item"><i class="farm icon-egg"></i>
+<h3>Water Management</h3>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<em class="h5"><a href="#">Read more</a></em></div>
+</div>
+<img class="img-responsive farm_services_image" src="{{media url="wysiwyg/bg-about-farm.png"}}" width="882" height="204" alt="" /></div>
+</div>
+</section><section class="farm_services_brands">
+<div class="container">{{block class="MGS\Brand\Block\Widget\Home" mgs_panel_title="" mgs_panel_note="" limit="6" perrow="5" use_slider="1" brand_by="all" template="widget/home.phtml" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}</div>
+</section><section class="about_us_farmers">
+<div class="container">
+<div class="row">
+<div class="title_farmers title_section col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<h2>our farmers</h2>
+<p class="h4"><em>-We are the best team-</em></p>
+</div>
+<div class="farmer_items">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer1.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Director</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer2.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer3.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer4.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+</div>
+</div>
+</div>
+</section></div>]]></content>
+		</item>
+		<item>
+			<title>Organie About us 2</title>
+			<identifier>organie-about-us-2</identifier>
+			<content_heading></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div class="about_us_2">
+<div class="set_bg"><section class="about_us_story">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 left"><img class="img-responsive bg_1" src="{{media url="wysiwyg/about-us-story-bg1.png"}}" alt=""/> <img class="img-responsive" src="{{media url="wysiwyg/about-us-story-1.png"}}" width="370" height="270" alt="" /></div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+<div class="center_inner">
+<div class="title_section">
+<h2>our story</h2>
+<p>-Discover our beautiful farm-</p>
+</div>
+<div class="content_story">
+<p>We are <span>Online Market</span> of organic fruits, vegetables, juices and dried fruits. Organic farming supports eco-sustenance, or farming in harmony with nature.</p>
+<p>Organic farming produces plant and animal foods without the excessive use of chemicals. It focuses on using fertile soil along with a variety of crops to maintain healthy growing conditions which produce a food with more nutrients and less chemicals than typical commercial foods.</p>
+<p>Visit our site for a complete list of exclusive we are stocking.</p>
+<img class="img-responsive col-lg-4 col-md-4 col-sm-4 col-xs-4" src="{{media url="wysiwyg/about-us-signature.png"}}" alt="" />
+<h2>jerry hensen</h2>
+<p class="h5"><em>/ Director Organic</em></p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right"><img class="img-responsive" src="{{media url="wysiwyg/about-us-story-2.png"}}" width="270" height="370"  alt=""/> <img class="img-responsive bg_2" src="{{media url="wysiwyg/about-us-story-bg2.png"}}" alt="" /></div>
+</div>
+</div>
+</section><section class="about_us_clients">
+<div class="container">{{block class="MGS\Testimonial\Block\Testimonial" mgs_panel_title="We love our clients!" mgs_panel_note="" testimonials_count="4" perrow="3" show_avatar="1" use_slider="1" template="grid.phtml" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}</div>
+</section><section class="farm_services_brands">{{block class="MGS\Brand\Block\Widget\Home" mgs_panel_title="" mgs_panel_note="" limit="6" perrow="5" use_slider="1" brand_by="all" template="widget/home.phtml" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}</section><img class="bg-about-1" src="{{media url="wysiwyg/bg-about-22.png"}}" alt="alt" /> <img class="bg-about-2" src="{{media url="wysiwyg/bg-about-21.png"}}" alt="" /></div>
+<section class="about_us_farmers">
+<div class="container">
+<div class="row">
+<div class="title_farmers title_section col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<h2>our farmers</h2>
+<p class="h4"><em>-We are the best team-</em></p>
+</div>
+<div class="farmer_items">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer1.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Director</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer2.png"}}" width="270" height="370"  alt=""/>
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer3.png"}}" width="270" height="370"  alt=""/>
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 farmer_item"><img class="img-responsive image_farmer_item" src="{{media url="wysiwyg/farmer4.png"}}" width="270" height="370" alt="" />
+<h2>tyler palmer</h2>
+<p class="h5"><em>Farmer</em></p>
+</div>
+</div>
+</div>
+</div>
+</section></div>]]></content>
+		</item>
+		<item>
+			<title>Organie Contact Us 2</title>
+			<identifier>organie-contact2</identifier>
+			<content_heading></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div>{{block class="Magento\Contact\Block\ContactForm" template="Magento_Contact::form_contact2.phtml"}}</div>]]></content>
+		</item>
+	</cms_page>
+	
+	<theme_setting>
+		<general>
+			<width>width1200</width>
+			<layout>wide</layout>
+			<header>header_1</header>
+			<footer>footer_1</footer>			
+			<sticky_menu>1</sticky_menu>
+			<back_to_top>1</back_to_top>			
+		</general>
+		<fonts>
+			<default_font><![CDATA[Lato]]></default_font>
+			<h1><![CDATA[Lato]]></h1>
+			<h2><![CDATA[Lato]]></h2>
+			<h3><![CDATA[Playfair+Display]]></h3>
+			<h4><![CDATA[Playfair+Display]]></h4>
+			<h5><![CDATA[Playfair+Display]]></h5>
+			<h6><![CDATA[Playfair+Display]]></h6>
+			<price><![CDATA[Playfair+Display]]></price>
+			<menu><![CDATA[Lato]]></menu>
+		</fonts>
+		
+	</theme_setting>
+	<panel_setting>
+		<catalog>
+			<product_per_row>4</product_per_row>
+			<layout_product>productv1</layout_product>
+			<max_width_image>400</max_width_image>
+			<max_width_image_detail>600</max_width_image_detail>
+			<picture_ratio>1</picture_ratio>
+			<new_label><![CDATA[New]]></new_label>
+			<sale_label><![CDATA[Sale]]></sale_label>			
+		</catalog>
+		<form_mini_search>
+			<show_categories>1</show_categories>
+		</form_mini_search>
+		<contact_google_map>
+			<display_google_map>1</display_google_map>
+			<contact_page_type>1</contact_page_type>
+			<api_key><![CDATA[AIzaSyDpxmpFLGKh6Ad23IS_ZP1rpxdagVhZnjQ]]></api_key>
+			<address_google_map><![CDATA[70 Cedar Street, New York]]></address_google_map>
+			<html_google_map><![CDATA[<div class="infobox"><h3 class="title">Sconto</h3><span>New York</span><br>NY, United States <br>+0123456789<p></p></div>]]></html_google_map>
+		</contact_google_map>
+		<newsletter_popup>
+			<enable_newsletter>1</enable_newsletter>
+			<html_newsletter><![CDATA[<h3>BE THE FIRST TO KNOW</h3><p>Subscribe to the newsletter to receive timely updates from your favorite products.</p>]]></html_newsletter>
+			<newsletter_background>default/img-popup-farm.jpg</newsletter_background>
+		</newsletter_popup>
+	</panel_setting>
+</install>

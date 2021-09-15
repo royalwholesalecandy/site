@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="availabilitystatus" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Availability Status</label>
+            <tab>boostmyshop</tab>
+            <resource>BoostMyShop_AvailabilityStatus::Config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Displays advanced availability message on storefront. If you enable it, it is recommended to disable regular Magento availability message in store > configuration > catalog > inventory > Display Products Availability in Stock on Storefront</comment>
+                </field>
+
+                <field id="enable_logs" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Logs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="instock" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>In stock</label>
+
+                <field id="label" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label</label>
+                    <comment>Message to display when the product is in stock</comment>
+                </field>
+
+                <field id="css" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CSS Class</label>
+                    <comment>CSS class to use to decorate message</comment>
+                </field>
+
+            </group>
+
+            <group id="backorder" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Back order</label>
+
+                <field id="use_po" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use expected PO ETA</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="po_label" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expected PO label</label>
+                    <comment>Message to display when a PO is expected, you can use codes {d} {m] {y} to include day / month / year in the message</comment>
+                </field>
+
+                <field id="use_lead_time" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use supplier lead time</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="lead_time_ranges" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ranges for lead time</label>
+                    <frontend_model>BoostMyShop\AvailabilityStatus\Block\Adminhtml\System\Config\LeadTimeRanges</frontend_model>
+                </field>
+
+                <field id="label" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label</label>
+                    <comment>Used if no PO or lead time range found</comment>
+                </field>
+
+                <field id="css" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CSS Class</label>
+                    <comment>CSS class to use to decorate message</comment>
+                </field>
+
+            </group>
+
+            <group id="outofstock" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Out of stock</label>
+
+                <field id="label" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label</label>
+                    <comment>Message to display when the product is out of stock (and not sellable)</comment>
+                </field>
+
+                <field id="use_po" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use expected PO ETA</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="po_label" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expected PO label</label>
+                    <comment>Message to display when a PO is expected, you can use codes {d} {m] {y} to include day / month / year in the message</comment>
+                </field>
+
+
+                <field id="css" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CSS Class</label>
+                    <comment>CSS class to use to decorate message</comment>
+                </field>
+
+            </group>
+
+        </section>
+
+
+
+    </system>
+</config>

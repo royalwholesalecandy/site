@@ -1,0 +1,32 @@
+<?php $idenBlock = $this->getData('block_id'); ?>
+<?php if($idenBlock !=null): ?>
+	<?php $blockId = rand() . time(); ?>
+	<?php $animated = $this->getAnimateSlider(); ?>
+	<div id="mgs-slider-<?php echo $blockId ?>" class="slider_mgs_carousel owl-carousel">
+		<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($idenBlock)->toHtml();?>
+	</div>
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'mgs/owlcarousel'
+		], function(jQuery){
+			(function($) {
+				$("#mgs-slider-<?php echo $blockId ?>").owlCarousel({
+					items: 1,
+					rtl: <?php echo $this->getRightToLeft(); ?>,
+					loop: <?php echo $this->getLoop(); ?>,
+					nav: <?php echo $this->getControlNav(); ?>,
+					dots: <?php echo $this->getControlDots(); ?>,
+					autoplayTimeout: <?php echo $this->getAutoSpeed(); ?>,
+					autoplay: <?php echo $this->getAutoPlay(); ?>,
+					autoplayHoverPause: <?php echo $this->getStopAuto() ? 'true' : 'false'; ?>,
+					animateOut: '<?php echo $animated['out'] ?>',
+					animateIn: '<?php echo $animated['in'] ?>',
+					navText: ["<i class='ion-ios-arrow-thin-left'></i>","<i class='ion-ios-arrow-thin-right'></i>"]
+				});
+			})(jQuery);
+		});
+	</script>
+<?php else: ?>
+	<div role="alert" class="alert alert-warning"><?php echo __('You need to input identifier for your slider.') ?></div>
+<?php endif ?>

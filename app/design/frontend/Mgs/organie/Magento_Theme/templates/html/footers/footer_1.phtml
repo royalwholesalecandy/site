@@ -1,0 +1,163 @@
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+
+<?php $canUsePanel = $helper->acceptToUsePanel() ?>
+
+<?php
+
+$block = $this->getBlock();
+
+$_isCheckHome = $block->getLayout()->createBlock('\Magento\Theme\Block\Html\Header\Logo')->isHomePage();
+
+?>
+
+<div class="footer-container">
+
+
+
+    <?php if ($helper->getStoreConfig('mgstheme/general/header') == 'header_2'): ?>
+
+            <?php if ($_isCheckHome == false): ?>
+
+            <section class="top-footer">
+
+            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_newsletter_footer')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+            </section>
+
+        <?php endif; ?>
+
+        <?php else: ?>
+
+        <section class="top-footer">
+
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_newsletter_footer')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+        </section>
+
+<?php endif; ?>
+
+
+
+    <section class="middle-footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_contact_ft')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_social')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+
+<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organie_info_ft')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                </div>
+
+
+
+                <div class="col-md-3 col-sm-6 col-xs-12 row-sm-first">
+
+<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('organice_account_ft')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_widget_flickr')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="bottom-footer">
+
+        <div class="container">
+
+            <div class="bottom-ft-container">
+
+                <div class="row">
+
+
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                        <address><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></address>
+                         <div>Designed & Developed by <a target="_blank" href="https://akeans.com/">Akeans Softwares</a></div>
+                        <style>
+                        .bottom-footer .bottom-ft-container > .row{display: flex; align-items: center; flex-wrap: wrap;}
+                        </style>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+<?php //echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_links_block')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                    <?= $block->getChildHtml('store_switcher') ?>    
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+</div>
+<script type="text/javascript" xml="space">
+		require( [ 'jquery', 'jquery/ui' ], function ( $ ) {
+			$('.changestore').click(function (){
+				$('.switcher-dropdown li a').trigger('click');
+				console.log('test');
+			});
+
+		} );
+	</script>
+<?php  $controllerName = $this->getRequest()->getControllerName();
+
+ $actionName = $this->getRequest()->getActionName();
+
+ $routeName = $this->getRequest()->getRouteName();
+
+ $moduleName = $this->getRequest()->getModuleName(); 
+
+if($controllerName == 'checkout' && $moduleName == 'multishipping' && $actionName == 'addresses'){
+
+?>
+
+<script>
+
+require(['jquery','Magento_Customer/js/customer-data'], function ($,customerData) { 
+
+	setTimeout(function() {
+
+      var sections = ['cart'];
+
+        customerData.invalidate(sections);
+
+        customerData.reload(sections, true);
+
+		}, 5000);
+
+
+
+});
+
+</script>
+
+<?php }?>

@@ -1,0 +1,27 @@
+<?php $helper = $this->helper('MGS\Social\Helper\Data'); ?>
+<?php
+	$user_id = $helper->getConfig('flickr_setting/user_id');
+	$api_key = $helper->getConfig('flickr_setting/api_key');
+	$count = $helper->getConfig('flickr_setting/count');
+	if($helper->getConfig('flickr_setting/width')){
+		$width = $helper->getConfig('flickr_setting/width');
+	}else {
+		$width = 100;
+	}
+	if($helper->getConfig('flickr_setting/height')){
+		$height = $helper->getConfig('flickr_setting/height');
+	}else {
+		$height = 100;
+	}
+	$album = $helper->getConfig('flickr_setting/album_id');
+	
+?>
+<?php if($helper->getConfig('flickr_setting/enable_flickr') && $user_id && $api_key && $count): ?>
+
+<div class="block-content">
+    <?php $block->getFlickrData($api_key, $user_id, $count, $width, $height, $album); ?>
+</div>
+
+<?php else: ?>
+	<p><?php echo __('The instagram extension had disabled or no "User Id" or no "Api Key" or no "Number of Images want to show" ') ?></p>
+<?php endif; ?>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_customerprices>
+            <main>
+                <enabled_customer_price_in_catalog_price_rule>1</enabled_customer_price_in_catalog_price_rule>
+            </main>
+        </mageworx_customerprices>
+    </default>
+</config>

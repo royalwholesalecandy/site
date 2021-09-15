@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="promo_banner" class="TemplateMonster\PromoBanner\Block\Widget\PromoBanner">
+        <label translate="true">Promo Banner</label>
+        <description translate="true">Promo Banner Widget</description>
+        <parameters>
+            <parameter name="status" xsi:type="select" visible="true" sort_order="10"
+                       source_model="Magento\Config\Model\Config\Source\Enabledisable">
+                <label translate="true">Status</label>
+                <description translate="true">Enable/Disable Promo Banner</description>
+            </parameter>
+            <parameter name="from_time" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">From Date</label>
+                <description translate="true">Set date - start of banner display. Make sure, that your timezone
+                    is set correctly <![CDATA[<br />]]>
+                    (Store -> Configuration -> General -> General -> Locale Options -> Timezone)</description>
+            </parameter>
+            <parameter name="to_time" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">To Date</label>
+                <description translate="true">Set date - еnd of banner display. Make sure, that your timezone
+                    is set correctly <![CDATA[<br />]]>
+                    (Store -> Configuration -> General -> General -> Locale Options -> Timezone)</description>
+            </parameter>
+            <parameter name="banner_type" xsi:type="select" visible="true" sort_order="50"
+                       source_model="TemplateMonster\PromoBanner\Model\Config\Source\BannerType">
+                <label translate="true">Banner Type</label>
+                <description translate="true">Choose banner type</description>
+            </parameter>
+            <parameter name="image_url" xsi:type="block" visible="true" sort_order="60">
+                <label>Image</label>
+                <depends>
+                    <parameter name="banner_type" value="image" />
+                </depends>
+                <block class="TemplateMonster\PromoBanner\Block\Adminhtml\Widget\Editor" />
+            </parameter>
+            <parameter name="link" xsi:type="text" visible="true" sort_order="70">
+                <label translate="true">Target URL</label>
+                <description translate="true">Enter URL for banner reference. If empty, banner will not be link.</description>
+                <depends>
+                    <parameter name="banner_type" value="image" />
+                </depends>
+            </parameter>
+            <parameter name="block_id" xsi:type="block" visible="true" sort_order="80">
+                <label>CMS Block</label>
+                <depends>
+                    <parameter name="banner_type" value="cms_block" />
+                </depends>
+                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Block...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="stick_up" xsi:type="select" visible="true" sort_order="90"
+                       source_model="Magento\Config\Model\Config\Source\Enabledisable">
+                <label translate="true">StickUp Banner</label>
+                <description translate="true">Enable/Disable stick up banner after page scrolling</description>
+            </parameter>
+            <parameter name="coockie_time" xsi:type="text" visible="true" sort_order="100">
+                <label translate="true">Cookie Expiration Time</label>
+                <description translate="true">Specify the amount of time to wait before the banner shows up again after closing
+                    <![CDATA[<strong>]]>(in minutes)<![CDATA[</strong>]]></description>
+            </parameter>
+            <parameter name="timeout" xsi:type="text" visible="true" sort_order="110">
+                <label translate="true">Banner Timeout</label>
+                <description translate="true">Specify the amount of time to wait before the banner shows up after the page refreshing
+                    <![CDATA[<strong>]]>(in seconds)<![CDATA[</strong>]]></description>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="promo_banner" value="widget/promo_banner.phtml" selected="true">
+                        <label translate="true">Promo Banner</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

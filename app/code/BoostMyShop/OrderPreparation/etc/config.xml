@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <orderpreparation>
+            <steps>
+                <picking>1</picking>
+                <packing>1</packing>
+                <download>1</download>
+            </steps>
+            <picking>
+                <pdf_layout>large</pdf_layout>
+                <display_options>1</display_options>
+                <one_page_per_order>1</one_page_per_order>
+                <include_global_pickinglist>1</include_global_pickinglist>
+            </picking>
+            <packing>
+                <create_shipment>1</create_shipment>
+                <create_invoice>1</create_invoice>
+                <download_invoice>1</download_invoice>
+                <download_shipping_label>1</download_shipping_label>
+            </packing>
+            <download>
+                <invoice>1</invoice>
+                <shipment>1</shipment>
+            </download>
+            <order_editor>
+                <enabled>0</enabled>
+            </order_editor>
+            <addresslabel>
+                <label_width>10</label_width>
+                <label_height>5</label_height>
+                <text_size>10</text_size>
+                <top_margin>5</top_margin>
+                <left_margin>5</left_margin>
+            </addresslabel>
+            <status_mapping>
+                <instock>processing</instock>
+                <outofstock>processing</outofstock>
+                <holded>fraud,holded,payment_review,pending,pending_payment</holded>
+            </status_mapping>
+        </orderpreparation>
+    </default>
+</config>

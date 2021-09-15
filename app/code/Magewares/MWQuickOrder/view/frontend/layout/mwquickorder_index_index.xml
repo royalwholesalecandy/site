@@ -1,0 +1,33 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<head>
+		<title>Quick Order</title> 
+	</head> 
+    <body>
+        <referenceBlock name="breadcrumbs">
+			<action method="addCrumb">
+				<argument name="crumbName" xsi:type="string">Home</argument>
+				<argument name="crumbInfo" xsi:type="array">
+					<item name="title" xsi:type="string">Home</item>
+					<item name="label" xsi:type="string">Home</item>
+					<item name="link" xsi:type="string">{{baseUrl}}</item>
+				</argument>
+			</action>
+			<action method="addCrumb">
+				<argument name="crumbName" xsi:type="string">My Quick Order</argument>
+				<argument name="crumbInfo" xsi:type="array">
+					<item name="title" xsi:type="string">Quick Order</item>
+					<item name="label" xsi:type="string">Quick Order</item>
+				</argument>
+			</action>
+		</referenceBlock>
+        <referenceContainer name="content">
+
+             <block class="Magewares\MWQuickOrder\Block\Index\Index" name="mwquickorder_index_index" template="Magewares_MWQuickOrder::mwquickorder_index_index.phtml"/>
+
+            <block class="Magento\Customer\Block\Account\Dashboard" name="customer.account.link.back" template="account/link/back.phtml" cacheable="false"/>
+
+        </referenceContainer>
+
+    </body>
+
+</page>

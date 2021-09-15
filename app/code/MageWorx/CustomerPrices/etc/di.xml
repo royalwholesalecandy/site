@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageWorx\CustomerPrices\Api\Data\CustomerPricesInterface" type="MageWorx\CustomerPrices\Model\CustomerPrices" />
+    <preference for="MageWorx\CustomerPrices\Api\CustomerPricesRepositoryInterface" type="MageWorx\CustomerPrices\Model\CustomerPricesRepository" />
+    <preference for="MageWorx\CustomerPrices\Api\ExportHandlerInterface" type="MageWorx\CustomerPrices\Model\ImportExport\ExportHandler" />
+    <preference for="MageWorx\CustomerPrices\Api\ImportHandlerInterface" type="MageWorx\CustomerPrices\Model\ImportExport\ImportHandler" />
+
+    <virtualType name="CustomerPricesFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="CustomerPricesDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx\CustomerPrices\Model\ResourceModel\CustomerPrices\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">CustomerPricesFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="MageWorx\CustomerPrices\Model\ResourceModel\CustomerPrices\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_customerprices</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\CustomerPrices\Model\ResourceModel\CustomerPrices</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customerprices_listing_data_source" xsi:type="string">MageWorx\CustomerPrices\Model\ResourceModel\CustomerPrices\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- REINDEX Catalog Rule-->
+    <type name="Magento\CatalogRule\Model\Indexer\IndexBuilder">
+        <plugin name="apply_customer_prices_before_catalog_rule"
+                type="MageWorx\CustomerPrices\Plugin\AddCustomerPricesToCatalogRuleIndexPlugin"/>
+    </type>
+
+    <!-- change create temp table search_tmp_********  for Magento <= 2.1.7 -->
+    <type name="Magento\CatalogSearch\Model\Search\TableMapper">
+        <plugin name="apply_customer_prices_search_table_mapper"
+                type="MageWorx\CustomerPrices\Plugin\Search\ApplyCustomerPricesToTableMapper"/>
+    </type>
+
+    <!-- change create temp table search_tmp_********  for Magento >= 2.1.8 -->
+    <type name="Magento\CatalogSearch\Model\Search\FilterMapper\ExclusionStrategy">
+        <plugin name="apply_customer_prices_search_filter_mapper"
+                type="MageWorx\CustomerPrices\Plugin\Search\ApplyCustomerPricesToFilterMapper"/>
+    </type>
+
+    <!-- Change Identifier Cache -->
+    <type name="Magento\Framework\App\Http\Context">
+        <plugin name="mageworx_customer_prices_cache"
+                type="MageWorx\CustomerPrices\Plugin\Cache\ChangeCacheIdentifier"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+
+    <!-- Change widget Identifier Cache -->
+    <type name="Magento\Framework\View\Element\AbstractBlock">
+        <plugin name="mageworx_customer_prices_cache_widget"
+                type="MageWorx\CustomerPrices\Plugin\Cache\ChangeWidgetCacheIdentifier"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+
+    <type name="Magento\CatalogRule\Model\ResourceModel\Rule">
+        <plugin name="apply_customer_prices_catalog_rule"
+                type="MageWorx\CustomerPrices\Plugin\CatalogRulePlugin"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="mageworx_customer_prices_synchronize" xsi:type="object">MageWorx\CustomerPrices\Console\Command\SynchronizeCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

@@ -1,0 +1,28 @@
+<?php if($quickviewGroup = $block->getGroupChildNames('quickview_info', 'getChildHtml')): ?>
+<?php $sqLayout = $block->getLayout(); ?>
+<?php $groupNum = count($quickviewGroup) ?>
+<div class="product-modal-items">
+	<?php foreach ($quickviewGroup as $name):?>
+    <?php
+		$html = $sqLayout->renderElement($name);
+		if (!trim($html)) {
+			continue;
+		}
+		$alias = $sqLayout->getElementAlias($name);
+		$contentId = $block->getChildData($alias,'html_id');
+		$contentClass = $block->getChildData($alias,'html_class');
+		$label = $block->getChildData($alias, 'title');
+	?>
+	<?php if($groupNum > 1): ?>
+    <div class="data-link" aria-labeledby="link-label-<?php echo $contentId;?>-title">
+        <a class="data switch" tabindex="-1" data-role="trigger" href="#<?php echo $contentId; ?>" id="link-label-<?php echo $contentId;?>-title" data-toggle="switch">
+            <?php echo $label; ?>
+        </a>
+    </div>
+	<?php endif ?>
+    <div class="quickview-section-content <?php echo $contentClass ?>" id="<?php echo $contentId; ?>">
+    	<?php echo $html; ?>
+    </div>
+    <?php endforeach ?>
+</div>
+<?php endif ?>

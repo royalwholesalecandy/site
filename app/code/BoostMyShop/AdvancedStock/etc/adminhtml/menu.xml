@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="BoostMyShop_AdvancedStock::operation" title="Inventory Management" module="BoostMyShop_AdvancedStock" sortOrder="20" parent="Magento_Catalog::catalog" resource="BoostMyShop_AdvancedStock::operation" />
+        <add id="BoostMyShop_AdvancedStock::products" title="Products" module="BoostMyShop_AdvancedStock" sortOrder="1" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/product" resource="BoostMyShop_AdvancedStock::product"/>
+        <add id="BoostMyShop_AdvancedStock::mass_stock_editor" title="Mass Stock Editor" module="BoostMyShop_AdvancedStock" sortOrder="10" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/massstockeditor" resource="BoostMyShop_AdvancedStock::mass_stock_editor"/>
+        <add id="BoostMyShop_AdvancedStock::low_stock" title="Stock Helper" module="BoostMyShop_AdvancedStock" sortOrder="20" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/lowstock" resource="BoostMyShop_AdvancedStock::low_stock"/>
+        <add id="BoostMyShop_AdvancedStock::stock_movement" title="Stock Movements" module="BoostMyShop_AdvancedStock" sortOrder="30" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/stockmovement" resource="BoostMyShop_AdvancedStock::stock_movement"/>
+
+        <add id="BoostMyShop_AdvancedStock::stock_transfer" title="Stock Transfers" module="BoostMyShop_AdvancedStock" sortOrder="35" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/transfer" resource="BoostMyShop_AdvancedStock::transfer"/>
+        <add id="BoostMyShop_AdvancedStock::stock_take" title="Stock Take" module="BoostMyShop_AdvancedStock" sortOrder="36" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/stocktake" resource="BoostMyShop_AdvancedStock::stock_take"/>
+
+        <add id="BoostMyShop_AdvancedStock::warehouse" title="Warehouses" module="BoostMyShop_AdvancedStock" sortOrder="40" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/warehouse" resource="BoostMyShop_AdvancedStock::warehouse"/>
+        <add id="BoostMyShop_AdvancedStock::warehouse_routing" title="Warehouses Routing" module="BoostMyShop_AdvancedStock" sortOrder="50" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/routing" resource="BoostMyShop_AdvancedStock::warehouse_routing"/>
+        <add id="BoostMyShop_AdvancedStock::configuration" title="Configuration" module="BoostMyShop_AdvancedStock" parent="BoostMyShop_AdvancedStock::operation" action="advancedstock/configuration" sortOrder="100" resource="BoostMyShop_AdvancedStock::configuration"/>
+    </menu>
+</config>

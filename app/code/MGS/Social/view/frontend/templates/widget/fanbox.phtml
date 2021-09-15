@@ -1,0 +1,21 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<div class="content-block facebook-fanbox-block">
+	<?php if($this->hasData('mgs_panel_title')): ?>
+		<div class="content-heading">
+			<h2 class="title"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+		</div>
+	<?php endif ?>
+	
+	<?php if($this->getFacebookFanBox()): ?>
+		<?php if($this->hasData('mgs_panel_note')): ?>
+			<div class="block-note"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+		<?php endif ?>
+
+		<div class="block-content">
+			<?php echo $this->getFacebookFanBox(); ?>
+		</div>
+
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning"><?php echo __('Can not get Facebook Fanbox data.') ?></div>
+	<?php endif ?>
+</div>

@@ -1,0 +1,43 @@
+<input type="hidden" name="id" value="<?php echo $this->getProduct()->getId(); ?>">
+
+<table border="0" width="100%">
+    <tr>
+        <td width="140">
+            <?php if ($this->getImageUrl()): ?>
+                <img src="<?php echo $this->getImageUrl(); ?>" height="120" width="120">
+            <?php endif; ?>
+        </td>
+        <td>
+            <h1><?php echo $this->getProduct()->getName(); ?></h1>
+            <h2><i>Sku : <?php echo $this->getProduct()->getSku(); ?></i></h2>
+            <h2><i>EAN/UPC : <?php echo $this->getBarcode(); ?></i></h2>
+        </td>
+    </tr>
+</table>
+
+<table border="1" width="100%" cellspacing="3" cellpadding="10" style="background-color: white;">
+    <tr>
+        <?php foreach($this->getKeyFigures() as $k => $v): ?>
+            <td align="center" style="background-color: #F6E3CE; font-weight: bold;" width="<?php echo (int)(100 / count($this->getKeyFigures())); ?>%">
+                <?php echo __($k); ?>
+                <br><?php echo $v; ?>
+            </td>
+        <?php endforeach; ?>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table border="0" width="100%" style="padding: 20px;">
+<?php foreach($this->getContentBlocks() as $blockTitle => $blockContent): ?>
+    <tr>
+        <td valign="top" width="100%">
+            <div  style="margin: 10px;">
+                <h1><?php echo __($blockTitle); ?></h1>
+                <?php echo $blockContent; ?>
+                <p>&nbsp;</p>
+            </div>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>

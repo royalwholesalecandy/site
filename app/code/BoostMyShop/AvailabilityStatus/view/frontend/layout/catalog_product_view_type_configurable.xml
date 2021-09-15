@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="product.info.type">
+        <block class="BoostMyShop\AvailabilityStatus\Block\Product\View\Type\Configurable" ifconfig="availabilitystatus/general/enable" name="availabilitystatus.product.info.configurable" as="availabilitystatus_product_type_data" template="product/view/type/configurable.phtml"/>
+    </referenceContainer>
+</body>
+</page>

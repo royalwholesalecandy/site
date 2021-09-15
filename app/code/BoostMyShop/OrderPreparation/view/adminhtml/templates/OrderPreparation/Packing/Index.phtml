@@ -1,0 +1,21 @@
+<?php echo __('Order to pack :'); ?>&nbsp;&nbsp;&nbsp;
+<select id="select-order">
+    <option>-- <?php echo __('select'); ?> --</option>
+    <?php foreach($this->getOrdersInProgress() as $orderInProgress): ?>
+        <option value="<?php echo $orderInProgress->getId(); ?>" <?php echo ($orderInProgress->getId() == $this->currentOrderInProgress()->getId() ? ' selected ' : ''); ?>><?php echo $orderInProgress->getLabel(); ?></option>
+    <?php endforeach; ?>
+</select>
+
+<script>
+    var packingObj;
+    var autoDownloadUrls;
+    require(["orderpreparation_packing"], function(packing){
+        packingObj = packing.init('<?php echo $this->getSelectOrderByIdUrl(); ?>', <?php echo $this->getItemIdsAsJson(); ?>, <?php echo $this->getOrdersAsJson(); ?>, '<?php echo $this->getMode(); ?>', autoDownloadUrls, <?php echo $this->getAllowPartialPacking(); ?>, '<?php echo $this->getSaveItemUrl(); ?>', '<?php echo $this->getItemCustomOptionsFormUrl(); ?>');
+        packingObj.waitForScan();
+    });
+</script>
+
+<audio id="audio_nok" src="<?php echo $this->getViewFileUrl('BoostMyShop_OrderPreparation::sound/wrong.mp3'); ?>" ></audio>
+<audio id="audio_ok" src="<?php echo $this->getViewFileUrl('BoostMyShop_OrderPreparation::sound/correct.mp3'); ?>" ></audio>
+
+<div style="display: none;" id="iframe-container"></div>

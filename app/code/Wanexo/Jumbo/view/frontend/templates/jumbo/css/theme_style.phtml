@@ -1,0 +1,1785 @@
+/*Custom css for color changes*/
+
+<?php
+    $wx = $this->getConfig("jumbo_design",$this->_coreRegistry->registry('cssgen_store'));
+    $_helper = $this->helper('Wanexo\Jumbo\Helper\Stylesetting');
+	$mediaBgPath = $this->helper('Wanexo\Jumbo\Helper\Data')->getBaseUrl().'wanexo/background/';
+	$mediaFooterPath = $this->helper('Wanexo\Jumbo\Helper\Data')->getBaseUrl().'wanexo/footer/';
+?>
+
+
+<?php if(isset($wx['general']['enable']) && $wx['general']['enable']):?>
+	body{
+		<?php if(isset($wx['general']['wxo_bg']) && $wx['general']['wxo_bg']):?>
+			background-image:url(<?php  echo $mediaBgPath .$wx['general']['wxo_bg'];?>);
+			background-repeat:<?php echo $wx['general']['wxo_bg_br']; ?>;
+			background-size:<?php echo $wx['general']['wxo_bg_sz']; ?>;
+			background-attachment:<?php echo $wx['general']['wxo_bg_atm']; ?>;
+			background-position:<?php echo $wx['general']['wxo_bg_bp']; ?>;
+		<?php endif;?>
+		<?php if(isset($wx['general']['body_color']) && $wx['general']['body_color']):?>
+			background-color:#<?php echo $wx['general']['body_color']; ?>;
+		<?php endif;?>
+	}
+<?php endif;?>
+
+
+<?php if(isset($wx['general']['enable2']) && $wx['general']['enable2']):?>
+	.c_white,
+	body:not(.cms-index-index) .maincontent,
+	.breadcrumbBox > .container,
+	.heading1 .sliderBox .box-title:not(strong) h2,
+	.header.content.container
+	{
+		<?php if(isset($wx['general']['wrapper_bg_color']) && $wx['general']['wrapper_bg_color']):?>
+			background-color:#<?php echo $wx['general']['wrapper_bg_color']; ?>;
+		<?php endif;?>
+	}
+<?php endif;?>
+
+/* --fonts--*/
+<?php if(isset($wx['font']['enable']) && $wx['font']['enable']):?>
+	body { 
+		<?php if(isset($wx['font']['font_size']) && $wx['font']['font_size']):?>
+				font-size: <?php echo $wx['font']['font_size']; ?>; 
+		<?php endif;?>
+			
+		<?php if(isset($wx['font']['font_family']) && $wx['font']['font_family'] == 'google'):?>
+				font-family: <?php echo $wx['font']['google_font_family']; ?>;
+		<?php elseif (isset($wx['font']['font_family']) && $wx['font']['font_family'] == 'dfont'):?>
+				font-family: <?php echo $wx['font']['default_font_family']; ?>;
+		<?php endif;?>	
+	}
+<?php endif;?>	
+
+
+
+
+
+/* -- Defautl Theme Color For all views --*/
+<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+	/*BACKGROUND*/
+	.dowloadBox, .jDelights,
+	.st_btn:hover,
+	.static-block-5,
+	.static-block-6 ul li.spcl,
+	.services .sv_box:hover .fancy-icon,
+	.item-style-03 .action-btn.btn-compair:hover,
+	.item-style-03 .action-btn,
+	.item-style-02 .action-btn:hover,
+	.item-style-02 .action-btn.btn-cart,
+	.item-style-05 .action-btn.btn-cart,
+	.item-style-05 .action-btn,
+	.heading1 .headingBox .box-title:not(strong):before,
+	.heading1 .headingBox .owl-nav div:hover,
+	.heading5 .headingBox .owl-nav div:hover,
+	.owl-dots .owl-dot:hover,
+	.item-style-08 .item-action-metro .action-btn-metro:hover,
+	.product-info-main .product-add-form .box-tocart button:hover,
+	button.action:hover, 
+	button:hover,
+	.item-style-07 .label-product span.new,
+	.quickProducts .btn-cart:hover,
+	.trendingProducts .item-cover:hover .product-image .quick-view,
+	.goTop a,
+	.item-style-01 .product-image .quick-view,
+	.item-style-01 .action-btn,
+	.freeshipping-wrapper,
+	.icon_bg li em,
+	.login-container .form-tab-login, 
+	.login-container .form-tab-signup,
+	.action.primary:hover, 
+	.actions-secondary.secondary-addto-links:hover,
+	.product-social-links .action:before,
+	.product_usp .fa,
+	.products-list .product-items .product-item .item .btn-cart,
+	.camera_effected h2:before,
+	.camerarelative .btn-cart:hover,
+	.pro-static-block div,
+	.theme_bg,
+	#gridbanner .banner_item .owlContent .owlBtn:hover,
+	.pro-static-block div
+	{
+		background-color:#<?php echo $wx['general']['theme_color']; ?>;
+	}
+	
+	/* COLOR */
+	a:hover,
+	.featured_category ul li a:hover,
+	.static-block-6 ul li a .nImg,
+	.item-style-03 .action-btn.wanexo-quickview:hover,
+	.item-style-02 .action-btn:hover span,
+	.item-style-02 .action-btn.btn-cart:hover span,
+	.item-style-04 .btn-cart.action-btn,
+	.item-style-06 .action-btn:not(.btn-cart):hover,
+	.heading1 .headingBox .box-title:not(strong) h2,
+	.heading1 .headingBox .owl-nav div,
+	.heading1 .headingBox .box-title:not(strong) h2 span,
+	.single_slider .s_btn:hover,
+	#blogSlide .blog-cover .post-details a,
+	.trendingProducts .action-btn:hover,
+	.footer5 .links li a:hover,
+	.footer5 .footerTop .freeShipping span,
+	.item-style-03 .action-btn.btn-cart:hover,
+	.footer5 .links.aboutus a,
+	.copyrightbox .footer.links li a:hover,
+	.footer2 .linksBox .links ul li a:hover,
+	.disc li:before,
+	.footer3 .downloadApp .app_left a,
+	.price-box,
+	.item-style-01 .price-box,
+	.item-style-03 .price-box,
+	.item-style-08 .price-box,
+	.product-options-bottom .price-box, 
+	.product-info-price .price-box,
+	.account .mainCol .action.edit, 
+	.account .mainCol .action.change-password,
+	.products-list .product-items .product-item .item .item-action .action-btn:not(.btn-cart),
+	.camerarelative .btn-cart,
+	.theme_color,
+	#gridbanner .banner_item .owlContent .owlBtn,
+	body:not(.fixHeader) .header.links li a:hover
+	{ 
+		color:#<?php echo $wx['general']['theme_color']; ?>;
+	}
+	
+	/* BORDER COLOR */
+	.st_btn:hover,
+	.item-style-03 .action-btn.wanexo-quickview:hover,
+	.item-style-02 .action-btn.btn-cart,
+	.item-style-02 .action-btn.btn-cart:hover,
+	.item-style-04 .btn-cart.action-btn,
+	.heading1 .headingBox .box-title:not(strong) h2,
+	.heading1 .headingBox .owl-nav div,
+	.single_slider .s_btn:hover,
+	.quickProducts .btn-cart:hover,
+	.trendingProducts .action-btn:hover,
+	.trendingProducts .item-cover:hover .product-image .quick-view,
+	.item-style-03 .action-btn.btn-cart:hover,
+	.single_slider .btn-cart:hover,
+	button.action:hover, 
+	button:hover, 
+	.action.primary:hover, 
+	.actions-secondary.secondary-addto-links:hover,
+	.swatch-option.selected, 
+	.product-item .swatch-option.color.selected,
+	.product.media .fotorama__thumb-border,
+	.block-collapsible-nav .item.current a, 
+	.block-collapsible-nav .item.current > strong,
+	.products-list .product-items .product-item .item .item-action .action-btn:not(.btn-cart),
+	.camerarelative .btn-cart,
+	#gridbanner .banner_item .owlContent .owlBtn
+	{ 
+		border-color:#<?php echo $wx['general']['theme_color']; ?>;
+	}
+
+	{ 
+		border-top-color:#<?php echo $wx['general']['theme_color']; ?>;
+	}
+
+	{ 
+		border-right-color:#<?php echo $wx['general']['theme_color']; ?>;
+	}
+
+<?php endif;?>
+
+
+
+<?php if(isset($wx['colors']['enable']) && $wx['colors']['enable']):?>
+	/* --Default Color--*/
+	<?php if(isset($wx['colors']['text_color']) && $wx['colors']['text_color']):?>
+		body
+		{
+			color:#<?php echo $wx['colors']['text_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['link_color']) && $wx['colors']['link_color']):?>
+		a, .alink
+		{
+			color:#<?php echo $wx['colors']['link_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['link_hover_color']) && $wx['colors']['link_hover_color']):?>
+		a:hover, .alink:hover
+		{
+			color:#<?php echo $wx['colors']['link_hover_color']; ?>;
+		}
+	<?php endif;?>
+
+	/* --Breadcrumb--*/
+
+	<?php if(isset($wx['colors']['bcrumbs_bg_color']) && $wx['colors']['bcrumbs_bg_color']):?>
+		.breadcrumbs
+		{
+			background-color:#<?php echo $wx['colors']['bcrumbs_bg_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['bcrumbs_color']) && $wx['colors']['bcrumbs_color']):?>
+		.breadcrumbs ul li.item
+		{
+			color:#<?php echo $wx['colors']['bcrumbs_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['bcrumbs_links']) && $wx['colors']['bcrumbs_links']):?>
+		.breadcrumbs ul li.item a
+		{
+			color:#<?php echo $wx['colors']['bcrumbs_links']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['bcrumbs_links_hover']) && $wx['colors']['bcrumbs_links_hover']):?>
+		.breadcrumbs ul li.item a:hover
+		{
+			color:#<?php echo $wx['colors']['bcrumbs_links_hover']; ?>;
+		}
+	<?php endif;?>
+
+	/*--Heading colors--*/
+	<?php if(isset($wx['colors']['page_heading']) && $wx['colors']['page_heading']):?>
+		.page-title-wrapper span
+		{
+			color:#<?php echo $wx['colors']['page_heading']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['section_heading']) && $wx['colors']['section_heading']):?>
+		[class*="heading"] .headingBox .box-title:not(strong) h2 span,
+		.box-title span
+		{
+			color:#<?php echo $wx['colors']['section_heading']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['section_heading_border']) && $wx['colors']['section_heading_border']):?>
+		.heading1 .headingBox .box-title:not(strong) h2
+		{
+			border-color:#<?php echo $wx['colors']['section_heading_border']; ?>;
+		}
+		
+		.box-title h2
+		{
+			border-bottom-color:#<?php echo $wx['colors']['section_heading_border']; ?>;
+		}
+		
+		[class*="heading"] .headingBox .box-title:not(strong):before,
+		[class*="heading"] .headingBox .box-title:not(strong):after,
+		[class*="heading"] .headingBox .box-title:not(strong) h2:before,
+		[class*="heading"] .headingBox .box-title:not(strong) h2:after,
+		[class*="heading"] .headingBox .box-title:not(strong) h2 span:before,
+		[class*="heading"] .headingBox .box-title:not(strong) h2 span:after
+		{
+			background-color:#<?php echo $wx['colors']['section_heading_border']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['section_subheading']) && $wx['colors']['section_subheading']):?>
+		.box-title .subheading
+		{
+			color:#<?php echo $wx['colors']['section_subheading']; ?>;
+		}
+	<?php endif;?>
+
+
+	<?php if(isset($wx['colors']['side_heading']) && $wx['colors']['side_heading']):?>
+		.sidebar .block .block-title,
+		.page-with-filter .filter .block-subtitle,
+		#side_product .block-title h2 span
+		{
+			color:#<?php echo $wx['colors']['side_heading']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['side_heading_border']) && $wx['colors']['side_heading_border']):?>
+		.page-with-filter .filter .block-subtitle,
+		.sidebar .block .block-title,
+		#side_product .block-title
+		{
+			border-color:#<?php echo $wx['colors']['side_heading_border']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['side_sub_heading']) && $wx['colors']['side_sub_heading']):?>
+		.page-with-filter .filter-options-title
+		{
+			color:#<?php echo $wx['colors']['side_sub_heading']; ?>;
+		}
+	<?php endif;?>
+
+
+	<?php if(isset($wx['colors']['product_heading']) && $wx['colors']['product_heading']):?>
+		.product-info-main .page-title-wrapper span
+		{
+			color:#<?php echo $wx['colors']['product_heading']; ?>;
+		}
+	<?php endif;?>
+
+
+	<?php if(isset($wx['colors']['product_page_heading']) && $wx['colors']['product_page_heading']):?>
+		[class*="item-style-0"] h3 a,
+		.single_slider .product-name a,
+		.product-name a,
+		.quickProducts .product-item-link
+		{
+			color:#<?php echo $wx['colors']['product_page_heading']; ?>;
+		}
+	<?php endif;?>
+
+	
+	/* --Next Previous--*/
+
+	<?php if(isset($wx['colors']['np_text']) && $wx['colors']['np_text']):?>
+		[class*="heading"] .headingBox .owl-nav div
+		{
+			color:#<?php echo $wx['colors']['np_text']; ?>;
+		}
+		.owl-nav div:before{
+			border-left-color:#<?php echo $wx['colors']['np_text']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['colors']['np_text_hover']) && $wx['colors']['np_text_hover']):?>
+		[class*="heading"] .headingBox .owl-nav div:hover
+		{
+			color:#<?php echo $wx['colors']['np_text_hover']; ?>;
+		}
+		.owl-nav div:hover:before{
+			border-left-color:#<?php echo $wx['colors']['np_text_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['colors']['np_border']) && $wx['colors']['np_border']):?>
+		[class*="heading"] .headingBox .owl-nav div,
+		.owl-nav div
+		{
+			border-color:#<?php echo $wx['colors']['np_border']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['colors']['np_border_hover']) && $wx['colors']['np_border_hover']):?>
+		[class*="heading"] .headingBox .owl-nav div:hover,
+		.owl-nav div:hover
+		{
+			border-color:#<?php echo $wx['colors']['np_border_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['colors']['np_bg']) && $wx['colors']['np_bg']):?>
+		[class*="heading"] .headingBox .owl-nav div,
+		.owl-nav div
+		{
+			background-color:#<?php echo $wx['colors']['np_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	
+	<?php if(isset($wx['colors']['np_bg_hover']) && $wx['colors']['np_bg_hover']):?>
+		[class*="heading"] .headingBox .owl-nav div:hover,
+		.owl-nav div:hover
+		{
+			background-color:#<?php echo $wx['colors']['np_bg_hover']; ?>;
+		}
+	<?php endif;?>
+
+	
+
+
+	/*--price colors--*/
+
+	<?php if(isset($wx['colors']['default_price']) && $wx['colors']['default_price']):?>
+		[class*="item-style-0"] .price-box,
+		.price-box,
+		.product-options-bottom .price-box, 
+		.product-info-price .price-box
+		{
+			color:#<?php echo $wx['colors']['default_price']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['old_price']) && $wx['colors']['old_price']):?>
+		[class*="item-style-0"] .price-box .old-price
+		{
+			color:#<?php echo $wx['colors']['old_price']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['special_price']) && $wx['colors']['special_price']):?>
+		[class*="item-style-0"] .price-box .special-price
+		{
+			color:#<?php echo $wx['colors']['special_price']; ?>;
+		}
+	<?php endif;?>
+
+	
+	/* --Badge color--*/
+	<?php if(isset($wx['colors']['new_badge_bg']) && $wx['colors']['new_badge_bg']):?>
+		[class*="item-style-0"] .label-product span.new,
+		.single_slider .label-product span.new,
+		.trendingProducts .new
+		{
+			background-color:#<?php echo $wx['colors']['new_badge_bg']; ?>;
+		}
+		[class*="item-style-0"] .label-product span.new
+		{
+			border-color:#<?php echo $wx['colors']['new_badge_bg']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['new_badge_text']) && $wx['colors']['new_badge_text']):?>
+		[class*="item-style-0"] .label-product span.new,
+		.single_slider .label-product span.new,
+		.trendingProducts .new
+		{
+			color:#<?php echo $wx['colors']['new_badge_text']; ?>;
+		}
+	<?php endif;?>
+	
+	
+	<?php if(isset($wx['colors']['sale_badge_bg']) && $wx['colors']['sale_badge_bg']):?>
+		.salePrice
+		{
+			background-color:#<?php echo $wx['colors']['sale_badge_bg']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['sale_badge_text']) && $wx['colors']['sale_badge_text']):?>
+		.salePrice
+		{
+			color:#<?php echo $wx['colors']['sale_badge_text']; ?>;
+		}
+	<?php endif;?>
+
+
+	/* -- Button Color settings --*/
+	<?php if(isset($wx['colors']['button_bg']) && $wx['colors']['button_bg']):?>
+		button.action, 
+		button, 
+		.action.primary, 
+		.actions-secondary.secondary-addto-links,
+		.st_btn,
+		[class*="item-style-0"] .action-btn.btn-cart,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart,
+		.product-info-main .product-add-form .box-tocart button,
+		.quickProducts .btn-cart,
+		.trendingProducts .action-btn.btn-cart
+		{
+			background-color:#<?php echo $wx['colors']['button_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['colors']['button_hover_bg_color']) && $wx['colors']['button_hover_bg_color']):?>
+		button.action:hover, 
+		button:hover, 
+		.action.primary:hover, 
+		.actions-secondary.secondary-addto-links:hover,
+		.st_btn:hover,
+		[class*="item-style-0"] .action-btn.btn-cart:hover,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart:hover,
+		.product-info-main .product-add-form .box-tocart button:hover,
+		.quickProducts .btn-cart:hover,
+		.trendingProducts .action-btn.btn-cart:hover
+		{
+			background-color:#<?php echo $wx['colors']['button_hover_bg_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['button_text_color']) && $wx['colors']['button_text_color']):?>
+		button.action, 
+		button, 
+		.action.primary, 
+		.actions-secondary.secondary-addto-links,
+		button.action span, 
+		button span, 
+		.action.primary span, 
+		.actions-secondary.secondary-addto-links span,
+		.st_btn,
+		.st_btn:visited,
+		[class*="item-style-0"] .action-btn.btn-cart,
+		[class*="item-style-0"] .action-btn.btn-cart span,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart,
+		.product-info-main .product-add-form .box-tocart button span,
+		.quickProducts .btn-cart span,
+		.trendingProducts .action-btn.btn-cart
+		{
+			color:#<?php echo $wx['colors']['button_text_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['button_hover_text_color']) && $wx['colors']['button_hover_text_color']):?>
+		button.action:hover, 
+		button:hover, 
+		.action.primary:hover, 
+		.actions-secondary.secondary-addto-links:hover,
+		button.action:hover span, 
+		button:hover span, 
+		.action.primary:hover span, 
+		.actions-secondary.secondary-addto-links:hover span,
+		.st_btn:hover,
+		[class*="item-style-0"] .action-btn.btn-cart:hover,
+		[class*="item-style-0"] .action-btn.btn-cart:hover span,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart:hover,
+		.product-info-main .product-add-form .box-tocart button:hover span,
+		.quickProducts .btn-cart:hover span,
+		.trendingProducts .action-btn.btn-cart:hover
+		{
+			color:#<?php echo $wx['colors']['button_hover_text_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['button_border_color']) && $wx['colors']['button_border_color']):?>
+		button.action, 
+		button, 
+		.action.primary, 
+		.actions-secondary.secondary-addto-links,
+		.st_btn,
+		[class*="item-style-0"] .action-btn.btn-cart,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart,
+		.product-info-main .product-add-form .box-tocart button,
+		.quickProducts .btn-cart,
+		.trendingProducts .action-btn.btn-cart
+		{
+			border-color:#<?php echo $wx['colors']['button_border_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['button_border_hover']) && $wx['colors']['button_border_hover']):?>
+		button.action:hover, 
+		button:hover, 
+		.action.primary:hover, 
+		.actions-secondary.secondary-addto-links:hover,
+		.st_btn:hover,
+		[class*="item-style-0"] .action-btn.btn-cart:hover,
+		.item-style-08 .item-action-metro .action-btn-metro.btn-cart:hover,
+		.product-info-main .product-add-form .box-tocart button:hover,
+		.quickProducts .btn-cart:hover,
+		.trendingProducts .action-btn.btn-cart:hover
+		{
+			border-color:#<?php echo $wx['colors']['button_border_hover']; ?>;
+		}
+	<?php endif;?>
+
+	
+	/* --Add to Wishlist--*/
+	<?php if(isset($wx['colors']['addtowishlist_bg']) && $wx['colors']['addtowishlist_bg']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro,
+		.single_slider .s_btn.btn-wish-list,
+		.trendingProducts .action-btn.btn-wish-list
+		{
+			background-color:#<?php echo $wx['colors']['addtowishlist_bg']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtowishlist_bg_hover']) && $wx['colors']['addtowishlist_bg_hover']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list:hover,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro:hover,
+		.single_slider .s_btn.btn-wish-list:hover,
+		.trendingProducts .action-btn.btn-wish-list:hover
+		{
+			background-color:#<?php echo $wx['colors']['addtowishlist_bg_hover']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtowishlist_color']) && $wx['colors']['addtowishlist_color']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro,
+		.single_slider .s_btn.btn-wish-list,
+		.trendingProducts .action-btn.btn-wish-list
+		{
+			color:#<?php echo $wx['colors']['addtowishlist_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtowishlist_hover_color']) && $wx['colors']['addtowishlist_hover_color']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list:hover,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro:hover,
+		.single_slider .s_btn.btn-wish-list:hover,
+		.trendingProducts .action-btn.btn-wish-list:hover
+		{
+			color:#<?php echo $wx['colors']['addtowishlist_hover_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtowishlist_border_color']) && $wx['colors']['addtowishlist_border_color']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro,
+		.single_slider .s_btn.btn-wish-list,
+		.trendingProducts .action-btn.btn-wish-list
+		{
+			border-color:#<?php echo $wx['colors']['addtowishlist_border_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtowishlist_border_hover']) && $wx['colors']['addtowishlist_border_hover']):?>
+		[class*="item-style-0"] .action-btn.btn-wish-list:hover,
+		[class*="item-style-0"] .btn-wish-list.action-btn-metro:hover,
+		.single_slider .s_btn.btn-wish-list:hover,
+		.trendingProducts .action-btn.btn-wish-list:hover
+		{
+			border-color:#<?php echo $wx['colors']['addtowishlist_border_hover']; ?>;
+		}
+	<?php endif;?>
+
+
+	/* --Add to Compare--*/
+	<?php if(isset($wx['colors']['addtocompare_bg']) && $wx['colors']['addtocompare_bg']):?>
+		[class*="item-style-0"] .action-btn.btn-compair,
+		[class*="item-style-0"] .btn-compair.action-btn-metro,
+		.single_slider .s_btn.btn-compair,
+		.trendingProducts .action-btn.btn-compair
+		{
+			background-color:#<?php echo $wx['colors']['addtocompare_bg']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtocompare_bg_hover']) && $wx['colors']['addtocompare_bg_hover']):?>
+		[class*="item-style-0"] .action-btn.btn-compair:hover,
+		[class*="item-style-0"] .btn-compair.action-btn-metro:hover,
+		.single_slider .s_btn.btn-compair:hover,
+		.trendingProducts .action-btn.btn-compair:hover
+		{
+			background-color:#<?php echo $wx['colors']['addtocompare_bg_hover']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtocompare_color']) && $wx['colors']['addtocompare_color']):?>
+		[class*="item-style-0"] .action-btn.btn-compair,
+		[class*="item-style-0"] .btn-compair.action-btn-metro,
+		.single_slider .s_btn.btn-compair,
+		.trendingProducts .action-btn.btn-compair
+		{
+			color:#<?php echo $wx['colors']['addtocompare_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtocompare_hover_color']) && $wx['colors']['addtocompare_hover_color']):?>
+		[class*="item-style-0"] .action-btn.btn-compair:hover,
+		[class*="item-style-0"] .btn-compair.action-btn-metro:hover,
+		.single_slider .s_btn.btn-compair:hover,
+		.trendingProducts .action-btn.btn-compair:hover
+		{
+			color:#<?php echo $wx['colors']['addtocompare_hover_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtocompare_border_color']) && $wx['colors']['addtocompare_border_color']):?>
+		[class*="item-style-0"] .action-btn.btn-compair,
+		[class*="item-style-0"] .btn-compair.action-btn-metro,
+		.single_slider .s_btn.btn-compair,
+		.trendingProducts .action-btn.btn-compair
+		{
+			border-color:#<?php echo $wx['colors']['addtocompare_border_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['addtocompare_border_hover']) && $wx['colors']['addtocompare_border_hover']):?>
+		[class*="item-style-0"] .action-btn.btn-compair:hover,
+		[class*="item-style-0"] .btn-compair.action-btn-metro:hover,
+		.single_slider .s_btn.btn-compair:hover,
+		.trendingProducts .action-btn.btn-compair:hover
+		{
+			border-color:#<?php echo $wx['colors']['addtocompare_border_hover']; ?>;
+		}
+	<?php endif;?>
+
+	/* --Quick View--*/
+	<?php if(isset($wx['colors']['quickview_bg']) && $wx['colors']['quickview_bg']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro,
+		.single_slider .s_btn.wanexo-quickview,
+		.trendingProducts .action-btn.wanexo-quickview
+		{
+			background-color:#<?php echo $wx['colors']['quickview_bg']; ?>;
+		}
+	<?php endif;?>
+
+
+	<?php if(isset($wx['colors']['quickview_bg_hover']) && $wx['colors']['quickview_bg_hover']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview:hover,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro:hover,
+		.single_slider .s_btn.wanexo-quickview:hover,
+		.trendingProducts .item-cover:hover .product-image .quick-view
+		{
+			background-color:#<?php echo $wx['colors']['quickview_bg_hover']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['quickview_color']) && $wx['colors']['quickview_color']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro,
+		.single_slider .s_btn.wanexo-quickview,
+		.trendingProducts .action-btn.wanexo-quickview
+		{
+			color:#<?php echo $wx['colors']['quickview_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['quickview_hover_color']) && $wx['colors']['quickview_hover_color']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview:hover,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro:hover,
+		.single_slider .s_btn.wanexo-quickview:hover,
+		.trendingProducts .item-cover:hover .product-image .quick-view
+		{
+			color:#<?php echo $wx['colors']['quickview_hover_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['quickview_border_color']) && $wx['colors']['quickview_border_color']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro,
+		.single_slider .s_btn.wanexo-quickview,
+		.trendingProducts .action-btn.wanexo-quickview
+		{
+			border-color:#<?php echo $wx['colors']['quickview_border_color']; ?>;
+		}
+	<?php endif;?>
+
+	<?php if(isset($wx['colors']['quickview_border_hover']) && $wx['colors']['quickview_border_hover']):?>
+		[class*="item-style-0"] .action-btn.wanexo-quickview:hover,
+		[class*="item-style-0"] .wanexo-quickview.action-btn-metro:hover,
+		.single_slider .s_btn.wanexo-quickview:hover,
+		.trendingProducts .item-cover:hover .product-image .quick-view
+		{
+			border-color:#<?php echo $wx['colors']['quickview_border_hover']; ?>;
+		}
+	<?php endif;?>
+
+<?php endif;?>
+
+
+/*Footer*/
+
+<?php if(isset($wx['footer']['enable']) && $wx['footer']['enable']):?>
+
+	
+	<?php if(isset($wx['footer']['ft_background']) && $wx['footer']['ft_background']):?>
+	.footerBox[class*="footer"]
+	{
+		background-color:#<?php echo $wx['footer']['ft_background']; ?>;
+	}
+	<?php endif;?>
+	
+	
+	<?php if(isset($wx['footer']['footer_bg']) && $wx['footer']['footer_bg']):?>
+	.footerBox[class*="footer"]
+	{
+		background-image:url(<?php  echo $mediaFooterPath .$wx['footer']['footer_bg'];?>);
+		background-repeat:<?php echo $wx['footer']['wxo_bg_br']; ?>;
+		background-size:<?php echo $wx['footer']['wxo_bg_sz']; ?>;
+		background-attachment:<?php echo $wx['footer']['wxo_bg_atm']; ?>;
+		background-position:<?php echo $wx['footer']['wxo_bg_bp']; ?>;
+	}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['footer_border']) && $wx['footer']['footer_border']):?>
+		.footer2 .linksBox,
+		.footer3 .footer3_top,
+		.footer4 .social-block
+		{
+			border-color:#<?php echo $wx['footer']['footer_border']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['footer_top_border']) && $wx['footer']['footer_top_border']):?>
+		.footer4
+		{
+			border-color:#<?php echo $wx['footer']['footer_top_border']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['footer_top_text_color']) && $wx['footer']['footer_top_text_color']):?>
+		.footer4 .static_content p
+		{
+			color:#<?php echo $wx['footer']['footer_top_text_color']; ?>;
+		}
+	<?php endif;?>
+	
+	
+	/* --Footer Top -- */
+	
+	<?php if(isset($wx['footer']['ft_bg']) && $wx['footer']['ft_bg']):?>
+		.footer1 .footerTop > .container,
+		.footer5 .footerTop
+		{
+			background-color:#<?php echo $wx['footer']['ft_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	
+	<?php if(isset($wx['footer']['ft_heading_color']) && $wx['footer']['ft_heading_color']):?>
+		.footerBox[class*="footer"] .footerTop h3
+		{
+			color:#<?php echo $wx['footer']['ft_heading_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['ft_text_color']) && $wx['footer']['ft_text_color']):?>
+		.footer1 .footerTop p,
+		.footer1 .footerTop,
+		.footer5 .footerTop .freeShipping
+		{
+			color:#<?php echo $wx['footer']['ft_text_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['ft_link_color']) && $wx['footer']['ft_link_color']):?>
+		.footer1 .footerTop li a,
+		.footer1 .footerTop li:before
+		{
+			color:#<?php echo $wx['footer']['ft_link_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['ft_link_hover_color']) && $wx['footer']['ft_link_hover_color']):?>
+		.footer1 .footerTop li a:hover
+		{
+			color:#<?php echo $wx['footer']['ft_link_hover_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['ft_icon_color']) && $wx['footer']['ft_icon_color']):?>
+		.footer1 .icon_bg li em
+		{
+			color:#<?php echo $wx['footer']['ft_icon_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['ft_icon_bg_color']) && $wx['footer']['ft_icon_bg_color']):?>
+		.footer1 .icon_bg li em
+		{
+			background-color:#<?php echo $wx['footer']['ft_icon_bg_color']; ?>;
+		}
+	<?php endif;?>
+	
+	/*-- Footer Bottom --*/
+	
+	<?php if(isset($wx['footer']['fbot_bg']) && $wx['footer']['fbot_bg']):?>
+		.footer1 .footerBottom > .container:nth-child(1),
+		.footer2 .linksBox,
+		.footer3 .linkbox,
+		.footer5 .footerBottom
+		{
+			background-color:#<?php echo $wx['footer']['fbot_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_heading']) && $wx['footer']['fbot_heading']):?>
+		.footerBox[class*="footer"] .footerBottom .links h3,
+		.footer3 .linkbox h3,
+		.footer4 .linkBox h3
+		{
+			color:#<?php echo $wx['footer']['fbot_heading']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_text']) && $wx['footer']['fbot_text']):?>
+		.footerBox[class*="footer"] .footerBottom p,
+		.footer3 .linkbox p,
+		.footer3 .downloadApp .app_left,
+		.footer4 .linkBox p,
+		.footer5 .links.connect li
+		{
+			color:#<?php echo $wx['footer']['fbot_text']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_link']) && $wx['footer']['fbot_link']):?>
+		.footerBox[class*="footer"] .footerBottom li a,
+		.footerBox[class*="footer"] .footerBottom a,
+		.footerBox[class*="footer"] .footerBottom li:before,
+		.footer3 .linkbox .links ul li a,
+		.footer3 .linkbox .links ul li:before,
+		.footer3 .downloadApp .app_left a,
+		.footer4 .linkBox ul li a,
+		.footer5 .bullet.white li:before
+		{
+			color:#<?php echo $wx['footer']['fbot_link']; ?>;
+		}
+		{
+			background-color:#<?php echo $wx['footer']['fbot_link']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_link_hover']) && $wx['footer']['fbot_link_hover']):?>
+		.footerBox[class*="footer"] .footerBottom li a:hover,
+		.footerBox[class*="footer"] .footerBottom a:hover,
+		.footer3 .linkbox .links ul li a:hover,
+		.footer4 .linkBox ul li a:hover
+		{
+			color:#<?php echo $wx['footer']['fbot_link_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_icon']) && $wx['footer']['fbot_icon']):?>
+		.footer1 .footerBottom .fa,
+		.footer5 .links.connect li .fa
+		{
+			color:#<?php echo $wx['footer']['fbot_icon']; ?>;
+		}
+	<?php endif;?>
+	
+	
+	/*- Footer Social Icons-*/
+	
+	<?php if(isset($wx['footer']['fbot_social']) && $wx['footer']['fbot_social']):?>
+		.footerBox[class*="footer"] .socialLinks li a,
+		.footerBox[class*="footer"] .mdl-social li a
+		{
+			background-color:#<?php echo $wx['footer']['fbot_social']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_social_hover']) && $wx['footer']['fbot_social_hover']):?>
+		.footerBox[class*="footer"] .socialLinks li a:hover,
+		.footerBox[class*="footer"] .mdl-social li a:hover
+		{
+			background-color:#<?php echo $wx['footer']['fbot_social_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_social_text']) && $wx['footer']['fbot_social_text']):?>
+		.footerBox[class*="footer"] .socialLinks li a,
+		.footerBox[class*="footer"] .mdl-social li a
+		{
+			color:#<?php echo $wx['footer']['fbot_social_text']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['fbot_social_text_hover']) && $wx['footer']['fbot_social_text_hover']):?>
+		.footerBox[class*="footer"] .socialLinks li a:hover,
+		.footerBox[class*="footer"] .mdl-social li a:hover
+		{
+			color:#<?php echo $wx['footer']['fbot_social_text_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	/*-- Footer Newsletter --*/
+	
+	<?php if(isset($wx['footer']['newsletter_heading_color']) && $wx['footer']['newsletter_heading_color']):?>
+		.footerBox[class*="footer"] .block.newsletter h3
+		{
+			color:#<?php echo $wx['footer']['newsletter_heading_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_input_bg']) && $wx['footer']['nl_input_bg']):?>
+		.footerBox[class*="footer"] .block.newsletter .control input#newsletter
+		{
+			background-color:#<?php echo $wx['footer']['nl_input_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_input_border']) && $wx['footer']['nl_input_border']):?>
+		.footerBox[class*="footer"] .block.newsletter .control,
+		.footer2 .block.newsletter input
+		{
+			border-color:#<?php echo $wx['footer']['nl_input_border']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_input_text']) && $wx['footer']['nl_input_text']):?>
+		.footerBox[class*="footer"] .block.newsletter .control input
+		{
+			color:#<?php echo $wx['footer']['nl_input_text']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn']) && $wx['footer']['nl_btn']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary span:before
+		{
+			color:#<?php echo $wx['footer']['nl_btn']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn_hover']) && $wx['footer']['nl_btn_hover']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary:hover span:before
+		{
+			color:#<?php echo $wx['footer']['nl_btn_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn_bg']) && $wx['footer']['nl_btn_bg']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary
+		{
+			background-color:#<?php echo $wx['footer']['nl_btn_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn_bg_hover']) && $wx['footer']['nl_btn_bg_hover']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary:hover
+		{
+			background-color:#<?php echo $wx['footer']['nl_btn_bg_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn_border']) && $wx['footer']['nl_btn_border']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary
+		{
+			border-color:#<?php echo $wx['footer']['nl_btn_border']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['nl_btn_border_hover']) && $wx['footer']['nl_btn_border_hover']):?>
+		.footerBox[class*="footer"] .block.newsletter button.subscribe.primary:hover
+		{
+			border-color:#<?php echo $wx['footer']['nl_btn_border_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	/*-- Footer copyright --*/
+	<?php if(isset($wx['footer']['foocop_bg']) && $wx['footer']['foocop_bg']):?>
+		.footerBox[class*="footer"] .copyrightbox
+		{
+			background-color:#<?php echo $wx['footer']['foocop_bg']; ?>;
+		}
+		{
+			border-color:#<?php echo $wx['footer']['foocop_bg']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['foocop_color']) && $wx['footer']['foocop_color']):?>
+		.footerBox[class*="footer"] .copyrightbox,
+		.footerBox[class*="footer"] .copyrightbox p
+		{
+			color:#<?php echo $wx['footer']['foocop_color']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['foocop_link']) && $wx['footer']['foocop_link']):?>
+		.footerBox[class*="footer"] .copyrightbox .footer.links li a
+		{
+			color:#<?php echo $wx['footer']['foocop_link']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['foocop_link_hover']) && $wx['footer']['foocop_link_hover']):?>
+		.footerBox[class*="footer"] .copyrightbox .footer.links li a:hover
+		{
+			color:#<?php echo $wx['footer']['foocop_link_hover']; ?>;
+		}
+	<?php endif;?>
+	
+	<?php if(isset($wx['footer']['foocop_sep']) && $wx['footer']['foocop_sep']):?>
+		.footerBox[class*="footer"] .copyrightbox .footer.links li:before
+		{
+			color:#<?php echo $wx['footer']['foocop_sep']; ?>;
+		}
+	<?php endif;?>
+<?php endif;?>
+
+
+
+/*-- MOBILE VIEW --*/
+
+@media (max-width:991px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		/* BACKGROUND */
+		.page-wrapper .page-header,
+		.fixed-cart .minicart-wrapper .action.showcart .counter.qty
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		/* COLOR */
+		.minicart-wrapper .action.showcart .counter.qty,
+		.fixed-cart .minicart-wrapper:before,
+		.mobile-navigation #mobNav li a:hover,
+		.nav-sections .header.links li a:hover
+		{
+			color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		/* BORDER */
+		{
+			border-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+	<?php endif;?>
+	
+	
+	<?php if(isset($wx['mobile_header']['enable']) && $wx['mobile_header']['enable']):?>
+		/*--Mobile Header--*/
+		<?php if(isset($wx['mobile_header']['mobile_header_bg']) && $wx['mobile_header']['mobile_header_bg']):?>
+			.page-wrapper .page-header
+			{
+				background-color:#<?php echo $wx['mobile_header']['mobile_header_bg']; ?>;
+			}
+		<?php endif;?>
+		
+
+		/*--Mobile Cart--*/
+		<?php if(isset($wx['mobile_header']['mobile_cart_color']) && $wx['mobile_header']['mobile_cart_color']):?>
+			.minicart-wrapper:before
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_cart_color']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_cart_counterBg']) && $wx['mobile_header']['mobile_cart_counterBg']):?>
+			.minicart-wrapper .action.showcart .counter.qty
+			{
+				background-color:#<?php echo $wx['mobile_header']['mobile_cart_counterBg']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_cart_counterText']) && $wx['mobile_header']['mobile_cart_counterText']):?>
+			.minicart-wrapper .action.showcart .counter.qty
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_cart_counterText']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_cart_arrow']) && $wx['mobile_header']['mobile_cart_arrow']):?>
+			.minicart-wrapper .action.showcart:after,
+			.minicart-wrapper .action.showcart:hover:after,
+			.minicart-wrapper .action.showcart.active:after,
+			.minicart-wrapper .action.showcart.active:hover:after
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_cart_arrow']; ?>;
+			}
+		<?php endif;?>
+		
+		/*--Search--*/
+		
+		<?php if(isset($wx['mobile_header']['mobile_searchBg']) && $wx['mobile_header']['mobile_searchBg']):?>
+			.searchCenter,
+			.field.search input#search
+			{
+				background-color:#<?php echo $wx['mobile_header']['mobile_searchBg']; ?>;	
+				border-color:#<?php echo $wx['mobile_header']['mobile_searchBg']; ?>;
+			}
+		<?php endif;?>
+		
+		/*--Tabs--*/
+		
+		<?php if(isset($wx['mobile_header']['mobile_tabBg']) && $wx['mobile_header']['mobile_tabBg']):?>
+			.nav-sections .nav-sections-items .nav-sections-item-title
+			{
+				background-color:#<?php echo $wx['mobile_header']['mobile_tabBg']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_tabText']) && $wx['mobile_header']['mobile_tabText']):?>
+			.nav-sections .nav-sections-items .nav-sections-item-title a
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_tabText']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_tabActiveText']) && $wx['mobile_header']['mobile_tabActiveText']):?>
+			.nav-sections .nav-sections-items .nav-sections-item-title.active a
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_tabActiveText']; ?>;	
+			}
+		<?php endif;?>
+		
+		/*--Navigation--*/
+		
+		<?php if(isset($wx['mobile_header']['mobile_menu_text']) && $wx['mobile_header']['mobile_menu_text']):?>
+			.mobile-navigation #mobNav li a
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_menu_text']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_menu_hover']) && $wx['mobile_header']['mobile_menu_hover']):?>
+			.mobile-navigation #mobNav li a:hover
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_menu_hover']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_menu_icon']) && $wx['mobile_header']['mobile_menu_icon']):?>
+			.mobile-navigation #mobNav li em.open-close:before
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_menu_icon']; ?>;	
+			}
+		<?php endif;?>
+		
+		/*--Account--*/
+		<?php if(isset($wx['mobile_header']['mobile_account_text']) && $wx['mobile_header']['mobile_account_text']):?>
+			.nav-sections .header.links li a
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_account_text']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['mobile_account_text_hover']) && $wx['mobile_header']['mobile_account_text_hover']):?>
+			.nav-sections .header.links li a:hover
+			{
+				color:#<?php echo $wx['mobile_header']['mobile_account_text_hover']; ?>;	
+			}
+		<?php endif;?>
+		
+		/*--Settings--*/
+		
+		<?php if(isset($wx['mobile_header']['settings_heading']) && $wx['mobile_header']['settings_heading']):?>
+			.nav-sections .switcher .switcher-label.label
+			{
+				color:#<?php echo $wx['mobile_header']['settings_heading']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['settings_dropdown_text']) && $wx['mobile_header']['settings_dropdown_text']):?>
+			.nav-sections .switcher .options .action.toggle
+			{
+				color:#<?php echo $wx['mobile_header']['settings_dropdown_text']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['settings_dropdown_textHover']) && $wx['mobile_header']['settings_dropdown_textHover']):?>
+			.nav-sections .switcher .options.switcher-options ul.dropdown li a
+			{
+				color:#<?php echo $wx['mobile_header']['settings_dropdown_textHover']; ?>;	
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['mobile_header']['settings_dropdown_textHoverBg']) && $wx['mobile_header']['settings_dropdown_textHoverBg']):?>
+			.nav-sections .switcher .options ul.dropdown li:hover
+			{
+				background-color:#<?php echo $wx['mobile_header']['settings_dropdown_textHoverBg']; ?>;	
+			}
+		<?php endif;?>
+	<?php endif;?>
+	
+
+}
+
+@media (max-width:767px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		.catalog-product-view[class*="product-"] .product.info.detailed .item.title.active
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		{
+			color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	<?php endif;?>
+}
+
+@media (max-width:639px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		.tabContainer .tab:hover,
+		.tabContainer .tab.current
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		{
+			color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	<?php endif;?>
+}
+
+
+
+
+
+
+/*--Desktop View Color--*/
+@media (min-width:640px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		.tabContainer .tab:hover
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	<?php endif;?>	
+}
+
+@media (min-width:768px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		.product.info.detailed .product.data.items .item.title.active .switch:before
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	
+		.product.info.detailed .product.data.items .item.title.active .switch
+		{
+			color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	<?php endif;?>	
+}
+
+
+@media (min-width:992px){
+	<?php if(isset($wx['general']['theme_color']) && $wx['general']['theme_color']):?>
+		/* BACKGROUND */
+		body:not(.fixHeader) .headertype1 .minicart-wrapper .action.showcart,
+		body:not(.fixHeader) .headertype1 .navWrap,
+		body:not(.fixHeader) .headertype2 .minicart-wrapper .action.showcart,
+		body:not(.fixHeader) .headertype2 .searchCenter .action.search span,
+		body:not(.fixHeader) .headertype2 .nav-container ul#nav > li:hover > a,
+		body:not(.fixHeader) .headertype3 .minicart-wrapper,
+		body:not(.fixHeader) .headertype3 .navBox3,
+		body:not(.fixHeader) .headertype4 .navHeader .nav-container ul#nav > li.level0:hover > a,
+		body:not(.fixHeader) .headertype5,
+		body:not(.fixHeader) .headertype7 .minicart-wrapper .counter.qty,
+		body:not(.fixHeader) .headertype8 .searchCenter .field.search .action.search,
+		body:not(.fixHeader) .headertype8 .minicart-wrapper .counter.qty,
+		body:not(.fixHeader) .headertype9,
+		body:not(.fixHeader) .headertype9 .navHeader .nav2 ul li a:hover,
+		.fixHeader .minicart-wrapper .counter.qty,
+		.fixHeader .nav-container ul#nav > li.level0:hover > a
+		{
+			background-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		/* COLOR */
+		body:not(.fixHeader) .headertype1 .header_info:before,
+		body:not(.fixHeader) .headertype1 .header.links li a:before,
+		body:not(.fixHeader) .headertype1 .header.links li a:hover,
+		.nav-container ul#nav > li.megamenu .pump ul > li.level1 > a,
+		.nav-container ul#nav > li.megamenu .pump ul > li.level1 li:hover > a,
+		.nav-container ul#nav > li > ul li:hover > a,
+		.headertype2 .header_usp li a .fa,
+		body:not(.fixHeader) .headertype4 .topLinks .header.links li a:hover,
+		body:not(.fixHeader) .headertype4 .minicart-wrapper .action.showcart:before,
+		body:not(.fixHeader) .headertype4 .header_right .header_call span,
+		body:not(.fixHeader) .headertype4 .headerShipping .header_shipping span,
+		body:not(.fixHeader) .headertype6 .header.links li a:hover,
+		body:not(.fixHeader) .headertype7 .header.links li a:hover,
+		body:not(.fixHeader) .headertype8 .header.links li a:hover
+		{
+			color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		
+		/* BORDER COLOR */
+		body:not(.fixHeader) .headertype1 .minicart-wrapper .action.showcart,
+		.switcher .options ul.dropdown a:hover,
+		body:not(.fixHeader) .headertype7 .nav-container ul#nav > li.level0:hover > a:before,
+		body:not(.fixHeader) .headertype8 .searchCenter
+		{
+			border-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		body:not(.fixHeader) .headertype7 .minicart-wrapper .counter.qty:after,
+		body:not(.fixHeader) .headertype8 .minicart-wrapper .counter.qty:after
+		{
+			border-right-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+		body:not(.fixHeader) .headertype4 .headerTop,
+		.fixHeader .nav-container ul#nav > li.level0:hover > .pump, 
+		.fixHeader .nav-container ul#nav > li.level0:hover > ul
+		{
+			border-top-color:#<?php echo $wx['general']['theme_color']; ?>;
+		}
+	<?php endif;?>	
+		
+	<?php if(isset($wx['header']['enable']) && $wx['header']['enable']):?>
+		/* --Header Background-- */
+		<?php if(isset($wx['header']['header_bg']) && $wx['header']['header_bg']):?>
+			body:not(.fixHeader) [class*="headertype"],
+			body:not(.fixHeader) .headertype2 .stickyRow
+			{
+				background-color:#<?php echo $wx['header']['header_bg']; ?>;
+			}
+		<?php endif;?>
+
+
+		/* --Header Top Row--*/
+		<?php if(isset($wx['header']['header_top']) && $wx['header']['header_top']):?>
+			body:not(.fixHeader) .headertype1 .headerTop,
+			body:not(.fixHeader) .headertype2 .headerTop
+			{
+				background-color:#<?php echo $wx['header']['header_top']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_top_text']) && $wx['header']['header_top_text']):?>
+			body:not(.fixHeader) .headertype1 .header_info,
+			.switcher strong,
+			.switcher .options div.action.toggle:after,
+			.switcher .options .action.toggle:hover:after,
+			.switcher .options .action.toggle.active:hover:after,
+			.switcher .options .action.toggle.active:after,
+			body:not(.fixHeader) .greet.welcome
+			{
+				color:#<?php echo $wx['header']['header_top_text']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_top_link']) && $wx['header']['header_top_link']):?>
+			{
+				color:#<?php echo $wx['header']['header_top_link']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_top_link_hover']) && $wx['header']['header_top_link_hover']):?>
+			{
+				color:#<?php echo $wx['header']['header_top_link_hover']; ?>;
+			}
+		<?php endif;?>
+
+		/* --Top Links--*/
+
+		<?php if(isset($wx['header']['tl_text']) && $wx['header']['tl_text']):?>
+			body:not(.fixHeader) [class*="headertype"] .header.links li a,
+			.link.wishlist .counter
+			{
+				color:#<?php echo $wx['header']['tl_text']; ?>;
+			}
+			
+			{
+				border-color:#<?php echo $wx['header']['tl_text']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['tl_text_hover']) && $wx['header']['tl_text_hover']):?>
+			body:not(.fixHeader) [class*="headertype"] .header.links li a:hover
+			{
+				color:#<?php echo $wx['header']['tl_text_hover']; ?>;
+			}
+		<?php endif;?>
+
+
+
+		/* --Header Center--*/
+		<?php if(isset($wx['header']['header_center_text']) && $wx['header']['header_center_text']):?>
+			
+			{
+				color:#<?php echo $wx['header']['header_center_text']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_center_link']) && $wx['header']['header_center_link']):?>
+			{
+				color:#<?php echo $wx['header']['header_center_link']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_center_link_hover']) && $wx['header']['header_center_link_hover']):?>
+			{
+				color:#<?php echo $wx['header']['header_center_link_hover']; ?>;
+			}
+		<?php endif;?>
+
+		/* --Header Mini Cart--*/
+
+		<?php if(isset($wx['header']['header_cart_text']) && $wx['header']['header_cart_text']):?>
+			body:not(.fixHeader) [class*="headertype"] .minicart-wrapper .action.showcart span.text,
+			body:not(.fixHeader) [class*="headertype"] .minicart-wrapper .action.showcart:after
+			{
+				color:#<?php echo $wx['header']['header_cart_text']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_cart_icon']) && $wx['header']['header_cart_icon']):?>
+			body:not(.fixHeader) [class*="headertype"] .minicart-wrapper .action.showcart:before
+			{
+				color:#<?php echo $wx['header']['header_cart_icon']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_cart_bg']) && $wx['header']['header_cart_bg']):?>
+			body:not(.fixHeader) .headertype1 .minicart-wrapper .action.showcart,
+			body:not(.fixHeader) .headertype2 .minicart-wrapper .action.showcart,
+			body:not(.fixHeader) .headertype3 .minicart-wrapper,
+			body:not(.fixHeader) .headertype5 .minicart-wrapper,
+			body:not(.fixHeader) .headertype6 .minicart-wrapper
+			{
+				background-color:#<?php echo $wx['header']['header_cart_bg']; ?>;
+			}
+			
+			{
+				border-right-color:#<?php echo $wx['header']['header_cart_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_cart_border']) && $wx['header']['header_cart_border']):?>
+			body:not(.fixHeader) .headertype1 .minicart-wrapper .action.showcart,
+			body:not(.fixHeader) .headertype6 .minicart-wrapper
+			{
+				border-color:#<?php echo $wx['header']['header_cart_border']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['header']['header_qty_bg']) && $wx['header']['header_qty_bg']):?>
+			body:not(.fixHeader) .headertype7 .minicart-wrapper .counter.qty,
+			body:not(.fixHeader) .headertype8 .minicart-wrapper .counter.qty,
+			body:not(.fixHeader) .headertype9 .minicart-wrapper .counter.qty
+			{
+				background-color:#<?php echo $wx['header']['header_qty_bg']; ?>;
+			}
+			body:not(.fixHeader) .headertype7 .minicart-wrapper .counter.qty:after,
+			body:not(.fixHeader) .headertype8 .minicart-wrapper .counter.qty:after,
+			body:not(.fixHeader) .headertype9 .minicart-wrapper .counter.qty:after
+			{
+				border-right-color:#<?php echo $wx['header']['header_qty_bg']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['header']['header_qty_color']) && $wx['header']['header_qty_color']):?>
+			body:not(.fixHeader) [class*="headertype"] .minicart-wrapper .action.showcart span.counter.qty,
+			body:not(.fixHeader) .minicart-wrapper .qty.empty:before
+			{
+				color:#<?php echo $wx['header']['header_qty_color']; ?>;
+			}
+		<?php endif;?>
+
+
+		/* --Header Search--*/
+
+		<?php if(isset($wx['header']['header_search_bg']) && $wx['header']['header_search_bg']):?>
+			body:not(.fixHeader) .serchB .field.search input,
+			body:not(.fixHeader) .headertype2 .searchCenter #search,
+			body:not(.fixHeader) .headertype5 .searchCenter,
+			body:not(.fixHeader) .headertype8 .searchCenter input,
+			body:not(.fixHeader) .headertype9 .searchCenter input
+			{
+				background-color:#<?php echo $wx['header']['header_search_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_search_border']) && $wx['header']['header_search_border']):?>
+			body:not(.fixHeader) .headertype1 .serchB,
+			body:not(.fixHeader) .serchB,
+			body:not(.fixHeader) .headertype6 .serchB,
+			body:not(.fixHeader) .headertype8 .searchCenter,
+			body:not(.fixHeader) .headertype9 .searchCenter input
+			{
+				border-color:#<?php echo $wx['header']['header_search_border']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_search_btn_bg']) && $wx['header']['header_search_btn_bg']):?>
+			body:not(.fixHeader) .headertype2 .searchCenter .action.search span,
+			body:not(.fixHeader) .headertype5 .searchCenter .field.search .action.search,
+			body:not(.fixHeader) .headertype8 .searchCenter .field.search .action.search,
+			body:not(.fixHeader) .headertype9 .searchCenter .field.search .action.search
+			{
+				background-color:#<?php echo $wx['header']['header_search_btn_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['header_search_btn_icon']) && $wx['header']['header_search_btn_icon']):?>
+			body:not(.fixHeader) .headertype2 .searchCenter .action.search span:before,
+			body:not(.fixHeader) .headertype5 .searchCenter .field.search .action.search span:before,
+			body:not(.fixHeader) .headertype8 .searchCenter .field.search .action.search span,
+			body:not(.fixHeader) .headertype9 .searchCenter .field.search .action.search span
+			{
+				color:#<?php echo $wx['header']['header_search_btn_icon']; ?>;
+			}
+		<?php endif;?>
+
+
+		/* --Navigation--*/
+
+		<?php if(isset($wx['header']['nav_border']) && $wx['header']['nav_border']):?>
+			body:not(.fixHeader) .headertype4 .navHeader,
+			body:not(.fixHeader) .headertype6 .navBox6 .nav-sections
+			{
+				border-color:#<?php echo $wx['header']['nav_border']; ?>;
+			}
+		<?php endif;?>
+
+
+		<?php if(isset($wx['header']['nav_bg']) && $wx['header']['nav_bg']):?>
+			body:not(.fixHeader) .headertype1 .navWrap,
+			body:not(.fixHeader) .headertype2 .nav-sections,
+			body:not(.fixHeader) .headertype3 .navBox3,
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8:hover .menu-button-title,
+			body:not(.fixHeader) .headertype8 .nav-container ul#nav,
+			body:not(.fixHeader) .headertype9 .nav-container ul#nav
+			{
+				background-color:#<?php echo $wx['header']['nav_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_bg_hover_color']) && $wx['header']['nav_bg_hover_color']):?>
+			body:not(.fixHeader) .headertype2 .nav-container ul#nav > li:hover > a,
+			body:not(.fixHeader) .headertype8 .nav-container ul#nav > li.parent:hover > a,
+			body:not(.fixHeader) .headertype9 .nav-container ul#nav > li.parent:hover > a
+			{
+				background-color:#<?php echo $wx['header']['nav_bg_hover_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_sep']) && $wx['header']['nav_sep']):?>
+			
+			body:not(.fixHeader) .headertype1 .nav-container ul#nav > li + li:before
+			{
+				color:#<?php echo $wx['header']['nav_sep']; ?>;
+			}
+			body:not(.fixHeader) .headertype2 .nav-container ul#nav > li,
+			body:not(.fixHeader) .headertype6 .nav-container ul#nav li.level0 + li
+			{
+				border-color:#<?php echo $wx['header']['nav_sep']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_text_color']) && $wx['header']['nav_text_color']):?>
+			body:not(.fixHeader) [class*="headertype"] .nav-container ul#nav > li > a,
+			body:not(.fixHeader) .headertype5 .nav-container ul#nav > li.level0.parent > a:after
+			{
+				color:#<?php echo $wx['header']['nav_text_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_text_hover_color']) && $wx['header']['nav_text_hover_color']):?>
+			body:not(.fixHeader) [class*="headertype"] .nav-container ul#nav > li:hover > a,
+			body:not(.fixHeader) .headertype5 .nav-container ul#nav > li.level0.parent:hover > a:after
+			{
+				color:#<?php echo $wx['header']['nav_text_hover_color']; ?>;
+			}
+			{
+				border-color:#<?php echo $wx['header']['nav_text_hover_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_text_active_color']) && $wx['header']['nav_text_active_color']):?>
+			body:not(.fixHeader) [class*="headertype"] .nav-container ul#nav > li.active > a
+			{
+				color:#<?php echo $wx['header']['nav_text_active_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_sub_heading']) && $wx['header']['nav_sub_heading']):?>
+			.nav-container ul#nav > li.megamenu .pump ul > li.level1 > a
+			{
+				color:#<?php echo $wx['header']['nav_sub_heading']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['header']['nav_sub_color']) && $wx['header']['nav_sub_color']):?>
+			.nav-container ul#nav > li ul li a,
+			.nav-container ul#nav > li.megamenu .pump ul > li.level1 li:before,
+			.nav-container ul#nav > li:not(.megamenu) ul li.parent:before
+			{
+				color:#<?php echo $wx['header']['nav_sub_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_sub_hover_color']) && $wx['header']['nav_sub_hover_color']):?>
+			.nav-container ul#nav > li > ul li:hover > a
+			{
+				color:#<?php echo $wx['header']['nav_sub_hover_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['header']['nav_sub_bg']) && $wx['header']['nav_sub_bg']):?>
+			.nav-container ul#nav > li:not(.megamenu) ul,
+			.nav-container ul#nav > li.megamenu:hover > .pump
+			{
+				background-color:#<?php echo $wx['header']['nav_sub_bg']; ?>;
+			}
+		<?php endif;?>
+		
+		
+		<?php if(isset($wx['header']['nav_heading_bg']) && $wx['header']['nav_heading_bg']):?>
+			body:not(.fixHeader) .headertype9 .navHeader .navBox8 .menu-button-title,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title
+			{
+				background-color:#<?php echo $wx['header']['nav_heading_bg']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['header']['nav_heading']) && $wx['header']['nav_heading']):?>
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8 .menu-button-title,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title
+			{
+				color:#<?php echo $wx['header']['nav_heading']; ?>;
+			}
+		<?php endif;?>
+		
+		<?php if(isset($wx['header']['nav_heading_icon']) && $wx['header']['nav_heading_icon']):?>
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8 .menu-button-title em,
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8 .menu-button-title em:after,
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8 .menu-button-title em:before,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title em,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title em:after,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title em:before
+			{
+				background-color:#<?php echo $wx['header']['nav_heading_icon']; ?>;
+			}
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8 .menu-button-title .fa,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9 .menu-button-title .fa
+			{
+				color:#<?php echo $wx['header']['nav_heading_icon']; ?>;
+			}
+		<?php endif;?>
+		
+		
+		<?php if(isset($wx['header']['nav_heading_icon_hover']) && $wx['header']['nav_heading_icon_hover']):?>
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8:hover .menu-button-title em,
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8:hover .menu-button-title em:after,
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8:hover .menu-button-title em:before,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9:hover .menu-button-title em,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9:hover .menu-button-title em:after,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9:hover .menu-button-title em:before
+			{
+				background-color:#<?php echo $wx['header']['nav_heading_icon_hover']; ?>;
+			}
+			body:not(.fixHeader) .headertype8 .navHeader .navBox8:hover .menu-button-title .fa,
+			body:not(.fixHeader) .headertype9 .navHeader .navBox9:hover .menu-button-title .fa
+			{
+				color:#<?php echo $wx['header']['nav_heading_icon_hover']; ?>;
+			}
+		<?php endif;?>
+
+	<?php endif;?>
+
+
+	<?php if(isset($wx['fixed_header']['enable']) && $wx['fixed_header']['enable']):?>
+		/*--Fixed Navigation--*/
+		<?php if(isset($wx['fixed_header']['fixed_header_bg']) && $wx['fixed_header']['fixed_header_bg']):?>
+			.fixHeader .navWrap,
+			.fixHeader .stickyRow
+			{
+				background-color:#<?php echo $wx['fixed_header']['fixed_header_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['fixed_header']['fixed_nav_menu_color']) && $wx['fixed_header']['fixed_nav_menu_color']):?>
+			.fixHeader .nav-container ul#nav > li.level0 > a
+			{
+				color:#<?php echo $wx['fixed_header']['fixed_nav_menu_color']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['fixed_header']['fixed_nav_hover']) && $wx['fixed_header']['fixed_nav_hover']):?>
+			.fixHeader .nav-container ul#nav > li.level0:hover > a
+			{
+				color:#<?php echo $wx['fixed_header']['fixed_nav_hover']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['fixed_header']['fixed_hover_bg']) && $wx['fixed_header']['fixed_hover_bg']):?>
+			.fixHeader .nav-container ul#nav > li.level0:hover > a
+			{
+				background-color:#<?php echo $wx['fixed_header']['fixed_hover_bg']; ?>;
+			}
+			.fixHeader .nav-container ul#nav > li.level0:hover > .pump, 
+			.fixHeader .nav-container ul#nav > li.level0:hover > ul
+			{
+				border-top-color:#<?php echo $wx['fixed_header']['fixed_hover_bg']; ?>;
+			}
+		<?php endif;?>
+
+		/*--Fixed Mini Cart--*/
+		<?php if(isset($wx['fixed_header']['fixed_cart_icon']) && $wx['fixed_header']['fixed_cart_icon']):?>
+			.fixHeader .minicart-wrapper:before,
+			.fixHeader .minicart-wrapper .action.showcart:after
+			{	
+				color:#<?php echo $wx['fixed_header']['fixed_cart_icon']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['fixed_header']['fixed_cart_counter_bg']) && $wx['fixed_header']['fixed_cart_counter_bg']):?>
+			.fixHeader .minicart-wrapper .counter.qty
+			{
+				background-color:#<?php echo $wx['fixed_header']['fixed_cart_counter_bg']; ?>;
+			}
+		<?php endif;?>
+
+		<?php if(isset($wx['fixed_header']['fixed_cart_counter_color']) && $wx['fixed_header']['fixed_cart_counter_color']):?>
+			.fixHeader .minicart-wrapper .counter.qty
+			{
+				color:#<?php echo $wx['fixed_header']['fixed_cart_counter_color']; ?>;
+			}
+		<?php endif;?>
+
+	<?php endif;?>
+}

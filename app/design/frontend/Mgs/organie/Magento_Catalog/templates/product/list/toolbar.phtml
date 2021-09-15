@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <div class="toolbar toolbar-products row" data-mage-init='<?php /* @escapeNotVerified */ echo $block->getWidgetOptionsJson(); ?>'>
+        <div class="toolbar-box">
+            <div class="col-md-4 col-sm-3 col-xs-12">
+                <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+            </div>
+            <div class="col-md-8 col-sm-9 col-xs-12">
+                <?php if ($block->isExpanded()): ?>
+                    <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/viewmode.phtml')) ?>
+                <?php endif; ?>
+                <?php if ($block->isExpanded()): ?>
+                    <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
+                <?php endif; ?>
+                <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-xs-12 col-sm-12 text-center"><?php echo $block->getPagerHtml() ?></div>
+    </div>
+    <?php
+
+ endif ?>

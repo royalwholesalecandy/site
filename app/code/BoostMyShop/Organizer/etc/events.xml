@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<!-- Purchase order tab -->
+    <event name="bms_supplier_order_edit_tabs">
+        <observer name="bms_organizer_supplier_order_organizer_tab" instance="BoostMyShop\Organizer\Observer\PurchaseOrderTab"/>
+    </event>
+
+    <!-- Supplier tab -->
+    <event name="bms_supplier_edit_tabs">
+        <observer name="bms_organizer_supplier_edit_organizer_tab" instance="BoostMyShop\Organizer\Observer\SupplierOrganizerTab"/>
+    </event>
+
+    <!-- Stock transfer tab -->
+    <event name="bms_advancedstock_transfer_edit_tabs">
+        <observer name="bms_organizer_advancedstock_transfer_edit_organizer_tab" instance="BoostMyShop\Organizer\Observer\StockTransferOrganizerTab"/>
+    </event>
+
+    <!-- Stock take tab -->
+    <event name="bms_advancedstock_stocktake_edit_tabs">
+        <observer name="bms_organizer_advancedstock_stocktake_edit_organizer_tab" instance="BoostMyShop\Organizer\Observer\StockTakeOrganizerTab"/>
+    </event>
+
+    <!-- Supplier Invoice tab -->
+    <event name="bms_supplier_invoice_edit_tabs">
+        <observer name="bms_organizer_supplier_invoice_edit_organizer_tab" instance="BoostMyShop\Organizer\Observer\SupplierInvoiceOrganizerTab"/>
+    </event>
+
+    <!-- Supplier Invoice grid -->
+    <event name="bms_supplier_invoice_grid">
+        <observer name="bms_organizer_supplier_invoice_grid_organizer_column" instance="BoostMyShop\Organizer\Observer\SupplierInvoiceOrganizerColumn"/>
+    </event>
+
+    <!-- Erp product grid -->
+    <event name="bms_erp_product_grid">
+        <observer name="bms_organizer_erp_product_grid_organizer_column" instance="BoostMyShop\Organizer\Observer\ErpProductOrganizerColumn"/>
+    </event>
+
+    <!-- AdvanceStock transfer grid -->
+    <event name="bms_advancedstock_transfer_grid">
+        <observer name="bms_organizer_advancedstock_transfer_grid_organizer_column" instance="BoostMyShop\Organizer\Observer\StockTransferOrganizerColumn"/>
+    </event>
+
+    <!-- AdvanceStock stocktake grid -->
+    <event name="bms_advancedstock_stocktake_grid">
+        <observer name="bms_organizer_advancedstock_stocktake_grid_organizer_column" instance="BoostMyShop\Organizer\Observer\StockTakeOrganizerColumn"/>
+    </event>
+
+    <!-- Order preparation tabs -->
+    <event name="bms_order_preparation_inprogress_grid">
+        <observer name="bms_organizer_order_preparation_inprogress_grid" instance="BoostMyShop\Organizer\Observer\OrderPreparationGridTabs"/>
+    </event>
+    <event name="bms_order_preparation_backorder_grid">
+        <observer name="bms_organizer_order_preparation_backorder_grid" instance="BoostMyShop\Organizer\Observer\OrderPreparationGridTabs"/>
+    </event>
+    <event name="bms_order_preparation_holded_grid">
+        <observer name="bms_organizer_order_preparation_holded_grid" instance="BoostMyShop\Organizer\Observer\OrderPreparationGridTabs"/>
+    </event>
+    <event name="bms_order_preparation_instock_grid">
+        <observer name="bms_organizer_order_preparation_instock_grid" instance="BoostMyShop\Organizer\Observer\OrderPreparationGridTabs"/>
+    </event>
+
+    <!-- Order preparation PickingList -->
+    <event name="bms_orderpreparation_picking_list_before_print_products">
+        <observer name="bms_orderpreparation_pciking_list_before_print_products" instance="BoostMyShop\Organizer\Observer\OrderPreparationPickingListPdf"/>
+    </event>
+
+</config>

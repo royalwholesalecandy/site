@@ -1,0 +1,29 @@
+.field-custom-change .action-default, .field-custom-rate .action-default{
+    font-weight: 400;
+    margin-top: 1rem;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+    text-shadow: none;
+    color: #007bdb;
+}
+
+.field-custom-change .action-default:hover, .field-custom-rate .action-default:hover{
+    text-decoration: underline;
+}
+
+.field-custom-change .action-default{
+    margin-top: 0;
+}
+
+.admin__order-shipment-method-custom {
+    -webkit-margin-start: 0;
+}
+
+.custom-shipping-form {
+    margin-top: 2rem;
+}
+
+.custom-shipping-label {
+    margin-bottom: 0;
+}

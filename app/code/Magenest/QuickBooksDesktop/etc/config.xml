@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <qbdesktop>
+            <qbd_setting>
+                <quickbook_version>2</quickbook_version>
+                <number_tax>10</number_tax>
+                <scheduler>100</scheduler>
+            </qbd_setting>
+        </qbdesktop>
+    </default>
+</config>

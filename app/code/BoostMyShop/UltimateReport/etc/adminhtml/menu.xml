@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="BoostMyShop_UltimateReport::erp_dashboard" module="BoostMyShop_UltimateReport" title="Dashboard" parent="BoostMyShop_Erp::home" action="ultimatereport/erp/dashboard" sortOrder="0" resource="BoostMyShop_UltimateReport::erp_dashboard"/>
+
+        <add id="BoostMyShop_UltimateReport::supplier_dashboard" module="BoostMyShop_UltimateReport" title="Dashboard" parent="BoostMyShop_Supplier::operations" action="ultimatereport/supplier/dashboard" sortOrder="0" resource="BoostMyShop_UltimateReport::supplier_dashboard"/>
+
+        <add id="BoostMyShop_UltimateReport::orderpreparation_dashboard" module="BoostMyShop_UltimateReport" title="Dashboard" parent="BoostMyShop_OrderPreparation::operation" action="ultimatereport/orderpreparation/dashboard" sortOrder="0" resource="BoostMyShop_UltimateReport::orderpreparation_dashboard"/>
+
+    </menu>
+</config>

@@ -1,0 +1,35 @@
+<center>
+<?php if ($this->canDisplay()): ?>
+
+    <h1><?php echo __('This order is %1.', __($this->currentOrderInProgress()->getip_status())); ?></h1>
+
+    <button title="Orders" type="button" onclick="setLocation('<?php echo $this->getDownloadPickingListUrl(); ?>');" class="action-default scalable action-primary">
+        <span><?php echo __('Download picking list'); ?></span>
+    </button>
+
+    <?php if ($this->getDownloadPackingSlipUrl()): ?>
+        <button title="Orders" type="button" onclick="setLocation('<?php echo $this->getDownloadPackingSlipUrl(); ?>');" class="action-default scalable action-primary">
+            <span><?php echo __('Download packing slip'); ?></span>
+        </button>
+    <?php endif; ?>
+
+    <?php if ($this->getDownloadInvoiceUrl()): ?>
+        <button title="Orders" type="button" onclick="setLocation('<?php echo $this->getDownloadInvoiceUrl(); ?>');" class="action-default scalable action-primary">
+            <span><?php echo __('Download invoice'); ?></span>
+        </button>
+    <?php endif; ?>
+
+    <?php if ($this->getDownloadShippingLabel()): ?>
+        <button title="Orders" type="button" onclick="setLocation('<?php echo $this->getDownloadShippingLabel(); ?>');" class="action-default scalable action-primary">
+            <span><?php echo __('Download shipping label'); ?></span>
+        </button>
+    <?php endif; ?>
+
+    <?php if ($this->autoDownload()): ?>
+        <script>
+            autoDownloadUrls = <?php echo $this->getDownloadUrlsAsJson(); ?>;
+        </script>
+    <?php endif; ?>
+
+<?php endif; ?>
+</center>
