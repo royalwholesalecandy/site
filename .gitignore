@@ -6,6 +6,7 @@
 !/composer.json
 !/readme.md
 !/app/code/**/*
+!/app/design/adminhtml/Magento/**/*
 # 2021-09-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # It is the parent of  `bs_eren/bs_eren3`
 !/app/design/frontend/bs_eren/bs_eren1/**/*
