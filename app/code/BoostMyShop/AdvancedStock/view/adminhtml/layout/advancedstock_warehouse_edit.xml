@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="BoostMyShop\AdvancedStock\Block\Warehouse\Edit\Tabs" name="adminhtml.warehouse.edit.tabs"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\AdvancedStock\Block\Warehouse\Edit" name="adminhtml.warehouse.edit"/>
+        </referenceContainer>
+    </body>
+</page>

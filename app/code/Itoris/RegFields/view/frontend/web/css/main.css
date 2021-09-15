@@ -1,0 +1,81 @@
+.validation-advice{
+    color: red;
+}
+.form-list .float-none {
+	float: none;
+	margin-left: 5px;
+}
+.form-list .note {
+	font-size: 11px;
+}
+.form-list .reload-captcha {
+	height: 16px;
+	width: 16px;
+	background-image: url(../image/refresh.gif);
+	cursor: pointer;
+	float: left;
+}
+
+.form-list textarea {
+	height: auto !important;
+}
+
+.form-list .link-wishlist {
+	cursor: pointer;
+	margin-left: 7px;
+	text-decoration: underline;
+	font-weight: normal;
+}
+
+.form-list .empty-field {
+	height: 20px;
+}
+
+#form-validate .field:not(.captcha) {
+	clear: none;
+	float: left;
+	width: 280px;
+	margin-bottom: 10px;
+}
+
+#form-validate .field .input-text, #password-strength-meter-container {
+	width: 254px;
+}
+
+#form-validate .field .input-text.date {
+	width: 234px;
+}
+
+#form-validate .field .date-trig {
+	vertical-align: middle;
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+#form-validate .field label {
+	width: auto;
+}
+
+li.fields{list-style-type: none;}
+.account-create .form-list li,  .account-create .fieldset{clear:both; list-style-type: none;}
+.account-create .date-trig {display:inline-block}
+.form.create.account {width: 75%!important;}
+.field.required > .label:after {
+    content: '*';
+    color: #e02b27;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+}
+.form-create-account ul.form-list {padding-left:0px}
+.input-box.admin__field-control select{height: auto;}
+.itoris_list-box{background: white; padding-right: 0;}
+
+.link-wishlist {
+	color: #ff002d;
+	cursor: pointer;
+	margin-left: 7px;
+	text-decoration: underline;
+	font-weight: normal;
+}
+.customer-account-edit .fieldset > .field:not(.choice) > .control {float:none}
+.customer-account-edit fieldset legend {width:100%}

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+<system>
+<!-- Products settings -->
+   <section id="wanexo_productcollection" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+     <label>Product Settings</label>
+		<tab>wanexo_ext</tab>
+        <resource>Wanexo_ProductCollection::config_productcollection</resource>
+		
+		<!-- Category Product settings -->
+		<group id="wxo_category_settings" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+		    <label>Category Products Settings</label>
+			<field id="wxo_itempro" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Product in row:</label>
+				<source_model>Wanexo\ProductCollection\Model\Config\Source\Itemrow</source_model>
+				<depends><field id="enable">1</field><field id="wxo_flipView">1</field></depends>
+			</field>
+			
+			<field id="img_size" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Images Size:</label>
+				<comment>Define product images size here.</comment>
+				<depends><field id="enable">1</field></depends>
+			</field>
+			
+			<field id="wxo_itemtype" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Item Design Type:</label>
+				<source_model>Wanexo\ProductCollection\Model\Config\Source\Itemview</source_model>
+				<depends><field id="enable">1</field></depends>
+			</field>
+			<field id="quickview" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Quick View:</label>
+				<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				<depends><field id="enable">1</field></depends>
+			</field>
+		</group>
+
+	 
+   </section>
+</system>
+</config>

@@ -1,0 +1,30 @@
+<fieldset class="fieldset admin__fieldset " id="warehouse_import_fieldset">
+    <legend class="admin__legend legend">
+        <span>Import</span>
+    </legend><br />
+
+    <p>Use this section to import a csv file to update warehouse products</p>
+    <p>Expected format :</p>
+
+    <ul style="margin-left: 50px;">
+        <li>File format : csv file</li>
+        <li>File extension : csv or txt</li>
+        <li>Separator : semi-colon ";"</li>
+        <li>Columns
+            <ul style="margin-left: 50px;">
+                <li>sku (mandatory)</li>
+                <li>qty (can be empty)</li>
+                <li>shelf_location (can be empty)</li>
+                <li>warning_stock_level (can be empty)</li>
+                <li>use_config_warning_stock_level (can be empty)</li>
+                <li>ideal_stock_level (can be empty)</li>
+                <li>use_config_ideal_stock_level (can be empty)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p>Select the file to import and click on save button : <input type="file" name="import_file"> </p>
+
+</fieldset>

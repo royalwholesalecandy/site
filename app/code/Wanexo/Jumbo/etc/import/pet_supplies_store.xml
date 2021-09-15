@@ -1,0 +1,110 @@
+<root>
+    <config>
+		<web>
+			<default>
+				<cms_home_page>jumbo_home_pets</cms_home_page>
+				<cms_no_route>no-route</cms_no_route>
+			</default>
+		</web>
+		
+		<cms>
+			<wysiwyg>
+				<enabled>hidden</enabled>
+			</wysiwyg>
+		</cms>
+		
+		<wanexo_themeoption>
+			<genral_setting>
+				<navfix>1</navfix>
+				<boxed></boxed>
+				<wxo_heading>5</wxo_heading>
+			</genral_setting>
+			
+			<wxo_header_setting>
+				<wxo_header>3</wxo_header>
+			</wxo_header_setting>
+		
+			<wxo_footer_setting>
+				<wxo_footer>3</wxo_footer>
+			</wxo_footer_setting>
+		</wanexo_themeoption>
+		
+		<wanexo_np>
+			<general>
+				<status>1</status>
+				<npImageSrc>default/pet_newsletter.jpg</npImageSrc>
+				<np_bg_repeat>no-repeat</np_bg_repeat>
+				<np_bg_bp>center center</np_bg_bp>
+			</general>
+		</wanexo_np>
+		
+		<wanexo_productcollection>
+			<wxo_category_settings>
+				<wxo_itemtype>4</wxo_itemtype>
+				<wxo_itempro>col-lg-4 col-md-3 col-sm-4 col-xs-6 clear-item-3</wxo_itempro>
+			</wxo_category_settings>
+		</wanexo_productcollection>
+		
+		<jumbo_design>
+			<general>
+				<theme_color>d73a4d</theme_color>
+				<enable>1</enable>
+				<body_color>fff</body_color>
+				<wxo_bg></wxo_bg>
+				<wxo_bg_sz></wxo_bg_sz>
+				<wxo_bg_br></wxo_bg_br>
+				<wxo_bg_bp>center center</wxo_bg_bp>
+				<wxo_bg_atm>scroll</wxo_bg_atm>
+				<enable2></enable2>
+				<wrapper_bg_color></wrapper_bg_color>
+			</general>
+			
+			<font>
+				<enable>1</enable>
+				<font_family>google</font_family>
+				<google_font_family>Montserrat</google_font_family>
+			</font>
+			
+			<header>
+				<enable></enable>
+				<header_bg></header_bg>
+				<header_qty_bg></header_qty_bg>
+				<header_cart_bg></header_cart_bg>
+				<header_cart_border></header_cart_border>
+				<header_search_bg></header_search_bg>
+				<header_search_border></header_search_border>
+				<header_search_btn_bg></header_search_btn_bg>
+				<nav_border></nav_border>
+				<nav_text_hover_color></nav_text_hover_color>
+				<nav_heading></nav_heading>
+				<nav_heading_hover></nav_heading_hover>
+				<nav_heading_icon></nav_heading_icon>
+				<nav_heading_icon_hover></nav_heading_icon_hover>
+			</header>
+			
+			
+			
+			<footer>
+				<enable>1</enable>
+				<footerType>3</footerType>
+				<ft_background>faf7f8</ft_background>
+				<footer_bg>default/paw_pattern_1.jpg</footer_bg>
+				<wxo_bg_br>repeat</wxo_bg_br>
+				<wxo_bg_bp>center center</wxo_bg_bp>
+				<wxo_bg_atm>scroll</wxo_bg_atm>
+				<wxo_bg_sz></wxo_bg_sz>
+			</footer>
+			
+		</jumbo_design>
+		
+		<wanexo_mlayer>
+			<banner>
+				<bannertype>1</bannertype>
+				<full_banner>1</full_banner>
+				<bannercontent>0</bannercontent>
+				<banner_block></banner_block>
+				<bannerpagination></bannerpagination>
+			</banner>
+		</wanexo_mlayer>
+	</config>
+</root>

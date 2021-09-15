@@ -1,0 +1,33 @@
+<?php
+use Magento\Sales\Model\Order as O;
+/**
+ * @var $block \Magento\OfflinePayments\Block\Info\Purchaseorder
+ */
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance(); 
+$customerFactory = $objectManager->get('\Magento\Customer\Model\CustomerFactory')->create();
+/**
+ * 2019-12-14 Dmitry Fedyuk https://github.com/mage2pro
+ * «Call to a member function getCustomerId() on null
+ * in app/code/Akeans/ShowPriceAfterLogin/view/frontend/templates/info/purchaseorder.phtml:11»:
+ * https://github.com/royalwholesalecandy/core/issues/37
+ */
+/** @var string $terms */
+if (!($o = $block->getInfo()->getOrder())) { /** @var O|null $o */
+	$terms = '';
+}
+else {
+	$customer = $customerFactory->load($o->getCustomerId());
+	$terms = $customer->getCustomNetTerms();
+}
+?>
+<dl class="payment-method purchase order">
+    <dt class="title"><?= $block->escapeHtml($block->getMethod()->getTitle()) ?></dt>
+    <dd class="content">
+        <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?></strong>
+        <span class="number"><?= $block->escapeHtml($block->getInfo()->getPoNumber()) ?></span>
+    </dd>
+	<dd class="content">
+        <strong><?= $block->escapeHtml(__('Net Terms')) ?></strong>
+        <span class="number"><?= $block->escapeHtml($terms) ?></span>
+    </dd>
+</dl>

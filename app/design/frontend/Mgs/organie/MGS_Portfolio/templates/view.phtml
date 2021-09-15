@@ -1,0 +1,232 @@
+<?php $portfolio = $this->getPortfolio() ?>
+
+<!-- Get Data -->
+<?php $date = $portfolio->getPortfolioDate() ?>
+<?php $categoryLinks = $this->getCategoriesLink($portfolio) ?>
+<?php $service = $portfolio->getServices() ?>
+<?php $client = $portfolio->getClient() ?>
+<?php $skills = $portfolio->getSkills() ?>
+<?php $projectUrl = $portfolio->getSkills() ?>
+
+<!-- Portfolio Helper -->
+<?php $helper = $this->helper('MGS\Portfolio\Helper\Data') ?>
+
+<div class="portfolio-details">
+	<?php if ($this->getBaseImage($portfolio)): ?>
+		<div class="portfolio-image">
+			<img src="<?php echo $this->getBaseImage($portfolio)?>" alt="" class="img-responsive"/>
+		</div>
+	<?php endif ?>
+	<div class="no-full">
+		<div class="row">
+			<div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+				<ul class="portfolio-details-list h5">
+					<?php if($date != ''): ?>
+						<li>
+							<label><?php echo __('Date:') ?></label><div><em><?php echo date('F d, Y', strtotime($date))?></em></div>
+						</li>
+					<?php endif ?>
+					<?php if($categoryLinks != ''): ?>
+						<li>
+							<label><?php echo __('Categories:') ?></label><div class="portfolio-link-cate h5"><em><?php echo $categoryLinks ?></em></div>
+						</li>
+					<?php endif ?>
+					
+					<?php if($service != ''): ?>
+						<li>
+							<label><?php echo __('Project:') ?></label><div><em><?php echo $service ?></em></div>
+						</li>
+					<?php endif ?>
+					
+					<?php if($client != ''): ?>
+						<li>
+							<label><?php echo __('Client:') ?></label><div><em><?php echo $client ?></em></div>
+						</li>
+					<?php endif ?>
+					
+					<?php if($skills != ''): ?>
+						<li>
+							<label><?php echo __('Skills:') ?></label><div><em><?php echo $skills ?></em></div>
+						</li>
+					<?php endif ?>
+					<?php if($projectUrl): ?>
+						<li>
+							<a class="btn btn-sm btn-primary h2" href="<?php echo $portfolio->getProjectUrl() ?>" target="_blank"><?php echo __('View Project') ?></a>
+						</li>
+					<?php endif ?>
+				</ul>
+			</div>
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<h3 class="text-center"><?php echo $portfolio->getName() ?></h3>
+				<div class="description">
+					<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+					<?php echo $objectManager->get('\Magento\Cms\Model\Template\FilterProvider')->getBlockFilter()->filter($portfolio->getDescription()); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if($portfolio->getRelatedProduct()): ?>
+		<?php $imgRelated = $helper->getOtherImage($portfolio->getRelatedProduct()); ?>
+		<?php if($imgRelated): ?>
+			<div class="container-fluid detail-gallery">
+				<?php $i=0; foreach($imgRelated as $img_url): $i++; ?>
+					<?php if($i > 4){ break; } ?>
+					<?php if($i % 2 == 1): ?><div class="row"><?php endif ?>
+						<div class="col-sm-6 col-xs-12">
+							<div class="item-gallery-img">
+								<a href="javascript:void(0)" class="open-gallery" data-slider="<?php echo ($i - 1); ?>" data-toggle="modal" data-target="#portfolioModal-detail-<?php echo $portfolio->getId() ?>">+</a>
+								<img class="img-responsive" src="<?php echo $img_url ?>" alt="<?php echo $portfolio->getName(); ?>" />
+							</div>
+						</div>
+					<?php if($i % 2 == 0 || $i == count($imgRelated)): ?></div><?php endif ?>
+				<?php endforeach ?>
+			</div>
+			<div id="portfolioModal-detail-<?php echo $portfolio->getId() ?>" class="modal-gallery modal" role="dialog">
+				<div class="modal-gallery-dialog modal-dialog modal--fullscren">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"></span></button>
+						</div>
+						<div class="modal-body owl-carousel">
+							<?php foreach($imgRelated as $img_url): ?>
+								<div class="item">
+									<img class="img-responsive" src="<?php echo $img_url ?>" alt="<?php echo $portfolio->getName(); ?>" />
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				require([
+					'jquery',
+					'mgs/owlcarousel'
+				], function ($) {
+					$(document).ready(function(){
+						var portfolioModal_detail = $('#portfolioModal-detail-<?php echo $portfolio->getId() ?> .modal-body');
+						portfolioModal_detail.owlCarousel({
+							items:1,
+							autoPlay: false,
+							stopOnHover: false,
+							nav: true,
+							navText: ["",""],
+							dots: true,
+							loop: true,
+							animateOut: 'fadeOut',
+							animateIn: 'fadeIn',
+							responsive:{ 0 : {items: 1}, 480 : {items: 1}, 768 : {items: 1}, 991 : {items: 1}, 1200 : {items: 1} }
+						});
+						
+					portfolioModal_detail.resize(function(){
+						var portfolioModal_detail_vl = {
+							items:1,
+							autoPlay: false,
+							stopOnHover: false,
+							nav: true,
+							navText: ["",""],
+							dots: true,
+							loop: true,
+							animateOut: 'fadeOut',
+							animateIn: 'fadeIn',
+							responsive:{ 0 : {items: 1}, 480 : {items: 1}, 768 : {items: 1}, 991 : {items: 1}, 1200 : {items: 1} }
+						} 
+						var $owl16 = portfolioModal_detail.owlCarousel(portfolioModal_detail_vl);
+						$owl16.trigger('destroy.owl.carousel');
+						$owl16.html($owl16.find('.owl-stage-outer').html()).removeClass('owl-loaded');
+						setTimeout(function(){ $owl16.owlCarousel(portfolioModal_detail_vl); }, 500);
+					});
+						$('.item-gallery-img > a').click(function(){
+							var toIndex = $(this).data('slider');
+							owl.trigger("to.owl.carousel", [toIndex, 1, true]);
+						});
+					});
+				}); 
+			</script>
+		<?php endif ?>
+	<?php endif ?>
+	
+	<?php $relatedPortfolio = $this->getRelatedPortfolio($portfolio) ?>
+	<?php if(count($relatedPortfolio)>0): ?>
+		<div class="container-fluid">
+			<div class="related-project">
+				<h3 class="carousel-title text-center text-uppercase">
+					<?php echo __('Related Project'); ?>
+				</h3>
+				<div class="portfolio-grid owl-carousel portfolio-carousel" id="portfolio_carousel">
+					<?php foreach($relatedPortfolio as $_portfolio): ?>
+						<div class="item">
+						<div class="item_inner">
+							<div class="portfolio-top-content">
+								<?php $thumbnailUrl = $this->getThumbnailSrc($_portfolio) ?>
+								<?php $address = $this->getPortfolioAddress($_portfolio) ?>
+								<?php if($thumbnailUrl): ?>
+									<img src="<?php echo $thumbnailUrl ?>" alt="<?php echo $portfolio->getName() ?>" class="img-responsive"/>
+									<div class="link-portfolio">
+										<?php if($_portfolio->getRelatedProduct()): ?>
+											<?php $imgRelated = $helper->getOtherImage($_portfolio->getRelatedProduct()); ?>
+											<?php if($imgRelated): ?>
+												<a href="javacsript:void(0)" class="open-gallery" data-toggle="modal" data-target="#portfolioModal--<?php echo $_portfolio->getId() ?>">
+													<span class="fa fa-arrows-alt"></span>
+												</a>
+											<?php endif ?>
+										<?php endif ?>
+									</div>
+								<?php endif ?>
+							</div>
+							<div class="portfolio-bottom-content">
+								<h5><a href="<?php echo $address; ?>"><?php echo $_portfolio->getName() ?></a></h5>
+								<div class="category-link h5"><em><?php echo $this->getCategoriesLink($_portfolio) ?></em></div>
+							</div>
+						</div>
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			require([
+				'jquery',
+				'mgs/owlcarousel'
+			], function(jQuery){
+				(function($) {
+					$("#portfolio_carousel").owlCarousel({
+						items: 4,
+						nav: true,
+						dots: false,
+						autoplay: false,
+						margin: 30,
+						navText: ["",""],
+						responsive:{
+							0 : {items: 1},
+							480 : {items: 1},
+							768 : {items: 2},
+							980 : {items: 4},
+							1200 : {items: 4}
+						}
+					});
+					$("#portfolio_carousel").resize(function(){
+						var portfolio_carousel = {
+							items: 4,
+							nav: true,
+							dots: false,
+							autoplay: false,
+							margin: 30,
+							navText: ["",""],
+							responsive:{
+								0 : {items: 1},
+								480 : {items: 1},
+								768 : {items: 2},
+								980 : {items: 4},
+								1200 : {items: 4}
+							}
+						} 
+						var $owl17 = $("#portfolio_carousel").owlCarousel(portfolio_carousel);
+						$owl17.trigger('destroy.owl.carousel');
+						$owl17.html($owl17.find('.owl-stage-outer').html()).removeClass('owl-loaded');
+						setTimeout(function(){ $owl17.owlCarousel(portfolio_carousel); }, 500);
+					});
+				})(jQuery);
+			});
+		</script>
+	<?php endif ?>
+</div>

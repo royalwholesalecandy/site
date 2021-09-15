@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+?>
+<fieldset class="fieldset create account">
+    <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Choose a Dealer') ?></span></legend><br>
+    <div class="field amasty-perm-dealer">
+        <label for="amasty_perm_dealer_id" class="label"><span><?php /* @escapeNotVerified */ echo __('Dealer') ?></span></label>
+        <div class="control">
+            <?php echo $block->getDealersSelectHtml();?>
+        </div>
+    </div>
+</fieldset>

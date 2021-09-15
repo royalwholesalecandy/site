@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <wanexo_productcollection>
+			
+			<wxo_category_settings>
+			    <wxo_itempro><![CDATA[col-lg-4 col-md-3 col-sm-4 col-xs-6  clear-item-3]]></wxo_itempro>
+				<img_size>295</img_size>
+				<wxo_itemtype>1</wxo_itemtype>
+				<quickview>1</quickview>
+            </wxo_category_settings>
+			
+        </wanexo_productcollection>
+    </default>
+</config>

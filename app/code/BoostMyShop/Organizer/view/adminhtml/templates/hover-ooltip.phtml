@@ -1,0 +1,25 @@
+<script>
+require([ 'jquery', 'jquery/ui'], function($){ 
+    jQuery(document).ready(function(){
+        jQuery(document).on("mouseover", "td .lien-popup", function(e){
+            if(!jQuery(".hover-overlay").length){
+                e.preventDefault();
+                var html = jQuery(this).html();
+                var top = e.clientY+document.documentElement.scrollTop;
+                var left = e.clientX;
+                jQuery("body").append('<span class="hover-overlay" style="width: 100%;height:  100%;position:  fixed;z-index:  9999;background: #ddd;opacity: 0.001;top: 0;left: 0;"></span><a class="lien-popup hover-overlay-a" href="#" style="top: '+top+'px;left: '+left+'px;position:  absolute;z-index:  99999;">'+html+'</a>');
+                jQuery(".lien-popup.hover-overlay-a img").remove();
+                jQuery(".lien-popup.hover-overlay-a span").attr("style","top: auto;left:  auto;height:  auto;width:  500px;overflow:  visible;");
+            }
+        });
+        jQuery(document).on("mouseout",".lien-popup.hover-overlay-a",function(){
+            jQuery(".lien-popup.hover-overlay-a").remove();
+            jQuery(".hover-overlay").remove();
+        });
+        jQuery(document).on("mouseover",".hover-overlay",function(){
+            jQuery(".lien-popup.hover-overlay-a").remove();
+            jQuery(".hover-overlay").remove();
+        });
+    });
+});
+</script>

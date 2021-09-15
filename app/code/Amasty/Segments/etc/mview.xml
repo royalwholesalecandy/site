@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
+    <view id="amasty_segments_customer" class="Amasty\Segments\Model\Indexer\SegmentCustomerIndexer" group="indexer">
+        <subscriptions>
+            <table name="amasty_segments_index" entity_column="segment_id" />
+        </subscriptions>
+    </view>
+</config>

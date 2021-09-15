@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+* BSS Commerce Co.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://bsscommerce.com/Bss-Commerce-License.txt
+*
+* =================================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* =================================================================
+* This package designed for Magento COMMUNITY edition
+* BSS Commerce does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* BSS Commerce does not provide extension support in case of
+* incorrect edition usage.
+* =================================================================
+*
+* @category   BSS
+* @package    Bss_Paymentshipping
+* @author     Extension Team
+* @copyright  Copyright (c) 2015-2016 BSS Commerce Co. ( http://bsscommerce.com )
+* @license    http://bsscommerce.com/Bss-Commerce-License.txt
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>		
+		<add id="Bss_Paymentshipping::menu_head_manage" title="Methods For Customer Group by BssCommerce" module="Bss_Paymentshipping" sortOrder="70" parent="Magento_Backend::stores" resource="Bss_Paymentshipping::bss_paymentshippingindex"/>
+
+		<add id="Bss_Paymentshipping::menu_payment" title="Payment" module="Bss_Paymentshipping" sortOrder="10" parent="Bss_Paymentshipping::menu_head_manage" action="paymentshipping/paymentshipping/payment" resource="Bss_Paymentshipping::bss_paymentshippingindex"/>
+
+		<add id="Bss_Paymentshipping::menu_shipping" title="Shipping" module="Bss_Paymentshipping" sortOrder="20" parent="Bss_Paymentshipping::menu_head_manage" action="paymentshipping/paymentshipping/shipping" resource="Bss_Paymentshipping::bss_paymentshippingindex"/>
+    </menu>
+</config>

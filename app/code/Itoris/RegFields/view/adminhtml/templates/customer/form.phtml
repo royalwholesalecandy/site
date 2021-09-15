@@ -1,0 +1,48 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_REGISTRATION_FIELDS_MANAGER
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Itoris\RegFields\Block\Adminhtml\Customer\Edit\Tab\Information */
+?>
+<form id="form_regfields" class="form-customer-regfields">
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+    <div class="admin__fieldset-wrapper customer-regfields">
+        <?php echo $block->getFormHtml();?>
+    </div>
+</form>
+<?php echo $block->getChildHtml('form_after');?>
+<script>
+    require(['jquery', 'Itoris_RegFields/js/main'], function($){
+        $('.save').click(function(){
+            var form = document.forms.form_regfields;
+            var dataForm = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?php echo $block->getUrl('itorisregfields/customer/save', ['_current' => true]); ?>");
+            xhr.send(dataForm);
+        });
+    });
+</script>

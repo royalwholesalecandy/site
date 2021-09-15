@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\Supplier\Block\ProductSupplier\Header" name="productsupplier.header"/>
+            <block class="BoostMyShop\Supplier\Block\ProductSupplier\Grid" name="productsupplier.grid.container"/>
+            <block class="BoostMyShop\Supplier\Block\ProductSupplier\PopupTabs" name="productsupplier.popuptabs" template="BoostMyShop_Supplier::ProductSupplier/Popup.phtml" />
+        </referenceContainer>
+    </body>
+</page>

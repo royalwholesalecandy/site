@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$_category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+	$_imgUrl = "";
+	if($_category) {
+		$_imgUrl = $_category->getImageUrl();
+	}
+?>
+<?php if ($crumbs && is_array($crumbs)) : ?>
+<?php $bg_breadcrumb = $block->getChildHtml('organie_breadcrumb_background');?>
+
+<?php if($bg_breadcrumb): ?>
+    <?php preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $bg_breadcrumb, $matches); ?>
+<?php endif ?>
+<div class="breadcrumbs" 
+<?php if($_imgUrl != ''):?>style="background-image: url('<?php echo $_imgUrl;?>')"
+<?php elseif($bg_breadcrumb && $matches[1][0]): ?>style="background-image: url('<?php echo $matches[1][0]; ?>')" <?php endif ?>
+>
+        <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+            <?php if ($crumbInfo['last']) : ?>
+                <h1><?php echo $block->escapeHtml($crumbInfo['label']) ?></h1>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <ul class="breadcrumb">
+        <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+            <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
+            <?php if ($crumbInfo['link']) : ?>
+                <a href="<?php /* @escapeNotVerified */ echo $crumbInfo['link'] ?>" title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>"><em class="h5">
+                    <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+                </em></a>
+            <?php elseif ($crumbInfo['last']) : ?>
+                <em class="h5"><?php echo $block->escapeHtml($crumbInfo['label']) ?></em>
+            <?php else: ?>
+                <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+            <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

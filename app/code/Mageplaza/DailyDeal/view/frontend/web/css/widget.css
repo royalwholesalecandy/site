@@ -1,0 +1,80 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_DailyDeal
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+li.deal-product-item.product-item {
+    width: 67% !important;
+    padding-left: 3% !important;
+}
+
+span.old-price {
+    margin: 0 !important;
+}
+
+li.deal-product-item.product-item {
+    font-size: 1.4rem;
+}
+
+.float-block-content .owl-stage-outer {
+    min-height: 120px;
+}
+
+.float-block-content {
+    border: 1px solid #c2c2c2;
+}
+
+.deal-product-item-info {
+    padding: 10px 0 0 20px;
+}
+
+li.mpdailydeal-product-item.product-item {
+    width: 90% !important;
+}
+
+@media (max-width: 550px) {
+    a.product.photo.deal-product-item-photo {
+        width: 90% !important;
+    }
+
+    strong.product.name.product-item-name.float-name {
+        display: none;
+    }
+
+    .widget-remaining-qty-item.float-remain {
+        display: none;
+    }
+
+    .widget-sold-qty-item.float-sold {
+        display: none;
+    }
+}
+
+ol.mpdailydeal-product-items.product-items.widget-viewed-grid {
+    margin-left: 0;
+}
+
+.products-grid .product-item-actions {
+    margin: 5px 0 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .catalog-category-view .columns .sidebar-main {
+        width: 100%;
+    }
+}

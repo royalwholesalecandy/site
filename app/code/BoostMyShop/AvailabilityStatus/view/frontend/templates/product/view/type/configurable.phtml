@@ -1,0 +1,12 @@
+<div id="availability-configurable">
+    <?php echo $this->getMessage(); ?>
+</div>
+
+<script>
+    var objAvailabilityConfigurable
+    require(["availability_configurable"], function(){
+        objAvailabilityConfigurable = new AvailabilityConfigurable();
+        objAvailabilityConfigurable.init(<?php echo json_encode($this->getAvailabilities()); ?>);
+    });
+
+</script>

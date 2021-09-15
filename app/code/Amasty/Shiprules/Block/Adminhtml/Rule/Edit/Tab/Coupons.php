@@ -1,0 +1,24 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Shiprules
+ */
+
+
+namespace Amasty\Shiprules\Block\Adminhtml\Rule\Edit\Tab;
+
+use Amasty\Shiprules\Model\RegistryConstants;
+use Amasty\CommonRules\Block\Adminhtml\Rule\Edit\Tab\Coupons as CommonRulesCoupons;
+
+class Coupons extends CommonRulesCoupons
+{
+    /**
+     * _construct
+     */
+    public function _construct()
+    {
+        $this->setRegistryKey(RegistryConstants::REGISTRY_KEY);
+        parent::_construct();
+    }
+}

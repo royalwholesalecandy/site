@@ -1,0 +1,156 @@
+.sbi-button span
+{
+
+}
+
+.sbi-button-selected span
+{
+    color: red;
+    font-weight: bold;
+}
+
+.sbi-btn-change-qty
+{
+    background-color:#FF9900;
+    padding: 3px;
+    color:black;
+    font-weight: bold;
+    font-size: 24px;
+    width: 50px;
+}
+
+.sbi-product-name
+{
+    display: block;
+    font-size: 32px;
+    padding: 10px;
+}
+
+.sbi-product-sku
+{
+    display: block;
+    font-style: italic;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.sbi-product-stock
+{
+    display: block;
+    padding: 10px;
+}
+
+.sbi-qty-field
+{
+    width: 100px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.sbi-btn-commit
+{
+    background-color:#FF9900;
+    padding: 10px;
+    color:black;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.sbi-table-header
+{
+    background-color:#444444;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.sbi-table-cell
+{
+    padding-top: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.div_sbi_notifications
+{
+    float: left;
+}
+
+.tbl-order
+{
+    width: 100%;
+    border: solid 1px black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tbl-order td
+{
+    border: solid 1px black;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.tbl-order th
+{
+    border: solid 1px black;
+    background-color: #444444;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.packing-status
+{
+    padding: 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.packing-status-ok
+{
+    background-color: darkgreen;
+    color: white;
+}
+
+.packing-status-partial
+{
+    background-color: #FF9900;
+    color: black;
+}
+
+.packing-status-none
+{
+    background-color: red;
+    color: white;
+}
+
+.preparation-item-shipped
+{
+    text-decoration: line-through;
+}
+
+.preparation-item-backorder
+{
+    color: red;
+}
+
+.preparation-item-partial
+{
+    color: orange;
+    }
+
+.preparation-item-full
+{
+    color: green;
+}
+
+.preparation-item-external
+{
+    color: #666666;
+    font-style: italic;
+}

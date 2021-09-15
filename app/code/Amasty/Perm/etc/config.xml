@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_perm>
+            <general>
+                <single_dealer>1</single_dealer>
+                <default_dealer>0</default_dealer>
+                <send_email>1</send_email>
+                <reassign_fields>1</reassign_fields>
+                <from_to>1</from_to>
+                <author>1</author>
+                <edit_no_grid>0</edit_no_grid>
+                <allow_all_customers_and_orders>0</allow_all_customers_and_orders>
+            </general>
+            <messages>
+                <enabled>1</enabled>
+                <see_other_dealers>0</see_other_dealers>
+                <admin_email>noreply@example.com</admin_email>
+                <admin_name>Admin</admin_name>
+                <template>amasty_perm_sales_email_order_assign_comment_template</template>
+                <identity>sales</identity>
+            </messages>
+            <frontend>
+                <on_registration>0</on_registration>
+                <in_account>0</in_account>
+                <description_customer>0</description_customer>
+                <description_checkout>0</description_checkout>
+            </frontend>
+        </amasty_perm>
+    </default>
+</config>

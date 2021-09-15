@@ -1,0 +1,93 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getPostCollection();
+$_collectionSize = count($collection);
+?>
+
+<div class="content-block blog-block blog-list-blog">
+	<?php if($this->hasData('mgs_panel_title')): ?>
+		<div class="content-heading">
+			<h2 class="title"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+		</div>
+	<?php endif ?>
+
+	<?php if (count($collection)): ?>
+		<?php
+			$blockId = rand() . time();
+			$showShortContent = $this->getConfig('show_short_content');
+			$viewAs = $this->getConfig('view_as');
+			$showThumbnail = $this->getConfig('show_thumbnail');
+			$perRow = $this->getConfig('items', 5);
+		?>
+		
+		<?php if($this->hasData('mgs_panel_note')): ?>
+			<div class="block-note"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+		<?php endif ?>
+		
+		<?php if ($viewAs == 'owl_carousel'): ?>
+			<div class="block widget mgs-blog-lastest-posts">
+				<div class="block-content">
+					<div class="owl-carousel mgs-carousel-<?php echo $blockId; ?>">
+						<?php $i=0; foreach ($collection as $post): ?>
+							<?php if ($i++ % $perRow == 0): ?>
+								<div class="item">
+							<?php endif ?>
+								<div class="block-content list-content">
+									<?php if ($showThumbnail): ?>
+										<div class="image"><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><img src="<?php echo $post->getThumbnailUrl(); ?>" alt="<?php echo $post->getTitle(); ?>"/></a></div>
+									<?php endif ?>
+									<div class="title"><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo $post->getTitle() ?></a></div>
+									<?php if ($showShortContent): ?>
+										<div class="short-content">
+											<?php echo substr($post->getShortContent(), 0, $this->getConfig('limit_characters_short_content')); ?>
+										</div>
+									<?php endif ?>
+								</div>
+							<?php if ($i % $perRow == 0 || $i == $_collectionSize): ?>
+								</div>
+							<?php endif ?>
+						<?php endforeach ?>
+					</div>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+				require([
+					'jquery',
+					'mgs/owlcarousel'
+				], function ($) {
+					$('.mgs-carousel-<?php echo $blockId ?>').owlCarousel({
+						items: 1,
+						autoplay: <?php echo $this->getConfig('autoplay') ? 'true' : 'false' ?>,
+						autoplayHoverPause: <?php echo $this->getConfig('stop_auto') ? 'true' : 'false' ?>,
+						nav: <?php echo $this->getConfig('navigation') ? 'true' : 'false' ?>,
+						dots: <?php echo $this->getConfig('pagination') ? 'true' : 'false' ?>,
+					});
+				});
+			</script>
+		<?php else: ?>
+			<div class="block widget lastest-posts-list">
+				<div class="block-content">
+					<ul>
+						<?php foreach ($collection as $post): ?>
+							<li class="item">
+								<?php if ($showThumbnail): ?>
+									<div class="image"><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><img src="<?php echo $post->getThumbnailUrl(); ?>" alt="<?php echo $post->getTitle(); ?>"/></a></div>
+								<?php endif ?>
+								<div class="title"><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo $post->getTitle() ?></a></div>
+								<?php if ($showShortContent): ?>
+									<div class="short-content">
+										<?php echo substr($post->getShortContent(), 0, $this->getConfig('limit_characters_short_content')); ?>
+									</div>
+								<?php endif ?>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				</div>
+			</div>
+		<?php endif; ?>
+		
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning"> <?php echo __('There are no posts matching the selection.') ?> </div>
+	<?php endif; ?>
+</div>

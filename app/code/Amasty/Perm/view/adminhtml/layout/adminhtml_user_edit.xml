@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="adminhtml.user.edit.tabs">
+                <block class="Amasty\Perm\Block\Adminhtml\Dealer\Tab\Reports" name="amasty.perm.dealer.edit.tab.reports"/>
+                <block class="Amasty\Perm\Block\Adminhtml\Dealer\Tab\Additional" name="amasty.perm.dealer.edit.tab.additional"/>
+                <block class="Amasty\Perm\Block\Adminhtml\Dealer\Tab\Customers" name="amasty.perm.dealer.edit.tab.customers"/>
+                <block class="Amasty\Perm\Block\Adminhtml\Dealer\Tab\Restrictions" name="amasty.perm.dealer.edit.tab.restrictions"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty.perm.dealer.edit.tab.additional</argument>
+                    <argument name="block" xsi:type="string">amasty.perm.dealer.edit.tab.additional</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty.perm.dealer.edit.tab.customers</argument>
+                    <argument name="block" xsi:type="string">amasty.perm.dealer.edit.tab.customers</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty.perm.dealer.edit.tab.restrictions</argument>
+                    <argument name="block" xsi:type="string">amasty.perm.dealer.edit.tab.restrictions</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">amasty.perm.dealer.edit.tab.reports</argument>
+                    <argument name="block" xsi:type="string">amasty.perm.dealer.edit.tab.reports</argument>
+                </action>
+
+            </referenceBlock>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" name="amasty.perm.dealer.edit.tab.customers.grid.js" template="Amasty_Perm::dealer/customers_grid_js.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

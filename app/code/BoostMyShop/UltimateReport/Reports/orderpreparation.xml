@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<reports>
+
+    <items_shipped>
+        <name>Items shipped</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <series>
+            <serie>
+                <label>Products</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                    select
+                                        DATE_FORMAT(tbl_shipment.created_at,'{group_by_date}') as x,
+                                        sum(qty) as y
+                                    from
+                                        {prefix}sales_shipment_item tbl_shipment_item
+                                        inner join {prefix}sales_shipment tbl_shipment on (tbl_shipment.entity_id = tbl_shipment_item.parent_id)
+                                    where
+                                        tbl_shipment.created_at >= "{date_from}"
+                                        and tbl_shipment.created_at <= "{date_to}"
+                                        and tbl_shipment.store_id in ({store_ids})
+                                    group by
+                                        DATE_FORMAT(tbl_shipment.created_at,'{group_by_date}')
+                                    order by
+                                        tbl_shipment.created_at
+                                        ]]></sql>
+    </items_shipped>
+
+    <in_progress>
+        <name>Orders in progress</name>
+        <size>half</size>
+        <available_for_dashboard>1</available_for_dashboard>
+        <renderer>pie</renderer>
+        <y_label>Orders</y_label>
+        <sql><![CDATA[select
+                                    ip_status as x,
+                                    count(*) y
+                                from
+                                    {prefix}bms_orderpreparation_inprogress tbl_order
+                                group by
+                                    ip_status]]></sql>
+    </in_progress>
+
+
+    <in_progress_per_user>
+        <name>Orders in progress per user</name>
+        <size>half</size>
+        <available_for_dashboard>1</available_for_dashboard>
+        <renderer>bar</renderer>
+        <series>
+            <serie>
+                <label>Shipped</label>
+                <column>shipped</column>
+            </serie>
+            <serie>
+                <label>Packed</label>
+                <column>packed</column>
+            </serie>
+            <serie>
+                <label>New</label>
+                <column>new</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                    select
+                                        username as x,
+                                        count(distinct tbl_order_new.ip_id) as new,
+                                        count(distinct tbl_order_packed.ip_id) as packed,
+                                        count(distinct tbl_order_shipped.ip_id) as shipped
+                                    from
+                                        {prefix}admin_user
+                                        left join {prefix}bms_orderpreparation_inprogress tbl_order_new on (tbl_order_new.ip_user_id = user_id and tbl_order_new.ip_status = "new")
+                                        left join {prefix}bms_orderpreparation_inprogress tbl_order_packed on (tbl_order_packed.ip_user_id = user_id and tbl_order_packed.ip_status = "packed")
+                                        left join {prefix}bms_orderpreparation_inprogress tbl_order_shipped on (tbl_order_shipped.ip_user_id = user_id and tbl_order_shipped.ip_status = "shipped")
+                                    group by
+                                        username
+                                    order by
+                                        username
+                                        ]]></sql>
+    </in_progress_per_user>
+
+    <pending_orders>
+        <name>Orders to ship</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <table>
+            <columns>
+                <group>
+                    <title>Group</title>
+                    <align>left</align>
+                </group>
+                <qty>
+                    <title>Count</title>
+                </qty>
+            </columns>
+        </table>
+        <source_type>model</source_type>
+        <source_model>\BoostMyShop\UltimateReport\Model\Report\Source\OrderPreparation\PendingOrders</source_model>
+    </pending_orders>
+
+</reports>

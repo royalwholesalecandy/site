@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<listingToolbar name="listing_top"/>
+    <columns name="sales_order_columns">
+        <column name="line_items" class="Akeans\Pocustomize\Ui\Component\Listing\Column\Lineitems">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Total Line Items</item>
+                </item>
+            </argument>
+        </column>
+		<column name="line_items_qty" class="Akeans\Pocustomize\Ui\Component\Listing\Column\Lineitemsqty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Total Line Items QTY</item>
+                </item>
+            </argument>
+        </column>
+		<column name="pick_time" class="Akeans\Pocustomize\Ui\Component\Listing\Column\Picktime">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Order Work Time</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

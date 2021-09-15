@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_REGISTRATION_FIELDS_MANAGER
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_customer_authenticated">
+        <observer name="itoris_regfields1" instance="Itoris\RegFields\Observers\AddCustomOptionToCustomAuthenticated" />
+    </event>
+    <event name="customer_load_after">
+        <observer name="itoris_regfields2" instance="Itoris\RegFields\Observers\AddCustomOptionsToCustomer" />
+    </event>
+
+    <event name="adminhtml_customer_save_after">
+        <observer name="itoris_regfields3" instance="Itoris\RegFields\Observers\SaveCustomOptions" />
+    </event>
+</config>

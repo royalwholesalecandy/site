@@ -1,0 +1,15 @@
+<?php $_product=$this->getProduct();?>
+<?php if($_product) :?>
+<?php $brandOptionValue=$_product->getData('is_brand');?>
+    <?php if($brandOptionValue):?>
+     <?php
+       $optionText=$_product->getAttributeText('is_brand');
+       $brand=$this->getBrandByOptionValue($optionText);?>
+       <?php if($brand) :?>
+           <div class="product-brand-wrapper">
+              <span style="color:red">Brand:</span><a class="brand-name" href="<?php echo $this->getUrl('wanexo_brand/brand/productlist/').'?id='.$brandOptionValue ; ?>" title="<?php echo $brand->getData('brand_title'); ?>"><?php echo $brand->getData('brand_title');?>
+              </a>
+           </div>
+       <?php endif ;?>
+    <?php endif ;?>
+<?php endif;?>

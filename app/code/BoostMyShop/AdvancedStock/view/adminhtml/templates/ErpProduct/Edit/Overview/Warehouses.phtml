@@ -1,0 +1,58 @@
+<table class="admin__table-primary dashboard-data">
+    <thead>
+    <tr>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('Warehouse'); ?></span></th>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('On hand'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('To ship'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('Reserved'); ?></span></th>
+        <th class="data-grid-th  no-link col-total"><span><?php echo __('Available'); ?></span></th>
+        <th class="data-grid-th  no-link col-total"><span><?php echo __('Warning<br>Stock level'); ?></span></th>
+        <th class="data-grid-th  no-link col-total"><span><?php echo __('Ideal<br>Stock level'); ?></span></th>
+        <th class="data-grid-th  no-link col-total"><span><?php echo __('Location'); ?></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->getWarehouses() as $item): ?>
+        <tr>
+            <td class=" col-customer "><?php echo $item->getw_name(); ?></td>
+            <td class=" a-center "><?php echo $item->getwi_physical_quantity(); ?></td>
+            <td class=" a-center "><?php echo $item->getwi_quantity_to_ship(); ?></td>
+            <td class=" a-center "><?php echo $item->getwi_reserved_quantity(); ?></td>
+            <td class=" a-center"><?php echo $item->getwi_available_quantity(); ?></td>
+            <td class=" a-center">
+                <select name="warehouses[<?php echo $item->getwi_id(); ?>][wi_use_config_warning_stock_level]"
+                        onchange="jQuery('#warning_stock_level_<?php echo $item->getwi_id(); ?>').toggle(this.value);">
+                    <?php foreach($this->getUseConfigOptions($this->getDefaultWarningStockLevel()) as $k => $v): ?>
+                        <?php $selected = ($item->getwi_use_config_warning_stock_level() == $k  ? ' selected ' : ''); ?>
+                        <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <input id="warning_stock_level_<?php echo $item->getwi_id(); ?>"
+                       style="display: <?php echo ($item->getwi_use_config_warning_stock_level() ? 'none' : ''); ?>"
+                       type="text"
+                       name="warehouses[<?php echo $item->getwi_id(); ?>][wi_warning_stock_level]"
+                       value="<?php echo $item->getWarningStockLevel(); ?>"
+                       size="3">
+            </td>
+            <td class=" a-center">
+                <select name="warehouses[<?php echo $item->getwi_id(); ?>][wi_use_config_ideal_stock_level]"
+                        onchange="jQuery('#ideal_stock_level_<?php echo $item->getwi_id(); ?>').toggle(this.value);">
+                    <?php foreach($this->getUseConfigOptions($this->getDefaultIdealStockLevel()) as $k => $v): ?>
+                        <?php $selected = ($item->getwi_use_config_ideal_stock_level() == $k  ? ' selected ' : ''); ?>
+                        <option <?php echo $selected; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <input id="ideal_stock_level_<?php echo $item->getwi_id(); ?>"
+                       style="display: <?php echo ($item->getwi_use_config_ideal_stock_level() ? 'none' : ''); ?>"
+                       type="text"
+                       name="warehouses[<?php echo $item->getwi_id(); ?>][wi_ideal_stock_level]"
+                       value="<?php echo $item->getIdealStockLevel(); ?>"
+                       size="3">
+            </td>
+            <td class=" last"> <input type="text" name="warehouses[<?php echo $item->getwi_id(); ?>][wi_shelf_location]" size="5" value="<?php echo $item->getwi_shelf_location(); ?>"></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

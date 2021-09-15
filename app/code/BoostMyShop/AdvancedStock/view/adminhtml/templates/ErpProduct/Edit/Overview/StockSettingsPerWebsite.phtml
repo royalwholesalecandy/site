@@ -1,0 +1,49 @@
+<table class="admin__table-primary dashboard-data">
+    <thead>
+    <tr>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('Website'); ?></span></th>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('Qty sellable'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('Backorders ?'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('Is in stock'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('Sellable'); ?></span></th>
+        <th class="data-grid-th  no-link col-items"><span><?php echo __('Index status'); ?></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->getRecords() as $item): ?>
+        <tr>
+            <td class=" col-customer "><?php echo $item->getName(); ?></td>
+            <td class=" a-center "><?php echo $item->getQty(); ?></td>
+            <td class=" a-center ">
+                <select
+                    name="stockItem[<?php echo $item->getId(); ?>][use_config_backorders]"
+                    onchange="jQuery('#stock_item_<?php echo $item->getId(); ?>_backorders').toggle(this.value);"
+                    >
+                    <option value="1" <?php echo ($item->getuse_config_backorders() ? ' selected ' : ''); ?>><?php echo __('Use default (%1)', $this->getDefaultBackorderSettingLabel()); ?></option>
+                    <option value="0" <?php echo (!$item->getuse_config_backorders() ? ' selected ' : ''); ?>><?php echo __('Custom value'); ?></option>
+                </select>
+                <select
+                    id="stock_item_<?php echo $item->getId(); ?>_backorders"
+                    name="stockItem[<?php echo $item->getId(); ?>][backorders]"
+                    style="<?php echo ($item->getuse_config_backorders() ? 'display:none;' : ''); ?>"
+                    >
+                    <?php foreach($this->getBackorderValues() as $backorderValue): ?>
+                        <option value="<?php echo $backorderValue['value']; ?>" <?php echo ($backorderValue['value'] == $item->getBackorders() ? ' selected ' : ''); ?>><?php echo $backorderValue['label']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+            <td class=" a-center ">
+                <?php echo ($item->getis_in_stock() ?  __('Yes') : __('No')); ?>
+            </td>
+            <td class=" a-center"><?php echo ($item->getis_in_stock() ? __('Yes') : __('No')); ?></td>
+            <td class=" a-center">
+                <?php if ($item->getindex_stock_id() > 0): ?>
+                    <?php echo ($item->getindex_stock_status() ? __('Sellable') : __('Not sellable')); ?> - <?php echo __('Stock').': '.((int)$item->getindex_qty()); ?>
+                <?php else: ?>
+                    <font color="red"><?php echo __('Index missing'); ?></font>
+                <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="permission.user.grid.columnSet">
+            <block class="Magento\Backend\Block\Widget\Grid\Column" as="organizer" after="po_id">
+                <arguments>
+                    <argument name="header" xsi:type="string" translate="true">Organizer</argument>
+                    <argument name="type" xsi:type="string">text</argument>
+                    <argument name="sortable" xsi:type="boolean">false</argument>
+                    <argument name="index" xsi:type="string">po_id</argument>
+                    <argument name="entity" xsi:type="string">purchase_order</argument>
+                    <argument name="filter" xsi:type="boolean">false</argument>
+                    <argument name="renderer" xsi:type="string">\BoostMyShop\Organizer\Block\Widget\Grid\Column\Renderer\Organizer</argument>
+                    <argument name="column_css_class" xsi:type="string">col-id</argument>
+                    <argument name="header_css_class" xsi:type="string">col-id</argument>
+                    <argument name="align" xsi:type="string">center</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

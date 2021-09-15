@@ -1,0 +1,113 @@
+<?php
+/**
+* BSS Commerce Co.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://bsscommerce.com/Bss-Commerce-License.txt
+*
+* =================================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* =================================================================
+* This package designed for Magento COMMUNITY edition
+* BSS Commerce does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* BSS Commerce does not provide extension support in case of
+* incorrect edition usage.
+* =================================================================
+*
+* @category   BSS
+* @package    Bss_Paymentshipping
+* @author     Extension Team
+* @copyright  Copyright (c) 2015-2016 BSS Commerce Co. ( http://bsscommerce.com )
+* @license    http://bsscommerce.com/Bss-Commerce-License.txt
+*/
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Bss\Paymentshipping\Block\Adminhtml\Paymentshipping\Index
+ */
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody>
+            <tr>
+                <td class="title">
+                    <h3 class="icon-head head-adminhtml-status"><?php echo $block->getMethodsType(). ' Methods for Customer Group'; ?></h3>
+                </td>
+                <td class="form-buttons"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="entry-edit scope">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo __('Current Scope'); ?></h4>
+        </div>
+        <div id="base_fieldset1" class="fieldset">
+            <div class="hor-scroll">
+                <?php $_websites = $block->getWebsites(); ?>
+                <label>
+                <select onchange="location.href=this.options[this.selectedIndex].getAttribute('url')" class="system-config-store-switcher" id="website_switcher">
+                    <?php foreach ($_websites as $_website): ?>
+                    <option value="<?php echo $_website->getCode(); ?>" url="<?php echo $block->getWebsiteUrl($_website); ?>" <?php if ($block->getCurrentWebsite() == $_website->getId()) echo 'selected="selected"'; ?>><?php echo $_website->getName(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="post" action="<?php echo $block->getSaveUrl(); ?>" id="edit_form" enctype="multipart/form-data">
+    <input type="hidden" value="<?php echo $block->getFormKey(); ?>" name="form_key">
+<?php $_methods = $block->getMethods(); ?>
+<?php $_groups = $block->getCustomerGroups(); ?>
+
+<div class="entry-edit content">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo __($block->getMethodsType(). ' Methods'); ?></h4>
+        </div>
+        <input type="hidden" name="type" value="payment" />
+        <div id="base_fieldset" class="fieldset">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php foreach ($_methods as $_methodCode => $_method): ?>
+                            <?php if (isset($_method['title']) && $_method['title']): ?>
+                            <tr class="spacer"></tr>
+                                <tr>
+                                    <td class="label"><?php echo $_method['title']; ?></td>
+                                    <td class="value">
+                                        <input type="hidden" name="bssmethods_codes[]" value="<?php echo $_methodCode; ?>" />
+                                        <select multiple="multiple" class="select multiselect" name="bssmethods[<?php echo $_methodCode; ?>][]">
+
+                                            <?php foreach ($_groups as $_group): ?>
+                                            <option <?php if ($block->isGroupSelected($_group, $_methodCode)) echo 'selected="selected"' ?> value="<?php echo $_group['value']; ?>"><?php echo $_group['label']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" title="<?php  echo __('Submit') ?>"><span><?php echo __('Submit') ?></span></button>
+        </div>
+    </div>
+</form>

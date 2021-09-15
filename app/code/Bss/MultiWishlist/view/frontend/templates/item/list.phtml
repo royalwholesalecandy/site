@@ -1,0 +1,134 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_MultiWishlist
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+<?php
+/* @var $this Magento\Wishlist\Block\Customer\Wishlist\Items */
+?>
+<?php
+$columns = $block->getColumns();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objectManager->create('Bss\MultiWishlist\Helper\Data');
+$multiWishlist = $helper->getLabelIds();
+$formKey = $objectManager->get('Magento\Framework\Data\Form\FormKey'); 
+$i = 0;
+foreach ($multiWishlist as $id):
+    $i++;
+    $array = [];
+    $array = $helper->getWishlistItemsCollection($id);
+    ?>
+    <div id="view<?php echo $i; ?>" class="tabs-wishlist">
+        <input type="hidden" name="wishlist-id" class="wishlist-id" value="<?php echo $id ?>">
+        <?php if ($i > 1): ?>
+            <div class="editwl_link">
+                <input name="mwishlist_name_<?php echo $id ?>" id="mwishlist_name_<?php echo $id ?>"
+                       value="<?php echo $helper->getWishlistName($id) ?>" type="text"
+                       class="input-text mwishlist_name"/>
+                <button data-form="<?php echo $block->getUrl('multiwishlist/index/edit') ?>"
+                        class="action primary edit_wishlist_button" id="editwl_<?php echo $id ?>" title="<?php echo __('Edit') ?>"
+                        type="button"><span><span><?php echo __('Edit') ?></span></span>
+                </button>
+                <button class="button deletewl" title="<?php echo __('Delete') ?>" type="button"
+                        onClick="if(confirm('Do you really want to delete this Wishlist along with all products in it?'))window.location = '<?php echo $block->getUrl('multiwishlist/index/delete',
+                            array('mWishlistId' => $id, 'form_key' => $formKey->getFormKey())); ?>';">
+                    <span><span><?php echo __('Delete') ?></span></span>
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        <?php endif; ?>
+        <div class="wltable">
+            <table class="clean-table linearize-table" id="wishlist-table">
+                <thead>
+                <?php if (count($array)): ?>
+                    <tr>
+                        <?php
+                        /* @var $column Magento\Wishlist\Block\Customer\Wishlist\Item\Column */
+                        foreach ($columns as $column):
+                            $_blockName = str_replace('.', '-', strtolower($column->getNameInLayout()));
+                            ?>
+                            <th class="<?php echo $_blockName; ?>"><?php echo $column->getTitle(); ?></th>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
+                </thead>
+                <tbody>
+                <?php if (count($array)): ?>
+                    <div class="products-grid wishlist">
+                        <?php $iterator = 1; ?>
+                        <ol class="product-items">
+                            <?php foreach ($array as $item): ?>
+                                <?php /* @escapeNotVerified */
+                                echo ($iterator++ == 1) ? '<li data-row="product-item" class="product-item" id="item_' . $item->getId() . '">' : '</li><li class="product-item" id="item_' . $item->getId() . '">' ?>
+                                <div class="product-item-info">
+                                    <?php foreach ($columns as $column): ?>
+                                        <?php $column->setItem($item);
+                                        echo $column->toHtml($item); ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <?php echo ($iterator == count($block->getItems()) + 1) ? '</li>' : '' ?>
+                            <?php endforeach; ?>
+                        </ol>
+                        <div class="actions-toolbar">
+                            <div class="primary">
+                                <button type="submit" name="do" title="<?php echo __('Update Wish List') ?>" class="action update">
+                                    <span><?php echo __('Update Wish List') ?></span>
+                                </button>
+                                <button data-url="<?php echo $block->getUrl('multiwishlist/index/share') ?>"
+                                        data-value="<?php echo $id ?>"
+                                        class="action share_wishlist_button"
+                                        id="share_wishlist_<?php echo $id ?>" title="<?php echo __('Share Wish List') ?>" type="button">
+                                    <span><span><?php echo __('Share Wish List') ?></span></span>
+                                </button>
+                                <button type="button" id="add_all_cart_<?php echo $id ?>" data-value="<?php echo $id ?>"
+                                        data-role="all-tocart" title="<?php /* @escapeNotVerified */
+                                echo __('Add All to Cart') ?>" class="action tocart">
+                                    <span><?php /* @escapeNotVerified */
+                                        echo __('Add All to Cart') ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="<?php echo count($columns); ?>"
+                            class="wishlist-empty"><?php echo __('This Wish List has no Items'); ?></td>
+                    </tr>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php foreach ($columns as $column): ?>
+            <?php echo $column->getAdditionalHtml(); ?>
+        <?php endforeach; ?>
+        <script type="text/javascript">
+            //<![CDATA[
+            require([
+                'jquery',
+                'mage/mage',
+                'Magento_Customer/js/customer-data'
+            ], function ($, mage, customerData) {
+                decorateTable = $('#wishlist-table');
+                $.localStorage.set('mage-cache-timeout', 0);
+            });
+            <?php foreach ($columns as $column): ?>
+            <?php echo $column->getJs();?>
+            <?php endforeach; ?>
+            //]]>
+        </script>
+    </div>
+<?php endforeach; ?>

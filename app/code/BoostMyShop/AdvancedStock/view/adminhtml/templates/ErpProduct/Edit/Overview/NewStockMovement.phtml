@@ -1,0 +1,43 @@
+<table class="admin__table-primary dashboard-data">
+    <thead>
+        <tr>
+            <th class="data-grid-th  no-link col-customer" valign="top"><span><?php echo __('From'); ?></span><br>&nbsp;</th>
+            <td class=" col-customer ">
+                <select name="newStockMovement[sm_from_warehouse_id]">
+                    <option value=""> --- </option>
+                    <?php foreach($this->getWarehouses() as $w): ?>
+                        <option value="<?php echo $w->getId(); ?>"><?php echo $w->getw_name(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <br><i><?php echo __('Warehouse to decrease'); ?></i>
+            </td>
+            <th class="data-grid-th  no-link col-customer" valign="top"><span><?php echo __('To'); ?></span><br>&nbsp;</th>
+            <td class=" col-customer ">
+                <select name="newStockMovement[sm_to_warehouse_id]">
+                    <option value=""> --- </option>
+                    <?php foreach($this->getWarehouses() as $w): ?>
+                        <option value="<?php echo $w->getId(); ?>"><?php echo $w->getw_name(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <br><i><?php echo __('Warehouse to increase'); ?></i>
+            </td>
+        </tr>
+        <tr>
+            <th class="data-grid-th  no-link col-customer"><span><?php echo __('Qty'); ?></span></th>
+            <td class=" col-customer "><input type="text" name="newStockMovement[sm_qty]"></td>
+            <th class="data-grid-th  no-link col-customer"><span><?php echo __('Category'); ?></span></th>
+            <td class=" col-customer ">
+                <select name="newStockMovement[sm_category]">
+                    <?php foreach($this->getCategories() as $c): ?>
+                        <option value="<?php echo $c['value']; ?>"><?php echo $c['label']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th class="data-grid-th  no-link col-customer"><span><?php echo __('Comments'); ?></span></th>
+            <td colspan="3"><input type="text" name="newStockMovement[sm_comments]" style="width: 70%;"></td>
+        </tr>
+    </thead>
+
+</table>

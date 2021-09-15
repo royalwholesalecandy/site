@@ -1,0 +1,23 @@
+<?php $helper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php if($helper->getStoreConfig('mpanel/catalog/ajaxscroll')): ?>
+	<script type="text/javascript">
+		require([
+			"jquery",
+			"jquery/ui",
+			"ajaxscroll"
+		], function($){
+			$(document).ready(function(){
+				var ajaxcroll = $.scroll({
+					wrapperSelector : '#product-wrapper',
+					itemSelector: '.product-item',
+					paginationSelector: '.pagination .item',
+					nextSelector: '.pagination .next'
+				});
+				
+				ajaxcroll.extension(new scrollLoading({html: '<div class="ajax-loading"><img src="<?php echo $this->getViewFileUrl('MGS_Mpanel::images/loader.gif') ?>"/></div>'}));
+			});
+		});
+	</script>
+<?php endif ?>
+
+

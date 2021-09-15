@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Segments\Api\SegmentRepositoryInterface" type="Amasty\Segments\Model\SegmentRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amastysegments_segment_grid_data_source" xsi:type="string">Amasty\Segments\Model\ResourceModel\Segment\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Segments\Model\ResourceModel\Segment\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_segments_segment</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_segments_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">amasty_segments_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Segments\Model\ResourceModel\Segment</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Amasty\Segments\Api\Data\SegmentInterface" xsi:type="string">Amasty\Segments\Api\SegmentRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Amasty\Segments\Api\Data\SegmentInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_segments_segment</item>
+                    <item name="identifierField" xsi:type="string">segment_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Segments\Model\SalesRule">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="amastySerializer" xsi:type="object">Amasty\Base\Model\Serializer</item>
+                <item name="indexResource" xsi:type="object">Amasty\Segments\Model\ResourceModel\Index</item>
+                <item name="condCombineFactory" xsi:type="object">Amasty\Segments\Model\Rule\Condition\CombineFactory</item>
+                <item name="actionCollectionFactory" xsi:type="object">Magento\Rule\Model\Action\CollectionFactory</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

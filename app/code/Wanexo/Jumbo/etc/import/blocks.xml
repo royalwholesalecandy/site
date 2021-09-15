@@ -1,0 +1,1002 @@
+<root>
+	<blocks>
+	
+	<cms_item>
+		<title>Jumbo-Contact Detail (Contact us page)</title>
+		<identifier>contactDetail</identifier>
+		<content>
+		<![CDATA[
+<h2 class="legend">Address</h2>
+<p><strong>Address:</strong> 8901 Marmora Road, Glasgow, D04 89GR</p>
+<p><strong>Telephone:</strong> (800)2345-6789</p>
+<p><strong>Fax:</strong> (800)2345-6789</p>
+<p><strong>Mail:</strong> info@jumboshop.com</p>				
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo - Payment logo (Footer 3)</title>
+		<identifier>payment_01</identifier>
+		<content>
+		<![CDATA[
+<img src="{{media url="wysiwyg/payment_1.png"}}" alt="" />	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Jambo - Footer_links</title>
+		<identifier>footer_links</identifier>
+		<content>
+		<![CDATA[
+<ul class="footer links">
+	<li class="nav item"><a href="#">Privacy and Cookie Policy</a></li>
+	<li class="nav item"><a href="#">Search Terms</a></li>
+	<li class="nav item"><a href="#" data-action="advanced-search">Advanced Search</a></li>
+	<li class="nav item"><a href="#">Contact Us</a></li>
+	<li class="nav item"><a href="#">Orders and Returns</a></li>
+</ul>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Jumbo - Payment Block</title>
+		<identifier>payment-box</identifier>
+		<content>
+		<![CDATA[
+<div class="media-payment"><img alt="" src="{{media url="wysiwyg/payment.png"}}" /></div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-headerContact</title>
+		<identifier>headerContact</identifier>
+		<content>
+		<![CDATA[
+<ul class="headerContact">
+	<li><a href="#"><i class="fa fa-phone">&nbsp;</i> + 399 999 9896</a></li>
+	<li><a href="#"><i class="fa fa-envelope-o">&nbsp;</i> info@jumbo.com</a></li>
+</ul>		
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo - Header USP (Header 2)</title>
+		<identifier>header_usp</identifier>
+		<content>
+		<![CDATA[
+<ul class="header_usp">
+	<li class="col-sm-3"><a title="" href="#"><em class="fa fa-truck"><span>icon</span></em><span>Free Shipping above $50</span></a></li>
+	<li class="col-sm-3"><a title="" href="#"><em class="fa fa-usd"><span>icon</span></em><span>Money back guarantee</span></a></li>
+	<li class="col-sm-3"><a title="" href="#"><em class="fa fa-shield"><span>icon</span></em><span>Safe &amp; secure shopping</span></a></li>
+	<li class="col-sm-3"><a title="" href="#"><em class="fa fa-globe"></em><span>Worldwide Delivery</span></a></li>
+</ul>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo - Header Contact (Header 4)</title>
+		<identifier>header_call</identifier>
+		<content>
+		<![CDATA[
+<p class="header_call">{ <span>call</span> + 1-99-999-9999 }</p>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo - Free shipping  (Header 4)</title>
+		<identifier>header_shipping</identifier>
+		<content>
+		<![CDATA[
+<p class="header_shipping"><i class="fa fa-truck" aria-hidden="true"></i> { Free shipping over <span>$9.99</span> }</p>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-Product-static-box (Product page)</title>
+		<identifier>product-static-box</identifier>
+		<content>
+		<![CDATA[
+		<div class="sidebarStatic areaBox col-sm-12"><img alt="" src="{{media url="wysiwyg/product_banner.jpg"}}" /></div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-Product Custom Block On Right Side (Product page)</title>
+		<identifier>product_custom_block</identifier>
+		<content>
+		<![CDATA[		
+<ul class="pro-static-block col-sm-6 col-md-12">
+	<li>
+		<div class="f-left"><em class="fa fa-star">&nbsp;</em></div>
+		<p>There are many variations of passages</p>
+	</li>
+	<li>
+		<div class="f-left"><em class="fa fa-leaf">&nbsp;</em></div>
+		<p>There are many variations of passages</p>
+	</li>
+	<li>
+		<div class="f-left"><em class="fa fa-dot-circle-o">&nbsp;</em></div>
+		<p>There are many variations of passages</p>
+	</li>
+	<li>
+		<div class="f-left"><em class="fa fa-umbrella">&nbsp;</em></div>
+		<p>There are many variations of passages</p>
+	</li>
+	<li>
+		<div class="f-left"><em class="fa fa-gavel">&nbsp;</em></div>
+		<p>There are many variations of passages</p>
+	</li>
+</ul>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Jumbo-usp (Footer 4)</title>
+		<identifier>usp-box</identifier>
+		<content>
+		<![CDATA[
+<ul class="uspBox">
+	<li>
+		<i class="fa fa-money"></i>
+		<h3>Great Value</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue non semper lectus lacinia.</p>
+	</li>
+	<li>
+		<i class="fa fa-bus"></i>
+		<h3>Worldwide Delivery</h3>
+		<p>Donec pharetra felis quis tellus porta iaculis. Quisque ut placerat sapien  non semper lectus lacinia.</p>
+	</li>
+	<li>
+		<i class="fa fa-credit-card"></i>
+		<h3>Safe Payment</h3>
+		<p>Integer vitae congue nibh. Ut luctus dolor neque, eu pellentesque erat elementum  non semper lectus lacinia.</p>
+	</li>
+	<li>
+		<i class="fa fa-hand-rock-o"></i>
+		<h3>Shop with Confidence</h3>
+		<p>Duis mattis lectus eu ipsum sagittis, non semper lectus lacinia. Nulla accumsan neque id leo dignissim</p>
+	</li>
+	<li>
+		<i class="fa fa-users"></i>
+		<h3>24/7 Help Center</h3>
+		<p>Suspendisse rutrum, nulla nec ultricies tristique, odio ante rhoncus nulla  non semper lectus lacinia.</p>
+	</li>
+</ul>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Jumbo-Footer 01</title>
+		<identifier>footer1</identifier>
+		<content>
+		<![CDATA[
+<div class="footerTop">
+	<div class="container">
+		<div class="col-xs-6 col-sm-6 col-md-3 full_width_sd">
+			<h3>About Jumbo</h3>
+			<img class="about_logo" src="{{media url="wysiwyg/about_logo.jpg"}}" alt="" />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam libero nunc, suscipit vitae nulla ac, sagittis volutpat lectus. Phasellus vel lacus faucibus, tincidunt augue ut.</p>
+			<ul class="socialLinks">
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+		
+		<div class="col-xs-6 col-sm-6 col-md-3 full_width_sd">
+			<h3>Key Features</h3>
+			<ul class="icon_bg">
+				<li><em class="fa fa-retweet"></em> <span>30 days return Policy<br>Morbi interdum mauris a imperdiet</span></li>
+				<li><em class="fa fa fa-shield"></em><span> Safe &amp; secure shopping<br>Interdum mauris a imperdiet morbi</span></li>
+				<li><em class="fa fa fa-lightbulb-o"></em> <span>promotions<br>Fusce eu ante sit amet lorem</span></li>
+				<li><em class="fa fa-globe"></em> <span>Worldwide Delivery <br>Nam venenatis finibus vestibulum</span></li>
+				<li><em class="fa fa-location-arrow"></em> <span>Find us on map<br>ullamcorper sapien</span></li>
+			</ul>
+		</div>
+		
+		<div class="col-xs-6 col-sm-6 col-md-3 f-clear full_width_sd">
+			<h3>Theme Features</h3>
+			<ul class="arrow">
+				<li><a href="#">Theme Features</a></li>
+				<li><a href="#">Typography</a></li>
+				<li><a href="#">Worldwide Delivery</a></li>
+				<li><a href="#">Latest Work Samples</a></li>
+				<li><a href="#">Our New Projects</a></li>
+				<li><a href="#">One Click To Join Us</a></li>
+				<li><a href="#">Follow Us On Twitter</a></li>
+				<li><a href="#">Magento Themes</a></li>
+				<li><a href="#">Magento Ecommerce</a></li>
+				<li><a href="#">Partners</a></li>
+			</ul>
+		</div>
+		
+		<div class="col-xs-6 col-sm-6 col-md-3 full_width_sd">
+			<h3>Jumbo Tweets</h3>
+			{{block class="Wanexo\Tweetpost\Block\TweetpostBlock" template="latesttweet/tweet.phtml"}}
+		</div>
+		
+	</div>
+</div>
+
+<div class="footerBottom">
+	<div class="container">
+		<div class="footer-links f-fix">
+			<div class="grid-5 links">
+				<h3>Information</h3>
+				<ul class="arrow">
+					<li><a title="About Us" href="#">About Us</a></li>
+					<li><a title="Privacy Policy" href="#">New products</a></li>
+					<li><a title="Terms &amp; Conditions" href="#">Orders and Returns</a></li>
+				</ul>
+			</div>
+			
+			<div class="grid-5 links">
+				<h3>Customer Service</h3>
+				<ul class="arrow">
+					<li><a title="Contact Us" href="#">Contact Us</a></li>
+					<li><a title="Returns" href="#">Returns</a></li>
+					<li><a title="Site Map" href="#">Site Map</a></li>
+				</ul>
+			</div>
+			
+			<div class="grid-5 links">
+				<h3>Extras</h3>
+				<ul class="arrow">
+					<li><a title="Brands" href="#">Brands</a></li>
+					<li><a title="Affiliates" href="#">Affiliates</a></li>
+					<li><a title="Specials" href="#">Specials</a></li>
+				</ul>
+			</div>
+			
+			<div class="grid-5 links">
+				<h3>My Account</h3>
+				<ul class="arrow">
+					<li><a title="My Account" href="#">My Account</a></li>
+					<li><a title="Order History" href="#">Order History</a></li>
+					<li><a title="Wish List" href="#">Wish List</a></li>
+				</ul>
+			</div>
+			
+			<div class="grid-5 links">
+				<h3>Contact</h3>
+				<p><em class="fa fa-map-marker">&nbsp;</em> 2506 SARYOBA ROAD, MSATGOLP, T104 89CG</p>
+				<p><em class="fa fa-envelope">&nbsp;</em> <a title="info@nextlevel.com" href="#">info@nextlevel.com</a></p>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="container center">
+		<div class="newsletterBox">
+			<h3>Stay with us!</h3>
+			{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+		</div>
+		<p class="paymentBox"><img src="{{media url="wysiwyg/payment.png"}}" alt="" /></p>
+	</div>
+</div>		
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumob - Footer 02</title>
+		<identifier>footer2</identifier>
+		<content>
+		<![CDATA[	
+<div class="container">
+	<div class="row f-midBox">
+		<div class="col-md-5">
+			<!--social links-->
+			<h3>Follow Us</h3>
+			<ul class="mdl-social">
+				<li><a title="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a title="twitter" href="#"><i class="fa fa-twitter aria-hidden="true""></i></a></li>
+				<li><a title="google plus" href="#"><i class="fa fa-google-plus aria-hidden="true""></i></a></li>
+				<li><a title="youtube" href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				<li><a title="pinterest" href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a title="linkedin" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				<li><a title="dribbble" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a title="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+		<div class="col-md-7 newsletterBox">
+			{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}		
+		</div>
+	</div>
+</div>
+	
+<div class="container linksBox">
+	<div class="row">
+		<div class="footer_bottom f-fix">
+			<div class="col-sm-3 links">
+			<h3>About us</h3>
+				<ul class="disc">
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Customer Service</a></li>
+					<li class="last privacy"><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Discount</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">My favorite products</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3 links">
+				<h3>My account</h3>
+				<ul class="disc">
+					<li><a href="#">My orders</a></li>
+					<li><a href="#">My credit slips</a></li>
+					<li><a href="#">My addresses</a></li>
+					<li><a href="#">My personal info</a></li>
+					<li><a href="#">My vouchers</a></li>
+					<li><a href="#">My favorite products</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3 links">
+				<h3>Information</h3>
+				<ul class="disc">
+					<li><a href="#">Specials</a></li>
+					<li><a href="#">New products</a></li>
+					<li><a href="#">Top sellers</a></li>
+					<li><a href="#">Our stores</a></li>
+					<li><a href="#">Contact us</a></li>
+					<li><a href="#">Sitemap</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3 links">
+				<h3>Opening time</h3>
+					<p class="timings" style="display: inline-block;">
+						<span class="f-fix">Mon-Fri: .......................8.00 to 18.00</span>
+						<span class="f-fix">Sat: ................................. 9.00 to 18.00</span>
+						<span class="f-fix">Sun: ............................ 10.00 to 16.00</span>
+					</p>
+				<h3>Payment options</h3>
+				<p><img src="{{media url="wysiwyg/payment.png"}}" alt="" /></p>
+			</div>
+		</div>
+	</div>
+</div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-Footer 03</title>
+		<identifier>footer3</identifier>
+		<content>
+		<![CDATA[
+<div class="f-block newsletterContainer footer3_top">
+	<div class="container">
+		{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+	</div>
+</div>
+
+<div class="container linkbox">
+	<div class="col-sm-3 links">
+		<h3>Get Help</h3>
+		<ul class="arrow">
+			<li><a title="Products" href="#">How it Works</a></li>
+			<li><a title="Products" href="#">FAQs</a></li>
+			<li><a title="Products" href="#">Getting Started</a></li>
+			<li><a title="Products" href="#">Style & Fit</a></li>
+			<li><a title="Products" href="#">My Order</a></li>
+			<li><a title="Products" href="#">Subscription</a></li>
+			<li><a title="Products" href="#">Get $30</a></li>
+			<li><a title="Products" href="#">Gift Credits</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 links">
+		<h3>About us</h3>
+		<ul class="arrow">
+			<li><a title="Products" href="#">Contact Us</a></li>
+			<li><a title="Community" href="#">About Us</a></li>
+			<li><a title="Support" href="#">Careers</a></li>
+			<li><a title="Products" href="#">Blog</a></li>
+			<li><a title="Community" href="#">Press</a></li>
+		</ul>
+	</div>
+	<div class="col-sm-3 links clearF">
+		<h3>Help</h3>
+		<ul class="arrow">
+			<li><a title="Products" href="#">Payments</a></li>
+			<li><a title="Community" href="#">Saved Cards</a></li>
+			<li><a title="Support" href="#">Shipping</a></li>
+			<li><a title="Products" href="#">Cancellation &amp; Returns</a></li>
+			<li><a title="Community" href="#">FAQ</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3">
+		<div class="downloadApp">
+			<i class="fa fa-mobile" aria-hidden="true"></i>
+			<div class="app_left">Rent on the run <a href="#">Download</a></div> 
+		</div>
+		<h3>Be Social</h3>
+		<ul class="socialLinks">
+			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+		</ul>
+		<h3>Payments</h3>
+		<span class="payment"><img src="{{media url="wysiwyg/payment.png"}}" alt="" /><span>	
+	</div>
+</div>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-Footer 04</title>
+		<identifier>footer4</identifier>
+		<content>
+		<![CDATA[	
+<div class="f-block static_content">
+	<div class="container">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam libero nunc, suscipit vitae nulla ac, sagittis volutpat lectus. Phasellus vel lacus faucibus, tincidunt augue ut, commodo lectus. Quisque at rhoncus elit. Mauris sodales aliquet laoreet. Curabitur porta vestibulum tortor, vel congue neque bibendum at.</p>
+	</div>
+</div>
+<div class="f-block social-block">
+	<div class="container">
+		<ul class="socialLinks">
+			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="f-block">
+	<div class="container">
+		<div class="linkBox">
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-sm-4 links">
+						<h3>Get Help</h3>
+						<ul>
+							<li><a title="Products" href="#">How it Works</a></li>
+							<li><a title="Products" href="#">FAQs</a></li>
+							<li><a title="Products" href="#">Getting Started</a></li>
+							<li><a title="Products" href="#">Style & Fit</a></li>
+							<li><a title="Products" href="#">My Order</a></li>
+							<li><a title="Products" href="#">Subscription</a></li>
+							<li><a title="Products" href="#">Get $30</a></li>
+							<li><a title="Products" href="#">Gift Credits</a></li>
+						</ul>
+					</div>
+
+					<div class="col-sm-4 links">
+						<h3>About us</h3>
+						<ul>
+							<li><a title="Products" href="#">Contact Us</a></li>
+							<li><a title="Community" href="#">About Us</a></li>
+							<li><a title="Support" href="#">Careers</a></li>
+							<li><a title="Products" href="#">Blog</a></li>
+							<li><a title="Community" href="#">Press</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-4 links clearF">
+						<h3>Twitter</h3>
+						{{block class="Wanexo\Tweetpost\Block\TweetpostBlock" template="latesttweet/tweet.phtml"}}
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<h3>Good Things happen</h3>
+				<p>Our email subscribers get the inside scoop on new products, Promotions, Contests and more. Sign up, it's right thing to do.</p>
+				{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+			</div>
+		</div>	
+	</div>
+</div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo-Footer 05</title>
+		<identifier>footer5</identifier>
+		<content>
+		<![CDATA[
+<div class="footerTop">
+	<div class="container">
+		<div class="col-md-6 freeShipping">
+			<p><i class="fa fa-truck" aria-hidden="true"></i> Free Shipping <span>on orders over $99</span></p>
+		</div>
+		<div class="col-md-6">
+			{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}
+		</div>
+	</div>	
+</div>
+
+<div class="footerBottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="footer_bottom f-fix">
+					<div class="col-sm-3 links aboutus">
+					<h3>About us</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec neque ut lorem commodo tincidunt. Proin non ipsum ac quam elementum finibus. Nulla fermentum dui vitae enim aliquam, et rhoncus erat auctor. Donec scelerisque urna quis augue pretium, sit amet interdum odio tempor...<a href="#">read more</a>
+						</p>
+					</div>
+					<div class="col-sm-3 links">
+						<h3>My account</h3>
+						<ul class="bullet white">
+							<li><a href="#">My orders</a></li>
+							<li><a href="#">My credit slips</a></li>
+							<li><a href="#">My addresses</a></li>
+							<li><a href="#">My personal info</a></li>
+							<li><a href="#">My vouchers</a></li>
+							<li><a href="#">My favorite products</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3 links">
+						<h3>Information</h3>
+						<ul class="bullet white">
+							<li><a href="#">Press Room</a></li>
+							<li><a href="#">Help</a></li>
+							<li><a href="#">Terms and conditions</a></li>
+							<li><a href="#">Personal Information</a></li>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Sitemap</a></li>
+						</ul>
+					</div>
+					<div class="connect links col-sm-3">
+						<h3>Connect with us</h3>
+						<ul>
+							<li>
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								call Us + 0001 002 0001
+							</li>
+							<li>
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								email@example.com
+							</li>
+							<li>
+								<i class="fa fa-fax" aria-hidden="true"></i>
+								Fax + 0001 002 0002
+							</li>
+							<li>
+								<i class="fa fa-skype" aria-hidden="true"></i>
+								Your Skype name
+							</li>
+							<li>
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								Your Address here, City, Landmark, State, Country, Lorem ipsum dolor
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 bottomSocial">
+				<h3>Follow Us</h3>
+				<ul class="mdl-social">
+					<li><a title="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a title="twitter" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a title="google plus" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					<li><a title="youtube" href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+					<li><a title="pinterest" href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a title="linkedin" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+					<li><a title="dribbble" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					<li><a title="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+				</ul>
+				<img src="{{media url="wysiwyg/payment_1.png"}}" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Jumbo Default BannerBlock (Static Block)</title>
+		<identifier>banner_block_default</identifier>
+		<content>
+		<![CDATA[
+<!--Static Block 01-->
+<div class="f-block static-block-3" style="padding-top:50px;">
+	<div class="container c_white">
+		<div class="row">
+			<div class="col-sm-12">
+				
+				<div class="col-sm-6">
+					<a href="#" class="sb_1">
+						<img src="{{media url="wysiwyg/store/default/static_block/banner_block/fashion_block1.jpg"}}" alt="" />
+					</a>
+				</div>
+				
+				<div class="col-sm-6">
+					<a href="#" class="sb_2">
+						<img src="{{media url="wysiwyg/store/default/static_block/banner_block/fashion_block2.jpg"}}" alt="" />
+					</a>
+					<div class="row">
+						<div class="col-sm-6">
+							<a href="#" class="sb_3">
+								<img src="{{media url="wysiwyg/store/default/static_block/banner_block/fashion_block3.jpg"}}" alt="" />
+							</a>
+						</div>
+						<div class="col-sm-6">
+							<a href="#" class="sb_4">
+								<img src="{{media url="wysiwyg/store/default/static_block/banner_block/fashion_block4.jpg"}}" alt="" />
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>		
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Banner Block Electronics Store</title>
+		<identifier>banner_block_electronics</identifier>
+		<content>
+		<![CDATA[
+<!--Electronics Banner Block-->
+		<div class="f-block static-block-2" style="margin-top:50px;">
+			<div class="container">
+                                <div class="row">
+					<div class="col-sm-12">
+						
+						<div class="col-sm-4">
+							<a href="#" class="sb_1">
+								<img src="{{media url="wysiwyg/store/electronics/static_block/banner_block/electronics_block1.jpg"}}" alt="" />
+							</a>
+							<a href="#" class="sb_2">
+								<img src="{{media url="wysiwyg/store/electronics/static_block/banner_block/electronics_block2.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+						<div class="col-sm-4">
+							<a href="#" class="sb_3">
+								<img src="{{media url="wysiwyg/store/electronics/static_block/banner_block/electronics_block3.jpg"}}" alt="" />
+							</a>
+							<a href="#" class="sb_4">
+								<img src="{{media url="wysiwyg/store/electronics/static_block/banner_block/electronics_block4.jpg"}}" alt="" />
+							</a>
+						</div>
+						
+						<div class="col-sm-4">
+							<a href="#" class="sb_5">
+								<img src="{{media url="wysiwyg/store/electronics/static_block/banner_block/electronics_block5.jpg"}}" alt="" />
+							</a>
+						</div>
+				</div>
+			</div>
+		</div>	
+</div>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Lingerie Store</title>
+		<identifier>banner_block_lingerie</identifier>
+		<content>
+		<![CDATA[
+<!--Static Block 02-->
+<div class="f-block static-block-2" style="margin-top:30px;">
+    <div class="c_white">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                <a href="#" class="sb_1">
+                    <img src="{{media url="wysiwyg/store/lingerie/static_block/banner_block/lingerie_block1.jpg"}}" alt="" />
+                </a>
+                <a href="#" class="sb_2">
+                    <img src="{{media url="wysiwyg/store/lingerie/static_block/banner_block/lingerie_block2.jpg"}}" alt="" />
+                </a>
+            </div>
+            
+            <div class="col-sm-4">
+                <a href="#" class="sb_3">
+                    <img src="{{media url="wysiwyg/store/lingerie/static_block/banner_block/lingerie_block3.jpg"}}" alt="" />
+                </a>
+                <a href="#" class="sb_4">
+                    <img src="{{media url="wysiwyg/store/lingerie/static_block/banner_block/lingerie_block4.jpg"}}" alt="" />
+                </a>
+            </div>
+            
+            <div class="col-sm-4">
+                <a href="#" class="sb_5">
+                    <img src="{{media url="wysiwyg/store/lingerie/static_block/banner_block/lingerie_block5.jpg"}}" alt="" />
+                </a>
+            </div>
+         </div>
+    </div>
+</div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Jewellery Store</title>
+		<identifier>banner_block_jewellery</identifier>
+		<content>
+		<![CDATA[
+<!--Static Block-->
+<div class="f-block" style="margin-top:30px; text-">
+	<div class="container c_white">
+		<div class="static_block" style="text-align: center;">
+			<div class="col-sm-4" style="padding-bottom: 15px;">
+				<a href="#"><img src="{{media url="wysiwyg/store/jewellery/static_block/banner_block/jewel_block1.jpg"}}" alt="" /></a>
+			</div>
+			<div class="col-sm-4" style="padding-bottom: 15px;">
+				<a href="#"><img src="{{media url="wysiwyg/store/jewellery/static_block/banner_block/jewel_block2.jpg"}}" alt="" /></a>
+			</div>
+			<div class="col-sm-4" style="padding-bottom: 15px;">
+				<a href="#"><img src="{{media url="wysiwyg/store/jewellery/static_block/banner_block/jewel_block3.jpg"}}" alt="" /></a>
+			</div>
+		</div>
+	</div>
+</div>		
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Furniture Store</title>
+		<identifier>banner_block_furniture</identifier>
+		<content>
+		<![CDATA[
+<!--Static block 6-->	
+<div class="f-block static-block-6" style="margin-top:60px;">
+	<div class="container">
+		<div class="col-xs-12">
+			<ul>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></span>
+						<h3>FREE SHIPPING WORLDWIDE</h3>
+						<p>On order above $500</p>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-headphones" aria-hidden="true"></i></span>
+						<h3>24x7 SUPPORT CENTER</h3>
+						<p>Customer Satisfaction 4.8* </p>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6 spcl">
+					<a href="#">
+						<h3><span>25% <sup>off</sup></span></h3>
+						<p>Big Save</p>
+						<span>Shop More Save More</span>
+					</a>
+				</li>
+				<li class="col-md-3 col-sm-6">
+					<a href="#">
+						<span class="nImg"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+						<h3>CASH ON DELIVERY</h3>
+						<p>Risk Free And Hassel Free</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Kids Store</title>
+		<identifier>banner_block_kids</identifier>
+		<content>
+		<![CDATA[
+<!--Static Block 2-->
+<div class="f-block c_white" style="padding-top:30px; ">
+	<div class="container c_white">
+		<div class="static_block">
+			<div class="col-sm-6"><a href="#"><img src="{{media url="wysiwyg/store/kids/static_block/banner_block/kids_block1.jpg"}}" alt="" /></a></div>
+			<div class="col-sm-6"><a href="#"><img src="{{media url="wysiwyg/store/kids/static_block/banner_block/kids_block2.jpg"}}" alt="" /></a></div>
+		</div>
+	</div>
+</div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Mens Store</title>
+		<identifier>banner_block_mens</identifier>
+		<content>
+		<![CDATA[
+<!--Mens Banner Block-->
+<div class="f-block">
+	<div class="container c_white" style="padding-top:30px; padding-bottom:15px;">
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a href="#">
+				<img src="{{media url="wysiwyg/store/mens/static_block/banner_block/mens1.jpg"}}" alt="" />
+			</a>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a href="#">
+				<img src="{{media url="wysiwyg/store/mens/static_block/banner_block/mens2.jpg"}}" alt="" />
+			</a>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a href="#">
+				<img src="{{media url="wysiwyg/store/mens/static_block/banner_block/mens3.jpg"}}" alt="" />
+			</a>
+		</div>
+	</div>
+</div>
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	<cms_item>
+		<title>Banner Block Shoes Store</title>
+		<identifier>banner_block_shoes</identifier>
+		<content>
+		<![CDATA[
+<!--Shoes Block-->
+<div class="f-block">
+	<div class="container c_white">
+		<div class="static_block" style="padding:30px 0;">
+			<div class="col-sm-6"><a href="#"><img src="{{media url="wysiwyg/store/shoes/static_block/banner_block/shoes_block1.jpg"}}" alt="" /></a></div>
+			<div class="col-sm-6"><a href="#"><img src="{{media url="wysiwyg/store/shoes/static_block/banner_block/shoes_block2.jpg"}}" alt="" /></a></div>
+		</div>
+	</div>
+</div>	
+		]]></content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+	
+	
+	<cms_item>
+		<title>Banner Block Cosmetics Store</title>
+		<identifier>banner_block_cosmetics</identifier>
+		<content>
+		<![CDATA[
+<!--Static Block 4-->
+<div class="f-block static-block-4">
+	<div class="container c_white" style="padding-top:30px;>
+		<div class="col-xs-12">
+			<ul>
+				<li class="col-sm-12 col-sm-4">
+					<div class="textBox">
+						<div class="textBox_inner">
+							<h3>Best Offer</h3>
+							<h2>Upto 50% Off </h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet arcu dictum, consequat turpis a, consequat nisl. Phasellus porta urna tellus</p>
+							<a class="st_btn" href="#">Learn More</a>
+						</div>
+					</div>
+				</li>
+				<li class="col-sm-12 col-sm-4">
+					<div class="textBox">
+						<div class="textBox_inner">
+							<h3>Best Offer</h3>
+							<h2>Upto 50% Off </h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet arcu dictum, consequat turpis a, consequat nisl. Phasellus porta urna tellus</p>
+							<a class="st_btn" href="#">Learn More</a>
+						</div>
+					</div>
+				</li>
+				<li class="col-sm-12 col-sm-4">
+					<div class="textBox">
+						<div class="textBox_inner">
+							<h3>Best Offer</h3>
+							<h2>Upto 50% Off </h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet arcu dictum, consequat turpis a, consequat nisl. Phasellus porta urna tellus</p>
+							<a class="st_btn" href="#">Learn More</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>	
+]]>
+</content>
+		<is_active>1</is_active>
+		<stores>
+			<cms_item>0</cms_item>
+		</stores>
+	</cms_item>
+		
+	</blocks>
+</root>

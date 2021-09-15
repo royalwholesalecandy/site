@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © 2017 TemplateMonster. All rights reserved.
+ */
+?>
+
+<script>
+    require(['jquery', 'mage/calendar'], function($) {
+        $(function() {
+            var datePicker = $('input[id$=to_time], input[id$=from_time]');
+            datePicker.calendar({
+                dateFormat: "yy/M/dd",
+                showsTime: true,
+                timeFormat: "HH:mm:ss",
+                sideBySide: true,
+                closeText: "Done",
+                selectOtherMonths: true,
+            });
+        });
+    });
+</script>

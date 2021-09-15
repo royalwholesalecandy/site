@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="warehouse.grid.container">
+            <block class="Magento\Backend\Block\Widget\Grid" name="warehouse.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">warehouseGrid</argument>
+                    <argument name="dataSource" xsi:type="object">BoostMyShop\AdvancedStock\Model\ResourceModel\Warehouse\Collection</argument>
+                    <argument name="use_ajax" xsi:type="string">1</argument>
+                    <argument name="default_sort" xsi:type="string">w_id</argument>
+                    <argument name="default_dir" xsi:type="string">desc</argument>
+                    <argument name="grid_url" xsi:type="url" path="*/*/warehouseGrid"/>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="permission.user.grid.columnSet">
+                    <arguments>
+                        <argument name="id" xsi:type="string">warehouseGrid</argument>
+                        <argument name="rowUrl" xsi:type="array">
+                            <item name="generatorClass" xsi:type="string">Magento\Backend\Model\Widget\Grid\Row\UrlGenerator</item>
+                            <item name="path" xsi:type="string">*/*/edit</item>
+                            <item name="extraParamsTemplate" xsi:type="array">
+                                <item name="w_id" xsi:type="string">getId</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="sortable" xsi:type="string">true</argument>
+                            <argument name="index" xsi:type="string">w_id</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Warehouse</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="index" xsi:type="string">w_name</argument>
+                            <argument name="escape" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_fulfilment_method">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Fulfilment method</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="options" model="BoostMyShop\AdvancedStock\Model\Warehouse\FullfilmentMethod"/>
+                            <argument name="index" xsi:type="string">w_fulfilment_method</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_contact">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Contact</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="index" xsi:type="string">w_contact</argument>
+                            <argument name="escape" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_telephone">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Telephone</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="index" xsi:type="string">w_telephone</argument>
+                            <argument name="escape" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_display_on_front">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Display on front</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="active" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Yes</item>
+                                </item>
+                                <item name="inactive" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">No</item>
+                                </item>
+                            </argument>
+                            <argument name="index" xsi:type="string">w_display_on_front</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_is_primary">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Primary</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="active" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Yes</item>
+                                </item>
+                                <item name="inactive" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">No</item>
+                                </item>
+                            </argument>
+                            <argument name="index" xsi:type="string">w_is_primary</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_is_active">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="active" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Active</item>
+                                </item>
+                                <item name="inactive" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">Inactive</item>
+                                </item>
+                            </argument>
+                            <argument name="index" xsi:type="string">w_is_active</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="w_website">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Website</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="options" model="BoostMyShop\AdvancedStock\Model\Source\Website"/>
+                            <argument name="index" xsi:type="string">w_website</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	
+    <body>
+		  <referenceContainer name="page.top">
+			   <container name="cms.mlayer.banner" htmlTag="div" htmlClass="mlayer-banner" after="-">
+					<block class="Wanexo\Mlayer\Block\Banner\ListBanner" template="Wanexo_Mlayer::banner/banner.phtml" />
+			   </container>
+		  </referenceContainer>
+    </body>
+</page>

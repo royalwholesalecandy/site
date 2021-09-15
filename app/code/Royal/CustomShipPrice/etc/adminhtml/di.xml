@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Royal. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Model\AdminOrder\Create">
+        <plugin name="royal-custom-shipping-create" type="Royal\CustomShipPrice\Plugin\Sales\Model\AdminOrder\Create" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\Total\Shipping">
+        <plugin name="royal-custom-shipping-description" type="Royal\CustomShipPrice\Plugin\Quote\Model\Quote\Address\Total\Shipping" sortOrder="1"/>
+    </type>
+</config>

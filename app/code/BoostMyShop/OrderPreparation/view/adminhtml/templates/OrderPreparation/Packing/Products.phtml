@@ -1,0 +1,76 @@
+<?php if ($this->canDisplay()): ?>
+    <form method="POST" action="<?php echo $this->getSubmitUrl(); ?>" id="frm_products">
+        <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+        <input type="hidden" name="order_id" value="<?php echo $this->currentOrderInProgress()->getId(); ?>">
+
+        <table class="tbl-order">
+            <tr>
+                <th><?php echo __('Image'); ?></th>
+                <th><?php echo __('Location'); ?></th>
+                <th><?php echo __('Qty to ship'); ?></th>
+                <th><?php echo __('Qty packed'); ?></th>
+                <th><?php echo __('Sku'); ?></th>
+                <th><?php echo __('Product'); ?></th>
+                <th><?php echo __('Status'); ?></th>
+                <?php if ($this->isOrderEditorEnabled()): ?>
+                    <th></th>
+                <?php endif; ?>
+            </tr>
+            <?php foreach($this->getProducts() as $item): ?>
+                <tr>
+                    <td align="center">
+                        <?php if ($productImageUrl = $this->getProductImageUrl($item->getproduct_id())): ?>
+                            <img src="<?php echo $productImageUrl; ?>" id="div_image_<?php echo $item->getId(); ?>" width="50" height="50">
+                        <?php endif; ?>
+                    </td>
+                    <td align="center" id="div_location_<?php echo $item->getId(); ?>">
+                        <?php echo $this->getProductLocation($item->getproduct_id()); ?>
+                    </td>
+                    <td align="center">
+                        <div id="div_qty_to_ship_<?php echo $item->getId(); ?>">
+                            <?php echo $item->getipi_qty(); ?>
+                        </div>
+                        <input type="hidden" id="qty_to_ship_<?php echo $item->getId(); ?>" value="<?php echo $item->getipi_qty(); ?>">
+                        <input type="hidden" id="barcode_<?php echo $item->getId(); ?>" value="<?php echo $this->getBarcode($item->getproduct_id()); ?>">
+                    </td>
+                    <td align="center">
+                        <input type="button" value="--" onclick="packingObj.qtyMin(<?php echo $item->getId(); ?>)" />
+                        <input type="button" value="-"  onclick="packingObj.qtyDecrement(<?php echo $item->getId(); ?>)"/>
+                        <input type="text" size="5" name="products[<?php echo $item->getipi_order_item_id(); ?>]" id="qty_packed_<?php echo $item->getId(); ?>" value="0">
+                        <input type="button" value="+"  onclick="packingObj.qtyIncrement(<?php echo $item->getId(); ?>)"/>
+                        <input type="button" value="++" onclick="packingObj.qtyMax(<?php echo $item->getId(); ?>)" />
+                    </td>
+                    <td id="div_sku_<?php echo $item->getId(); ?>"><?php echo $item->getsku(); ?></td>
+                    <td id="div_name_<?php echo $item->getId(); ?>">
+                        <?php echo $item->getname(); ?>
+                        <?php if ($confOptions = $this->getConfigurableOptionsAsText($item)): ?>
+                            <br><i><?php echo $confOptions; ?></i>
+                        <?php endif; ?>
+                        <?php if ($custOptions = $this->getProductOptions($item)): ?>
+                            <br><i><?php echo $custOptions; ?></i>
+                        <?php endif; ?>
+                    </td>
+                    <td><div id="status_<?php echo $item->getId(); ?>"></div></td>
+                    <?php if ($this->isOrderEditorEnabled()): ?>
+                        <td align="center">
+                            <img width="24" height="24" src="<?php echo $this->getViewFileUrl('BoostMyShop_OrderPreparation::images/edit.png'); ?>" onclick="packingObj.editOrderItem('<?php echo $this->getEditOrderItemUrl($item); ?>');">
+                        </td>
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <table class="tbl-order">
+            <tr>
+                <th>
+                    <?php echo __('Total weight'); ?> :
+                    <input type="text" size="5" value="<?php echo $this->currentOrderInProgress()->getEstimatedWeight(); ?>" style="color: black;" id="total_weight" name="total_weight">
+                </th>
+            </tr>
+        </table>
+
+    </form>
+<?php endif; ?>
+
+<div id="edit_popup" style="display:none;">
+</div>

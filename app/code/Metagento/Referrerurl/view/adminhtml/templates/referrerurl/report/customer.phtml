@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @var $block \Metagento\Referrerurl\Block\Adminhtml\Report\Customer
+ */
+?>
+<div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+    <button class="action-default scalable"
+            onclick="setLocation('<?php echo $block->getExportUrl() ?>')"><?php echo __("Export To CSV") ?>
+    </button>
+    <br><br>
+    <table class="data-grid" style="max-width: 700px;">
+        <thead>
+        <tr>
+            <th class="data-grid-th _sortable not-sort"><?php echo __("Domain") ?></th>
+            <th class="data-grid-th _sortable not-sort"><?php echo __("Count") ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ( $block->getReportData() as $domain => $count ) : ?>
+            <tr>
+                <td><?php echo $domain ?></td>
+                <td><?php echo $count ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

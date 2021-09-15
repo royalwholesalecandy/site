@@ -1,0 +1,55 @@
+<?php
+	$mediaPath = $this->getMediaUrl();
+	/* Get Config values */
+	$bannerStatus = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/status');
+	$bannerTypes = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannertype');
+	$isBannerHides = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/hide_banner');
+	$bannerEffect = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannereffect');
+	$bannerContent = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannercontent');
+	$loaderType = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/loadertype');
+	$bannerHeight = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannerheight');
+	$bannerBtnText = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannerbtntext');
+	$bannerPagination = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannerpagination');
+	$bannerPause = $this->helper('Wanexo\Mlayer\Helper\Data')->getConfig('wanexo_mlayer/banner/bannerpause');
+?>
+<?php if($bannerStatus): ?> <!-- Check if banner module is enabled or not  -->
+<?php if($bannerTypes==1): ?>  <!-- Check if banner type is camera slider  -->
+<script type="text/javascript">
+        jQuery(function(){	
+          jQuery('#camera_wrap_4').camera({
+                height: '<?php echo ($bannerHeight > 0) ? $bannerHeight : 38;?>%',
+                loader: '<?php echo $loaderType;?>',
+                pagination:<?php if($bannerPagination): echo 'true'; else: echo 'false'; endif; ?>,
+                thumbnails:false,
+				fx         : '<?php echo $bannerEffect; ?>',
+                hover:<?php if($bannerPause): echo 'true'; else: echo 'false'; endif; ?>,
+				autoAdvance:1,
+				time:3000,
+				transPeriod:400,
+                imagePath: '../images/'
+            });
+        });
+</script> 
+<?php $_banners = $this->getBanners(); ?>  <!-- Get Banner Collection  -->
+<?php if ($_banners->getSize() > 0) :?>  <!-- Check the size of Banner Collection  -->
+<div class="f-block">
+    <div class="camera_wrap camera_emboss pattern_1 <?php echo $isBannerHides ? 'hideBanner':'' ?>" id="camera_wrap_4">
+		<?php foreach ($_banners as $_banner):	?>
+			<div data-thumb="<?php echo $mediaPath.'wanexo/mlayer/banner/image'.$_banner->getBannerImage(); ?>" data-src="<?php echo $mediaPath.'wanexo/mlayer/banner/image'.$_banner->getBannerImage(); ?>">
+				<?php if ($bannerContent):?>
+				<?php if($_banner->getContentPosition()==1): $pos = 'left'; elseif($_banner->getContentPosition()==2): $pos='right'; else: $pos = 'center'; endif; ?>
+				<div class="fadeIn camera_effected <?php echo 'contentPos-'.$pos; ?>">
+					<h2><?php echo $_banner->getTitle() ?></h2>
+					<p><?php echo $_banner->getBannerContent(); ?></p>
+					<?php if ($bannerBtnText):?>
+					<a class="btn-cart" href="<?php echo $_banner->getUrlKey() ?>"> <span><span><?php echo $bannerBtnText;?></span></span> </a>
+				  <?php endif;?>
+				</div>
+				<?php endif;?>
+			</div>
+		<?php endforeach; ?>
+	</div>
+</div>
+<?php endif;?>
+<?php endif; ?>	
+<?php endif; ?>

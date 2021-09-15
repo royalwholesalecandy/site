@@ -1,0 +1,24 @@
+<?php if ($this->canDisplay()): ?>
+    <table class="tbl-order">
+        <tr>
+            <th colspan="6" style="background-color: #FF9900;"><a href="<?php echo $this->getOrderViewUrl(); ?>" style="color: white; text-decoration: underline;   "><?php echo __('Order #%1', $this->currentOrderInProgress()->getOrder()->getincrement_id()); ?></a></th>
+        </tr>
+        <tr>
+            <th width="16%"><?php echo __('Warehouse<br> %1', $this->getWarehouseName()); ?></th>
+            <th width="16%"><?php echo __('Ship to<br> %1', $this->currentOrderInProgress()->getCustomerName()); ?></th>
+            <th width="16%">
+                <?php echo __('Shipping method<br> %1', $this->currentOrderInProgress()->getOrder()->getShippingDescription()); ?>
+                <?php if ($this->canEditShippingMethod()): ?>
+                    <img width="24" height="24" src="<?php echo $this->getViewFileUrl('BoostMyShop_OrderPreparation::images/edit.png'); ?>" onclick="packingObj.editShippingMethod('<?php echo $this->getChangeShippingMethodUrl(); ?>');">
+                <?php endif; ?>
+            </th>
+            <th width="16%">
+                <?php if ($this->currentOrderInProgress()->getOrder()->getShippingAddress()): ?>
+                    <?php echo __('Shipping country<br> %1', $this->currentOrderInProgress()->getOrder()->getShippingAddress()->getcountry_id()); ?>
+                <?php endif; ?>
+            </th>
+            <th width="16%"><?php echo __('Status<br> %1', $this->currentOrderInProgress()->getOrder()->getStatus()); ?></th>
+            <th width="16%"><?php echo __('Products count<br> %1', $this->currentOrderInProgress()->getProductsCount()); ?></th>
+        </tr>
+    </table>
+<?php endif; ?>

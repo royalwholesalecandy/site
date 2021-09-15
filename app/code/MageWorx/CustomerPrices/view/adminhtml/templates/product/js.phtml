@@ -1,0 +1,115 @@
+<?php
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<div class="popup-window magento-message" id="customerprices-popup"></div>
+
+<script>
+require([
+    "jquery",
+    "Magento_Ui/js/modal/modal"
+], function ($, modal) {
+
+    function editProductCustomerPrice(customer_id, email, price, special_price) {
+        $('#customerprices_customer_id')[0].value = customer_id;
+        $('#customerprices_customer_email')[0].value = email;
+        $('#customerprices_price')[0].value = price;
+        $('#customerprices_special_price')[0].value = special_price;
+        
+        return false;
+    }
+
+    function deleteProductCustomerPrice(id, url) {
+        $.ajax({
+            url: url,
+            data: {id: id},
+            type: 'post',
+            dataType: 'json',
+            showLoader: true,
+        }).done(function(data) {
+            if (data.error) {
+                $('#customerprices-popup').html(data.message);
+                $('#customerprices-popup').modal({
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Error',
+                    buttons: [{
+                        text: 'Close',
+                        'class': 'action-primary',
+                        click: function () {
+                            this.closeModal();
+                        } 
+                    }]
+                }).modal('openModal');
+            } else {
+                setTimeout(function() {
+                    customerPricesGridJsObject.resetFilter();
+                }, 10);
+            }
+        });
+    }
+
+    function addCustomerPrice(options) {
+        var data = {customer_id: $('#customerprices_customer_id').val(),
+                email: $('#customerprices_customer_email').val(),
+                price: $('#customerprices_price').val(),
+                special_price: $('#customerprices_special_price').val(),
+                product_id: options.product};
+        $.ajax({
+            url: options.url,
+            data: data,
+            type: 'post',
+            dataType: 'json',
+            showLoader: true,
+        }).done(function (data) {
+            if (data.error) {
+                $('#customerprices-popup').html(data.message);
+                $('#customerprices-popup').modal({
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Error',
+                    buttons: [{
+                        text: 'Close',
+                        'class': 'action-primary',
+                        click: function () {
+                            this.closeModal();
+                        } 
+                    }]
+                }).modal('openModal');
+            } else {
+                $('#customerprices_customer_id')[0].value = "";
+                $('#customerprices_customer_email')[0].value = "";
+                $('#customerprices_price')[0].value = "";
+                $('#customerprices_special_price')[0].value = "";
+                setTimeout(function () {
+                    customerPricesGridJsObject.resetFilter();
+                }, 10);
+            }
+        });
+    }
+    
+    function selectAddCustomer(label, id){
+        $('#customerprices_customer_email')[0].value = label;
+        $('#customerprices_customer_id')[0].value = id;
+        customerSearchModal.modal('closeModal');
+        return false;
+    }
+
+    var element = $('#add_price_button');
+    element.on("click", function (e) {
+        addCustomerPrice({ "url":"<?php echo $block->getAddCustomerUrl() ?>", "product":"<?php echo $block->getProduct()->getId()?>" });
+    });
+
+    window.editProductCustomerPrice = editProductCustomerPrice;
+    window.deleteProductCustomerPrice = deleteProductCustomerPrice;
+    window.selectAddCustomer = selectAddCustomer;
+});
+</script>

@@ -1,0 +1,216 @@
+<home>
+	<section>
+		<name><![CDATA[block3]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block4]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-xs-top100 pd-xs-bottom100]]></class>
+		<background><![CDATA[#f8f7f7]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[190]]></padding_top>
+		<padding_bottom><![CDATA[120]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block5]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-xs-top20 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[60]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block6]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-xs-top100 pd-xs-bottom100]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/b/g/bg-cake.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[150]]></padding_top>
+		<padding_bottom><![CDATA[140]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block10]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-xs-top20 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[70]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[6]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block3-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","links":["","","",""],"images":["slider-cake-01.jpg"],"fullscreen":"1","effect":"1","speed":"","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"loop":0,"rtl":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" images="slider-cake-01.jpg" links=",,," fullscreen="1" autoplay="0" stop_auto="0" navigation="0" pagination="0" loop="0" rtl="0" speed="" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block3-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-layer-abs block-about-cake">
+<div class="layer-center content-about container">
+<div class="row">
+<div class="col-md-5">
+<div class="layer-img1"><img class="img-responsive" src="{{media url="wysiwyg/panel/about-bead.jpg"}}" alt="" /></div>
+</div>
+<div class="col-md-7"><div class="layer-img2"><img class="img-responsive" src="{{media url="wysiwyg/panel/about-cake.jpg"}}" alt="" /></div>
+<div class="about-text">
+<div class="text h3">We invite you to enjoy our<strong> bakery's deliciously<br /> sweet cakes </strong>and breads made every day <br />specifically for you.</div>
+<div class="layer-img3"><img src="{{media url="wysiwyg/panel/rectangle-about-cake.jpg"}}" alt="" /></div>
+</div>
+</div>
+</div>
+</div>
+<div class="layer-left"><img src="{{media url="wysiwyg/panel/layer-cake-01.png"}}" alt="" /></div>
+<div class="layer-right"><img src="{{media url="wysiwyg/panel/layer-cake-02.png"}}" alt="" /></div>
+<div class="layer-bottom"><img src="{{media url="wysiwyg/panel/layer-cake-03.png"}}" alt="" /></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block4-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-shop-by-cate title-cake custom-title-abs">
+<div class="title-block">
+<h3>Shop by Category</h3>
+</div>
+<div class="block-content">
+<div class="row">
+<div class="col-md-4 col-sm-4 col-xs-12 pd-xs-bottom15">
+<div class="img-top"><img src="{{media url="wysiwyg/panel/cate-bread.jpg"}}" alt="" /><a class="button-cate" href="#">Cookies</a></div>
+<div class="img-bottom"><img src="{{media url="wysiwyg/panel/cate-muffin.jpg"}}" alt="" /><a class="button-cate" href="#">Bread</a></div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12 pd-xs-bottom15 pd-xs-top15">
+<div class="img-center"><img src="{{media url="wysiwyg/panel/cate-macaroon.jpg"}}" alt="" /><a class="button-cate" href="#">Macaroon</a></div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12 pd-xs-top15">
+<div class="img-top"><img src="{{media url="wysiwyg/panel/cate-cupcake.jpg"}}" alt="" /><a class="button-cate" href="#">CupCake</a></div>
+<div class="img-bottom"><img src="{{media url="wysiwyg/panel/cate-chocolate.jpg"}}" alt="" /><a class="button-cate" href="#">Chocolate</a></div>
+</div>
+</div>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block5-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[title-cake]]></class>
+		<block_content><![CDATA[<div class="title-block text-center">
+<h3>New Arrivals</h3>
+<p class="h4">Featured products</p>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block5-0]]></block_name>
+		<type><![CDATA[new_products]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"6","perrow":"3","template":"grid.phtml","ratio":"1","category_id":["8"],"text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-product-grid-cake]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\NewProducts" mgs_panel_title="" mgs_panel_note="" limit="6" perrow="3" ratio="1" category_ids="8" use_slider="0" loadmore="0" template="products/new/grid.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block6-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-cake-banner">
+<p class="text-transform">bakery's deliciously sweet cakes</p>
+<h3>Custom-make cakes with a disscount</h3>
+<a href="#" class="btn btn-primary">shop now</a></div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block10-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[title-cake]]></class>
+		<block_content><![CDATA[<div class="title-block text-center">
+<h3>Blog update</h3>
+<p class="h4">Keep up to date with us</p>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block10-0]]></block_name>
+		<type><![CDATA[latest_posts]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","number_of_posts":"4","items":"2","template":"default.phtml","show_thumbnail":"1","show_short_content":"1","limit_characters_short_content":"80","view_as":"1","navigation":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[custom-style-blog-cake]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Blog\Block\Widget\Latest" mgs_panel_title="" number_of_posts="4" items="2" show_thumbnail="1" mgs_panel_note="" template="widget/default.phtml" show_short_content="1" limit_characters_short_content="80" view_as="owl_carousel" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<theme_setting>
+		<general>
+			<header>header_5</header>
+			<onepage_slider>0</onepage_slider>
+		</general>
+	</theme_setting>
+
+</home>

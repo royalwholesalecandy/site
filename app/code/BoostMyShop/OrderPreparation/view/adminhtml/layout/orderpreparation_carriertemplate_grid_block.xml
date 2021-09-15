@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="carriertemplate.grid.container">
+            <block class="Magento\Backend\Block\Widget\Grid" name="supplier.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">carrierTemplateGrid</argument>
+                    <argument name="dataSource" xsi:type="object">BoostMyShop\OrderPreparation\Model\ResourceModel\CarrierTemplate\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">ct_id</argument>
+                    <argument name="default_dir" xsi:type="string">desc</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="permission.user.grid.columnSet">
+                    <arguments>
+                        <argument name="id" xsi:type="string">carrierTemplateGrid</argument>
+                        <argument name="rowUrl" xsi:type="array">
+                            <item name="generatorClass" xsi:type="string">Magento\Backend\Model\Widget\Grid\Row\UrlGenerator</item>
+                            <item name="path" xsi:type="string">*/*/edit</item>
+                            <item name="extraParamsTemplate" xsi:type="array">
+                                <item name="ct_id" xsi:type="string">getId</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="ct_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="sortable" xsi:type="string">false</argument>
+                            <argument name="index" xsi:type="string">ct_id</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="ct_name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Name</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="index" xsi:type="string">ct_name</argument>
+                            <argument name="escape" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="ct_shipping_methods">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Associated shipping methods</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="index" xsi:type="string">ct_shipping_methods</argument>
+                            <argument name="escape" xsi:type="string">1</argument>
+                            <argument name="renderer" xsi:type="string">\BoostMyShop\OrderPreparation\Block\CarrierTemplate\Renderer\ShippingMethods</argument>
+                            <argument name="column_css_class" xsi:type="string">col-name</argument>
+                            <argument name="header_css_class" xsi:type="string">col-name</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="ct_disabled">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="active" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Inactive</item>
+                                </item>
+                                <item name="inactive" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">Active</item>
+                                </item>
+                            </argument>
+                            <argument name="index" xsi:type="string">ct_disabled</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

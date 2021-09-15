@@ -1,0 +1,23 @@
+{
+    "name": "itoris/pending-registration",
+    "description": "Extension to approve customer registrations manually",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+    },
+    "type": "magento2-module",
+    "version": "1.2.0",
+	"authors": [
+		{
+			"name": "ITORIS INC",
+			"email": "sales@itoris.com",
+			"homepage": "https://www.itoris.com/",
+			"role": "Developer"
+		}
+	],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Itoris\\PendingRegistration\\": ""
+        }
+    }
+}

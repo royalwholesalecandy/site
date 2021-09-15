@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+
+    <type name="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Inventory">
+        <plugin name="boostmyshop-advanced-stock-product-inventory-tab" type="BoostMyShop\AdvancedStock\Plugin\Block\Adminhtml\Product\Edit\Tab\Inventory" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\Sales\Block\Adminhtml\Items\AbstractItems">
+        <plugin name="boostmyshop-advanced-stock-credit-memo-items" type="BoostMyShop\AdvancedStock\Plugin\Block\Adminhtml\Items\AbstractItems" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\CatalogInventory\Observer\RefundOrderInventoryObserver">
+        <plugin name="boostmyshop-advanced-stock-credit-memo-refund" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Observer\RefundOrderInventoryObserver" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\SalesInventory\Observer\RefundOrderInventoryObserver">
+        <plugin name="boostmyshop-advanced-stock-credit-memo-refund-sales-inventory" type="BoostMyShop\AdvancedStock\Plugin\SalesInventory\Observer\RefundOrderInventoryObserver" sortOrder="2"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="RefreshSalesHistory" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshSalesHistory</item>
+                <item name="RefreshQuantityToShip" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshQuantityToShip</item>
+                <item name="RefreshSellableQuantity" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshSellableQuantity</item>
+                <item name="FixReservation" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\FixReservation</item>
+                <item name="CheckStockDiscrepencies" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\CheckStockDiscrepencies</item>
+                <item name="RemoveAdditionnalStockItem" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RemoveAdditionnalStockItem</item>
+                <item name="FlushStockIndex" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\FlushStockIndex</item>
+                <item name="WarehouseExport" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\WarehouseExport</item>
+                <item name="WarehouseImport" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\WarehouseImport</item>
+                <item name="PruneStockMovementLogs" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\PruneStockMovementLogs</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Plugin for Supplier / Procurement Module -->
+
+    <type name="BoostMyShop\Supplier\Model\StockUpdater">
+        <plugin name="boostmyshop-advanced-stock-supplier-stock-updated" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\StockUpdater" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Source\Warehouse">
+        <plugin name="boostmyshop-advanced-stock-supplier-source-warehouse" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Source\Warehouse" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Product">
+        <plugin name="boostmyshop-advanced-stock-supplier-product" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Product" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\ResourceModel\Replenishment\Collection">
+        <plugin name="boostmyshop-advanced-stock-supplier-replenishment-collection" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\ResourceModel\Replenishment\Collection" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\ResourceModel\Transit\Collection">
+        <plugin name="boostmyshop-advanced-stock-supplier-transit-collection" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\ResourceModel\Transit\Collection" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Order">
+        <plugin name="boostmyshop-advanced-stock-supplier-order" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Order" sortOrder="2"/>
+    </type>
+
+    <!-- Plugin for Order preparation Module -->
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Renderer\Products">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-renderer-products" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Renderer\Products" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\InStock">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-instock" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\InStock" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\BackOrder">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-backorder" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\BackOrder" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\Holded">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-holded" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\Holded" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\OrderPreparation">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-orderpreparation" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\OrderPreparation" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\Config\Source\Warehouses">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-config-source-warehouses" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\Config\Source\Warehouses" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\Product">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-product" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\Product" sortOrder="1"/>
+    </type>
+
+    <!-- Plugin for CatalogInventory Module -->
+
+    <!-- Used to apply the scope ID when loading stock item -->
+    <!-- DUe to magento incomplete implementation of scopeid -->
+    <preference
+            for="Magento\CatalogInventory\Model\StockRegistry"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\StockRegistry"/>
+
+    <!-- Support for website filter (not implemented by magento) -->
+    <preference
+            for="Magento\CatalogInventory\Model\ResourceModel\Stock\StockCriteriaMapper"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\ResourceModel\Stock\StockCriteriaMapper"/>
+
+    <!-- Support for scope filter (not implemented by magento) -->
+    <preference
+            for="Magento\CatalogInventory\Model\StockRegistryProvider"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\StockRegistryProvider"/>
+
+    <!-- Used to prevent the default indexing that applies only on website #0 -->
+    <preference
+            for="Magento\CatalogInventory\Model\ResourceModel\Indexer\Stock\DefaultStock"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\ResourceModel\Indexer\Stock\DefaultStock"/>
+
+    <!-- Used to prevent the default indexing that applies only on website #0 -->
+    <preference
+            for="Magento\CatalogInventory\Model\ResourceModel\Stock\Status"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\ResourceModel\Stock\Status"/>
+
+    <!-- Prevent invalid stock item error (M2.2.2)-->
+    <type name="Magento\CatalogInventory\Model\StockItemValidator">
+        <plugin name="boostmyshop-advanced-stock-cataloginventory-model-stockitemvalidator" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\StockItemValidator" sortOrder="1"/>
+    </type>
+
+    <!-- Used to prevent the default indexing that applies only on website #0 -->
+    <preference
+            for="Magento\ConfigurableProduct\Model\ResourceModel\Indexer\Stock\Configurable"
+            type="BoostMyShop\AdvancedStock\Plugin\ConfigurableProduct\Model\ResourceModel\Indexer\Stock\Configurable"/>
+
+
+    <!-- Used to prevent the default indexing that applies only on website #0 -->
+    <preference
+            for="Magento\Bundle\Model\ResourceModel\Indexer\Stock"
+            type="BoostMyShop\AdvancedStock\Plugin\Bundle\Model\ResourceModel\Indexer\Stock"/>
+
+    <!-- Used to prevent the default indexing that applies only on website #0 -->
+    <preference
+            for="Magento\GroupedProduct\Model\ResourceModel\Indexer\Stock\Grouped"
+            type="BoostMyShop\AdvancedStock\Plugin\Grouped\Model\ResourceModel\Indexer\Stock\Grouped"/>
+
+    <!-- Used to collect stock item information according to the product store -->
+    <preference
+            for="Magento\CatalogInventory\Model\Plugin\AfterProductLoad"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\Plugin\AfterProductLoad"/>
+
+    <!-- Used to pass scope Id in method getStockQtyLeft -->
+    <preference
+            for="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Block\Stockqty\DefaultStockqty"/>
+
+    <!-- Used to pass scope Id in method assignStatusToProduct -->
+    <preference
+            for="Magento\CatalogInventory\Helper\Stock"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Helper\Stock"/>
+
+    <!-- Used to apply the scope ID -->
+    <preference
+            for="Magento\CatalogInventory\Model\StockState"
+            type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\StockState"/>
+
+    <!-- Used to create stock detail column in create order product list grid -->
+    <preference 
+            for="Magento\Sales\Block\Adminhtml\Order\Create\Search\Grid" 
+            type="BoostMyShop\AdvancedStock\Block\Sales\Order\Create\Search\Grid" />
+
+    <!-- Magento 2.2 compatibility -->
+
+
+
+    <!-- Prevent crash in bundle view on front (with the same ID "XXX" already exists) -->
+    <preference
+            for="Magento\Bundle\Model\ResourceModel\Selection\Collection"
+            type="BoostMyShop\AdvancedStock\Plugin\Bundle\Model\ResourceModel\Selection\Collection"/>
+
+
+</config>

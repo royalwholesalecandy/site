@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <!-- <preference for="Magento\Catalog\Controller\Category\View" type="Wanexo\Themeoption\Controller\Category\Views" />
+    <preference for="Magento\Cms\Controller\Index\Index" type="Wanexo\Themeoption\Controller\Index\Index" />
+    <preference for="Magento\Framework\View\Result\Page" type="Wanexo\Themeoption\Controller\Index\Page" />-->
+</config>

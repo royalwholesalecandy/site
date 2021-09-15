@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Model\Service\OrderService">
+        <plugin name="Amasty_Perm::OrderService" type="Amasty\Perm\Plugin\OrderService"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderSender">
+        <plugin name="Amasty_Perm::OrderEmailSenderOrderSender" type="Amasty\Perm\Plugin\OrderEmailSenderOrderSender"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Email\Container\OrderIdentity">
+        <plugin name="Amasty_Perm::OrderEmailSenderOrderSender" type="Amasty\Perm\Plugin\OrderEmailContainerOrderIdentity"/>
+    </type>
+    <type name="Magento\Customer\Model\Customer\DataProvider">
+        <plugin name="Amasty_Perm::CustomerDataProvider" type="Amasty\Perm\Plugin\CustomerDataProvider"/>
+    </type>
+</config>

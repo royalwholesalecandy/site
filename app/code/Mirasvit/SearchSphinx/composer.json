@@ -1,0 +1,22 @@
+{
+  "name": "mirasvit/module-search-sphinx",
+  "description": "Search Sphinx",
+  "require": {
+    "magento/framework": "100.1.*|100.2.*|101.0.*",
+    "mirasvit/module-core": "^1.2",
+    "mirasvit/module-search": "1.0.*"
+  },
+  "type": "magento2-module",
+  "version": "1.1.40",
+  "license": [
+    "proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "src/SearchSphinx/registration.php"
+    ],
+    "psr-4": {
+      "Mirasvit\\SearchSphinx\\": "src/SearchSphinx"
+    }
+  }
+}

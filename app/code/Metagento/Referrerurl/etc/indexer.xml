@@ -1,0 +1,9 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="customer_grid">
+        <fieldset name="customer" source="Magento\Customer\Model\ResourceModel\Customer\Collection"
+                  provider="Magento\Customer\Model\Indexer\AttributeProvider">
+            <field name="referrer_url" xsi:type="searchable" dataType="varchar"/>
+        </fieldset>
+    </indexer>
+</config>

@@ -1,0 +1,206 @@
+<home>
+	<section>
+		<name><![CDATA[block40]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block41]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-sm-top80 pd-xs-top50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[113]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block42]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-sm-top80 pd-sm-bottom80 pd-xs-top50 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[95]]></padding_top>
+		<padding_bottom><![CDATA[90]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block43]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[custom-testimonial pd-sm-bottom80 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/b/g/bg-plant-testimonial.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[40]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block44]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[]]></tablet_cols>
+		<mobile_cols><![CDATA[]]></mobile_cols>
+		<block_class><![CDATA[]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[5]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block45]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[pd-sm-top80 pd-sm-bottom80 pd-xs-top50 pd-xs-bottom50]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[80]]></padding_top>
+		<padding_bottom><![CDATA[113]]></padding_bottom>
+		<block_position><![CDATA[6]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block40-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","links":["","","","","","","","","https:\/\/www.youtube.com\/watch?v=OltL5KSSdF8&list=UUTf5gCD4kSXfUNffh9X24YA",""],"images":["slider-plant-2.jpg"],"fullscreen":"1","effect":"1","speed":"","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"loop":0,"rtl":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" images="slider-plant-2.jpg" links=",,,,,,,,https://www.youtube.com/watch?v=OltL5KSSdF8&list=UUTf5gCD4kSXfUNffh9X24YA," fullscreen="1" autoplay="0" stop_auto="0" navigation="0" pagination="0" loop="0" rtl="0" speed="" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block41-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-plant-about-2">
+<div class="box-layer-left"><img src="{{media url="wysiwyg/panel/layer-left-plant.png"}}" alt="" /></div>
+<div class="box-layer-right"><img src="{{media url="wysiwyg/panel/layer-right-plant.png"}}" alt="" /></div>
+<div class="block-content">
+<div class="section-1">
+<div class="container">
+<div class="title-about">
+<h3>Plants <span class="font-italic">&amp; flowers</span></h3>
+<p class="desc">We are Online Market of organic fruits, vegetables, juices and dried fruits. Visit our site for a complete list of exclusive we are stocking.</p>
+<p class="h2">discover our services</p>
+</div>
+</div>
+</div>
+<div class="section-2">
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="item"><span class="plant icon-plant-1">&nbsp;</span>
+<h4>Home decor</h4>
+<p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
+<a href="#" class="h6">Read more</a></div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="item"><span class="plant icon-plant-5">&nbsp;</span>
+<h4>Workspace</h4>
+<p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
+<a href="#" class="h6">Read more</a></div>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="item"><span class="plant icon-plant-4">&nbsp;</span>
+<h4>For gift</h4>
+<p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
+<a href="#" class="h6">Read more</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block42-0]]></block_name>
+		<type><![CDATA[new_products]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"New products","additional_content":"<p class=\"h4\">Featured products<\/p>","animation":"","animation_delay":"","limit":"6","perrow":"3","template":"grid.phtml","ratio":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[title-plant border-title-farm]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\NewProducts" mgs_panel_title="New products" mgs_panel_note="&lt;p class=&#34;h4&#34;&gt;Featured products&lt;/p&gt;" limit="6" perrow="3" ratio="1" category_ids="" use_slider="0" loadmore="0" template="products/new/grid.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block43-0]]></block_name>
+		<type><![CDATA[testimonial]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"Testimonials","additional_content":"<p class=\"h4\">We love our clients<\/p>","animation":"","animation_delay":"","limit":"5","perrow":"2","template":"grid.phtml","show_avatar":"1","use_slider":"1","navigation":"1","autoplay":0,"stop_auto":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[title-no-bg custom-testimonial-layout1]]></class>
+		<block_content><![CDATA[{{block class="MGS\Testimonial\Block\Testimonial" mgs_panel_title="Testimonials" mgs_panel_note="&lt;p class=&#34;h4&#34;&gt;We love our clients&lt;/p&gt;" testimonials_count="5" perrow="2" show_avatar="1" use_slider="1" template="grid.phtml" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block45-0]]></block_name>
+		<type><![CDATA[latest_posts]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"from our blog ","additional_content":"<p class=\"h4\">Keep up to date with us<\/p>","animation":"","animation_delay":"","number_of_posts":"3","items":"3","template":"default.phtml","show_thumbnail":"1","show_short_content":"1","limit_characters_short_content":"150","view_as":"1","navigation":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[title-no-bg]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Blog\Block\Widget\Latest" mgs_panel_title="from our blog " number_of_posts="3" items="3" show_thumbnail="1" mgs_panel_note="&lt;p class=&#34;h4&#34;&gt;Keep up to date with us&lt;/p&gt;" template="widget/default.phtml" show_short_content="1" limit_characters_short_content="150" view_as="owl_carousel" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<theme_setting>
+		<general>
+			<footer>footer_1</footer>
+			<header>header_6</header>
+			<onepage_slider>0</onepage_slider>
+		</general>
+		<custom_style>
+			<style>.custom-testimonial-layout1 .title-block h2.h5,.custom-testimonial-layout1 .testimonial-block .mgs-testimonial .owl-carousel .testimonial-item .content p.h5{
+font-family: "Lato";
+}</style>
+		</custom_style>
+	</theme_setting>
+
+</home>

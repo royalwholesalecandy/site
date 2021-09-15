@@ -1,0 +1,47 @@
+<form method="POST" action="<?php echo $this->getSaveUrl(); ?>" enctype="multipart/form-data" id="form_import">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+    <fieldset class="fieldset admin__fieldset " id="warehouse_import_fieldset">
+        <legend class="admin__legend legend">
+            <span>Import</span>
+        </legend><br />
+
+        <p>Use this section to import a csv file to update product / supplier associations</p>
+        <p>Expected format :</p>
+
+        <ul style="margin-left: 50px;">
+            <li>File format : csv file</li>
+            <li>Separator : semi-colon ";"</li>
+            <li>Columns
+                <ul style="margin-left: 50px;">
+                    <li>sku (mandatory)</li>
+                    <li>supplier (mandatory, this is the supplier code)</li>
+                    <li>sp_sku (optional, this is the supplier sku)</li>
+                    <li>sp_price (optional, this is the buying price)</li>
+                    <li>sp_primary (optional, fill 1 if this is the primary supplier)</li>
+                    <li>sp_stock (optional, this is the supplier stock (used for drop shipping only)</li>
+                    <li>sp_can_dropship (optional, fill 1 if you can drop ship this product)</li>
+                    <li>sp_moq (optional)</li>
+                    <li>sp_pack_qty (optional)</li>
+                    <li>sp_shipping_delay (optional)</li>
+                    <li>sp_supply_delay (optional)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <p><?php echo __('Field delimiter'); ?>
+            <select name="delimiter">
+                <option value=";">;</option>
+                <option value=",">,</option>
+            </select>
+        </p>
+        <p>&nbsp;</p>
+
+        <p>Select the file to import and click on save button : <input type="file" name="import_file"> </p>
+
+    </fieldset>
+
+</form>

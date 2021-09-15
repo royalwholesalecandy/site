@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-ultimate-report",
+  "description": "Reportings for Magento2 and Embedded ERP",
+  "type": "magento2-module",
+  "version": "1.0.6",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\UltimateReport\\": ""}
+  }
+}

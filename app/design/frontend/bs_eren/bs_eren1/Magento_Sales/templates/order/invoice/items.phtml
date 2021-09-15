@@ -1,0 +1,302 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_order = $block->getOrder() ?>
+<div class="actions-toolbar">
+	<a href="<?= /* @escapeNotVerified */ $block->getPrintAllInvoicesUrl($_order) ?>" target="_blank" class="action print">
+        <span><?= /* @escapeNotVerified */ __('Print All Invoices') ?></span>
+    </a>
+
+
+</div>
+<?php foreach ($_order->getInvoiceCollection() as $_invoice): ?>
+<div class="order-title">
+	<strong>
+		<?= /* @escapeNotVerified */ __('Invoice #') ?>
+		<?= /* @escapeNotVerified */ $_invoice->getIncrementId() ?>
+	</strong>
+	<a href="<?= /* @escapeNotVerified */ $block->getPrintInvoiceUrl($_invoice) ?>" onclick="this.target='_blank'" class="action print">
+        <span><?= /* @escapeNotVerified */ __('Print Invoice') ?></span>
+    </a>
+
+	<?php if($_invoice->getState() == 1){?>
+
+	<a href="javascript:;void(0)" class="action pay paybutton" data-id="<?php echo $_invoice->getId()?>">Pay</a>
+
+	<?php }?>
+</div>
+<div class="table-wrapper table-order-items invoice">
+	<table class="data table table-order-items invoice" id="my-invoice-table-<?= /* @escapeNotVerified */ $_invoice->getId() ?>">
+		<caption class="table-caption">
+			<?= /* @escapeNotVerified */ __('Items Invoiced') ?>
+		</caption>
+		<thead>
+			<tr>
+				<th class="col name">
+					<?= /* @escapeNotVerified */ __('Product Name') ?>
+				</th>
+				<th class="col sku">
+					<?= /* @escapeNotVerified */ __('SKU') ?>
+				</th>
+				<th class="col price">
+					<?= /* @escapeNotVerified */ __('Price') ?>
+				</th>
+				<th class="col qty">
+					<?= /* @escapeNotVerified */ __('Qty Invoiced') ?>
+				</th>
+				<th class="col subtotal">
+					<?= /* @escapeNotVerified */ __('Subtotal') ?>
+				</th>
+			</tr>
+		</thead>
+		<?php $_items = $_invoice->getAllItems(); ?>
+		<?php foreach ($_items as $_item): ?>
+		<?php if (!$_item->getOrderItem()->getParentItem()) : ?>
+		<tbody>
+			<?= $block->getItemHtml($_item) ?>
+		</tbody>
+		<?php endif; ?>
+		<?php endforeach; ?>
+		<tfoot>
+			<?= $block->getInvoiceTotalsHtml($_invoice) ?>
+		</tfoot>
+	</table>
+</div>
+<?= $block->getInvoiceCommentsHtml($_invoice) ?>
+<?php endforeach; ?>
+<?php
+$paymentUrl = $block->getUrl() . 'po/capture/index/order_id/' . $_order->getId();
+
+$objectManager = \Magento\ Framework\ App\ ObjectManager::getInstance();
+
+$FormKey = $objectManager->get( 'Magento\Framework\Data\Form\FormKey' );
+
+$objectManager = \Magento\ Framework\ App\ ObjectManager::getInstance();
+
+$storeScope = \Magento\ Store\ Model\ ScopeInterface::SCOPE_STORES;
+
+?>
+
+<div id="po_method_pay_methods_container" class="po_method_popup" style="display: none;">
+
+	<div class="fieldset">
+
+		<h2 class="legend">Choose Payment Method</h2>
+
+		<form id="po_edit_form" action="<?php echo $paymentUrl?>" method="post" data-mage-init='{"validation": {}}'>
+
+			<fieldset>
+
+				<input name="form_key" type="hidden" value="<?php echo $FormKey->getFormKey();?>"/>
+
+				<dl class="sp-methods" id="po-payment-method-load">
+
+					<dt>
+
+                                                            <span class="no-display"><input id="p_method_authorizenet" value="authorizenet_directpost" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+
+                                                                                        <label for="p_method_authorizenet">Credit Card (Authorize.net) </label>
+
+                        </dt>
+
+				
+
+
+
+					<dd>
+
+						<ul class="form-list" id="payment_form_authorizenet">
+
+							<li>
+
+								<label for="authorizenet_cc_type" class="required"><em>*</em>Credit Card Type</label>
+
+								<div class="input-box">
+
+									<select id="authorizenet_cc_type" name="payment[cc_type]" class="required-entry validate-cc-type-select">
+
+										<option value="">--Please Select--</option>
+
+										<?php 
+
+										
+
+										$cctypes = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('payment/authorizenet_directpost/cctypes', $storeScope); 
+
+										//print_r($cctypes);
+
+										$cardManager = $objectManager->create('\Magento\Payment\Model\CcConfig');
+
+											  $cardTypes = $cardManager->getCcAvailableTypes();
+
+										foreach($cardTypes as $key => $card){
+
+											if(in_array($key, explode(',', $cctypes))){
+
+										?>
+
+										<option value="<?php echo $key?>">
+											<?php echo $card?>
+										</option>
+
+
+
+										<?php } }?>
+
+									</select>
+
+								</div>
+
+							</li>
+
+							<li>
+
+								<label for="authorizenet_cc_number" class="required"><em>*</em>Credit Card Number</label>
+
+								<div class="input-box">
+
+									<input type="text" id="authorizenet_cc_number" name="payment[cc_number]" title="Credit Card Number" data-validate="{'required-entry':true,'validate-cc-number':true, 'validate-number':true}" value=""/>
+
+								</div>
+
+							</li>
+
+							<li id="authorizenet_cc_type_exp_div">
+
+								<label for="authorizenet_expiration" class="required"><em>*</em>Expiration Date</label>
+
+								<div class="input-box">
+
+									<div class="v-fix">
+
+										<select id="authorizenet_expiration" name="payment[cc_exp_month]" class="month validate-cc-exp required-entry">
+
+											<option value="" selected="selected">Month</option>
+
+											<option value="1">01 - January</option>
+
+											<option value="2">02 - February</option>
+
+											<option value="3">03 - March</option>
+
+											<option value="4">04 - April</option>
+
+											<option value="5">05 - May</option>
+
+											<option value="6">06 - June</option>
+
+											<option value="7">07 - July</option>
+
+											<option value="8">08 - August</option>
+
+											<option value="9">09 - September</option>
+
+											<option value="10">10 - October</option>
+
+											<option value="11">11 - November</option>
+
+											<option value="12">12 - December</option>
+
+										</select>
+
+									</div>
+
+									<div class="v-fix">
+
+										<select id="authorizenet_expiration_yr" name="payment[cc_exp_year]" class="year required-entry">
+
+											<option value="" selected="selected">Year</option>
+
+											<option value="2019">2019</option>
+
+
+											<option value="2020">2020</option>
+
+											<option value="2021">2021</option>
+
+											<option value="2022">2022</option>
+
+											<option value="2023">2023</option>
+
+											<option value="2024">2024</option>
+
+											<option value="2025">2025</option>
+
+											<option value="2026">2026</option>
+
+											<option value="2027">2027</option>
+
+											<option value="2028">2028</option>
+
+											<option value="2029">2029</option>
+
+										</select>
+
+									</div>
+
+								</div>
+
+							</li>
+
+							<?php 
+
+								  $cvvEnable = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('payment/authorizenet_directpost/useccv', $storeScope); 
+
+							if($cvvEnable){
+
+							?>
+
+							<li>
+
+								<label for="authorizenet_cvv_number" class="required"><em>*</em>Card Verification Number</label>
+
+								<div class="input-box">
+
+									<input type="number" autocomplete="off" id="authorizenet_cvv_number" class="input-text cvv" title="Card Verification Number" name="payment[cc_cid]" value="" data-validate="{'required-entry':true,'validate-card-cvv':true, 'validate-number':true}">
+
+								</div>
+
+							</li>
+
+							<?php }?>
+
+						</ul>
+
+					</dd>
+
+				</dl>
+
+				<div class="buttons-set">
+
+					<button type="submit" title="Continue" class="button submit-button"><span><span>PAY</span></span></button>
+
+					<button type="button" title="Continue" class="button cancel-button"><span><span>CANCEL</span></span></button>
+
+				</div>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</div>
+<script type="text/javascript" xml="space">
+	require( [ 'jquery', 'jquery/ui' ], function ( $ ) {
+		    $('.paybutton').click(function(){
+				var invoiceId = $(this).attr('data-id');
+				var formAction = '<?php echo $paymentUrl . "/invoice_id/"?>'+invoiceId;
+				$('#po_edit_form').attr('action', formAction);
+				$('#po_method_pay_methods_container').show();
+			});
+		$('.cancel-button').click(function(){
+				$('#po_method_pay_methods_container').hide();
+			})
+	} );
+</script>

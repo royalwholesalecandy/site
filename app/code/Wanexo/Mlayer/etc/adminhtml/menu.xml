@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+		<add id="Wanexo_Ext::bannermanage" title="Banner Slider" module="Wanexo_Mlayer" sortOrder="40" resource="Wanexo_Mlayer::mlayer" parent="Wanexo_Ext::wanexo"/>
+        <add id="Wanexo_Mlayer::banner" title="Manage Banner Slides" module="Wanexo_Mlayer" sortOrder="41" action="wanexo_mlayer/banner" resource="Wanexo_Mlayer::banner" parent="Wanexo_Ext::bannermanage" />
+		<add id="Wanexo_Mlayer::bannersetting" title="Banner Slider Settings" module="Wanexo_Mlayer" sortOrder="42" action="adminhtml/system_config/edit/section/wanexo_mlayer/" resource="Wanexo_Mlayer::mlayer" parent="Wanexo_Ext::bannermanage" />
+    </menu>
+</config>

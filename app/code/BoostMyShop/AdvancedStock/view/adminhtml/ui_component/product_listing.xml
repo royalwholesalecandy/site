@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <columns name="product_columns">
+        <column name="stocks" class="BoostMyShop\AdvancedStock\Ui\Component\Listing\Columns\Stocks">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="sortOrder" xsi:type="number">200</item>
+                    <item name="label" xsi:type="string">Stocks</item>
+                    <item name="component" xsi:type="string">BoostMyShop_AdvancedStock/js/grid/columns/stocks</item>
+                </item>
+            </argument>
+
+        </column>
+    </columns>
+
+</listing>

@@ -1,0 +1,163 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getPostCollection();
+?>
+
+<div class="content-block blog-block blog-grid-block">
+    <?php if ($this->getData('mgs_panel_title')): ?>
+        <div class="title-block">
+            <h2 class="title"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+            <?php if ($this->getData('mgs_panel_note')): ?>
+            <div class="block-note"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+        <?php endif ?>
+        </div>
+    <?php endif ?>
+
+    <?php if (count($collection)): ?>
+        <?php
+        $blockId = rand() . time();
+        $showShortContent = $this->getConfig('show_short_content');
+        $viewAs = $this->getConfig('view_as');
+        $showThumbnail = $this->getConfig('show_thumbnail');
+        ?>
+
+        <?php if ($viewAs == 'owl_carousel'): ?>
+            <div class="block widget mgs-blog-lastest-posts">
+                <div class="block-content">
+                    <div class="owl-carousel mgs-carousel-<?php echo $blockId; ?>">
+                        <?php foreach ($collection as $post): ?>
+                            <div class="item">
+
+                                <?php if ($showThumbnail): ?>
+                                    <div class="post-top">
+                                        <?php if ($post->getThumbType() == "video"): ?>
+                                            <?php if ($helper->getThumbnailImgVideoPost($post) != ""): ?>
+                                                <div class="video image" data-toggle="modal" data-target="#postModal-sidebar--<?php echo $post->getId() ?>">
+                                                    <img class="img-responsive" src="<?php echo $helper->getThumbnailImgVideoPost($post); ?>" />
+                                                </div>
+                                            <?php endif ?>
+                                        <?php else: ?>
+                                            <div class="image"><?php echo $helper->getThumbnailPost($post); ?></div>
+                                        <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <p class="h6 date">
+                                            <span class="month"><?php echo date('M', strtotime($block->formatDate($post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false))) ?></span>
+                                            <span class="day"><?php echo date('dS', strtotime($block->formatDate($post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false))) ?></span>                                            
+                                            <span class="year"><?php echo date('Y', strtotime($block->formatDate($post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false))) ?></span>
+                                        </p>
+                                        <?php if ($post->getTags()): ?>
+                                            <?php $tags = explode(',', $post->getTags()); ?>
+                                            <div class="post-tag h6 ">                                            
+                                                <?php foreach ($tags as $tag): ?>
+                                                    <a title="<?php echo trim($tag); ?>" href="<?php echo $helper->getTagUrl(trim($tag)); ?>"><?php echo trim($tag); ?></a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo $post->getTitle() ?></a></h3></div>
+                                    <?php if ($showShortContent): ?>
+                                        <div class="short-content">
+                                            <?php echo substr($post->getShortContent(), 0, $this->getConfig('limit_characters_short_content')); ?>
+                                        </div>
+                                    <?php endif ?>
+                                    <div class="read-more">
+                                        <a href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('Read more') ?></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                require([
+                    'jquery',
+                    'mgs/owlcarousel'
+                ], function ($) {
+                    var owl<?php echo $blockId ?> = $('.mgs-carousel-<?php echo $blockId ?>').owlCarousel({
+                        items: <?php echo $this->getConfig('items', 5); ?>,
+                        autoplay: <?php echo $this->getConfig('autoplay') ? 'true' : 'false' ?>,
+                        autoplayHoverPause: <?php echo $this->getConfig('stop_auto') ? 'true' : 'false' ?>,
+                        nav: <?php echo $this->getConfig('navigation') ? 'true' : 'false' ?>,
+                        navText: ['<span class="ion-ios-arrow-left"></span>', '<span class="ion-ios-arrow-right"></span>'],
+                        dots: <?php echo $this->getConfig('pagination') ? 'true' : 'false' ?>,
+                        margin: 30,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 0
+                            },
+                            600: {
+                                items: 2,
+                                margin: 20
+                            },
+                            768: {
+                                items:<?php echo $this->getConfig('items', 5); ?>
+                            }
+                        }
+                    });
+
+                });
+            </script>
+        <?php else: ?>
+            <div class="block widget mgs-blog-lastest-posts">
+                <div class="block-content">
+                    <?php $perRow = $this->getConfig('items', 5); ?>
+                    <?php $col = $helper->convertPerRowtoCol($perRow); ?>
+                    <ul class="row <?php echo $helper->convertColClass($col, 'row') ?>">
+                        <?php foreach ($collection as $post): ?>
+                            <li class="item <?php echo $helper->convertColClass($col, 'col') ?>">
+                                <?php if ($showThumbnail): ?>
+                                    <div class="post-top">
+                                        <?php if ($post->getThumbType() == "video"): ?>
+                                            <?php if ($helper->getThumbnailImgVideoPost($post) != ""): ?>
+                                                <div class="video image" data-toggle="modal" data-target="#postModal-sidebar--<?php echo $post->getId() ?>">
+                                                    <img class="img-responsive" src="<?php echo $helper->getThumbnailImgVideoPost($post); ?>" />
+                                                </div>
+                                            <?php endif ?>
+                                        <?php else: ?>
+                                            <div class="image"><?php echo $helper->getThumbnailPost($post); ?></div>
+                                        <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                <div class="post-content">
+
+                                    <div class="post-meta">
+                                        <p class="h6 date"><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::MEDIUM, false)); ?></p>
+                                        <?php if ($post->getTags()): ?>
+                                            <?php $tags = explode(',', $post->getTags()); ?>
+                                            <div class="post-tag h6">                                            
+                                                <?php foreach ($tags as $tag): ?>
+                                                    <a title="<?php echo trim($tag); ?>" href="<?php echo $helper->getTagUrl(trim($tag)); ?>"><?php echo trim($tag); ?></a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo $post->getTitle() ?></a></h3></div>
+                                    <?php if ($showShortContent): ?>
+                                        <div class="short-content">
+                                            <?php echo substr($post->getShortContent(), 0, $this->getConfig('limit_characters_short_content')); ?>
+                                        </div>
+                                    <?php endif ?>
+                                    <div class="read-more">
+                                        <a href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('Read more') ?></a>
+                                    </div>
+                                </div>
+
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        <?php endif; ?>
+
+    <?php else: ?>
+        <div role="alert" class="alert alert-warning"> <?php echo __('There are no posts matching the selection.') ?> </div>
+    <?php endif; ?>
+</div>

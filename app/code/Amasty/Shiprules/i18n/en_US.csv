@@ -1,0 +1,94 @@
+"Shipping Rules","Shipping Rules"
+"Add Rule","Add Rule"
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Shipping Rule `%1`","Edit Shipping Rule `%1`"
+"Add new Shipping Rule","Add new Shipping Rule"
+"Shipping Rules Information","Shipping Rules Information"
+"Promotions / Shopping Cart Rules","Promotions / Shopping Cart Rules"
+(none),(none)
+"Shipping Carriers","Shipping Carriers"
+"Select if you want to use ALL methods from the given carrirers","Select if you want to use ALL methods from the given carrirers"
+"Shipping Methods","Shipping Methods"
+"Select methods you want to use","Select methods you want to use"
+Priority,Priority
+"If a product matches several rules, the first rule will be applied only.","If a product matches several rules, the first rule will be applied only."
+Products,Products
+"Select products or leave blank for all products.","Select products or leave blank for all products."
+Conditions,Conditions
+"Free Shipping","Free Shipping"
+"Ignore Free Shipping Promo","Ignore Free Shipping Promo"
+"If the option is set to `No`, totals below will be applied only to items with non-free shipping.","If the option is set to `No`, totals below will be applied only to items with non-free shipping."
+"Totals for selected products, excluding items shipped for free.","Totals for selected products, excluding items shipped for free."
+"Weight From","Weight From"
+"Weight To","Weight To"
+"Qty From","Qty From"
+"Qty To","Qty To"
+"Price From","Price From"
+"Original product cart price, without discounts.","Original product cart price, without discounts."
+"Price To","Price To"
+Rates,Rates
+Calculation,Calculation
+"Base Rate for the Order","Base Rate for the Order"
+"Fixed Rate per Product","Fixed Rate per Product"
+"Rate per unit of weight","Rate per unit of weight"
+"Enter the surcharge or discount amount that'll be automatically multiplied by the product's weight to create a shipping rate.","Enter the surcharge or discount amount that'll be automatically multiplied by the product's weight to create a shipping rate."
+"Percentage per Product","Percentage per Product"
+"Percentage of original product cart price is taken, without discounts.","Percentage of original product cart price is taken, without discounts."
+"Handling Percentage","Handling Percentage"
+"The percentage will be added or deducted from the shipping rate. If it is 10% and UPS Ground is $25, the total shipping cost will be $27.5","The percentage will be added or deducted from the shipping rate. If it is 10% and UPS Ground is $25, the total shipping cost will be $27.5"
+"Minimal rate change","Minimal rate change"
+"This is the minimal amount, which will be added or deducted by this rule.","This is the minimal amount, which will be added or deducted by this rule."
+"Maximal rate change","Maximal rate change"
+"This is the maximum amount, which will be added or deducted by this rule.","This is the maximum amount, which will be added or deducted by this rule."
+"Minimal total rate","Minimal total rate"
+"Minimal total rate after the rule is applied.","Minimal total rate after the rule is applied."
+"Maximal total rate","Maximal total rate"
+"Maximal total rate after the rule is applied.","Maximal total rate after the rule is applied."
+"Shipping Rules Options","Shipping Rules Options"
+Any,Any
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"You deleted the item.","You deleted the item."
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"We can't find a item to delete.","We can't find a item to delete."
+"Please select a rule to duplicate.","Please select a rule to duplicate."
+"This item no longer exists.","This item no longer exists."
+"The rule has been duplicated. Please feel free to activate it.","The rule has been duplicated. Please feel free to activate it."
+"Something went wrong while saving the item data. Please review the error log.","Something went wrong while saving the item data. Please review the error log."
+"You deleted the rule(s).","You deleted the rule(s)."
+"You activated the rule(s).","You activated the rule(s)."
+"You deactivated the rule(s).","You deactivated the rule(s)."
+"We can't delete/activate/deactivate rule(s) right now. Please review the log and try again.","We can't delete/activate/deactivate rule(s) right now. Please review the log and try again."
+"We can't find a rule(s) to delete/activate/deactivate.","We can't find a rule(s) to delete/activate/deactivate."
+"The wrong item is specified.","The wrong item is specified."
+"You saved the rule.","You saved the rule."
+Subtotal,Subtotal
+"Total Items Quantity","Total Items Quantity"
+"Total Weight","Total Weight"
+"Shipping Postcode","Shipping Postcode"
+"Shipping State/Province","Shipping State/Province"
+"Shipping Country","Shipping Country"
+"Shipping City","Shipping City"
+"Shipping Address Line","Shipping Address Line"
+"All orders","All orders"
+"Backorders only","Backorders only"
+"Non backorders","Non backorders"
+Information,Information
+General,General
+"Include tax in subtotal","Include tax in subtotal"
+"Use subtotal after discount","Use subtotal after discount"
+Activate,Activate
+Inactivate,Inactivate
+Delete,Delete
+"Are you sure?","Are you sure?"
+ID,ID
+Status,Status
+Inactive,Inactive
+Active,Active
+Name,Name
+Methods,Methods
+"Base Rate","Base Rate"
+"Fixed Rate","Fixed Rate"
+Percentage,Percentage
+Handling,Handling
+Action,Action
+Duplicate,Duplicate

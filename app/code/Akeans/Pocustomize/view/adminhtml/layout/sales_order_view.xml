@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!--
+
+/**
+
+ * Copyright © Magento, Inc. All rights reserved.
+
+ * See COPYING.txt for license details.
+
+ */
+
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+   <body>      
+
+        <referenceBlock name="payment_additional_info">
+
+           <block class="Magento\Sales\Block\Adminhtml\Order\View\History"  after="order_history" name="custom_order_history" template="Akeans_Pocustomize::order/view/history.phtml"/>
+
+        </referenceBlock>
+
+	   <referenceBlock name="order_info">
+
+            <block class="Magento\Sales\Block\Adminhtml\Order\View" name="sales_order_view_custom" template="Akeans_Pocustomize::order/view/lineitems.phtml" />
+
+        </referenceBlock>
+		<referenceBlock name="sales_order_edit">
+            <block class="Akeans\Pocustomize\Block\Adminhtml\Order\View\Buttons" name="custom_buttons">
+                <action method="addButtons"/>
+            </block>
+        </referenceBlock>
+    </body>
+
+</page>
+

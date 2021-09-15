@@ -1,0 +1,53 @@
+<div class="page-main-actions">
+
+    <div class="div_sbi_notifications">
+        <div id="div_instruction" style="font-size: 24px; font-weight: bold;">
+
+        </div>
+        <div id="div_message" style="font-size: 18px; font-weight: bold; padding-top: 5px;">
+            &nbsp;
+        </div>
+    </div>
+
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <?php $i=1; ?>
+        <?php foreach($this->getSteps() as $step): ?>
+            <button id="btn_step_<?php echo $step['id']; ?>" title="<?php echo $step['label']; ?>" type="button" onclick="<?php echo $step['action']; ?>" class="action-default scalable action-primary" >
+                <span><?php echo ($i++).". ".__($step['label']); ?></span>
+            </button>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if ($this->showScopeForm()): ?>
+        <form method="POST" action="<?php echo $this->getSubmitUrl(); ?>" id="form_registry">
+            <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+            <table border="0" cellpadding="5">
+                <tr>
+                    <td><?php echo __('Operator'); ?> : </td>
+                    <td>&nbsp;&nbsp;&nbsp;
+                        <select name="operator_id" onchange="jQuery('#form_registry').submit();">
+                            <?php foreach($this->getOperators() as $operator): ?>
+                                <?php $selected = ($operator->getId() == $this->getCurrentOperatorId() ? ' selected ' : ''); ?>
+                                <option <?php echo $selected; ?> value="<?php echo $operator->getId(); ?>"><?php echo $operator->getusername(); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php echo __('Warehouse'); ?> : </td>
+                    <td>&nbsp;&nbsp;&nbsp;
+                        <select name="warehouse_id" onchange="jQuery('#form_registry').submit();">
+                            <?php foreach($this->getWarehouses() as $id => $name): ?>
+                                <?php $selected = ($id == $this->getCurrentWarehouseId() ? ' selected ' : ''); ?>
+                                <option <?php echo $selected; ?> value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    <?php endif; ?>
+
+</div>

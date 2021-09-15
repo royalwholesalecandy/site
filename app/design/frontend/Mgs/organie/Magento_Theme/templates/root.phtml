@@ -1,0 +1,75 @@
+<?php
+/**
+ * Copyright � 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$helper =  \Magento\Framework\App\ObjectManager::getInstance()->get('MGS\Mpanel\Helper\Data');
+$url = $helper->getCssUrl();
+$canUsePanel = $helper->acceptToUsePanel()
+?>
+<!doctype html>
+<html <?php /* @escapeNotVerified */ echo $htmlAttributes ?>>
+    <head <?php /* @escapeNotVerified */ echo $headAttributes ?>>
+        <?php /* @escapeNotVerified */ echo $requireJs ?>
+        <?php /* @escapeNotVerified */ echo $headContent ?>
+        <?php /* @escapeNotVerified */ echo $headAdditional ?>
+		<?php echo $helper->getLinksFont() ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $url ?>" /> 
+		<?php if($helper->showButton()): ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $helper->getPanelCssUrl() ?>" /> 
+		<?php endif ?>
+		<script>
+			var WEB_URL = "<?php echo $helper->getUrlBuilder()->getUrl() ?>";
+		</script>
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?php /* @escapeNotVerified */ echo $loaderIcon; ?>"}}' <?php /* @escapeNotVerified */ echo $bodyAttributes ?>>
+		<?php if($helper->showButton() && !$helper->isPopup()): ?>
+			<?php echo $topPanel ?>
+		<?php endif ?>
+		<div class="page-wrapper">
+			<?php if(isset($headerContent)): ?>
+				<header class="header <?php echo $helper->getHeaderClass() ?>">
+					<?php if($canUsePanel): ?>
+						<div class="edit-panel edit-header"><ul><li><a class="popup-link" href="<?php echo $helper->getUrlBuilder()->getUrl('mpanel/edit/header', ['type'=>'header']) ?>" title="<?php echo __('Edit Header') ?>"><em class="fa fa-gear"></em></a></li></ul></div>
+					<?php endif ?>
+					<?php if($helper->isHomepage()): ?>
+						<?php echo $topStatic; ?>
+					<?php endif ?>
+					<?php echo $headerContent ?>
+				</header>
+			<?php endif ?>
+			
+			<?php if($helper->useBuilder() && $helper->isHomepage()): ?>
+                    <?php if($this->getStoreConfig('mgstheme/general/onepage_slider')): ?>
+                    <div class="home-content">
+                    <div class="onepage-slider">
+                        <?php endif;?>
+                        <?php echo $builderContent ?>
+                        <?php if($this->getStoreConfig('mgstheme/general/onepage_slider')): ?>
+                    </div>
+                    </div>
+                     <?php endif;?>
+			<?php else: ?>
+				<?php echo $mainContent ?>
+			<?php endif ?>
+			
+			<?php if(isset($footerContent)): ?>
+				<footer class="footer <?php echo $helper->getFooterClass($canUsePanel) ?>" <?php if($this->getStoreConfig('mgstheme/general/onepage_slider') && $helper->isHomepage()): ?> style="display: none;" <?php endif;?>>
+					<?php if($canUsePanel): ?>
+						<div class="edit-panel edit-footer"><ul><li><a class="popup-link" href="<?php echo $helper->getUrlBuilder()->getUrl('mpanel/edit/footer', ['type'=>'footer']) ?>" title="<?php echo __('Edit Footer') ?>"><em class="fa fa-gear"></em></a></li></ul></div>
+					<?php endif ?>
+					<?php echo $footerContent ?>
+				</footer>
+			<?php endif ?>
+			<?php if(isset($scriptContent)): ?>
+				<?php echo $scriptContent ?>
+			<?php endif ?>
+		</div>
+		
+		<?php if($canUsePanel): ?>
+			<script  type="text/javascript" src="<?php echo $this->getViewFileUrl('MGS_Mpanel::js/panel.js') ?>"></script>
+		<?php endif ?>
+    </body>
+</html>

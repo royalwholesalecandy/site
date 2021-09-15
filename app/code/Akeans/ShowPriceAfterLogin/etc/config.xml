@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.akeans.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <showpriceafterlogin_config>
+		
+            <group_showpriceafterlogin_general>
+                <config_showpriceafterlogin_enable>1</config_showpriceafterlogin_enable>
+                <config_showpriceafterlogin_title>Login For Price</config_showpriceafterlogin_title>
+                <config_showpriceafterlogin_redirect_url>customer/account/login/</config_showpriceafterlogin_redirect_url>
+            </group_showpriceafterlogin_general>
+			
+			<group_showpriceafterlogin_other>
+                <config_showpriceafterlogin_callprice_text>Please contact us view the price</config_showpriceafterlogin_callprice_text>
+            </group_showpriceafterlogin_other>
+			
+        </showpriceafterlogin_config>
+        
+        
+    </default>
+</config>

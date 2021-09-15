@@ -1,0 +1,48 @@
+
+
+<table border="0" width="100%">
+    <tr>
+        <td width="50%">
+            <h2><?php echo __('Export order details'); ?></h2>
+            <ul style="margin-left: 50px;">
+                <?php foreach($this->getTemplates() as $template): ?>
+                    <li><a href="<?php echo $this->getCarrierExportUrl($template); ?>">Export for <?php echo $template->getct_name(); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </td>
+        <td width="50%">
+            <h2><?php echo __('Import tracking file'); ?></h2>
+
+            <form method="POST" action="<?php echo $this->getImportUrl(); ?>" id="import_form" enctype="multipart/form-data">
+                <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+                <table border="0" style="margin-left: 50px;">
+                    <tr>
+                        <td width="100px;">Template</td>
+                        <td>
+                            <select name="import_template" style="margin-bottom: 5px;">
+                                <option></option>
+                                <?php foreach($this->getTemplates() as $template): ?>
+                                    <option value="<?php echo $template->getId(); ?>"><?php echo $template->getct_name(); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>File</td>
+                        <td><input type="file" name="import_file" style="margin-bottom: 5px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Import</td>
+                        <td><input type="submit" value="Import" style="margin-bottom: 5px;"></td>
+                    </tr>
+                </table>
+
+            </form>
+
+        </td>
+    </tr>
+</table>
+
+
+

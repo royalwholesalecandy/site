@@ -1,0 +1,100 @@
+<?php
+ $config = $this->helper('Wanexo\Brand\Helper\Data')->getConfig('brand_section/general');
+ $config2 = $this->helper('Wanexo\Brand\Helper\Data')->getConfig('brand_section/home_settings');
+ 
+ $enable = $config['enable'];
+ $sortname = $config['sortname'];
+ 
+ $title = $config2['title'];
+ $showno_brand = $config2['showno_brand'];
+ $showon_row = $config2['showon_row'];
+ $autoslide = $config2['autoplay'];
+ $brandname = $config2['brandname'];
+ $pagination = $config2['pagination'];
+ $navigation = $config2['nvg'];
+ 
+ 
+if ($enable):         
+   
+    //get collection
+    $brand = $this->getBrandCollection();
+?>
+<div class="container zeroNine">
+<section class="brand-wrapper col-xs-12">
+	<div class="box-title">
+	  <h2><span><?php echo $title;?>  <?php echo $pagination;?>99</span></h2>
+    </div>
+	<?php
+	  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $model = $objectManager->create('Magento\Catalog\Model\Product');
+	     $attr = $model->getResource()->getAttribute("is_brand");
+	   ?>
+    <?php if (count($brand) > 0):?>
+        <!--owl carousel-->
+      <div id="owl-brand" class="owl-carousel">
+        <?php
+           $imageUrl = $this->getMediaUrl().'wanexo/brand/brand/image/';
+           foreach ($brand as $k => $v):
+           $pi = $v->getBrandThumbimage();
+            
+            $value = explode('.',$pi);
+           if(isset($value[1])):  
+           if ($this->helper('Wanexo\Brand\Helper\Data')->getConfig('brand_section/home_settings/resizeimage') == 1):
+           $imageUrl = $this->getMediaUrl().'wanexo/brand/brand/image/thumb/';
+           $fileThumb = $imageUrl .$value[0].'_thumb.'.$value[1];  
+            else:
+           $fileThumb = $imageUrl .$value[0].'.'.$value[1];
+           endif;
+		   endif;
+           
+        ?>
+         <div class="item">
+		  <?php
+		    $optionName = $v->getBrandOptionName();
+			$option_id = $attr->getSource()->getOptionId($optionName);
+			?>
+			<?php if($brandname == 'image_and_lable'):?>
+				<?php if($v->getBrandThumbimage() !=''):?>
+					<?php if($this->helper('Wanexo\Brand\Helper\Data')->getConfig('brand_section/home_settings/carowselimg') == 1): ?>
+						<a href="<?php echo $this->getUrl('wanexo_brand/brand/productlist').'?id='. $option_id; ?>">
+							<img class="lazyOwl" data-src="<?php echo $fileThumb; ?>" alt="<?php //echo $v->getBrandTitle(); ?>">
+						</a>
+					<?php endif;?>
+				<?php endif;?>
+			<p><span class="title"><?php echo $v->getBrandTitle(); ?></span></p>
+			<?php elseif($brandname == 'image_only'):?>
+              <a href="<?php echo $this->getUrl('wanexo_brand/brand/productlist').'?id='. $option_id; ?>"><img class="lazyOwl" data-src="<?php echo $fileThumb; ?>" alt="<?php //echo $v->getBrandTitle(); ?>"></a>
+			<p><?php //echo $v->getContent(); ?></p>
+			<?php elseif($brandname == 'label_only'):?>
+            <p><span class="title"><a href="<?php echo $this->getUrl('wanexo_brand/brand/productlist').'?id='. $option_id; ?>" style="text-decoration: none"><?php echo $v->getBrandTitle(); ?></a></span></p>
+			 <?php endif;?>
+        </div>		 
+        <?php endforeach; ?>
+      </div>
+      <?php else:?>
+	<div class="message info empty"><?php echo __('There are no collection') ?></div>
+	<?php endif; ?>
+</section>
+
+	<script type="text/javascript">
+		 require(["jquery", "owlcarouseljs","jquery/ui"],function($){		
+			$('#owl-brand').owlCarousel({
+				lazyLoad : true,
+				autoPlay:<?php echo ($autoslide ==true ? 'true':'false');?>,
+				navigation:<?php echo ($navigation ==true ? 'true':'false');?>,
+				navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				pagination :<?php echo ($pagination ==true ? 'true':'false');?>,
+				autoplayTimeout: 5000,
+				responsiveClass:true,
+				items :<?php echo $showon_row;?>,
+				itemsCustom : false,
+				itemsDesktop : [1199,4],
+				itemsDesktopSmall : [980,4],
+				itemsTablet: [768,4],
+				itemsTabletSmall: [767,3],
+				itemsMobile : [479,2]
+			})
+		});	
+	</script>
+</div>	
+<?php endif; ?>

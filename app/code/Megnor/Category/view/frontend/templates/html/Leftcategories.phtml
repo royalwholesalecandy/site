@@ -1,0 +1,85 @@
+<div class="sidebar-category block">
+<?php //echo $this->getHtml(); ?>
+	<div class="block-title category-title">
+            <strong data-role="title">Category</strong>
+     </div>
+<?php
+$categories     = $this->getStoreCategories(true, false, true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<ul id="category-treeview" class="treeview-side treeview block-content">
+    <?php
+foreach ($categories as $category){
+    if (!$category->getIsActive()) {
+        continue;
+    }
+    $catUrl = $categoryHelper->getCategoryUrl($category);
+    if($category->getId() == '5'){
+        $catUrl = '/brands';
+    }
+    if($category->getId() == '6'){
+        $catUrl = '/categories';
+    }
+    if($category->getId() == '7'){
+        $catUrl = '/colors';
+    }
+    if($category->getId() == '8'){
+        $catUrl = '/occasions';
+    }
+    if($category->getId() == '13'){
+        $catUrl = '/flavors';
+    }
+	?>
+    <li><a href="<?php echo $catUrl; ?>"> <?php  echo $category->getName();?></a>
+    <?php if ($childrenCategories = $this->getChildCategories($category)){ ?>
+	
+	<?php 
+	$i=0;
+	foreach ($childrenCategories as $childrenCategory){
+		$i++;
+	}
+	// echo $i."good".sizeof($childrenCategories);
+	if($i>=1){
+	?>
+    <ul class="extra1">		
+        <?php
+        foreach ($childrenCategories as $childrenCategory){
+            if (!$childrenCategory->getIsActive()){
+                continue;
+            }
+		?>
+        <li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory);?>"> <?php echo $childrenCategory->getName();?></a>
+			
+					<?php if ($childrenCategories2 = $this->getChildCategories($childrenCategory)){ ?>
+					<?php 
+					//echo count($childrenCategories); 	
+					$j=0;
+					foreach ($childrenCategories2 as $childrenCategory2){
+						$j++;
+					}
+					// echo $i."good".sizeof($childrenCategories);
+					if($j>=1){
+					?>
+						 <ul class="extra2">
+							<?php
+							foreach ($childrenCategories2 as $childrenCategory2){
+								if (!$childrenCategory2->getIsActive()){
+									continue;
+								}
+							?>
+							<li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory2);?>"> <?php echo $childrenCategory2->getName();?></a></li>
+							<?php } ?>
+						</ul>
+					<?php } ?>
+					<?php } ?>
+			
+        <?php } ?>
+	</li>
+    </ul>
+	<?php } ?>
+    <?php } ?>
+<?php } ?>
+</li>
+</ul>
+
+</div>

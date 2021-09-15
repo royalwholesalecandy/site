@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Metagento_Core::metagento"
+             title="Metagento"
+             module="Metagento_Core"
+             sortOrder="50"
+             resource="Metagento_Core::menu"/>
+        <add id="Metagento_Core::extension"
+             module="Metagento_Core"
+             title="More Extensions"
+             action="adminhtml/system_config/edit/section/metagento_extension"
+             resource="Metagento_Core::menu"
+             parent="Metagento_Core::metagento"
+             sortOrder="900"/>
+        <add id="Metagento_Core::development"
+             module="Metagento_Core"
+             title="Bug Fix and Custom Development Service"
+             action="adminhtml/system_config/edit/section/metagento_notification"
+             resource="Metagento_Core::menu"
+             parent="Metagento_Core::metagento"
+             sortOrder="1000"/>
+    </menu>
+</config>

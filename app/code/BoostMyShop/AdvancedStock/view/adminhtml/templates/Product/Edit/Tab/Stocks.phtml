@@ -1,0 +1,89 @@
+<form method="POST" action="<?php echo $this->getSubmitUrl(); ?>" id="frm_warehouse_item">
+    <input type="hidden" name="product[product_id]" value="<?php echo $this->getProductId(); ?>">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+            <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+                <table border="0" width="100%">
+                    <tr>
+                        <td>
+                            <h3><?php echo __('Warehouses'); ?></h3>
+                        </td>
+                        <td align="right">
+                            <button type="button" class="action-primary" onclick="jQuery('#frm_warehouse_item').submit();">
+                                <span data-bind="text: title">Save</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+
+        
+                <table class="data-grid" id="stocks_grid_table">
+                    <thead>
+                    <tr>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Warehouse'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('To ship'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Reserved qty'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Available qty'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Shelf location'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Warning stock level'); ?></span></th>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Ideal stock level'); ?></span></th>
+                    </tr>
+                    </thead>
+        
+                    <tbody>
+                        <?php foreach($this->getStocks() as $stock): ?>
+                            <tr>
+                                <td class="a-left"><?php echo $stock->getw_name(); ?></td>
+                                <td class="a-center"><?php echo $stock->getwi_physical_quantity(); ?></td>
+                                <td class="a-center"><?php echo $stock->getwi_quantity_to_ship(); ?></td>
+                                <td class="a-center"><?php echo $stock->getwi_reserved_quantity(); ?></td>
+                                <td class="a-center"><?php echo $stock->getwi_available_quantity(); ?></td>
+                                <td class="a-center"><input type="text" size="3" name="product[advancedstock][<?php echo $stock->getId(); ?>][wi_shelf_location]" value="<?php echo $stock->getwi_shelf_location(); ?>"></td>
+                                <td class="a-center">
+                                    <label for="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_warning_stock_level]" class="choice use-default">
+                                        <input type="checkbox"
+                                               name="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_warning_stock_level]"
+                                               id="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_warning_stock_level]"
+                                               class="use-default-control"
+                                        <?php echo ($stock->getwi_use_config_warning_stock_level() ? 'checked="checked"' : ''); ?>"
+                                        onclick="if (this.checked) { $('product[advancedstock][<?php echo $stock->getitem_id(); ?>][wi_warning_stock_level]').hide();} else {$('product[advancedstock][<?php echo $stock->getId(); ?>][wi_warning_stock_level]').show();}"
+                                        value="1">
+                                        <span class="use-default-label"><?php echo __('Use Default Value'); ?> (<?php echo $this->getDefaultWarningStockLevel(); ?>)</span>
+                                    </label>
+                                    <br><input type="text"
+                                               style="display: <?php echo ($stock->getwi_use_config_warning_stock_level() ? 'none' : ''); ?>"
+                                               id="product[advancedstock][<?php echo $stock->getId(); ?>][wi_warning_stock_level]"
+                                               name="product[advancedstock][<?php echo $stock->getId(); ?>][wi_warning_stock_level]"
+                                               value="<?php echo (int)$stock->getwi_warning_stock_level(); ?>"
+
+                                               size="3">
+                                </td>
+                                <td class="a-center">
+                                    <label for="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_ideal_stock_level]" class="choice use-default">
+                                        <input type="checkbox"
+                                               name="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_ideal_stock_level]"
+                                               id="product[advancedstock][<?php echo $stock->getId(); ?>][wi_use_config_ideal_stock_level]"
+                                               class="use-default-control"
+                                               <?php echo ($stock->getwi_use_config_ideal_stock_level() ? 'checked="checked"' : ''); ?>"
+                                               onclick="if (this.checked) { $('product[advancedstock][<?php echo $stock->getId(); ?>][wi_ideal_stock_level]').hide();} else {$('product[advancedstock][<?php echo $stock->getId(); ?>][wi_ideal_stock_level]').show();}"
+                                               value="1">
+                                        <span class="use-default-label"><?php echo __('Use Default Value'); ?> (<?php echo $this->getDefaulIdealStockLevel(); ?>)</span>
+                                    </label>
+                                    <br><input type="text"
+                                               style="display: <?php echo ($stock->getwi_use_config_ideal_stock_level() ? 'none' : ''); ?>"
+                                               id="product[advancedstock][<?php echo $stock->getId(); ?>][wi_ideal_stock_level]"
+                                               name="product[advancedstock][<?php echo $stock->getId(); ?>][wi_ideal_stock_level]"
+                                               value="<?php echo $stock->getwi_ideal_stock_level(); ?>"
+                                               size="3">
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+        
+            </div>
+
+</form>

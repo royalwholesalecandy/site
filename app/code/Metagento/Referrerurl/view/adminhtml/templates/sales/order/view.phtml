@@ -1,0 +1,10 @@
+<?php if($block->getOrder()): ?>
+    <section class="admin__page-section order-addresses">
+        <div class="admin__page-section-title">
+            <span class="title"><?php echo __("Referrer URL") ?></span>
+        </div>
+        <div class="admin__page-section-item-content">
+            <?php echo $block->getOrder()->getReferrerUrl() ?>
+        </div>
+    </section>
+<?php endif ?>

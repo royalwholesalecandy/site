@@ -1,0 +1,111 @@
+<?php $_testimonialCollection = $this->getCollection(); ?>
+<?php $_collectionSize = count($_testimonialCollection) ?>
+<?php $helper = $this->helper('MGS\Testimonial\Helper\Data'); ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data');?>
+
+<div class="content-block testimonial-block testimonial-list-block">
+	<?php if($this->getData('mgs_panel_title')): ?>
+		<div class="title-block">
+			<h2 class="title h5"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+			<?php if($this->getData('mgs_panel_note')): ?>
+			<div class="block-note"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+		<?php endif ?>
+		</div>
+	<?php endif ?>
+
+	<?php if (count($_testimonialCollection) >0): ?>
+		
+		
+		<?php
+			$blockId = rand() . time();
+			$useSlider = $this->getUseSlider();
+			$showAvatar = $this->getShowAvatar();
+			$perRow = $this->getPerrow();
+		?>
+		<?php if ($useSlider): ?>
+			<div class="block widget mgs-testimonial">
+				<div class="owl-carousel testimonial-grid mgs-carousel-<?php echo $blockId; ?>">
+					<?php foreach ($_testimonialCollection as $testimonial): ?>
+						<div class="item testimonial-item">
+							<?php if($showAvatar && $this->getAvatarUrl($testimonial->getAvatar())): ?>
+								<div class="img-author">							
+									<img src="<?php echo $this->getAvatarUrl($testimonial->getAvatar()) ?>" alt="">							
+								</div>
+							<?php endif;?>
+							<div class="content">
+								<p class="h5"><?php echo $testimonial->getContent() ?></p>
+								<div class="author">
+									<strong><?php echo $testimonial->getName() ?></strong>
+									<span class="h6"><span>/</span><?php echo $testimonial->getInformation() ?></span>
+								</div>
+							</div>						    
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+			<script type="text/javascript">
+				require([
+					'jquery',
+					'mgs/owlcarousel'
+				], function ($) {
+					var owl<?php echo $blockId ?> = $('.mgs-carousel-<?php echo $blockId ?>').owlCarousel({
+						items: <?php echo $perRow; ?>,
+						autoplay: <?php echo $this->getAutoplay() ? 'true' : 'false' ?>,
+						autoplayHoverPause: <?php echo $this->getStopAuto() ? 'true' : 'false' ?>,
+						nav: <?php echo $this->getNavigation() ? 'true' : 'false' ?>,
+						navText:["<span class='ion-ios-arrow-left'></span>", "<span class='ion-ios-arrow-right'></span>"],
+						dots: <?php echo $this->getPagination() ? 'true' : 'false' ?>,
+						margin:30,
+						responsive:{
+							0:{
+								items:1,
+								margin:0
+							},
+							480:{
+								items:2,
+								margin:20
+							},
+							768:{
+								items:<?php echo $perRow; ?>
+							}
+						}
+					});
+					<?php if($this->getPagination()): ?>
+						owl<?php echo $blockId ?>.on('changed.owl.carousel', function (event) {
+							if (event.item.count - event.page.size == event.item.index)
+								$(event.target).find('.owl-dots div:last')
+								  .addClass('active').siblings().removeClass('active');
+						});
+					<?php endif ?>
+				});
+			</script>
+		<?php else: ?>
+			<div class="block widget mgs-testimonial">
+				<div class="block-content">
+					<?php $col = $helper->convertPerRowtoCol($perRow); ?>
+					<ul class="row <?php echo $helper->convertColClass($col, 'row') ?>">
+						<?php $i=0; foreach ($_testimonialCollection as $testimonial): $i++; ?>
+							<li class="item testimonial-author <?php echo $themeHelper->convertColClass($col, 'col') ?> <?php echo $themeHelper->getClearClass($perRow,$i)?>">
+								<div class="testimonial-content">
+									<p><?php echo $testimonial->getContent() ?></p>
+								</div>
+								<div class="arrow_down"></div>
+							    <div class="client">
+								<?php if($showAvatar && $this->getAvatarUrl($testimonial->getAvatar())): ?>
+									<div class="img-thumbnail img-thumbnail-small col-xs-3">							
+										<img src="<?php echo $this->getAvatarUrl($testimonial->getAvatar()) ?>" alt="">						
+									</div>
+								<?php endif;?>
+								<h2><?php echo $testimonial->getName() ?></h2>
+								<p class="h5"><em>/ <?php echo $testimonial->getInformation() ?></em></p>
+								</div>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				</div>
+			</div>
+		<?php endif ?>
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning"> <?php echo __('There are no testimonials matching the selection.') ?> </div>
+	<?php endif ?>
+</div>

@@ -1,0 +1,134 @@
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+ .wk-save-ship{
+     float : right;
+ }
+ .wk-mapping-fieldset .admin__field-control {
+    padding: 5px 0;
+ }
+ .wk-shipping-container{
+     display:inline-block;
+     width: 35%;
+ }
+ .wk-close {
+    color: #000000;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    opacity: 0.2;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+ .wk-profile-alert {
+    padding: 10px;
+    border: 1px solid #faebcc;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    vertical-align: bottom;
+    color: #8a6d3b;
+    background: #fcf8e3;
+    line-height: 1.42857143;
+}
+
+ .wk-mu-error-msg-container{
+    max-height : 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+ .wk-italic{
+     font-style: italic;
+     display:block;
+     margin-top: 5px;
+ }
+ #page_tabs_general_configuration_content .label.admin__field-label {
+    text-align: left;
+    width: 30%;
+ }
+ .wk-btn_default {
+     margin-right : 5px;
+ }
+ #user_base_fieldset .control #user_price {
+    border-width: 1px 1px 1px 1px;
+ }
+ .wk-amazon-count {
+     display: block;
+ }
+ .wk-warning-msg{
+     margin-bottom:20px;
+ }
+.report-note{
+    padding: 17px 12px;
+    font-style: italic;
+}
+.report-note::before {
+    content :unset;
+}
+.wk-product-button-container,.wk-order-button-container{
+    float: right;
+}
+.range-container{
+    margin-bottom: 5px;
+}
+.wk-mu-sample-files {
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+.wk-mu-sample-files > a {
+    margin-right: 15px;
+}
+.wk-mu-progress-bar {
+    border: 1px solid #28cb6e;
+    display: inline-block;
+    height: 15px;
+    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.wk-mu-progress-bar-current {
+    background: none repeat scroll 0 0 #61d896;
+    display: inline-block;
+    height: 15px;
+    width: 0px;
+}
+.wk-mu-info-bar {
+    color: #3c763d;
+    font-weight: bold;
+    margin-top: 30px;
+}
+.wk-mu-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.wk-mu-note {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.wk-mu-notice {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.wk-mu-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.wk-mu-box {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+.wk-mapping-fieldset .wk-save-mapping,.page-main-actions .wk-product-import-buttons,.wk-back-button{
+    float:right;
+}

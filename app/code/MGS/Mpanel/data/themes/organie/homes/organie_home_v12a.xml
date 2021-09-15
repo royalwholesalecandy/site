@@ -1,0 +1,529 @@
+<home>
+	<section>
+		<name><![CDATA[block10]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block11]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block12]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[col-static]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/h/u/hu-bg-01.jpg]]></background_image>
+		<background_repeat><![CDATA[1]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block13]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[4,4,4]]></block_cols>
+		<tablet_cols><![CDATA[["12","12","12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["","",""]]]></block_class>
+		<class><![CDATA[col-static center-sm]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/h/u/hu-bg-01_1.jpg]]></background_image>
+		<background_repeat><![CDATA[1]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block14]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[6,6]]></block_cols>
+		<tablet_cols><![CDATA[["12","12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["",""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[#bbd19c]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[5]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block15]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[6]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block16]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[7]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block17]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[col-static]]></class>
+		<background><![CDATA[#f8f7f7 ]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[8]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block18]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[#e8f0de ]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[50]]></padding_top>
+		<padding_bottom><![CDATA[50]]></padding_bottom>
+		<block_position><![CDATA[9]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block19]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[100]]></padding_top>
+		<padding_bottom><![CDATA[100]]></padding_bottom>
+		<block_position><![CDATA[10]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block10-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","links":["","","","","","","","","","","","","","","","","","","","","","","","","","",""],"images":["s1.jpg","s2.jpg"],"fullscreen":"1","effect":"1","speed":"","loop":"1","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"rtl":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" images="s1.jpg,s2.jpg" links=",,,,,,,,,,,,,,,,,,,,,,,,,," fullscreen="1" autoplay="0" stop_auto="0" navigation="0" pagination="0" loop="1" rtl="0" speed="" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block11-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="block-welcome-organie">
+<div class="title-block">
+<h2>Welcome to organie</h2>
+<p class="h4">A friendly organic store</p>
+</div>
+<p class="h3 tool-tip">We are <span style="font-weight: bold;">Organic Farm</span> which is original and sustainable to our roots.</p>
+<div class="block-content no-padding">
+<div class="row">
+<div class="col-md-3 col-sm-6 col-xs-6">
+<div class="box-cate-item">
+<div class="box-top"><img src="{{media url="wysiwyg/panel/iconbox-01.png"}}" alt="" /> <i class="farm icon-tomato"> </i></div>
+<h5><a href="#">Organic Products</a></h5>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<a class="h6"><em>Read more</em></a></div>
+</div>
+<div class="col-md-3 col-sm-6 col-xs-6">
+<div class="box-cate-item">
+<div class="box-top"><img src="{{media url="wysiwyg/panel/iconbox-02.png"}}" alt="" /> <i class="farm icon-broccoli"> </i></div>
+<h5><a href="#">RFS Machines</a></h5>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<a class="h6"><em>Read more</em></a></div>
+</div>
+<div class="col-md-3 col-sm-6 col-xs-6  first-item-sm first-item-xs">
+<div class="box-cate-item">
+<div class="box-top"><img src="{{media url="wysiwyg/panel/iconbox-03.png"}}" alt="" /> <i class="farm icon-smoothie"> </i></div>
+<h5><a href="#">Food Strategy</a></h5>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<a class="h6"><em>Read more</em></a></div>
+</div>
+<div class="col-md-3 col-sm-6 col-xs-6">
+<div class="box-cate-item">
+<div class="box-top"><img src="{{media url="wysiwyg/panel/iconbox-04.png"}}" alt="" /> <i class="farm icon-bread"> </i></div>
+<h5><a href="#">Water Management</a></h5>
+<p>Cur tantas regiones barbarorum peat dibus obiit, tot mariata uisque euismod convallis eros quis lacinia</p>
+<a class="h6"><em>Read more</em></a></div>
+</div>
+</div>
+</div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block12-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="title-block">
+<h2>SHOP BY CATEGORIES</h2>
+<p class="h4">Organic products grown with love</p>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[0]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed1"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[margin-bottom30]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed1" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed2"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[margin-bottom30]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed2" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed3"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[margin-bottom30]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed3" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-2]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed4"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[margin-bottom30]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed4" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-2]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed5"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[margin-bottom30]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed5" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block12-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="abs-top"><img src="{{media url="wysiwyg/panel/sub-bg-01.png"}}" alt=""/></div>
+]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block13-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="abs-bottom"><img src="{{media url="wysiwyg/panel/sub-bg-02.png"}}" alt=""/></div>
+]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block14-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="get-app"><h2>GET THE APP</h2>
+<p><em class="h5">You can spend a day working in the farm with us!</em></p>
+<div class="btn-app"><a href="https://play.google.com/store" target="_self"> <img src="{{media url="wysiwyg/panel/btn-store2.png"}}" alt="" width="170" height="52" /> </a> <a href="https://itunes.apple.com/" target="_self"> <img src="{{media url="wysiwyg/panel/btn-store.png"}}" alt="" width="170" height="52" /> </a></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block14-1]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<img class="img-responsive" src="{{media url="wysiwyg/panel/app-01.jpg"}}" alt="">]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block15-0]]></block_name>
+		<type><![CDATA[category_products]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"NEW PRODUCTS","additional_content":"<p class=\"h4\">Featured products<\/p>","animation":"","animation_delay":"","limit":"8","perrow":"4","template":"grid.phtml","ratio":"4","category_id":["3"],"use_tabs":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[text-center]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\Category" mgs_panel_title="NEW PRODUCTS" mgs_panel_note="&lt;p class=&#34;h4&#34;&gt;Featured products&lt;/p&gt;" limit="8" perrow="4" ratio="4" category_ids="3" use_slider="0" loadmore="0" template="products/category_products/category-tabs.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block16-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="title-block">
+    <h2>WEEKLY INTERVIEW</h2>
+    <p class="h4">Jerry Hansen - farmer from Organie</p>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block16-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"text-colour-black","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"weed6"}]]></setting>
+		<col><![CDATA[6]]></col>
+		<class><![CDATA[margin-bottom30 col-sm-12 col-xs-12]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="weed6" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block16-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[3]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[6]]></col>
+		<class><![CDATA[margin-bottom30 col-sm-12 col-xs-12]]></class>
+		<block_content><![CDATA[<div class="insight-accordion">
+<div class="item">
+<div class="title active">Benefit from more nutrients <span class="icon"><i class="ion-heart"></i></span></div>
+<div class="content">Organically grown foods have more nutrients—vitamins, minerals, enzymes, and micronutrients—than commercially grown foods because the soil is managed and nourished with sustainable practices by responsible standards. Organic farming supports eco-sustenance, or farming in harmony with nature. </div>
+</div>
+<div class="item ">
+<div class="title">Reduce pollution and protect water and soil <span class="icon"><i class="ion-chatboxes"></i></span></div>
+<div class="content">Organic agriculture considers the medium- and long-term effect of agricultural interventions on the agro-ecosystem. It aims to produce food while establishing an ecological balance to prevent soil fertility or pest problems. Organic agriculture takes a proactive approach as opposed to treating problems after they emerge.</div>
+</div>
+<div class="item ">
+<div class="title">Preserve agricultural diversity <span class="icon"><i class="icon-default"></i></span></div>
+<div class="content">Organic farmers are both custodians and users of biodiversity at all levels. At the gene level, traditional and adapted seeds and breeds are preferred for their greater resistance to diseases and their resilience to climatic stress. At the species level, diverse combinations of plants and animals optimize nutrient and energy cycling for agricultural production.</div>
+</div>
+<a class="btn btn-primary" href="#">View all interview</a></div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block16-0]]></block_name>
+		<type><![CDATA[portfolio]]></type>
+		<position><![CDATA[4]]></position>
+		<setting><![CDATA[{"title":"View more interviews","additional_content":"","animation":"","animation_delay":"","categories":["1"],"limit":"10","perrow":"6","template":"grid.phtml","show_thumbnail":"1","character_count":"","use_slider":"1","show_categories":0,"show_content":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[simple-title]]></class>
+		<block_content><![CDATA[{{block class="MGS\Portfolio\Block\Widget" mgs_panel_title="View more interviews" mgs_panel_note="" category_ids="1" limit="10" perrow="6" show_categories="0" show_content="0" show_thumbnail="1" use_slider="1" template="widget/grid.phtml" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block17-0]]></block_name>
+		<type><![CDATA[testimonial]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"3","perrow":"1","template":"grid.phtml","show_avatar":"1","use_slider":"1","navigation":"1","autoplay":0,"stop_auto":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Testimonial\Block\Testimonial" mgs_panel_title="" mgs_panel_note="" testimonials_count="3" perrow="1" show_avatar="1" use_slider="1" template="grid.phtml" autoplay="0" stop_auto="0" navigation="1" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block17-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="abs-bottom"><img src="{{media url="wysiwyg/panel/leaves-01.png"}}" alt="" /></div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block17-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[3]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="abs-top"><img src="{{media url="wysiwyg/panel/leaves-02.png"}}" alt="" /></div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block18-0]]></block_name>
+		<type><![CDATA[brands]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","limit":"10","perrow":"5","brand_by":"all","use_slider":"1","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Brand\Block\Widget\Home" mgs_panel_title="" mgs_panel_note="" limit="10" perrow="5" use_slider="1" brand_by="all" template="widget/home.phtml" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block19-0]]></block_name>
+		<type><![CDATA[latest_posts]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"FROM OUR BLOG","additional_content":"<p class=\"h4\">Keep updated with us<\/p>","animation":"","animation_delay":"","number_of_posts":"3","items":"3","template":"default.phtml","show_thumbnail":"1","show_short_content":"1","limit_characters_short_content":"110","view_as":"1","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","autoplay":0,"stop_auto":0,"navigation":0,"pagination":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Blog\Block\Widget\Latest" mgs_panel_title="FROM OUR BLOG" number_of_posts="3" items="3" show_thumbnail="1" mgs_panel_note="&lt;p class=&#34;h4&#34;&gt;Keep updated with us&lt;/p&gt;" template="widget/default.phtml" show_short_content="1" limit_characters_short_content="110" view_as="owl_carousel" autoplay="0" stop_auto="0" navigation="0" pagination="0"}}]]></block_content>
+	</block>
+	<promo_banner>
+		<item>
+			<title><![CDATA[Banner Weed 1]]></title>
+			<filename><![CDATA[/c/a/categories-01.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[top-left]]></text_align>
+			<content><![CDATA[<h3>Vegetable</h3>
+<em class=h6>(17 items)</em>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed1]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Banner Weed 2]]></title>
+			<filename><![CDATA[/c/a/categories-02.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[bottom-left]]></text_align>
+			<content><![CDATA[<h3>Juices</h3>
+<em class=h6>(17items)</em>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed2]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Banner Weed 3]]></title>
+			<filename><![CDATA[/c/a/categories-03.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[top-middle]]></text_align>
+			<content><![CDATA[<div class="text-center"><h3>Fruits</h3>
+<em class=h6>(69 items)</em></div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed3]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Banner Weed 4]]></title>
+			<filename><![CDATA[/c/a/categories-04.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[top-right]]></text_align>
+			<content><![CDATA[<div class="text-right"><h3>Dried fruits</h3>
+<em class=h6>(66 items)</em></div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed4]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Banner Weed 5]]></title>
+			<filename><![CDATA[/c/a/categories-05.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[bottom-right]]></text_align>
+			<content><![CDATA[<div class="text-right"><h3>Bread</h3>
+<em class=h6>(17 items)</em></div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed5]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Banner Weed 6]]></title>
+			<filename><![CDATA[/h/u/hu-obj01.png]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[top-left]]></text_align>
+			<content><![CDATA[<div class="weed-6">
+<strong style="font-size:18px">JERRY HANSEN</strong><br/>
+<em class="h5">/farmer</em></div>]]></content>
+			<effect><![CDATA[]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[weed6]]></identifier>
+		</item>
+	</promo_banner>
+	<theme_setting>
+		<general>
+			<header>header_1</header>
+		</general>
+	</theme_setting>
+
+</home>

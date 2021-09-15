@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Sorting
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="Amasty_Sorting::catalogToolbar" type="Amasty\Sorting\Plugin\Catalog\Product\ProductList\Toolbar"/>
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Collection">
+        <plugin name="Amasty_Sorting::SortingMethodsProcessor" type="Amasty\Sorting\Plugin\Catalog\Product\Collection"/>
+    </type>
+    <type name="Magento\CatalogSearch\Block\Result">
+        <plugin name="Amasty_Sorting::SetDefaultSortBy" type="Amasty\Sorting\Plugin\Block\Result"/>
+    </type>
+    <type name="Magento\Catalog\Helper\Product\ProductList">
+        <plugin name="Amasty_Sorting::GetDefaultSortField" type="Amasty\Sorting\Plugin\Catalog\Helper\Product\ProductList"/>
+    </type>
+</config>

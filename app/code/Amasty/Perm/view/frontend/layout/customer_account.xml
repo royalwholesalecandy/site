@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block ifconfig="amasty_perm/frontend/in_account" class="Magento\Framework\View\Element\Html\Link\Current" name="amasty-perm-customer-account-navigation-dealer">
+                <arguments>
+                    <argument name="path" xsi:type="string">amasty_perm/customer/dealer</argument>
+                    <argument name="label" xsi:type="string">My Dealer</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="sidebar.additional">
+            <block ifconfig="amasty_perm/frontend/description_customer" class="Amasty\Perm\Block\Dealer\Info" name="amasty_perm_dealer_info" before="-" template="Amasty_Perm::dealer/info.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

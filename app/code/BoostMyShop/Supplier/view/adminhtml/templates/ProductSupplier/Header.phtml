@@ -1,0 +1,18 @@
+<script>
+    var objProductSupplier;
+    require(["product_supplier"], function(){
+        objProductSupplier = new AdminProductSupplier();
+        objProductSupplier.init('<?php echo $this->getSaveUrl(); ?>','<?php echo $this->getPopupUrl(); ?>');
+    });
+</script>
+
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="objProductSupplier.saveAll();"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Save'); ?></span>
+        </button>
+        <button id="import" title="import" type="button" class="action-default scalable" onclick="setLocation('<?php echo $this->getImportUrl(); ?>');" >
+            <span><?php echo __('Import file'); ?></span>
+        </button>
+    </div>
+</div>

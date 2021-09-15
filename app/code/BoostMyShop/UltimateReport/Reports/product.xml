@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<reports>
+
+    <sales_count>
+        <name>Sales</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <series>
+            <serie>
+                <label>Sales</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                    select
+                                        DATE_FORMAT(tbl_order.created_at,'{group_by_date}') as x,
+                                        sum(qty_invoiced - qty_refunded) as y
+                                    from
+                                        {prefix}sales_order_item tbl_order_item
+                                        inner join {prefix}sales_order tbl_order on (tbl_order.entity_id = tbl_order_item.order_id)
+                                    where
+                                        tbl_order.created_at >= "{date_from}"
+                                        and tbl_order.created_at <= "{date_to}"
+                                        and product_id = {product_id}
+                                        and tbl_order.store_id in ({store_ids})
+                                    group by
+                                        DATE_FORMAT(tbl_order.created_at,'{group_by_date}')
+                                    order by
+                                        tbl_order.created_at
+                                        ]]></sql>
+    </sales_count>
+
+    <turnover>
+        <name>Turnover</name>
+        <size>full</size>
+        <renderer>line</renderer>
+        <series>
+            <serie>
+                <label>Turnover</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                select
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}') as x,
+                                    SUM(price * base_to_global_rate) as y
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}sales_order_item tbl_order_item on (tbl_order.entity_id = tbl_order_item.order_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and product_id = {product_id}
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}')
+                                order by
+                                    tbl_order.created_at asc
+                                    ]]></sql>
+    </turnover>
+
+    <sale_price_and_cost>
+        <name>Sale price VS cost</name>
+        <size>full</size>
+        <renderer>line</renderer>
+        <y_label></y_label>
+        <series>
+            <serie>
+                <label>Sale Price</label>
+                <column>y</column>
+            </serie>
+            <serie>
+                <label>Cost</label>
+                <column>z</column>
+            </serie>
+        </series>
+        <sql><![CDATA[
+                                select
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}') as x,
+                                    avg(price * base_to_global_rate) as y,
+                                    avg(base_cost) as z
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}sales_order_item tbl_order_item on (tbl_order.entity_id = tbl_order_item.order_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and product_id = {product_id}
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    DATE_FORMAT(tbl_order.created_at,'{group_by_date}')
+                                order by
+                                    tbl_order.created_at asc
+                                    ]]></sql>
+    </sale_price_and_cost>
+
+    <sales_per_store>
+        <name>Distribution per store view</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <y_label>Sales</y_label>
+        <sql><![CDATA[select
+                                    concat(tbl_website.name, '<br>', tbl_store.name) as x,
+                                    SUM(qty_invoiced - qty_refunded) as y
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}sales_order_item tbl_order_item on (tbl_order.entity_id = tbl_order_item.order_id)
+                                    inner join {prefix}store tbl_store on (tbl_order.store_id = tbl_store.store_id)
+                                    inner join {prefix}store_website tbl_website on (tbl_store.website_id = tbl_website.website_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and product_id = {product_id}
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    tbl_store.store_id]]></sql>
+    </sales_per_store>
+
+    <cross_sells>
+        <name>Cross sells</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <table>
+            <columns>
+                <sku>
+                    <title>Sku</title>
+                    <renderer>link</renderer>
+                    <url>catalog/product/edit</url>
+                    <param_name>id</param_name>
+                    <param_value>id</param_value>
+                    <align>left</align>
+                </sku>
+                <name>
+                    <title>Name</title>
+                </name>
+                <qty>
+                    <align>center</align>
+                    <title>Qty</title>
+                </qty>
+            </columns>
+        </table>
+
+        <sql><![CDATA[
+                                select
+                                    tbl_order_item.product_id id,
+                                    sku,
+                                    name,
+                                    count(qty_invoiced - qty_refunded) as qty
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}sales_order_item tbl_order_item on (tbl_order.entity_id = tbl_order_item.order_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and product_id <> {product_id}
+                                    and order_id in (select order_id from {prefix}sales_order_item where product_id = {product_id})
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    product_id
+                                order by
+                                    count(qty_invoiced) desc
+                                    ]]></sql>
+    </cross_sells>
+
+    <best_seller>
+        <name>Best sellers</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <available_for_dashboard>1</available_for_dashboard>
+        <table>
+            <columns>
+                <sku>
+                    <title>Sku</title>
+                    <renderer>link</renderer>
+                    <url>catalog/product/edit</url>
+                    <param_name>id</param_name>
+                    <param_value>id</param_value>
+                    <align>left</align>
+                </sku>
+                <name>
+                    <title>Name</title>
+                </name>
+                <total>
+                    <align>right</align>
+                    <title>Total</title>
+                </total>
+            </columns>
+        </table>
+
+        <sql><![CDATA[
+                                select
+                                    product_id id,
+                                    sku sku,
+                                    name name,
+                                    truncate(sum(base_row_total * base_to_global_rate), 0) as total
+                                from
+                                    {prefix}sales_order tbl_order
+                                    inner join {prefix}sales_order_item tbl_order_item on (tbl_order.entity_id = tbl_order_item.order_id)
+                                where
+                                    tbl_order.created_at >= "{date_from}"
+                                    and tbl_order.created_at <= "{date_to}"
+                                    and tbl_order.state in ("processing", "complete")
+                                    and tbl_order.store_id in ({store_ids})
+                                group by
+                                    product_id
+                                order by
+                                    sum(base_row_total * base_to_global_rate) desc
+                                    ]]></sql>
+    </best_seller>
+
+    <stock_level_history>
+        <name>Stock level history</name>
+        <size>full</size>
+        <renderer>line</renderer>
+        <source_type>model</source_type>
+        <source_model>\BoostMyShop\UltimateReport\Model\Report\Source\Product\StockLevelHistory</source_model>
+    </stock_level_history>
+
+</reports>

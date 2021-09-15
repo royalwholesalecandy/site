@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="salesrule_rule_condition_combine">
+        <observer name="amasty_segments_add_new_condition_handle" instance="Amasty\Segments\Observer\Admin\AddNewConditionHandle" />
+    </event>
+    <event name="sales_quote_collect_totals_before">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\QuoteEventUpdate"/>
+    </event>
+</config>

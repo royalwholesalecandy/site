@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="supplier_order_grid_block"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\Supplier\Block\Order\Receive\Header" name="supplier.order.receive.header"/>
+            <block class="BoostMyShop\Supplier\Block\Order\Receive\Products" name="supplier.order.receive.products"/>
+            <block class="BoostMyShop\Supplier\Block\Order\Receive\AssignBarcode" name="supplier.order.receive.assignbarcode"/>
+        </referenceContainer>
+    </body>
+</page>

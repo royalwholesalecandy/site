@@ -1,0 +1,65 @@
+
+<?php $supProduct = $block->getProductSupplier();?>
+<form id="popup_edit_form" action="" method="post">
+	<input type="hidden" value="1" name="popup_data"/> 
+	<input type="hidden" value="<?php echo $supProduct->getsp_sup_id(); ?>" name="supId"/> 
+	<input type="hidden" value="<?php echo $supProduct->getsp_product_id(); ?>" name="productId"/> 
+	<div id="page_tabs_main_section_content" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+
+		<div class="entry-edit form-inline">
+            <div class="admin__field field">
+                <label class="label admin__field-label" for="supplier" ><span><?php echo  __('Supplier'); ?></span></label>
+                <div class="admin__field-control control">
+                    <?php  echo $supProduct->getSupplier()->getsup_name(); ?>
+                </div>
+            </div>
+            <div class="admin__field field">
+                <label class="label admin__field-label" for="product" ><span><?php echo  __('Product'); ?></span></label>
+                <div class="admin__field-control control">
+                    <?php  echo $supProduct->getProduct()->getname(); ?>
+                </div>
+            </div>
+	        <div class="admin__field field">
+	            <label class="label admin__field-label" for="supplier_sku_popup" ><span><?php echo  __('Supplier SKU'); ?></span></label>
+	            <div class="admin__field-control control">
+	                <input id="supplier_sku_popup" name="supplier_sku_popup"  value="<?php  echo $supProduct->getsp_sku(); ?>" title="<?php echo  __('Supplier SKU'); ?>" class=" input-text admin__control-text " type="text">
+	            </div>
+	        </div>
+	        <div class="admin__field field">
+	            <label class="label admin__field-label" for="buying_price_popup" ><span><?php echo  __('Buying price'); ?></span></label>
+	            <div class="admin__field-control control">
+	                <input id="buying_price_popup" name="buying_price_popup" style="width: 93%; margin-right: 10px;"  value="<?php  echo $supProduct->getsp_price(); ?>" title="<?php echo  __('Buying price'); ?>" class=" input-text admin__control-text"  type="text"><?php echo $block->getSupplier()->getsup_currency(); ?>
+	            </div>
+	        </div>
+	        <div class="admin__field field">
+	            <label class="label admin__field-label" for="moq_popup" ><span><?php echo  __('MOQ'); ?></span></label>
+	            <div class="admin__field-control control">
+	                <input id="moq_popup" name="moq_popup"  value="<?php echo $supProduct->getsp_moq(); ?>" title="<?php echo  __('Moq'); ?>" class=" input-text admin__control-text " type="text">
+	            </div>
+	        </div>
+
+	        <?php if($block->isPackQtyEnabled()): ?>
+	        	<div class="admin__field field">
+		            <label class="label admin__field-label" for="pack_qty_popup" ><span><?php echo  __('Pack qty'); ?></span></label>
+		            <div class="admin__field-control control">
+		                <input id="pack_qty_popup" name="pack_qty_popup"  value="<?php echo $supProduct->getsp_pack_qty(); ?>" title="<?php echo  __('Pack qty'); ?>" class=" input-text admin__control-text " type="text">
+		            </div>
+		        </div>
+	        <?php endif; ?>
+
+	        <div class="admin__field field">
+	            <label class="label admin__field-label" for="supply_delay_popup" ><span><?php echo  __('Supply delay'); ?></span></label>
+	            <div class="admin__field-control control">
+	                <input id="supply_delay_popup" name="supply_delay_popup"  value="<?php echo $supProduct->getsp_supply_delay(); ?>" title="<?php echo  __('Supply delay'); ?>" class=" input-text admin__control-text " type="text">
+	            </div>
+	        </div>
+
+	        <div class="admin__field field">
+	            <label class="label admin__field-label" for="shipping_delay_popup" ><span><?php echo  __('Shipping delay'); ?></span></label>
+	            <div class="admin__field-control control">
+	                <input id="shipping_delay_popup" name="shipping_delay_popup"  value="<?php echo $supProduct->getsp_shipping_delay(); ?>" title="<?php echo  __('Shipping delay'); ?>" class=" input-text admin__control-text " type="text">
+	            </div>
+	        </div>
+		</div>
+	</div>
+</form>

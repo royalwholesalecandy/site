@@ -1,0 +1,79 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+?>
+<?php $design = $themeHelper->checkLayoutPage($category); ?>
+<?php $design = $design->getPageLayout(); ?>
+<?php if ($design != '1column'): ?>
+    <?php if ($block->canShowBlock()): ?>
+        <div class="block filter">
+            <div class="block-content filter-content">
+                <?php echo $block->getChildHtml('state') ?>
+
+                <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                    <!--<div class="block-actions filter-actions">
+                        <a href="<?php /* @escapeNotVerified */ //echo $block->getClearUrl()     ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ //echo __('Clear All')     ?></span></a>
+                    </div>-->
+                <?php endif; ?>
+                <?php $wrapOptions = false; ?>
+                <?php foreach ($block->getFilters() as $filter): ?>
+                    <?php if (!$wrapOptions): ?>
+                        <div class="filter-options" id="narrow-by-list">
+                            <?php
+                            $wrapOptions = true;
+                        endif;
+                        ?>
+                        <?php if ($filter->getItemsCount()): ?>
+                            <div class="filter-option" id="filter_option">
+                                <div data-role="title" class="filter-heading"><h3 id="filter-heading"><?php echo $block->escapeHtml(__($filter->getName())) ?></h3></div>
+                                <div class="filter-body" data-role="content" aria-labelledby="filter-heading"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php if ($wrapOptions): ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/collapsible'
+    ], function (jQuery) {
+        (function ($) {
+            if ($(window).width() < 992) {
+                $('.filter-option').collapsible({
+                    openedState: 'active',
+                    active: false,
+                    saveState: false,
+                    animate: 500
+                });
+
+            } else {
+                $('.filter-option').collapsible({
+                    openedState: 'active',
+                    active: true,
+                    saveState: false,
+                    animate: 500
+                });
+            }
+        })(jQuery);
+    });
+</script>

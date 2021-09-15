@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+<menu>        
+	<add id="Wanexo_Brand::brands" title="Brand" module="Wanexo_Brand" sortOrder="110" resource="Wanexo_Brand::brands" parent="Wanexo_Ext::wanexo" />
+	
+	<add id="Wanexo_Brand::sub_menu" title="Manage Brand" module="Wanexo_Brand" sortOrder="10" action="wanexo_brand/brandaction"  resource="Wanexo_Brand::sub_menu" parent="Wanexo_Brand::brands"/>
+	
+	<add id="Wanexo_Brand::settings" title="Brand Settings" module="Wanexo_Brand" sortOrder="10" action="adminhtml/system_config/edit/section/brand_section"  resource="Wanexo_Brand::settings" parent="Wanexo_Brand::brands" />
+</menu>
+</config>

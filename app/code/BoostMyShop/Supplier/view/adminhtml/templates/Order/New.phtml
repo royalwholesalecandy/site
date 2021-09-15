@@ -1,0 +1,37 @@
+<?php $_suppliers = $this->getSuppliers(); ?>
+
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="back" title="Back" type="button" class="action-default scalable back" onclick="setLocation('<?php echo $this->getBackUrl(); ?>')"  data-ui-id="adminhtml-order-edit-back-button" >
+            <span><?php echo __('Back'); ?></span>
+        </button>
+        <?php if (count($_suppliers) > 0): ?>
+            <button id="save" title="save" type="button" class="action-default scalable primary" onclick="jQuery('#edit_form').submit();"  data-ui-id="adminhtml-order-edit-save-button" >
+                <span><?php echo __('Continue'); ?></span>
+            </button>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+<?php if (count($_suppliers) > 0): ?>
+
+<form method="POST" name="edit_form" id="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+    <?php echo __('Please select the supplier for this new purchase order: '); ?>
+
+    <select name="sup_id" id="sup_id">
+        <?php foreach($_suppliers as $supplier): ?>
+            <option value="<?php echo $supplier->getId(); ?>"><?php echo $supplier->getSupName(); ?></option>
+        <?php endforeach; ?>
+    </select>
+
+</form>
+
+<?php else: ?>
+
+    <p><?php echo __('There is no supplier configured'); ?> : <a href="<?php echo $this->getNewSupplierUrl(); ?>"><?php echo __('create a new supplier first'); ?></a></p>
+
+<?php endif; ?>

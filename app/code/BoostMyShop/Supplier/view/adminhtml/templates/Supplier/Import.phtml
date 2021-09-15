@@ -1,0 +1,78 @@
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="jQuery('#edit_form').submit();"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Import'); ?></span>
+        </button>
+    </div>
+</div>
+
+<form method="POST" name="edit_form" id="edit_form" action="<?php echo $this->getSubmitUrl(); ?>" enctype="multipart/form-data">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+
+    <p><?php echo __('Please select the file to import : '); ?> <input type="file" name="import_file"></p>
+    <p><?php echo __('Field delimiter'); ?>
+        <select name="delimiter">
+            <option value=";">;</option>
+            <option value=",">,</option>
+        </select>
+    </p>
+    <p>&nbsp;</p>
+
+
+    <p>Use this section to import suppliers from a csv file</p>
+    <p>Expected format :</p>
+
+    <ul style="margin-left: 50px;">
+        <li>File format : csv file</li>
+        <li>Separator : semi-colon ";"</li>
+        <li>Columns
+            <ul style="margin-left: 50px;">
+                <li>sup_name</li>
+                <li>sup_contact</li>
+                <li>sup_code (mandatory)</li>
+                <li>sup_email</li>
+                <li>sup_website</li>
+                <li>sup_locale</li>
+                <li>sup_notes</li>
+                <li>sup_street1</li>
+                <li>sup_street2</li>
+                <li>sup_postcode</li>
+                <li>sup_city</li>
+                <li>sup_state</li>
+                <li>sup_country</li>
+                <li>sup_telephone</li>
+                <li>sup_fax</li>
+                <li>sup_minimum_of_order</li>
+                <li>sup_carriage_free_amount</li>
+                <li>sup_currency</li>
+                <li>sup_tax_rate</li>
+                <li>sup_shipping_delay</li>
+                <li>sup_shipping_instructions</li>
+                <li>sup_sales_contact</li>
+                <li>sup_accounting_contact</li>
+                <li>sup_aftersale_contact</li>
+                <li>sup_sales_email</li>
+                <li>sup_accounting_email</li>
+                <li>sup_aftersale_email</li>
+                <li>sup_sales_phone</li>
+                <li>sup_accounting_phone</li>
+                <li>sup_aftersale_phone</li>
+                <li>sup_sales_notes</li>
+                <li>sup_accounting_notes</li>
+                <li>sup_aftersale_notes</li>
+                <li>sup_opened_order</li>
+                <li>sup_payment_terms</li>
+                <li>sup_website_id</li>
+
+
+
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+
+</form>

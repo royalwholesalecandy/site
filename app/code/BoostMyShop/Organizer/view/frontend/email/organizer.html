@@ -1,0 +1,24 @@
+<!--@subject {{var subject}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <tr>
+        <td valign="top">
+			 Hello
+			
+			<p>You have been assigned to a task.</p>
+			
+			<p>Entity : <a href="{{var task_link}}">{{var object_name}}</a></p>
+			
+			<p>From : {{var author}}</p>
+			
+			<p>Subject : {{var subject}}</p>
+			
+			<p>Comments : {{var comments}}</p>
+		
+        </td>
+    </tr>
+</table>
+		    

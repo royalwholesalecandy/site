@@ -1,0 +1,111 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$post = $block->getCurrentPost();
+?>
+<?php if ($this->getConfig('comment_settings/enabled')): ?>
+    <div class="post-comments">
+        <a name="comment-box"></a>
+		<div class="comment-count"> 
+		    <?php if($post->getCommentCount()>1):?>
+		        <span class="h3">Comments</span>
+		    <?php else:?>
+		        <span class="h3">Comment</span>
+		    <?php endif?>
+			<?php if($post->getCommentCount()<10 && $post->getCommentCount()>0):?>
+			    <span class="count h3"><?php echo('(0')?><?php echo __($post->getCommentCount()) ?><?php echo(')')?></span>
+			 <?php else:?>
+		        <span class="count h3"><?php echo('(')?><?php echo __($post->getCommentCount()) ?><?php echo(')')?></span>
+		    <?php endif?>
+		</div>
+        <?php echo $block->getChildHtml('post_view_comment_list'); ?>
+        <?php if ($this->getConfig('comment_settings/login_required')): ?>
+            <?php if ($helper->checkLoggedIn()): ?>
+                <form class="form post-comment"
+                      action="<?php echo $this->getUrl('blog/post/comment'); ?>"
+                      id="post-comment-form"
+                      method="post"
+                      data-hasrequired="<?php echo __('* Required Fields') ?>"
+                      data-mage-init='{"validation":{}}'>
+                    <fieldset class="fieldset">
+                        <legend class="legend h3"><span><?php echo __('Leave your thought') ?></span></legend>
+                        <div class="field name required">
+                            <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+                            <div class="control">
+                                <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                        <div class="field email required">
+                            <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+                            <div class="control">
+                                <input name="email" id="email" title="<?php echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                            </div>
+                        </div>
+						<div class="field Telephone required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <label class="label" for="Telephone"><span><?php echo __('Telephone') ?></span></label>
+                            <input placeholder="<?php echo __('Telephone'); ?>" name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Telephone') ?>" value="" class="input-text" type="text" />
+                        </div>
+                        <div class="field comment required col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="label" for="content"><span><?php echo __('Comment') ?></span></label>
+                            <div class="control">
+                                <textarea name="content" id="content" title="<?php echo __('Comment') ?>" class="input-text" cols="5" rows="7" data-validate="{required:true}"></textarea>
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                    <input type="hidden" name="post_id" value="<?php echo $post->getId(); ?>"/>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="submit" title="<?php echo __('Post comment') ?>" class="action submit primary btn btn-custom btn-primary">
+                                <span><?php echo __('Post comment') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            <?php else: ?>
+                <p><?php echo __('You must be logged in to post a comment.'); ?></p>
+                <p><a href="<?php echo $this->getUrl('customer/account/login'); ?>"><?php echo __('Click here'); ?></a> <?php echo __('to log in'); ?></p>
+            <?php endif; ?>
+        <?php else: ?>
+            <form class="form post-comment"
+                  action="<?php echo $this->getUrl('blog/post/comment'); ?>"
+                  id="post-comment-form"
+                  method="post"
+                  data-hasrequired="<?php echo __('* Required Fields') ?>"
+                  data-mage-init='{"validation":{}}'>
+                <fieldset class="fieldset">
+                    <legend class="legend h3"><span><?php echo __('Leave your thought') ?></span></legend>
+                    <div class="field name required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+                        <div class="control">
+                            <input name="name" id="name" title="<?php echo __('Name') ?>" placeholder="<?php /* @escapeNotVerified */ echo __('Name *') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                    <div class="field email required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+                        <div class="control">
+                            <input name="email" id="email" title="<?php echo __('Email') ?>" placeholder="<?php /* @escapeNotVerified */ echo __('E-mail*') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                        </div>
+                    </div>
+					<div class="field Telephone required col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <label class="label" for="Telephone"><span><?php echo __('Telephone') ?></span></label>
+                            <input placeholder="<?php echo __('Telephone'); ?>" name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Telephone') ?>" value="" class="input-text" type="text" />
+                    </div>
+                    <div class="field comment required">
+                        <label class="label" for="content"><span><?php echo __('Comment') ?></span></label>
+                        <div class="control">
+                            <textarea name="content" id="content" title="<?php echo __('Comment') ?>" placeholder="<?php /* @escapeNotVerified */ echo __('Comment*') ?>" class="input-text" cols="5" rows="7" data-validate="{required:true}"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <input type="hidden" name="post_id" value="<?php echo $post->getId(); ?>"/>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="submit" title="<?php echo __('Post comment') ?>" class="action submit primary btn btn-custom btn-primary">
+                            <span><?php echo __('Post comment') ?></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

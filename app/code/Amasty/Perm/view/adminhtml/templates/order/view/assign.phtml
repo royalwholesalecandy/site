@@ -1,0 +1,88 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+?>
+<div id="amasty_perm_order_dealer_comment_block" class="edit-order-comments" style="width: 50%">
+    <div class="order-history-block" id="amasty_perm_order_dealer_comment_history_form">
+        <div class="admin__field">
+            <label for="amasty_perm_order_dealer_comment_history_dealer" class="admin__field-label"><?php /* @escapeNotVerified */ echo __('Dealer') ?></label>
+            <div class="admin__field-control">
+                <select name="amasty_perm_order_dealer_comment_history[dealer]" id="amasty_perm_order_dealer_comment_history_dealer" class="admin__control-select">
+                    <?php foreach ($block->getDealers() as $_code => $_label): ?>
+                        <option value="<?php /* @escapeNotVerified */ echo $_code ?>"<?php if ($_code == $block->getDealerOrder()->getDealerId()): ?> selected="selected"<?php endif; ?>><?php /* @escapeNotVerified */ echo $_label ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="admin__field">
+            <label for="amasty_perm_order_dealer_history_comment" class="admin__field-label">
+                <?php /* @escapeNotVerified */ echo __('Comment') ?>
+            </label>
+            <div class="admin__field-control">
+                    <textarea name="amasty_perm_order_dealer_comment_history[comment]"
+                              rows="3"
+                              cols="5"
+                              id="amasty_perm_order_dealer_comment_history_comment"
+                              class="admin__control-textarea"></textarea>
+            </div>
+        </div>
+        <div class="admin__field">
+            <?php if (!$block->isDealerNotificationNotApplicable()) :?>
+            <div class="order-history-comments-options">
+                <div class="admin__field admin__field-option">
+                    <input name="amasty_perm_order_dealer_comment_history[is_dealer_notified]"
+                           type="checkbox"
+                           id="amasty_perm_order_dealer_comment_history_notify"
+                           class="admin__control-checkbox"
+                           value="1" />
+                    <label class="admin__field-label" for="amasty_perm_order_dealer_comment_history_notify">
+                        <?php /* @escapeNotVerified */ echo __('Notify Dealer by Email') ?>
+                    </label>
+                </div>
+            </div>
+            <?php endif;?>
+
+            <div class="order-history-comments-actions">
+                <?php echo $block->getChildHtml('submit_button') ?>
+            </div>
+        </div>
+    </div>
+
+    <ul class="note-list">
+        <?php foreach ($block->getDealerOrder()->getAssignHistoryCollection(true) as $_item): ?>
+            <li class="note-list-item">
+                <span class="note-list-date"><?php /* @escapeNotVerified */ echo $block->formatDate($_item->getCreatedAtDate(), \IntlDateFormatter::MEDIUM) ?></span>
+                <span class="note-list-time"><?php /* @escapeNotVerified */ echo $block->formatTime($_item->getCreatedAtDate(), \IntlDateFormatter::MEDIUM) ?></span>
+                <?php if ($block->isAuthorMode()): ?>
+                <span class="note-list-status"><?php /* @escapeNotVerified */ echo $_item->getAuthorDealerContactname() ?></span>
+                <?php endif;?>
+                <span class="note-list-customer">
+                    <?php /* @escapeNotVerified */ echo __('Dealer') ?>
+                    <?php if ($block->isDealerNotificationNotApplicable($_item)): ?>
+                        <span class="note-list-customer-notapplicable"><?php /* @escapeNotVerified */ echo __('Notification Not Applicable') ?></span>
+                    <?php elseif ($_item->getIsDealerNotified()): ?>
+                        <span class="note-list-customer-notified"><?php /* @escapeNotVerified */ echo __('Notified') ?></span>
+                    <?php else: ?>
+                        <span class="note-list-customer-not-notified"><?php /* @escapeNotVerified */ echo __('Not Notified') ?></span>
+                    <?php endif; ?>
+                </span>
+                <?php if ($block->isFromToMode() && $_item->isDealerChanged()):?>
+                    <div>
+                        <?php echo __(
+                            "Assigned From %1 To %2",
+                            '<strong>' . $_item->getFromDealerContactname() . '</strong>',
+                            '<strong>' . $_item->getToDealerContactname() . '</strong>'
+                        );
+                        ?>
+                    </div>
+                <?php endif;?>
+                <?php if ($_item->getComment()): ?>
+                    <div class="note-list-comment"><?php echo $block->escapeHtml($_item->getComment(), ['b', 'br', 'strong', 'i', 'u', 'a']) ?></div>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

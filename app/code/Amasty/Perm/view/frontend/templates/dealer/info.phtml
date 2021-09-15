@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+?>
+<?php if ($block->getDealer() && !empty($block->getDealer()->getDescription())): ?>
+<div class="block block-wishlist">
+    <div class="block-title">
+        <strong ><?php /* @escapeNotVerified */ echo __('Your Dealer Info') ?></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $block->getDealer()->getDescription();?>
+    </div>
+</div>
+<?php endif;?>

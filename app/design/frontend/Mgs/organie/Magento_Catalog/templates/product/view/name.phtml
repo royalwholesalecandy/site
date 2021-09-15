@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\AbstractProduct */ ?>
+<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<div class="product-name">
+    <?php if($themeHelper->getProductLabel($block->getProduct())): ?>
+    <div class="box-label">
+    <?php echo $themeHelper->getProductLabel($block->getProduct()) ?>
+    </div>
+    <?php endif;?>
+    <span class="h3 product-title"><?php echo $_helper->productAttribute($block->getProduct(), $block->getProduct()->getName(), 'name') ?></span>
+</div>

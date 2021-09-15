@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <plugin name="Amasty_Perm::DataProvider" type="Amasty\Perm\Plugin\DataProvider"/>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <plugin name="Amasty_Perm::DataProviderCollectionFactory" type="Amasty\Perm\Plugin\DataProviderCollectionFactory"/>
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Form\Account">
+        <plugin name="Amasty_Perm::OrderCreateFormAccount" type="Amasty\Perm\Plugin\OrderCreateFormAccount"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Customer\Collection">
+        <plugin name="Amasty_Perm::OrderCustomerCollection" type="Amasty\Perm\Plugin\OrderCustomerCollection"/>
+    </type>
+    <type name="Magento\Customer\Model\Customer\Attribute\Source\Group">
+        <plugin name="Amasty_Perm::CustomerAttributeSourceGroup" type="Amasty\Perm\Plugin\CustomerAttributeSourceGroup"/>
+    </type>
+    <type name="Magento\Widget\Block\Adminhtml\Widget">
+        <plugin name="Amasty_Perm::Widget" type="Amasty\Perm\Plugin\Widget"/>
+    </type>
+</config>

@@ -1,0 +1,30 @@
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="setLocation('<?php echo $this->getUpdateReportUrl(); ?>');"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Update report'); ?></span>
+        </button>
+        <button id="save" title="save" type="button" class="action-default scalable primary" onclick="setLocation('<?php echo $this->getFixReportUrl(); ?>');"  data-ui-id="adminhtml-order-edit-save-button" >
+            <span><?php echo __('Fix errors'); ?></span>
+        </button>
+    </div>
+</div>
+
+
+<?php if (!$this->hasReport()): ?>
+    <div class="message message-info success"><div data-ui-id="messages-message-info"><?php echo __('No report available, use buttons above OR use command line bin/magento bms_advancedstock:check_stock_discrepencies to generate it'); ?></div></div>
+    <p></p>
+<?php else: ?>
+    <div class="message message-info success"><div data-ui-id="messages-message-info"><?php echo __('Note : for large catalogs, it is recommended to update that report using command line bin/magento bms_advancedstock:check_stock_discrepencies'); ?></div></div>
+    <p>&nbsp;</p>
+    <?php foreach($this->getReportData() as $domain => $data): ?>
+        <h3><font color="<?php echo $this->getColor($data); ?>"><?php echo $data->explanations; ?> - <?php echo $data->status; ?></font></h3>
+        <?php if (count($data->items) > 0): ?>
+            <ul style="margin-left:300px;">
+                <?php foreach($data->items as $element): ?>
+                    <li><?php echo $element; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <hr>
+    <?php endforeach; ?>
+<?php endif; ?>

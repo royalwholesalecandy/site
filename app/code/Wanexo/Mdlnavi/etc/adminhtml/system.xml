@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="wanexo_ext" sortOrder="2000">
+            <label>Wanexo</label>
+        </tab>
+        <section id="wanexo_mdlnavi" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Top Navigation</label>
+            <tab>wanexo_ext</tab>
+            <resource>Wanexo_Mdlnavi::mdlnavi</resource>
+            <group id="general" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="status" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+			<group id="navsettings" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Navigation Settings</label>
+                <field id="navoption_home" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home link type</label>
+                    <source_model>Wanexo\Mdlnavi\Model\Source\Navigationhome</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

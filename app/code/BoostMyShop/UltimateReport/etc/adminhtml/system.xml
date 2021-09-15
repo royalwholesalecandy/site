@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="ultimatereport" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Ultimate Report</label>
+            <tab>boostmyshop</tab>
+            <resource>BoostMyShop_UltimateReport::Config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+
+                <field id="dashboard_reports" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Dashboard reports</label>
+                    <source_model>BoostMyShop\UltimateReport\Model\Config\Source\Reports</source_model>
+                </field>
+
+            </group>
+
+
+        </section>
+    </system>
+</config>

@@ -1,0 +1,22 @@
+<script>
+
+    var objProductSupplier;
+
+    require(["product_supplier"], function(){
+        objProductSupplier = new AdminProductSupplier();
+        objProductSupplier.init('<?php echo $this->getSaveUrl(); ?>','<?php echo $this->getPopupUrl(); ?>');
+    });
+
+</script>
+<div id="popup-mpdal" style="display:none;">
+
+    <div id="popup_tabs">
+	</div>
+</div>
+<style type="text/css">
+    #popup_tabs{ float:left; position:relative; width:200px; min-height:500px;}
+    #popup_tabs .ui-widget-content{ position:absolute; width:700px; left:200px; top:-10px;}
+    #popup_tabs .ui-widget-content .ui-widget-content{ position:static; width:100%;}
+    #popup_tabs .admin__page-nav-item { position: static;}
+    #popup_tabs #page_tabs_main_section_content{ margin-top:-40px;}
+</style>

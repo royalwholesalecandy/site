@@ -1,0 +1,108 @@
+<?php
+/**
+ * Copyright © Mageside. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Method\Form */ ?>
+<?php
+    $_shippingRateGroups = $block->getShippingRates();
+    $config = $this->helper('Mageside\CustomShippingPrice\Helper\Config')
+?>
+<?php if ($_shippingRateGroups && $config->getConfig('active')) : ?>
+    <?php
+        $style = $block->getActiveMethodRate() ? 'style="display:none;"' : '';
+        $customTitle = $_shippingRateGroups['customshipping'][0]->getMethodTitle();
+        $customPrice = $_shippingRateGroups['customshipping'][0]->getPrice();
+        ?>
+    <div id="order-shipping-method-custom" <?php echo $style; ?>>
+        <dl class="admin__order-shipment-methods">
+            <dd class="admin__order-shipment-method-custom custom-shipping-form"  id="custom-method-form" style="display:none">
+                <div class="admin__field field field-custom-title">
+                    <label class="label admin__field-label">
+                        <span><?php /* @escapeNotVerified */ echo __('Name') ?></span>
+                    </label>
+                    <div class="admin__field-control control">
+                        <input id="custom-shipping-title"
+                               name="custom-shipping-title"
+                               value="<?php /* @escapeNotVerified */ echo $customTitle; ?>"
+                               class=" input-text admin__control-text"
+                               type="text">
+                    </div>
+                </div>
+                <div class="admin__field field-custom-rate">
+                    <label class="label admin__field-label">
+                        <span><?php /* @escapeNotVerified */ echo __('Rate') ?></span>
+                    </label>
+                    <div class="admin__field-control">
+                        <input id="custom-shipping-rate"
+                               name="custom-shipping-rate"
+                               value="<?php /* @escapeNotVerified */ echo $customPrice; ?>"
+                               class=" input-text admin__control-text"
+                               type="text">
+                        <div class="actions">
+                            <button id="custom-shipping-button-update"
+                                    title="<?php /* @escapeNotVerified */ echo __('Update') ?>"
+                                    type="button"
+                                    class="action-default scalable">
+                                <span><?php /* @escapeNotVerified */ echo __('Update') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+            <dd class="admin__order-shipment-method-custom" id="custom-method-change">
+                <div class="admin__field field-custom-change">
+                    <div class="admin__field-control">
+                        <div class="actions">
+                            <button id="custom-shipping-button-change"
+                                    title="<?php /* @escapeNotVerified */ echo __('Change Custom Shipping') ?>"
+                                    type="button"
+                                    class="action-default scalable">
+                                <span><?php /* @escapeNotVerified */ echo __('Change Custom Shipping') ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <script>
+        require(['jquery', "Magento_Sales/order/create/form"], function($) {
+
+            AdminOrder.addMethods({
+                setCustomShippingValues: function () {
+                    var data = {},
+                        method = $('#s_method_custom_shipping_custom_shipping').val(),
+                        amount = $('#custom-shipping-rate').val(),
+                        description = $('#custom-shipping-title').val();
+                    data['order[shipping_method]'] = method;
+                    data['order[shipping_amount]'] = amount;
+                    data['order[base_shipping_amount]'] = amount;
+                    data['order[shipping_description]'] = description;
+                    data['collect_shipping_rates'] = 1;
+                    this.loadArea(['shipping_method', 'totals', 'billing_method'], true, data);
+                }
+            });
+
+            $('#custom-shipping-button-update').click(function(e){
+                e.preventDefault();
+                $('#custom-method-change').show();
+                $('#custom-method-form').hide();
+                order.setCustomShippingValues();
+            });
+
+            $('#custom-shipping-button-change').click(function(e){
+                e.preventDefault();
+                $('#custom-method-change').hide();
+                $('#custom-method-form').show();
+            });
+
+            $('#order-shipping-method-info .action-default').click(function(e){
+                e.preventDefault();
+                $('#order-shipping-method-custom').show();
+            });
+
+        });
+    </script>
+<?php endif; ?>

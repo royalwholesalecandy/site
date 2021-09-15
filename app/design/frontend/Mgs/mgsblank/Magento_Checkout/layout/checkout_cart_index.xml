@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">  
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock  name="checkout.cart">
+                <referenceBlock name="breadcrumbs">
+                    <action method="addCrumb" >
+                        <argument name="crumbName" xsi:type="string">Home</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Home</item>
+                            <item name="label" xsi:type="string">Home</item>
+                            <item name="link" xsi:type="string">/</item>
+                        </argument>
+                    </action>
+                    <action method="addCrumb">
+                        <argument name="crumbName" xsi:type="string">Shopping Cart</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Shopping Cart</item>
+                            <item name="label" xsi:type="string">Shopping Cart</item>
+                            <item name="link" xsi:type="string">/checkout/cart</item>
+                        </argument>
+                    </action>
+                </referenceBlock>
+                <referenceContainer name="checkout.cart.items">
+                    <referenceContainer name="checkout.cart.container">                        
+                        <referenceContainer name="cart.summary"  label="Cart Summary Container" htmlTag="div" htmlClass="cart-summary row shopping-cart-bottom">
+                            <container name="cart.bottom.col1" htmlTag="div" htmlClass="col-md-4 col-sm-4 col-xs-12 margin-bottom30"/>
+                            <container name="cart.bottom.col2" htmlTag="div" htmlClass="col-md-4 col-sm-4 col-xs-12 margin-bottom30"/>
+                            <container name="cart.bottom.col3" htmlTag="div" htmlClass="col-md-4 col-sm-4 col-xs-12 margin-bottom30"/>
+                        </referenceContainer>
+                    </referenceContainer>                    
+                </referenceContainer>
+            </referenceBlock>			
+        </referenceContainer>  	
+        <move element="checkout.cart.form" destination="checkout.cart.container" after="checkout.cart.form.before"/>
+        <move element="checkout.cart.widget" destination="checkout.cart.container" after="checkout.cart.form"/>			
+        <move element="checkout.cart.shipping" destination="cart.bottom.col1" before="-"/>
+        <move element="checkout.cart.coupon" destination="cart.bottom.col2" before="-"/>
+        <move element="checkout.cart.totals" destination="cart.bottom.col3" before="-"/>
+        <move element="checkout.cart.methods.bottom" destination="cart.bottom.col3" after="checkout.cart.totals"/>	
+    </body>
+</page>

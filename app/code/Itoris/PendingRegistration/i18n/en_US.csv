@@ -1,0 +1,30 @@
+-- Please Select --,-- Please Select --
+%1 (Default),%1 (Default)
+"Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email  please use the link %1","Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email  please use the link %1"
+"Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email please <a href=""%1"">click here</a>.","Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email please <a href=""%1"">click here</a>."
+All Groups,All Groups
+Approved,Approved
+Can't send emails. Email template not activated or not configured properly!,Can't send emails. Email template not activated or not configured properly!
+Declined,Declined
+Disable,Disable
+Email to admin when account created,Email to admin when account created
+Email to user if account approved,Email to user if account approved
+Email to user if account registration declined,Email to user if account registration declined
+Email to user when account created,Email to user when account created
+Emails successfully sent!,Emails successfully sent!
+Engine deactivated!,Engine deactivated!
+Engine successfully activated!,Engine successfully activated!
+Invalid action.,Invalid action.
+Invalid action.,Invalid action.
+Invalid customer data,Invalid customer data
+Pending,Pending
+Please fill all required fields!,Please fill all required fields!
+Please make sure your passwords match.,Please make sure your passwords match.
+Please select value!,Please select value!
+Statuses successfully changed!,Statuses successfully changed!
+Template successfully saved!,Template successfully saved!
+Thank you for registration!,Thank you for registration!
+Thank you for registration. Your account requires moderation before you can login.,Thank You for creating an account with us on RoyalWholesalecandy.com. Your account is pending approval and will be reviewed within 24 hours. You will receive another email once your account is confirmed. Any questions please contact us at 1-888-261-8277 or Chat with us!
+Unknown template type.,Unknown template type.
+Your account requires moderation,Your account requires moderation
+Your registration has been declined. Please contact the site administrator for more details,Your registration has been declined. Please contact the site administrator for more details

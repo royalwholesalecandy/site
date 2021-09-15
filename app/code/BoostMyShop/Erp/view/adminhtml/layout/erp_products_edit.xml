@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\Erp\Block\Products\Edit" name="erp.products.edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="BoostMyShop\Erp\Block\Products\Edit\Tabs" name="erp.products.edit.tabs">
+                <block class="BoostMyShop\Erp\Block\Products\Edit\Tab\Overview" name="erp.products.edit.tabs.overview"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">overview</argument>
+                    <argument name="block" xsi:type="string">erp.products.edit.tabs.overview</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

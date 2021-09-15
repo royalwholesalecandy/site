@@ -1,0 +1,14 @@
+.product-availability-in-stock
+{
+    color: green;
+}
+
+.product-availability-backorder
+{
+    color: orange;
+}
+
+.product-availability-out-of-stock
+{
+    color: red;
+}

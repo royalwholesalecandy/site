@@ -1,0 +1,74 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+?>
+<div class="block block-search pull-right">
+    <div class="block block-content">
+        <form class="form minisearch form-inline" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+			<div class="form-group">
+				<?php /* Custom search by category */ ?>
+				<?php $mpanelHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+				<?php if($mpanelHelper->getStoreConfig('mpanel/form_mini_search/show_categories')): ?>
+					<?php $categories = $mpanelHelper->getCategories(); ?>
+					<select id="cat" name="cat">
+						<option value=""><?php echo __('All Categories') ?></option>
+						<?php
+						foreach ($categories as $category) {
+							foreach ($category as $key => $value) {
+								if ($key == 'label') {
+									$categoryName = $value;
+								}
+								if ($key == 'value') {
+									$categoryId = $value;
+								}
+								if ($key == 'level') {
+									$categoryLevel = $value;
+									$char = '';
+									for ($i = 0; $i < $categoryLevel; $i++) {
+										if ($categoryLevel > 2) {
+											$char = $char . '&nbsp;';
+										}
+									}
+								}
+							}
+							?>
+							<option <?php if ($mpanelHelper->getCurrentlySelectedCategoryId() == $categoryId): ?>selected="selected"<?php endif; ?> value="<?php echo $categoryId; ?>"><?php echo $char . $categoryName; ?></option>
+							<?php
+						}
+						?>
+					</select>
+				<?php endif; ?>
+				<input id="search"
+					   data-mage-init='{"quickSearch":{
+							"formSelector":"#search_mini_form",
+							"url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest'); ?>",
+							"destinationSelector":"#search_autocomplete"}
+					   }'
+					   type="text"
+					   name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+					   value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+					   placeholder="<?php /* @escapeNotVerified */ echo __('Search entire store here...'); ?>"
+					   class="input-text form-control"
+					   maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+					   role="combobox"
+					   aria-haspopup="false"
+					   aria-autocomplete="both"
+					   autocomplete="off"/>
+				<button type="submit" title="<?php echo $block->escapeHtml(__('Search')) ?>" class="btn btn-primary">
+					<em class="fa fa-search"></em>
+				</button>	   
+				<div id="search_autocomplete" class="search-autocomplete"></div>
+				<?php echo $block->getChildHtml() ?>
+			</div>
+        </form>
+    </div>
+</div>

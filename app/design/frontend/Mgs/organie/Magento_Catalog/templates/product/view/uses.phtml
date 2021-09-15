@@ -1,0 +1,6 @@
+<?php $uses = $this->getParentBlock()->getProduct()->getData('uses');?>
+<?php if ( $uses ): ?>
+    <div class="std">
+        <?php echo nl2br($uses);?>
+    </div>
+<?php endif; ?>

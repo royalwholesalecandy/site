@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_after">
+        <observer name="amasty_customer_save_after" instance="Amasty\Perm\Observer\CustomerSaveAfterObserver" />
+    </event>
+    <event name="email_order_set_template_vars_before">
+        <observer name="amasty_email_order_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_order_comment_set_template_vars_before">
+        <observer name="amasty_email_order_comment_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_shipment_set_template_vars_before">
+        <observer name="amasty_email_shipment_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_shipment_comment_set_template_vars_before">
+        <observer name="amasty_email_shipment_comment_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_invoice_set_template_vars_before">
+        <observer name="amasty_email_invoice_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_invoice_comment_set_template_vars_before">
+        <observer name="amasty_email_invoice_comment_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_creditmemo_set_template_vars_before">
+        <observer name="amasty_email_creditmemo_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+    <event name="email_creditmemo_comment_set_template_vars_before">
+        <observer name="amasty_email_creditmemo_comment_set_template_vars_before" instance="Amasty\Perm\Observer\EmailOrderSetTemplateVarsBefore" />
+    </event>
+</config>

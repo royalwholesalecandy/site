@@ -1,0 +1,6 @@
+<?php foreach($this->getReports() as $report): ?>
+    <div class="ur-report ur-report-size-<?php echo $report->getSize(); ?>">
+        <center><h2><?php echo $report->getName(); ?></h2></center>
+        <?php echo $this->renderReport($report); ?>
+    </div>
+<?php endforeach; ?>

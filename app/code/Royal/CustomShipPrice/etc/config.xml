@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Royal. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <royal_customshipprice>
+            <general>
+                <module_name>Custom Shipping Price</module_name>
+                <module_page_link>https://royal.com/custom-shipping-price-2.html</module_page_link>
+            </general>
+        </royal_customshipprice>
+        <carriers>
+            <customshipprice>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Royal\CustomShipPrice\Model\Carrier\CustomShipping</model>
+                <title>Custom Shipping</title>
+                <name>Custom Name</name>
+                <price>0.00</price>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <sort_order>9999</sort_order>
+            </customshipprice>
+        </carriers>
+    </default>
+</config>

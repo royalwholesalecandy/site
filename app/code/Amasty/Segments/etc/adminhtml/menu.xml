@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Segments::segments" title="Customer Segments" module="Amasty_Segments" parent="Magento_Customer::customer" sortOrder="100" resource="Amasty_Segments::segments"/>
+        <add id="Amasty_Segments::manage_segments" title="Manage Segments" sortOrder="10" module="Amasty_Segments" parent="Amasty_Segments::segments" action="amastysegments/segment/index" dependsOnModule="Amasty_Segments" resource="Amasty_Segments::manage_segments"/>
+    </menu>
+</config>

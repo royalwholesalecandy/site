@@ -1,0 +1,80 @@
+<?php if ($this->getProductId()): ?>
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="cache_grid_table">
+            <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Supplier'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Supplier Sku'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Buying Price'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Primary'); ?></span></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($this->getSuppliers() as $item): ?>
+                <tr>
+                    <td class="a-left"><a href="<?php echo $this->getSupplierUrl($item->getsup_id()); ?>"><?php echo $item->getsup_name(); ?></a></td>
+                    <td class="a-left"><?php echo $item->getsp_sku(); ?></td>
+                    <td class="a-right"><?php echo $this->formatPrice($item->getsup_id(), $item->getsp_price()); ?></td>
+                    <td class="a-center"><?php echo ($item->getsp_primary() ? 'X' : ''); ?></td>
+                </tr>
+            <?php endforeach; ?>
+            <?php if (count($this->getSuppliers()) == 0): ?>
+                    <tr>
+                        <td colspan="4"><?php echo __('No supplier associated to this product, you can link products to supplier from the supplier view'); ?></td>
+                    </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <?php if ($this->getProduct()->getqty_to_receive() > 0): ?>
+        <p><?php echo __('Quantity to receive : %1', $this->getProduct()->getqty_to_receive()); ?></p>
+    <?php endif; ?>
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="cache_grid_table">
+            <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Date'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Supplier'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Reference'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Status'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty ordered'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty received'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Price'); ?></span></th>
+                <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Price with costs'); ?></span></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($this->getOrders() as $item): ?>
+
+                <tr>
+                    <td class="a-left"><?php echo $this->formatDate($item->getpo_created_at()); ?></td>
+                    <td class="a-left"><a href="<?php echo $this->getSupplierUrl($item->getsup_id()); ?>"><?php echo $item->getsup_name(); ?></a></td>
+                    <td class="a-left"><a href="<?php echo $this->getOrderUrl($item->getpo_id()); ?>"><?php echo $item->getpo_reference(); ?></a></td>
+                    <td class="a-center"><?php echo $item->getpo_status(); ?></td>
+                    <td class="a-center"><?php echo $item->getpop_qty(); ?></td>
+                    <td class="a-center"><?php echo $item->getpop_qty_received(); ?></td>
+                    <td class="a-right"><?php echo $this->formatPrice($item->getsup_id(), $item->getpop_price_base()); ?></td>
+                    <td class="a-right"><?php echo $this->formatPrice($item->getsup_id(),$item->getpop_price_base()); ?></td>
+                </tr>
+            <?php endforeach; ?>
+            <?php if (count($this->getOrders()) == 0): ?>
+                <tr>
+                    <td colspan="8"><?php echo __('No purchase order available for this product'); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+<?php else: ?>
+
+    <?php echo __('This tab is not available during product creation.'); ?>
+
+<?php endif; ?>

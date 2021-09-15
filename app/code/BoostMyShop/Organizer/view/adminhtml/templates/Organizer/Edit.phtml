@@ -1,0 +1,144 @@
+<?php
+$users = $block->getUsers();
+$categories = $block->getCategories();
+$priorities = $block->getPriorities();
+$statuses = $block->getStatuses();
+?>
+<section class="admin__page-section order-view-account-information">
+    <form id="org_popup_edit_form" action="" method="post" data-mage-init='{"validation":{}}' data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+        <input type="hidden" name="form_key" id="form_key_<?php echo $this->getTask()->getId(); ?>" value="<?php echo $block->getFormKey(); ?>">
+        <input type="hidden" id="o_id_<?php echo $this->getTask()->getId(); ?>" name="o_id" value="<?php echo $this->getTask()->getId(); ?>">
+        <input type="hidden" id="o_object_type_<?php echo $this->getTask()->getId(); ?>" name="o_object_type" value="<?php echo $this->getTask()->geto_object_type(); ?>">
+        <input type="hidden" id="o_object_id_<?php echo $this->getTask()->getId(); ?>" name="o_object_id" value="<?php echo $this->getTask()->geto_object_id(); ?>">
+        <input type="hidden" id="o_object_description_<?php echo $this->getTask()->getId(); ?>" name="o_object_description" value="<?php echo $this->getTask()->geto_object_description(); ?>">
+        <div id="page_tabs_main_section_content_org" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+            <div class="admin__page-section-content">
+
+                <?php if ($this->getTask()->geto_object_description()): ?>
+                    <div class="admin__page-section-item" style="width: 80%; margin-bottom: 20px;">
+                        <table class="admin__table-secondary">
+                            <tr>
+                                <td colspan="2" class="a-center">
+                                    <div class="admin__field field">
+                                        <div class="admin__field-control control">
+                                            <a href="<?php echo $block->getObjectUrl();?>"><?php echo $this->getTask()->geto_object_description() ?></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php endif; ?>
+                <div class="admin__page-section-item order-information">
+                    <div class="admin__page-section-item-content">
+                        <div class="admin__field field ">
+                            <label class="label admin__field-label" for="label" ><span><?php echo  __('Label'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="o_title" id="o_title" value="<?php echo $this->getTask()->geto_title() ?>" class="required-entry input-text admin__control-text required-entry _required" size="30" style="width: 55%">
+                            </div>
+                        </div><br/>
+
+                        <div class="admin__field field">
+                            <label class="label admin__field-label" for="status" ><span><?php echo  __('Status'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <select id="o_status_<?php echo $this->getTask()->getId(); ?>" name="o_status" class="select admin__control-select" style="width: 55%">
+                                    <?php foreach($statuses as $key => $value): ?>
+                                        <option value="<?php echo $value; ?>" <?php if ($this->getTask()->getId() && $this->getTask()->geto_status() == $value): echo "selected"; endif;?>><?php echo $value; ?></option>
+                                    <?php endforeach; ?>
+                                </select>                           
+                            </div>
+                        </div>
+
+                        <div class="admin__field field">
+                            <label class="label admin__field-label" for="assigned_to" ><span><?php echo  __('Assigned to'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <select id="o_assign_to_user_id_<?php echo $this->getTask()->getId(); ?>" name="o_assign_to_user_id" class="select admin__control-select" style="width: 55%">
+                                    <option value=""><?php echo __('Please select'); ?></option>
+                                    <?php foreach($users as $key => $value): ?>
+                                        <option value="<?php echo $key; ?>" <?php if ($this->getTask()->getId() && $this->getTask()->geto_assign_to_user_id() == $key): echo "selected"; endif;?>><?php echo $value; ?></option>
+                                    <?php endforeach; ?>
+                                </select>                           
+                            </div>
+                        </div>
+
+                        <div class="admin__field field">
+                            <div class="admin__field field">
+                            <label class="label admin__field-label" for="o_notified_at" ><span><?php echo  __('Last notified at'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <?php echo $this->getTask()->geto_notified_at() ?>
+                            </div>
+                        </div><br/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="admin__page-section-item order-account-information">
+                    <div class="admin__page-section-item-content">
+                        <div class="admin__field field ">
+                            <label class="label admin__field-label" for="category" ><span><?php echo  __('Category'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <select id="o_category_<?php echo $this->getTask()->getId(); ?>" name="o_category" class="required-entry required-entry _required select admin__control-select" data-ui-id="billing-address-fieldset-element-select-order-account-group-id" style="width: 55%">
+                                    <?php foreach($categories as $key => $value): ?>
+                                        <option value="<?php echo $key; ?>" <?php if ($this->getTask()->getId() && $this->getTask()->geto_category() == $key): echo "selected"; endif;?>><?php echo $value; ?></option>
+                                    <?php endforeach; ?>
+                                </select>                            
+                            </div>
+                        </div>
+
+                        <div class="admin__field field">
+                            <label class="label admin__field-label" for="priority" ><span><?php echo  __('Priority'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <select id="o_priority_<?php echo $this->getTask()->getId(); ?>" name="o_priority" class="select admin__control-select" data-ui-id="billing-address-fieldset-element-select-order-account-group-id" style="width: 55%">
+                                    <?php foreach($priorities as $key => $value): ?>
+                                        <option value="<?php echo $key; ?>" <?php if ($this->getTask()->getId() && $this->getTask()->geto_priority() == $key): echo "selected"; endif;?>><?php echo $value; ?></option>
+                                    <?php endforeach; ?>
+                                </select>                            
+                            </div>
+                        </div>
+
+                        <div class="admin__field field">
+                            <label class="label admin__field-label" for="due_date" ><span><?php echo  __('Due date'); ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="o_due_date" id="o_due_date" class="o_due_date input-text admin__control-text" value="<?php echo $this->getTask()->geto_due_date() ?>" class="input-text admin__control-text" size="30" style="width: 55%">                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br/>
+            <div class="admin__page-section-item admin__field field">
+                <div class="admin__field-control control">
+                    <textarea name="o_comments" id="o_comments" class="input-text admin__control-textarea " rows="5" placeholder="<?php echo  __('Comments'); ?>" style="width: 80%"><?php echo $this->getTask()->geto_comments() ?></textarea>                        
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script type="text/javascript">
+    require(
+        ["jquery","prototype","mage/calendar"],
+        function($) {
+            var calendarParentForm = document.getElementById('org_popup_edit_form');
+            if(calendarParentForm) {
+                var id = '#o_due_date';
+                jQuery(id).calendar({dateFormat: 'yy-mm-dd', showTime: false});
+            }
+
+            /*Prevent space issue in modal */
+            jQuery("#o_title").keyup(function(event){
+                if(event.keyCode == 32){
+                    jQuery("#o_title").val($("#o_title").val()+' ');
+                }
+            }); 
+
+             jQuery("#o_comments").keyup(function(event){
+                if(event.keyCode == 32){
+                    jQuery("#o_comments").val($("#o_comments").val()+' ');
+                }
+            }); 
+            
+        }
+    );
+
+</script>

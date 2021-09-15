@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="catalog_product_save_after">
+        <observer name="bms_advancedstock_catalog_product_save_after" instance="BoostMyShop\AdvancedStock\Observer\CatalogProductAfterSave"/>
+    </event>
+
+    <event name="advancedstock_stock_movement_save_after">
+        <observer name="bms_advancedstock_advancedstock_stock_movement_save_after" instance="BoostMyShop\AdvancedStock\Observer\StockMovementAfterSave"/>
+    </event>
+
+    <event name="advancedstock_warehouse_item_available_quantity_after_change">
+        <observer name="bms_advancedstock_advancedstock_warehouse_item_available_quantity_after_change" instance="BoostMyShop\AdvancedStock\Observer\WarehouseItemAvailableQuantityAfterChange"/>
+    </event>
+
+    <event name="sales_order_shipment_save_after">
+        <observer name="bms_advancedstock_sales_order_shipment_save_after" instance="BoostMyShop\AdvancedStock\Observer\SalesOrderShipmentSaveAfter"/>
+    </event>
+
+    <event name="sales_order_item_save_after">
+        <observer name="bms_advancedstock_sales_order_item_save_after" instance="BoostMyShop\AdvancedStock\Observer\SalesOrderItemSaveAfter"/>
+    </event>
+
+    <event name="sales_order_save_after">
+        <observer name="bms_advancedstock_sales_order_save_after" instance="BoostMyShop\AdvancedStock\Observer\SalesOrderSaveAfter"/>
+    </event>
+
+    <event name="website_save_after">
+        <observer name="bms_advancedstock_website_save_after" instance="BoostMyShop\AdvancedStock\Observer\WebsiteSaveAfter"/>
+    </event>
+
+    <event name="advancedstock_order_item_warehouse_change">
+        <observer name="bms_advancedstock_order_item_warehouse_change" instance="BoostMyShop\AdvancedStock\Observer\OrderItemWarehouseChange"/>
+    </event>
+
+    <event name="advancedstock_warehouse_item_reservation_to_process">
+        <observer name="bms_advancedstock_warehouse_item_reservation_to_process" instance="BoostMyShop\AdvancedStock\Observer\OrderItemWarehouseReservationToProcess"/>
+    </event>
+
+    <event name="cataloginventory_stock_item_save_after">
+        <observer name="bms_advancedstock_cataloginventory_stock_item_save_after" instance="BoostMyShop\AdvancedStock\Observer\CatalogInventoryStockItemAfterSave"/>
+    </event>
+
+    <event name="model_save_after">
+        <observer name="bms_advancedstock_model_save_after" instance="BoostMyShop\AdvancedStock\Observer\ModelSaveAfter"/>
+    </event>
+
+    <event name="controller_action_predispatch_adminhtml_import_index">
+        <observer name="bms_advancedstock_controller_action_predispatch_adminhtml_import_index" instance="BoostMyShop\AdvancedStock\Observer\ControllerActionPredispatchAdminhtmlImportIndex"/>
+    </event>
+
+    <event name="bms_supplier_replenishment_grid_preparecolumns">
+        <observer name="bms_advancedstock_bms_supplier_replenishment_grid_preparecolumns" instance="BoostMyShop\AdvancedStock\Observer\SupplierReplenishmentGridPrepareColumns"/>
+    </event>
+
+    <event name="bms_supplier_transit_grid_prepare_columns">
+        <observer name="bms_advancedstock_bms_supplier_transit_grid_prepare_columns" instance="BoostMyShop\AdvancedStock\Observer\SupplierTransitGridPrepareColumns"/>
+    </event>
+
+    <event name="bms_supplier_order_addproducts_grid_preparecolumns">
+        <observer name="bms_advancedstock_bms_supplier_order_addproducts_grid_preparecolumns" instance="BoostMyShop\AdvancedStock\Observer\SupplierOrderAddProductsGridPrepareColumns"/>
+    </event>
+
+    <!-- Events related to the ERP product view -->
+
+    <event name="erp_product_edit_main_figures">
+        <observer name="bms_advanceds_stock_erp_product_edit_main_figures" instance="BoostMyShop\AdvancedStock\Observer\ErpProductEditMainFigures"/>
+    </event>
+
+    <event name="erp_product_edit_main_blocks">
+        <observer name="bms_advanceds_stock_erp_product_edit_main_blocks" instance="BoostMyShop\AdvancedStock\Observer\ErpProductEditMainBlocks"/>
+    </event>
+
+    <event name="erp_product_edit_save">
+        <observer name="bms_advanceds_stock_erp_product_edit_save" instance="BoostMyShop\AdvancedStock\Observer\ErpProductEditSave"/>
+    </event>
+
+</config>

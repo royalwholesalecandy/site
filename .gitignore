@@ -1,0 +1,23 @@
+# 2021-09-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+*
+!*/
+!/.editorconfig
+!/.gitignore
+!/composer.json
+!/readme.md
+!/app/code/**/*
+# 2021-09-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# It is the parent of  `bs_eren/bs_eren3`
+!/app/design/frontend/bs_eren/bs_eren1/**/*
+!/app/design/frontend/bs_eren/bs_eren3/**/*
+!/app/design/frontend/Mgs/**/*
+!/app/design/frontend/Megnor/**/*
+!/app/etc/config.php
+!/choco/**/*
+/update/
+/dev
+/vendor/codeception
+/vendor/magento/framework/Test
+/vendor/magento/magento2-base
+/vendor/magento/magento2-functional-testing-framework
+/vendor/tubalmartin

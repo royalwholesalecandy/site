@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_perm" translate="label" type="text" sortOrder="161812" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sales Reps and Dealers</label>
+            <tab>amasty</tab>
+            <resource>Amasty_Perm::amasty_perm</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="default_dealer" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Default Dealer</label>
+                    <comment><![CDATA[All new orders will be assigned to this dealer except if a specific customer is already assigned to another dealer.]]></comment>
+                    <source_model>Amasty\Perm\Model\Config\Source\System\Dealers</source_model>
+                </field>
+
+                <field id="send_email" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Send New Order Email to the Dealer</label>
+                    <comment><![CDATA[Indicate `Yes` to send a copy of the order email to the associated dealer.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="reassign_fields" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Show Re-assign Fields</label>
+                    <comment><![CDATA[On the order view page in Backend.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="from_to" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Show From To</label>
+                    <comment><![CDATA[From whom to whom re-assigned order.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="reassign_fields">1</field>
+                    </depends>
+                </field>
+                <field id="author" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Show Author of Message</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="reassign_fields">1</field>
+                    </depends>
+                </field>
+                <field id="edit_no_grid" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Hide the `Manage Customers` tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[On the `Edit User` page (the `Edit Dealer` page).]]></comment>
+                </field>
+                <field id="allow_all_customers_and_orders" translate="label comment" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Allow dealers to see all customers and orders</label>
+                    <comment><![CDATA[Indicate `Yes` to allow dealers to see all customers and orders in the system]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="messages" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Re-assigned Order Notifications</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Send Emails</label>
+                    <comment><![CDATA[Indicate `Yes` to send a notification about re-assigned order to the new and old dealers.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="see_other_dealers" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Dealer Can Assign Order to Other Dealers</label>
+                    <comment><![CDATA[Indicate `No` if you want dealer to assign orders to the store administrator only.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="admin_name" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Admin Name</label>
+                    <comment><![CDATA[If an order assigned from a dealer to the store admin, email will be sent to this name.]]></comment>
+                </field>
+                <field id="admin_email" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Admin Email</label>
+                    <comment><![CDATA[If an order assigned from a dealer to the store admin, email will be sent to this address.]]></comment>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Amasty\Perm\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+            <group id="frontend" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend</label>
+                <field id="on_registration" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Customers to select a Dealer on Registration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="in_account" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Customers to select a Dealer in Customer Account</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="description_checkout" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Dealer description at checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="description_customer" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Dealer description in customer dashboard</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

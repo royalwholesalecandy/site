@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    if(document.referrer.search(document.location.hostname) == -1
+        && document.referrer.search('paypal.com') == -1)
+    {
+        // document.cookie += '; referrer_url=' + document.referrer;
+        jQuery.cookie('referrer_url',document.referrer , {expires : 30});
+    }
+</script>

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="wanexo_ext" sortOrder="2000">
+            <label>Wanexo</label>
+        </tab>
+        <section id="wanexo_mlayer" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Banner Slider</label>
+            <tab>wanexo_ext</tab>
+            <resource>Wanexo_Mlayer::mlayer</resource>
+            <group id="banner" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Wanexo Banner Settings</label>
+                <field id="status" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="bannertype" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Type</label>
+                    <source_model>Wanexo\Mlayer\Model\Source\Bannertype</source_model>
+					<depends><field id="status">1</field></depends>
+                </field>
+				<field id="full_banner" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Full Width banner</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="status">1</field></depends>
+                </field>
+				<field id="banner_block" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<comment>Here you can add static block ID/Identifier</comment>
+                    <label>Banner Static Block</label>
+					<depends><field id="status">1</field></depends>
+                </field>
+				<field id="right_block" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner With Right Static Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="bannertype">2</field>
+					</depends>
+                </field>
+				<field id="hide_banner" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Banner from small devices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="status">1</field>
+						<field id="bannertype">1</field>
+					</depends>
+                </field>
+				<field id="bannereffect" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner effect</label>
+                    <source_model>Wanexo\Mlayer\Model\Source\Bannereffect</source_model>
+					<depends><field id="status">1</field><field id="bannertype">1</field></depends>
+                </field>
+				
+				<field id="animation" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Effect In</label>
+                    <source_model>Wanexo\Mlayer\Model\Source\animation</source_model>
+					<depends>
+						<field id="status">1</field>
+						<field id="bannertype" separator=",">2</field>
+					</depends>
+                </field>
+				
+				<field id="owlcolumn" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Columns</label>
+					<depends><field id="status">1</field><field id="bannertype">3</field></depends>
+                </field>
+				<field id="owlbannereheight" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Auto Height</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="status">1</field><field id="bannertype">2</field></depends>
+                </field>
+                <field id="bannercontent" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Content</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="status">1</field></depends>
+                </field>
+                <field id="loadertype" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Loader Type</label>
+                    <source_model>Wanexo\Mlayer\Model\Source\Loadertype</source_model>
+					<depends><field id="status">1</field><field id="bannertype">1</field></depends>
+                </field>
+                <field id="bannerheight" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Height</label>
+					<depends><field id="status">1</field><field id="bannertype">1</field></depends>
+                </field>
+                <field id="bannerpagination" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner pagination</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="status">1</field></depends>
+                </field>
+				<field id="bannerpause" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner pause on hover</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="status">1</field></depends>
+                </field>
+				<field id="bannertime" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Play Time</label>
+                    <depends>
+						<field id="status">1</field>
+						<field id="bannertype" separator=",">2,3</field>
+					</depends>
+                </field>
+				<field id="bannerspeed" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner Speed</label>
+                    <depends>
+						<field id="status">1</field>
+						<field id="bannertype" separator=",">2,3</field>
+					</depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

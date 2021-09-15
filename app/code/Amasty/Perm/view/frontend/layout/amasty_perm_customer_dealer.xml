@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Perm
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Amasty_Perm::css/customer_dealer.css"/>
+    </head>
+    <body>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components" name="customer_account_edit_head_components" template="Magento_Customer::js/components.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Edit Dealer</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Amasty\Perm\Block\Customer\Dealer\Edit" name="amasty_perm_customer_dealer_edit" template="customer/form/edit.phtml" cacheable="false">
+                <block class="Amasty\Perm\Block\Customer\Form\Register\Dealer" name="amasty_perm_form_additional_info_customer" template="Amasty_Perm::customer/additionalinfo.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

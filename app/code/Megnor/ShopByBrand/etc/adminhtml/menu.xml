@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Megnor. All rights reserved. 
+ */
+ <add id="megnor_shopbybrand::shopbybrand" title="Brands" module="Megnor_ShopByBrand" sortOrder="30" parent="Megnor_Category::view" action="megnor_shopbybrand/items/" resource="Megnor_ShopByBrand::items"/> 
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../app/code/Magento/Backend/etc/menu.xsd">
+    <menu>
+         <add id="megnor_shopbybrand::shopbybrand" title="Brands" module="Megnor_ShopByBrand" sortOrder="30" parent="Megnor_Category::view" action="megnor_shopbybrand/items/" resource="Megnor_ShopByBrand::items"/> 
+    </menu>
+</config>

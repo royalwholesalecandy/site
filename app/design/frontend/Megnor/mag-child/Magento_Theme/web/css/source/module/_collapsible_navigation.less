@@ -1,0 +1,141 @@
+
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  ---------------------------------------------
+
+@collapsible-nav-background: #f7f7f7;
+@collapsible-nav-color:#666;
+@collapsible-nav-current-border: 3px solid transparent;
+@collapsible-nav-current-border-color: @color-orange-red1;
+@collapsible-nav-current-color: @color-black;
+@collapsible-nav-current-font-weight: @font-weight__semibold;
+@collapsible-nav-item-hover: @color-gray91;
+
+//
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+//
+//  Collapsible navigation
+//  ---------------------------------------------
+
+.block-collapsible-nav {
+    .content {
+        .lib-css(background, #fff);
+        padding: 0px 0;
+    }
+    .item {
+        margin: 0px 0 0;
+        position: relative;
+        &:first-child {
+            margin-top: 0;
+        }
+        a,
+        > strong {
+            .lib-css(color, @collapsible-nav-color);
+            display: block;
+            padding: 7px 0px 7px 0px;
+            font-weight: 400;
+        }
+        a {
+            text-decoration: none;
+            &:hover {
+                .lib-css(background, transparent);
+                .lib-css(color, #f02640);
+            }
+        }
+        &.current {
+            a,
+            > strong {
+                
+                .lib-css(color, #f02640);
+                .lib-css(background, #fff);
+                font-weight: 500;
+            }
+            a {
+                .lib-css(border-color, @collapsible-nav-current-border-color);
+              }
+        }
+
+            .delimiter {
+                border-top: 1px solid transparent;
+                display: block;
+                margin: @indent__s 1.8rem;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  ------------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-collapsible-nav {
+        .title {
+            /*&:extend(.abs-visually-hidden-desktop all);*/
+            background: #fff;
+            border-bottom: 2px solid #e6e6e6;
+            padding: 0px 0px 15px;
+            margin: 0px 0 20px;
+            position: relative;
+                > strong{
+                    font-size: 20px;
+                    line-height:normal;
+                    font-weight: 400;
+                    margin: 0px;
+                    color: #333;
+                    text-transform: uppercase;
+                }
+                &:after {
+                    background: #f02640 none repeat scroll 0 0;
+                    bottom: -2px;
+                    content: "";
+                    height: 3px;
+                    left: 0;
+                    position: absolute;
+                    width: 100px;
+                }
+            }
+            .item {
+                &.current {
+                &:before{
+                    
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block-collapsible-nav {
+        left: 0;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: 5;
+        .title {
+            &:extend(.abs-toggling-title-mobile all);
+        }
+        .content {
+            border-bottom: @border-width__base solid @border-color__base;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

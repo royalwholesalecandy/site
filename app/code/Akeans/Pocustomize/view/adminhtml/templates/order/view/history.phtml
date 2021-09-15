@@ -1,0 +1,180 @@
+<?php
+
+/**
+
+ * Copyright © Magento, Inc. All rights reserved.
+
+ * See COPYING.txt for license details.
+
+ */
+
+?>
+
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+
+<?php $order = $block->getOrder();
+
+$payment = $order->getPayment();
+
+$method = $payment->getMethodInstance();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$paymentManager = $objectManager->create('\Magento\Sales\Model\Order\Payment');
+
+$payments = $paymentManager->getCollection()->addFieldToFilter('parent_id',$order->getId());
+
+if($method->getCode() == 'purchaseorder'){
+
+	$payment = '';
+
+	foreach($payments as $paymentdata){
+
+		if($paymentdata->getMethod() == 'authorizenet_directpost'){
+
+			$payment = $paymentdata;
+
+		}
+
+	}
+
+if($payment){
+$amountPaid = $payment->getAmountPaid();
+if(!$amountPaid){
+$amountPaid = $payment->getBaseAmountPaidOnline();
+}
+$paymentManager->setMethod($payment->getMethod());
+
+$method = $paymentManager->getMethodInstance();
+
+//$method->setMethod($payment->getMethod());
+
+$cardManager = $objectManager->create('\Magento\Payment\Model\CcConfig');
+
+$cardTypes = $cardManager->getCcAvailableTypes();
+
+$cardName = $payment->getCcType();
+
+if(isset($cardTypes[$cardName])){
+
+	$cardName = $cardTypes[$cardName];
+
+}
+
+?>
+
+<p></p>
+
+<p></p>
+
+<div id="capture_payment_info_container">
+
+	<div class="box-left">
+
+		<div class="entry-edit">
+
+			<div class="entry-edit-head">
+
+				<h4 class="icon-head head-payment-method">Capture Information</h4>
+
+			</div>
+
+			<fieldset>
+
+				<div class="cards-list">
+
+					<div class="bold"><?php echo $method->getTitle()?></div>
+
+					<span>Credit Card 1</span>
+
+					<table class="info-table offset">
+
+						<tbody>
+
+							<tr>
+
+								<td>Credit Card Type: </td>
+
+								<td><?php echo $cardName;?></td>
+
+							</tr>
+
+							<tr>
+
+								<td>Credit Card Number:</td>
+
+								<td> xxxx-<?php echo $payment->getCcLast4();?></td>
+
+							</tr>
+
+							<tr>
+
+								<td>Processed Amount:</td>
+
+								<td>$<?php echo $paymentManager->formatAmount($amountPaid);?></td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</fieldset>
+
+		</div>
+
+	</div>
+
+	<div class="clear"></div>
+
+</div>
+
+<?php }}?>
+<?php 
+$buttonUrl = $block->getUrl(
+            'pocustomize/labelprint/index',
+            ['order_id' => $order->getId()]
+        );
+?>
+<div id="popup-modal" style="display:none;">
+	<form id="label-form" name="label-form" action="<?php echo $buttonUrl?>">
+	<textarea style="width: 100%" name="label_comment" id="label_comment" placeholder="Enter Your Comment"></textarea>
+	</form>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Print Label',
+				closeText: 'Close',
+                buttons: [{
+                    text: $.mage.__('Submit'),
+                    class: '',
+                    click: function () {
+                        $('#label-form').submit();
+						this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            $("#click-me").on('click',function(){ 
+                $("#popup-modal").modal("openModal");
+            });
+
+        }
+    );
+</script>

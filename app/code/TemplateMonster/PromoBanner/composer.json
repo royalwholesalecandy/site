@@ -1,0 +1,17 @@
+{
+  "name" : "templatemonster/promo-banner",
+  "autoload": {
+    "psr-4": {"TemplateMonster\\PromoBanner\\":""},
+    "files": [ "registration.php" ]
+  },
+  "description": "Promo Banner",
+  "require": {
+    "magento/module-catalog": "*"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "extra": {
+    "isStandalone": "false",
+    "magentoVersion": "v2.1.7"
+  }
+}

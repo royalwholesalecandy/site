@@ -1,0 +1,77 @@
+<?php $packQtyEnable = $block->isPackQtyEnabled(); ?>
+<form method="POST" name="edit_form" id="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <input type="hidden" name="new_barcodes" id="new_barcodes" value="">
+
+    <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+        <table class="data-grid" id="cache_grid_table">
+            <thead>
+                <tr>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Image'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Sku'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Barcode'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Product'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Location'); ?></span></th>
+                    <?php if($packQtyEnable): ?>
+                        <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Pack qty'); ?></span></th>
+                    <?php endif; ?>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty ordered'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty received'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty pending'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Qty to receive'); ?></span></th>
+                    <th class="data-grid-th  no-link col-cache_type" style="width: 150px;"><span><?php echo __('Status'); ?></span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach($this->getOrder()->getAllItems() as $item): ?>
+                    <input type="hidden" name="remaining_<?php echo $item->getpop_product_id(); ?>" id="remaining_<?php echo $item->getpop_product_id(); ?>" value="<?php echo $item->getPendingQty(); ?>">
+                    <input type="hidden" name="name_<?php echo $item->getpop_product_id(); ?>" id="name_<?php echo $item->getpop_product_id(); ?>" value="<?php echo $item->getpop_name(); ?>">
+                    <input type="hidden" name="image_<?php echo $item->getpop_product_id(); ?>" id="image_<?php echo $item->getpop_product_id(); ?>" value="<?php echo $this->getImageUrl($item); ?>">
+                    <input type="hidden" name="location_<?php echo $item->getpop_product_id(); ?>" id="location_<?php echo $item->getpop_product_id(); ?>" value="<?php echo $this->getProductLocation($item); ?>">
+
+                    <tr id="tr_<?php echo $item->getpop_product_id(); ?>">
+                        <td class="a-center"><img src="<?php echo $this->getImageUrl($item); ?>" width="30"></td>
+                        <td class="a-left"><a href="<?php echo $this->getProductUrl($item); ?>"><?php echo $item->getpop_sku().' / '.$item->getpop_supplier_sku(); ?></a></td>
+                        <td class="a-left" id="barcode-div-<?php echo $item->getpop_product_id(); ?>"><?php echo $this->getProductBarcode($item); ?></td>
+                        <td class="a-left"><?php echo $item->getpop_name(); ?></td>
+                        <td class="a-center"><?php echo $this->getProductLocation($item); ?></td>
+                        <?php if($packQtyEnable): ?>
+                            <td class="a-center">
+                                <?php echo $item->getpop_qty_pack().'x'; ?>
+                                <input type="hidden" name="products[<?php echo $item->getpop_product_id(); ?>][qty_pack]" value="<?php echo $item->getpop_qty_pack(); ?>">
+                            </td>
+                        <?php endif; ?>
+                        <td class="a-center"><?php echo $item->getpop_qty(); ?></td>
+                        <td class="a-center"><?php echo $item->getpop_qty_received(); ?></td>
+                        <td class="a-center"><?php echo $item->getPendingQty(); ?></td>
+                        <td class="a-center">
+                            <input type="button" value="--" onclick="orderReception.qtyMini(<?php echo $item->getpop_product_id(); ?>);" />
+                            <input type="button" value="-" onclick="orderReception.qtyDecrease(<?php echo $item->getpop_product_id(); ?>);" />
+                            <input type="text" onkeyup="orderReception.qtyChanged();" name="products[<?php echo $item->getpop_product_id(); ?>][qty]" id="qty_<?php echo $item->getpop_product_id(); ?>" value="0" size="3">
+                            <input type="button" value="+" onclick="orderReception.qtyIncrease(<?php echo $item->getpop_product_id(); ?>);" />
+                            <input type="button" value="++" onclick="orderReception.qtyMaxi(<?php echo $item->getpop_product_id(); ?>);" />
+                        </td>
+                        <td class="a-center"><span id="cell_status_<?php echo $item->getpop_product_id(); ?>"></span></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+</form>
+
+<script>
+
+    require(["supplier_order_reception"], function(){
+        orderReception = new AdminOrderReception();
+        orderReception.init(<?php echo $this->getProductIdsJson(); ?>, <?php echo $this->getBarcodesJson(); ?>);
+        orderReception.qtyChanged();
+    });
+</script>
+
+<audio id="audio_nok" src="<?php echo $this->getViewFileUrl('BoostMyShop_Supplier::sound/wrong.mp3'); ?>" ></audio>
+<audio id="audio_ok" src="<?php echo $this->getViewFileUrl('BoostMyShop_Supplier::sound/correct.mp3'); ?>" ></audio>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <!--<update handle="supplier_order_grid_block"/>-->
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\AdvancedStock\Block\Transfer\Receive\Header" name="advancedstock.transfer.receive.header"/>
+            <block class="BoostMyShop\AdvancedStock\Block\Transfer\Receive\Products" name="advancedstock.transfer.receive.products"/>
+        </referenceContainer>
+    </body>
+</page>

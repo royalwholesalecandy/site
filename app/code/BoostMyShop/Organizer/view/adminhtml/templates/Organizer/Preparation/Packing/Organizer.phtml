@@ -1,0 +1,14 @@
+<?php if ($this->showSection()): ?>
+
+    <table class="tbl-order">
+        <tbody>
+        <tr>
+            <td style="font-size: 12px; margin: 3px;">
+                <?php foreach($this->getOrganizers() as $organiser): ?>
+                    <b><?php echo $organiser->geto_title(); ?></b> : <?php echo $organiser->geto_comments(); ?><br>
+                <?php endforeach; ?>
+            </td>
+        </tr>
+        </tbody></table>
+
+<?php endif; ?>

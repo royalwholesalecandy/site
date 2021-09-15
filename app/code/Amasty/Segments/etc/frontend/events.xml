@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_save_commit_after">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\QuoteEventUpdate"/>
+    </event>
+    <event name="sales_order_save_commit_after">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\OrderEventUpdate"/>
+    </event>
+    <event name="sales_quote_collect_totals_after">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\QuoteEventUpdate"/>
+    </event>
+    <event name="catalog_controller_product_view">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\ProductEventUpdate"/>
+    </event>
+    <event name="checkout_cart_save_after">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\QuoteEventUpdate"/>
+    </event>
+    <event name="wishlist_items_renewed">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\ProductEventUpdate"/>
+    </event>
+    <event name="customer_login">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\CustomerEventUpdate"/>
+    </event>
+    <event name="newsletter_subscriber_save_commit_after">
+        <observer name="amasty_segments" instance="Amasty\Segments\Observer\CustomerEventUpdate"/>
+    </event>
+</config>

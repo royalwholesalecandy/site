@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+		<add id="Wanexo_Ext::mdlnavi" title="Top Navigation" module="Wanexo_Mdlnavi" sortOrder="50" resource="Wanexo_Mdlnavi::mdlnavi" parent="Wanexo_Ext::wanexo"/>
+		<add id="Wanexo_Mdlnavi::madlnavisetting" title="Top Navigation Settings" module="Wanexo_Mdlnavi" sortOrder="51" action="adminhtml/system_config/edit/section/wanexo_mdlnavi/" resource="Wanexo_Mdlnavi::mdlnavi" parent="Wanexo_Ext::mdlnavi" />
+    </menu>
+</config>

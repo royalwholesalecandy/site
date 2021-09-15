@@ -1,0 +1,200 @@
+<?php
+$helper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$showThumbnail = $this->getConfig('general_settings/show_thumbnail');
+$blogLayout = $this->getConfig('general_settings/blog_layout');
+$blogCols = $this->getConfig('general_settings/blog_cols');
+if ($this->getConfig('general_settings/thumbnail_width') != '') {
+    $width = $this->getConfig('general_settings/thumbnail_width');
+} else {
+    $width = 240;
+}
+if ($this->getConfig('general_settings/thumbnail_height') != '') {
+    $height = $this->getConfig('general_settings/thumbnail_height');
+} else {
+    $height = 180;
+}
+?>
+<?php if (!count($collection)): ?>
+    <div class="message info empty">
+        <div><?php echo __('Have no posts.') ?></div>
+    </div>
+<?php elseif(($blogLayout == 'blog_list') || ($blogLayout == '') ): ?>
+    <div class="blog-list">
+        <?php foreach ($collection as $post): ?>
+            <div class="blog-post">
+			    <?php if ($showThumbnail): ?>
+                    <div class="post-thumbnail">
+                        <?php echo $helper->getThumbnailPost($post); ?>
+                    </div>
+                <?php endif; ?>
+				<div class="post-info">
+                    <?php if ($post->getUpdatedByUser()): ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUpdatedByUser()); ?></a></em></div>
+                    <?php else: ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUser()); ?></a></em></div>
+                    <?php endif; ?>
+                </div>
+                <h3 class="post-title">
+                    <a class="post-title-link h3" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a>
+                </h3>
+                <?php if ($post->getShortContent()): ?>
+                    <div class="post-content">
+                        <?php echo $post->getShortContent(); ?>
+						<div class="post-link">
+							<a class="btn btn-sm btn-primary" title="<?php echo __('Read More'); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('Read More'); ?></a>
+							<?php if ($this->getConfig('general_settings/use_sharethis')): ?>
+                                <div class="sharethis-inline-share-buttons">
+								<span class="st_sharethis" displayText="Share this post"></span>
+								</div>
+                            <?php endif; ?>
+						</div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="blog-post-list-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php else: ?>
+	<div class="blog-masonry">
+        <?php foreach ($collection as $post): ?>
+		    <?php if(($blogCols == '2') || ($blogCols == '')):?>
+			<div class="grid-item col-sm-6 col-xs-12">	
+			    <?php if ($showThumbnail): ?>
+                    <div class="post-thumbnail">
+                        <?php echo $helper->getThumbnailPost($post); ?>
+                    </div>
+                <?php endif; ?>
+				<div class="post-info">
+                    <?php if ($post->getUpdatedByUser()): ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUpdatedByUser()); ?></a></em></div>
+                    <?php else: ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUser()); ?></a></em></div>
+                    <?php endif; ?>
+                </div>
+                <h2 class="post-title">
+                    <a class="post-title-link h3" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a>
+                </h2>
+                <?php if ($post->getShortContent()): ?>
+                    <div class="post-content">
+                        <?php echo $post->getShortContent(); ?>
+						<div class="post-link">
+							<a title="<?php echo __('/ Read More'); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('/ Read More'); ?></a>
+						</div>
+                    </div>
+                <?php endif; ?>
+            </div>
+			<?php elseif($blogCols == '3'):?>
+            <div class="grid-item col-md-4 col-sm-4 col-xs-12">
+			   <?php if ($showThumbnail): ?>
+                    <div class="post-thumbnail">
+                        <?php echo $helper->getThumbnailPost($post); ?>
+                    </div>
+                <?php endif; ?>
+				<div class="post-info">
+                    <?php if ($post->getUpdatedByUser()): ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUpdatedByUser()); ?></a></em></div>
+                    <?php else: ?>
+                        <div class="published-by h5 date_time"><em><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::LONG, false)); ?> by <a href="#"><?php echo __($post->getUser()); ?></a></em></div>
+                    <?php endif; ?>
+                </div>
+                <h2 class="post-title">
+                    <a class="post-title-link h3" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a>
+                </h2>
+                <?php if ($post->getShortContent()): ?>
+                    <div class="post-content">
+                        <?php echo $post->getShortContent(); ?>
+						<div class="post-link">
+							<a title="<?php echo __('/ Read More'); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo __('/ Read More'); ?></a>
+						</div>
+                    </div>
+                <?php endif; ?>
+            </div>
+			<?php endif?>
+        <?php endforeach; ?>
+		<div class="clearfix"></div>
+    </div>
+	<div class="clearfix"></div>
+	<div class="blog-load-more-post">
+			<a class="h5 load-more" href="javascript:void(0);" onclick="loadmorePost()"><em><?php echo __('Load more') ?></em></a>
+		</div>
+	<div class="blog-post-masonry-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+	<script>
+	function setMasonry(){
+     requirejs( [ 'require', 'jquery', 'mgs/masonry' ],
+     function( require, $, Masonry ) {
+     require( [ 'jquery-bridget/jquery-bridget' ],
+        function( jQueryBridget ) {
+           jQueryBridget( 'masonry', Masonry, $ );
+           $('.blog-masonry').masonry({
+			   columnWidth: '.grid-item',
+               itemSelector: '.grid-item',
+			   animate: true,
+               percentPosition: true
+           });
+       });
+    });
+	}
+	function reLoadMasonry(){
+     requirejs( [ 'require', 'jquery', 'mgs/masonry' ],
+     function( require, $, Masonry ) {
+     require( [ 'jquery-bridget/jquery-bridget' ],
+        function( jQueryBridget ) {
+               jQueryBridget( 'masonry', Masonry, $ );
+               $('.blog-masonry').masonry('reloadItems');
+		       $('.blog-masonry').masonry({
+			       columnWidth: '.grid-item',
+                   itemSelector: '.grid-item',
+			       animate: true,
+                   percentPosition: true
+		   });
+       });
+    });
+	}
+    </script>
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'jquery/ui'
+		], function(jQuery){
+			(function($) {
+				$(document).ready(function(){
+					var urlTest = $(".blog-post-masonry-toolbar .pagination .pages-item-next a").attr('href');
+					if(!urlTest){
+						$('.blog-load-more-post').hide();
+					}
+					setMasonry();
+				});
+			})(jQuery);
+		});	
+		function loadmorePost(){
+			require([
+				'jquery',
+				'jquery/ui'
+			], function(jQuery){
+				(function($) {
+					var url = $(".blog-post-masonry-toolbar .pagination .pages-item-next a").attr('href');
+					if(url){
+						$('.blog-load-more-post').html('<div class="ajax-loading"><img src="<?php echo $this->getViewFileUrl('MGS_Mpanel::images/loader.gif') ?>"/><em class="h5">Load more</em></div>');
+						$.ajax(url, {
+							success: function(data) {
+								$('.blog-masonry').append($(data).find('.blog-masonry > *'));
+								$('.blog-post-masonry-toolbar').replaceWith($(data).find('.blog-post-masonry-toolbar'));
+								url = $(data).find(".blog-post-masonry-toolbar .pagination .pages-item-next a").attr('href');
+								if(!url) {
+									$('.blog-load-more-post').hide();
+								}else{
+									$('.blog-load-more-post').replaceWith($(data).find('.blog-load-more-post'));
+									
+								}
+								reLoadMasonry();
+							}
+						});
+					}else {
+						$('.blog-load-more-post').hide();
+					}
+				})(jQuery);
+			});		
+		}
+	</script>
+<?php endif; ?>

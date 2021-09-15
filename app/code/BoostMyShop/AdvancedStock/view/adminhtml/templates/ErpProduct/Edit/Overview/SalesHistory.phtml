@@ -1,0 +1,63 @@
+<!--
+
+<div id="hc_container" style="width: 100%; height: 275px;"></div>
+
+<script>
+
+    require(['jquery'], function($) {
+
+        $.getScript('<?php echo $this->getViewFileUrl('BoostMyShop_AdvancedStock::js/highcharts.js'); ?>',
+            function($) {
+                jQuery('#hc_container').highcharts({
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: ''
+                    },
+
+                    xAxis: {
+                        categories: <?php echo $this->getCategoriesAsJson(); ?>,
+                        crosshair: true
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{
+                        name: 'Qty shipped',
+                        data: <?php echo $this->getHistoryAsJson(); ?>
+
+                    }]
+                });
+            }
+        );
+    });
+</script>
+
+-->
+
+<table class="admin__table-primary dashboard-data">
+    <thead>
+    <tr>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('Period'); ?></span></th>
+        <th class="data-grid-th  no-link col-customer"><span><?php echo __('Qty invoiced'); ?></span></th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->getHistoryRecords() as $k => $v): ?>
+            <tr>
+                <td class=" col-customer "><?php echo $k; ?></td>
+                <td class=" a-center "><?php echo $v; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+<?php /** @var $block TemplateMonster\PromoBanner\Block\Widget\PromoBanner */ ?>
+
+<div class="tm-promo-banner" data-mage-init='{
+        "promoBanner":{
+            "startTime": "<?php echo $block->getStartDate(); ?>",
+            "endTime": "<?php echo $block->getEndDate(); ?>",
+            "closeTrigger": ".close-banner",
+            "coockieTime": "<?php echo $block->getCoockieTime(); ?>",
+            "timeout": "<?php echo $block->getTimeout(); ?>",
+            "stickUp": <?php echo $block->getStickUp(); ?>
+        }
+    }' style="display: none;">
+    <span class="close-banner">close</span>
+
+    <?php
+
+    // CMS Block ?>
+    <?php if ($block->getBannerType() == 'cms_block'):
+        echo $block->getText();
+
+
+    // Image
+    elseif ($block->getBannerType() == 'image'): ?>
+    <?php
+        $imageUrl = $block->getImageUrl();
+        $link = trim($block->getLink());
+
+        echo $link ? '<a href="' . $link . '" target="_blank">' : '';
+        echo $imageUrl ? $block->filterContent($block->getImageUrl()) : '';
+        echo $link ? '</a>' : '';
+    endif; ?>
+</div>

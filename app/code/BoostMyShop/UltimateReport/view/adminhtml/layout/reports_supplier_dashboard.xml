@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="ur-empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\UltimateReport\Block\Reports">
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.expected_po</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.po_to_complete</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.supplier_invoice_due</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.purchase_total_per_supplier</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.quantity_expected_by_day</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.supplyneeds_per_status</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.purchase_order_per_status</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">supplier.purchased_total</argument></action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

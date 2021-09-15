@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/**
+ * @var $block \Magento\OfflinePayments\Block\Info\Purchaseorder
+ */
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance(); 
+$customerFactory = $objectManager->get('\Magento\Customer\Model\CustomerFactory')->create();
+$customer = $customerFactory->load($block->getInfo()->getOrder()->getCustomerId());
+?>
+<div class="order-payment-method-name"><?= $block->escapeHtml($block->getMethod()->getTitle()) ?></div>
+<table class="data-table admin__table-secondary">
+    <tr>
+        <th><?= $block->escapeHtml(__('Purchase Order Number')) ?>:</th>
+        <td><?= $block->escapeHtml($block->getInfo()->getPoNumber()) ?></td>
+    </tr>
+	<tr>
+		<th><?= $block->escapeHtml(__('Net Terms')) ?>:</th>
+        <td><?= $block->escapeHtml($customer->getCustomNetTerms()) ?></td>
+    </tr>
+</table>

@@ -1,0 +1,73 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php if($themeHelper->getStoreConfig('mgstheme/general/popup_newsletter')): ?>
+	<?php $html = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml() ?>
+	<?php if($html!=''): ?>
+		<div style="display:none">
+			<div id="newsletter-popup">
+				<div class="block-popup-subscribe">
+					<div class="block-popup-top">
+						<?php echo $html;  ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			require(
+				[
+					'jquery',
+					'Magento_Ui/js/modal/modal'
+				],
+				function(
+					$,
+					modal
+				) {
+					$(window).load(function () {
+						if($(window).width() > 991) {
+							if(getCookie('newsletterpopup')!='nevershow'){
+								if ($('#newsletter-popup').length) {
+									var options = {
+										type: 'popup',
+										responsive: true,
+										innerScroll: true,
+										title: '',
+										buttons: []
+									};
+
+									var newsletterPopup = modal(options, $('#newsletter-popup'));
+
+									$('#newsletter-popup').trigger('openModal');
+								}
+							}
+						}
+					});
+					
+					$('#newsletter-popup .checkbox input').click(function(){
+						dontShowPopup('dont_show');
+					});
+					
+					function getCookie(cname) {
+						var name = cname + "=";
+						var ca = document.cookie.split(';');
+						for(var i=0; i<ca.length; i++) {
+							var c = ca[i];
+							while (c.charAt(0)==' ') c = c.substring(1);
+							if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+						}
+						return "";
+					} 
+
+					function dontShowPopup(el){
+						if($('#'+el).prop('checked')) {
+							var d = new Date();
+							d.setTime(d.getTime() + (24*60*60*1000*365));
+							var expires = "expires="+d.toUTCString();
+							document.cookie = 'newsletterpopup' + "=" + 'nevershow' + "; " + expires;
+						} else {
+							document.cookie = 'newsletterpopup' + "= ''; -1";
+						}
+					}
+				}
+			);
+		</script>
+	<?php endif ?>
+<?php endif ?>

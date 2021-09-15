@@ -1,0 +1,11 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magewares_MWQuickOrder::css/mwquickorder.css" />
+		<css src="Magewares_MWQuickOrder::css/mp.css" />
+    </head>
+	<body>
+		<referenceBlock name="header.links">
+			<block class="Magewares\MWQuickOrder\Block\Header" name="quick-order-link" after="my-account-link"/>
+		</referenceBlock>
+	</body>
+</page>

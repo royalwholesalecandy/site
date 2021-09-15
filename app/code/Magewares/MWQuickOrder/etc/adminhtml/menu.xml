@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Magewares_MWQuickOrder::parent" title="MWQuick Order" module="Magewares_MWQuickOrder" sortOrder="100" resource="Magewares_MWQuickOrder::parent" parent="Magewares_MWQuickOrder::parent"/>
+        <add id="Magewares_MWQuickOrder::index" title="Config" module="Magewares_MWQuickOrder" sortOrder="10" action="adminhtml/system_config/edit/section/mwquickorder" resource="Magewares_MWQuickOrder::index" parent="Magewares_MWQuickOrder::parent"/>
+    </menu>
+</config>

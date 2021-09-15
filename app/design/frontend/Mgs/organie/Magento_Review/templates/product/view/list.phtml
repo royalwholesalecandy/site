@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @description:
+ *
+ */
+?>
+<?php
+    $_items = $block->getReviewsCollection()->getItems();
+    $format = $block->getDateFormat() ?: \IntlDateFormatter::MEDIUM;
+?>
+<?php if (count($_items)):?>
+<div class="block review-list" id="customer-reviews">
+    <div class="block-title">
+        <h4><?php /* @escapeNotVerified */ echo __('Customer Reviews') ?><span class="count"><?php echo __('(%1)',count($_items))?></span></h4>
+        
+    </div>
+    <div class="block-content">       
+        <ol class="items review-items">
+        <?php foreach ($_items as $_review):?>
+            <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+                <div class="review-left">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="review-right">
+                    <div class="meta-box">
+                        <strong class="review-details-value author" itemprop="author"><?php echo $block->escapeHtml($_review->getNickname()) ?></strong>
+                        <time class="review-details-value h6" itemprop="datePublished" datetime="<?php /* @escapeNotVerified */ echo $block->formatDate($_review->getCreatedAt(), $format) ?>"><?php /* @escapeNotVerified */ echo $block->formatDate($_review->getCreatedAt(), $format) ?></time>
+                        <?php if (count($_review->getRatingVotes())): ?>
+                            <div class="review-ratings pull-right">
+                            <?php foreach ($_review->getRatingVotes() as $_vote): ?>
+                            <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">                                
+                                <div class="rating-result" title="<?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%">
+                                        <meta itemprop="worstRating" content = "1"/>
+                                        <meta itemprop="bestRating" content = "100"/>
+                                    <span style="width:<?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%">
+                                        <span itemprop="ratingValue"><?php /* @escapeNotVerified */ echo $_vote->getPercent() ?>%</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                     <div class="review-content" itemprop="description">
+                        <?php echo nl2br($block->escapeHtml($_review->getDetail())) ?>
+                    </div>
+                </div>                
+            </li>
+        <?php endforeach; ?>
+        </ol>
+        <div class="toolbar review-toolbar">
+            <?php echo $block->getChildHtml('toolbar') ?>
+        </div>
+    </div>
+</div>
+<?php endif;?>

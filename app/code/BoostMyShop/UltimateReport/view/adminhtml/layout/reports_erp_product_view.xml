@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="ur-empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\UltimateReport\Block\Reports">
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.stock_level_history</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.sales_count</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.turnover</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.sale_price_and_cost</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.sales_per_store</argument></action>
+                <action method="addReport"><argument name="report_code" xsi:type="string">product.cross_sells</argument></action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

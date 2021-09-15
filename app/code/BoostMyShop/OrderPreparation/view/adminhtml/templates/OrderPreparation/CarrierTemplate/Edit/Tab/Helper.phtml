@@ -1,0 +1,35 @@
+<div class="entry-edit form-inline">
+
+
+
+    <fieldset class="fieldset admin__fieldset " id="template_code_for_orders_fieldset">
+        <legend class="admin__legend legend">
+            <span><?php echo __('Codes for orders'); ?></span>
+        </legend><br />
+
+        <table>
+            <?php foreach($this->getCodesForOrders() as $k => $v): ?>
+                <tr>
+                    <td><?php echo $k; ?></td>
+                    <td><?php echo $v; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </fieldset>
+
+    <fieldset class="fieldset admin__fieldset " id="template_code_for_items_fieldset">
+        <legend class="admin__legend legend">
+            <span><?php echo __('Codes for order items'); ?></span>
+        </legend><br />
+
+        <table>
+            <?php foreach($this->getCodesForOrderItems() as $k => $v): ?>
+                <tr>
+                    <td><?php echo $k; ?></td>
+                    <td><?php echo $v; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </fieldset>
+
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <update handle="formkey"/>
+    <container name="root">
+        <block class="BoostMyShop\OrderPreparation\Block\Packing\EditItem">
+            <block class="BoostMyShop\OrderPreparation\Block\Packing\EditItem\Substitution" as="substitution_grid" name="substitution_grid" />
+        </block>
+    </container>
+</layout>

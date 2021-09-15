@@ -1,0 +1,79 @@
+<?php
+
+$slider = $block->createSlider();
+//$items = $slider->getSlideCollection();
+$allParams = $slider->getParams();
+
+$sliderScheme = $this->getSlides($allParams);
+$paramsForSliderInit = $this->getParams($allParams);
+
+$items = $this->resortSlides($sliderScheme['layersScheme'], $sliderScheme['slides']);
+$loader = $this->loaderDimensions($allParams);
+$styles = '';
+
+?>
+
+<?php if($items): ?>
+<div class="slider-pro-wrapper" id="slider-pro-wrapper">
+    <div class="slider-pro-container" style="padding-bottom: <?php echo $loader['padding'] ?>%; height: <?php echo $loader['height'] ?>px;">
+        <div class="loading-mask for-slider">
+            <div class="loader">
+                <img src="<?php /* @escapeNotVerified */ echo $this->getViewFileUrl("TemplateMonster_FilmSlider::images/loader-2.gif"); ?>"
+                     alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>">
+            </div>
+        </div>
+        <div id="example1" class="slider-pro <?php echo $loader['position']; ?>" data-mage-init='{"FilmSlider": <?php echo $paramsForSliderInit; ?>}'>
+
+            <div class="sp-slides">
+                <?php foreach($items as $slideId => $item):?>
+                    <?php if ($item && $this->getSlideStatus($sliderScheme, $slideId)): ?>
+                        <div class="sp-slide">
+                            <?php if($sliderScheme['slideImage'][$slideId]): ?>
+                            <img class="sp-image" src="<?php echo $this->getViewFileUrl("TemplateMonster_FilmSlider::images/blank.gif"); ?>"
+                                 data-src="<?php echo $block->addUrl($this->getImage($slideId, $sliderScheme['slideImage'][$slideId]['ext'])) ?>" />
+                            <?php endif; ?>
+                            <?php foreach($this->getLayerItems($item) as $layer): ?>
+                                <?php $styles .= $layer['css_code']; ?>
+                                <div class="sp-layer"
+                                    <?php echo $this->includeAttr('data-width',           $layer['width'] ); ?>
+                                    <?php echo $this->includeAttr('data-height',          $layer['height'] ); ?>
+                                    <?php echo $this->includeAttr('data-depth',           $layer['depth'] ); ?>
+                                    <?php echo $this->includeAttr('data-position',        $layer['layer_position'] ); ?>
+                                    <?php echo $this->includeAttr('data-horizontal',      $layer['horizontal_position'] ); ?>
+                                    <?php echo $this->includeAttr('data-vertical',        $layer['vertical_position'] ); ?>
+                                    <?php echo $this->includeAttr('data-show-transition', $layer['show_transition'] ); ?>
+                                    <?php echo $this->includeAttr('data-hide-transition', $layer['hide_transition'] ); ?>
+                                    <?php echo $this->includeAttr('data-show-delay',      $layer['show_delay'] ); ?>
+                                    <?php echo $this->includeAttr('data-hide-delay',      $layer['hide_delay'] ); ?>
+                                    <?php echo $this->includeAttr('data-show-duration',   $layer['show_duration'] ); ?>
+                                    <?php echo $this->includeAttr('data-hide-duration',   $layer['hide_duration'] ); ?>
+                                    <?php echo $this->includeAttr('data-show-offset',     $layer['show_offset'] ); ?>
+                                    <?php echo $this->includeAttr('data-hide-offset',     $layer['hide_offset'] ); ?>
+                                    <?php echo $this->includeAttr('data-stay-duration',   $layer['stay_duration'] ); ?> >
+
+                                        <div class="<?php echo $layer['css_class']; ?>" style="
+                                            <?php echo $layer['height']      ? ('height: ' . $layer['height'] . ';') : '' ?>
+                                            <?php echo $this->setBackground($layer['bg_color'], $layer['bg_opacity']); ?>
+                                            <?php echo $layer['text_color']       ? ('color: ' . $layer['text_color'] . ';') : '' ?>
+                                            <?php echo $layer['font_family'] ? ('font-family: ' . $layer['font_family'] . ';') : '' ?>
+                                            <?php echo $layer['font_size']   ? ('font-size: ' . $layer['font_size']) . ';' : '' ?>
+                                            <?php echo $layer['line_height'] ? ('line-height: ' . $layer['line_height'] . ';') : '' ?>
+                                            <?php echo $layer['font_style']  ? ('font-style: ' . $layer['font_style'] . ';') : '' ?>
+                                            <?php echo $layer['font_weight'] ? ('font-weight: ' . $layer['font_weight'] . ';') : '' ?>
+                                            <?php echo $layer['text_indent']      ? ('padding: ' . $layer['text_indent'] . ';') : '' ?>
+                                        ">
+                                            <?php echo $layer['text']; ?>
+                                        </div>
+
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            <style><?php echo $styles; ?></style>
+
+        </div>
+    </div>
+</div>
+<?php endif; ?>

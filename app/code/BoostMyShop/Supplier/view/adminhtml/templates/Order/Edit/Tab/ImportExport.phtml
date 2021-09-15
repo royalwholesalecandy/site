@@ -1,0 +1,55 @@
+<fieldset class="fieldset admin__fieldset " id="po_import_fieldset">
+    <legend class="admin__legend legend">
+        <span><?php echo __('Import section :'); ?></span>
+    </legend><br />
+
+    <p><?php echo __('You can import here a CSV file to populate the purchase order with products.'); ?></p>
+    <p><?php echo __('Expected columns are :'); ?></p>
+
+    <ul style="margin-left: 50px;">
+        <li><?php echo __('File format : csv file'); ?></li>
+        <li><?php echo __('File extension : csv'); ?> </li>
+        <li><?php echo __('Separator : semi-colon ";"'); ?></li>
+        <li><?php echo __('Columns'); ?>
+            <ul style="margin-left: 50px;">
+                <li><?php echo __('sku (required)'); ?></li>
+                <li><?php echo __('qty (required)'); ?></li>
+                <li><?php echo __('buying_price (optional)'); ?></li>
+                <li><?php echo __('tax_rate (optional)'); ?></li>
+                <li><?php echo __('supplier_sku (optionnal)'); ?></li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p><?php echo __('Field delimiter'); ?>
+        <select name="delimiter">
+            <option value=";">;</option>
+            <option value=",">,</option>
+        </select>
+    </p>
+    <p>&nbsp;</p>
+
+    <p><?php echo __('Select the file to import and click on save button : '); ?><input type="file" name="import_file"> </p>
+
+</fieldset>
+
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+<fieldset class="fieldset admin__fieldset " id="po_export_fieldset">
+    <legend class="admin__legend legend">
+        <span><?php echo __('Export section :'); ?></span>
+    </legend><br />
+
+    <p>&nbsp;</p>
+
+    <p>
+        <?php echo __('Export the csv file : '); ?> 
+        <a href="<?php /* @escapeNotVerified */ echo $block->getPoExportUrl() ?>" class="action-default primary">   <?php echo __('Export'); ?>
+        </a>
+    </p>
+
+</fieldset>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mpanel>
+            <catalog>
+                <product_per_row>4</product_per_row>
+                <picture_ratio>1</picture_ratio>
+                <max_width_image>400</max_width_image>
+                <max_width_image_detail>600</max_width_image_detail>
+                <new_label>New</new_label>
+                <sale_label>Sale</sale_label>
+            </catalog>
+			<product_details>
+                <sku>1</sku>
+                <reviews_summary>1</reviews_summary>
+                <wishlist>1</wishlist>
+                <compare>1</compare>
+                <short_description>1</short_description>
+                <upsell_products>1</upsell_products>
+            </product_details>
+			<product_tabs>
+                <show_description>1</show_description>
+                <show_additional>1</show_additional>
+                <show_reviews>1</show_reviews>
+            </product_tabs>
+			<customer>
+				<account_dashboard>1</account_dashboard>
+				<account_information>1</account_information>
+				<address_book>1</address_book>
+				<downloadable>1</downloadable>
+				<orders>1</orders>
+				<newsletter>1</newsletter>
+				<billing_agreements>1</billing_agreements>
+				<reviews>1</reviews>
+				<wishlist>1</wishlist>
+			</customer>
+			<newsletter_popup>
+				<enable_newsletter>1</enable_newsletter>
+				<html_newsletter><![CDATA[<h2>BE THE FIRST TO KNOW</h2><p>Subscribe to the newsletter to receive timely updates from your favorite products.</p>]]></html_newsletter>
+			</newsletter_popup>
+        </mpanel>
+		<mgstheme>
+			<general>
+				<width>width1200</width>
+				<layout>wide</layout>
+				<back_to_top>1</back_to_top>
+			</general>
+		</mgstheme>
+    </default>
+</config>

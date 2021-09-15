@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Akeans_ShowPriceAfterLogin extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Akeans
+ * @package   Akeans_ShowPriceAfterLogin
+ * @copyright Copyright (c) 2018
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Akeans_ShowPriceAfterLogin::showpriceafterlogin" title="Akeans Show Price After Login" sortOrder="35">
+                    <resource id="Akeans_ShowPriceAfterLogin::showpriceafterlogin_showpriceafterlogin" title="Show Price After Login" sortOrder="13"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Akeans_ShowPriceAfterLogin::showpriceafterlogin_config" title="Show Price After Login"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

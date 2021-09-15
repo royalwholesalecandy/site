@@ -1,0 +1,45 @@
+<?php
+$brands = $this->getBrands();
+$featured = $this->getFeaturedBrands();
+?>
+
+<div class="block block-brand" data-bind="scope: 'brandProducts'" data-role="brand-products-sidebar">
+    <div class="block-title">
+        <strong id="block-brand-heading" role="heading" aria-level="2"><?php echo __('Shop By Brand');?>:</strong>
+    </div>
+    <ul class="items block-content">
+   
+    	<?php foreach (range('0', '9') as $char) :?>
+		<?php if(isset($brands[$char])):?>
+			<?php foreach($brands[$char] as $_brand):?>
+				<!-- <li> -->
+				<?php if($_brand->getUrlKey()):?>
+					<a href="#"><?php echo $_brand->getName();?></a>
+				<?php else:?>
+					<a href="#"><?php echo $_brand->getName();?></a>
+				<?php endif;?>
+				<!-- </li> -->
+			<?php endforeach;?>
+		<?php endif;?>
+	<?php endforeach;?>
+
+	<?php  
+	foreach (range('A', 'Z') as $char) :?>
+		<?php if(isset($brands[$char])):?>
+			<?php foreach($brands[$char] as $_brand):?>
+				<!--li-->
+				<div class="product-block">					
+				<?php if($_brand->getUrlKey()):?>
+					<a href="#"><?php echo $_brand->getName();?></a>
+					<div><?php echo $_brand->getUrlKey();?></div>
+				<?php else:?>
+					<a href="#"><?php echo $_brand->getName();?>	</a>
+				<?php endif;?>
+				</div>
+				<!--/li-->
+			<?php endforeach;?>
+		<?php endif;?>
+	<?php endforeach;?>
+	
+	</ul>
+</div>

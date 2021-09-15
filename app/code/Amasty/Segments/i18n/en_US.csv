@@ -1,0 +1,130 @@
+"Delete Segment","Delete Segment"
+"Are you sure you want to do this?","Are you sure you want to do this?"
+"Refresh Segment Data","Refresh Segment Data"
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+Conditions,Conditions
+"Apply the rule only if the following conditions are met (leave blank for all products)","Apply the rule only if the following conditions are met (leave blank for all products)"
+"<b>*</b> available for guests and registered customers","<b>*</b> available for guests and registered customers"
+Guest,Guest
+"Not Guest","Not Guest"
+"Manage Segments","Manage Segments"
+"You deleted the segment.","You deleted the segment."
+"We can't delete the segment right now. Please try again.","We can't delete the segment right now. Please try again."
+"We can't find a segment to delete.","We can't find a segment to delete."
+"New Segment","New Segment"
+"Something went wrong while saving the segment data. Please review the error log.","Something went wrong while saving the segment data. Please review the error log."
+"Somenthing went wrong!","Somenthing went wrong!"
+"Something went wrong while delete segment.","Something went wrong while delete segment."
+"You refresh the Segment.","You refresh the Segment."
+"The wrong Segment is specified.","The wrong Segment is specified."
+"Something went wrong while refreshing the segment data. Please try again.","Something went wrong while refreshing the segment data. Please try again."
+"Something went wront. We can't find a segment ID.","Something went wront. We can't find a segment ID."
+"You saved the Segment.","You saved the Segment."
+"Something went wrong while saving the rule data. Please review the error log.","Something went wrong while saving the rule data. Please review the error log."
+"We can't save the cron expression.","We can't save the cron expression."
+Hourly,Hourly
+"Two Times Per Day","Two Times Per Day"
+Daily,Daily
+Weekly,Weekly
+Monthly,Monthly
+"We can't rebuild the index for an undefined product.","We can't rebuild the index for an undefined product."
+"Amasty segments indexing failed. See details in exception log.","Amasty segments indexing failed. See details in exception log."
+"Shipping Postcode","Shipping Postcode"
+"Shipping State/Province","Shipping State/Province"
+"Shipping City","Shipping City"
+"Shipping Country","Shipping Country"
+Email,Email
+"Billing City","Billing City"
+"Billing State/Province","Billing State/Province"
+"Billing Country","Billing Country"
+"Billing Zip","Billing Zip"
+"Shipping Zip","Shipping Zip"
+"Days From Cart Created","Days From Cart Created"
+"Days From Cart Modified","Days From Cart Modified"
+"Grand Total","Grand Total"
+"Products Count","Products Count"
+"Orders Quantity by Condition","Orders Quantity by Condition"
+"Total Amount by Condition","Total Amount by Condition"
+"Ordered Products by Condition","Ordered Products by Condition"
+"Viewed Products by Condition","Viewed Products by Condition"
+"Products in Wishlist by Condition","Products in Wishlist by Condition"
+"Conditions Combination","Conditions Combination"
+"Order *","Order *"
+"Billing Address *","Billing Address *"
+"Shipping Address *","Shipping Address *"
+"Cart *","Cart *"
+"Registered Customers","Registered Customers"
+Products,Products
+"Is Newsletter Subscriber","Is Newsletter Subscriber"
+"Days From the Last Visit","Days From the Last Visit"
+"Days From the Registration","Days From the Registration"
+"Days Before Birthday","Days Before Birthday"
+Subscribed,Subscribed
+Unsubscribed,Unsubscribed
+"Not Active","Not Active"
+Unconfirmed,Unconfirmed
+"Days From First Completed Order","Days From First Completed Order"
+"Days From Last Completed Order","Days From Last Completed Order"
+"Used Payment Methods","Used Payment Methods"
+"Used Shipping Methods","Used Shipping Methods"
+"Product Attribute","Product Attribute"
+Common,Common
+"Order Status","Order Status"
+"Was placed (days) ago","Was placed (days) ago"
+Placed,Placed
+"total quantity","total quantity"
+"total amount","total amount"
+is,is
+"equals or greater than","equals or greater than"
+"equals or less than","equals or less than"
+"greater than","greater than"
+"less than","less than"
+"If %1 %2 %3 for a subselection of orders matching %4 of these conditions:","If %1 %2 %3 for a subselection of orders matching %4 of these conditions:"
+"If %1 %2 %3 for a subselection of products for orders matching %4 of these conditions:","If %1 %2 %3 for a subselection of products for orders matching %4 of these conditions:"
+"is not","is not"
+"is one of","is one of"
+"is not one of","is not one of"
+". ' %s: %s'",". ' %s: %s'"
+Enabled,Enabled
+Disabled,Disabled
+"Unable to save Segment with ID %1. Error: %2","Unable to save Segment with ID %1. Error: %2"
+"Unable to save new request. Error: %1","Unable to save new request. Error: %1"
+"Segment with id ""%1"" does not exist.","Segment with id ""%1"" does not exist."
+"Unable to remove form with ID %1. Error: %2","Unable to remove form with ID %1. Error: %2"
+"Unable to remove form. Error: %1","Unable to remove form. Error: %1"
+"Customers Segmentation","Customers Segmentation"
+Segments,Segments
+Edit,Edit
+Active,Active
+Inactive,Inactive
+"General Settings","General Settings"
+"Cron Execution Time","Cron Execution Time"
+"Registered Customers Attributes","Registered Customers Attributes"
+"To get the ability to enable extra customer attributes you will need to install the <a href=""https://amasty.com/customer-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=customer-attributes"" target=""_blank"">Amasty Customer Attributes module</a>.","To get the ability to enable extra customer attributes you will need to install the <a href=""https://amasty.com/customer-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=customer-attributes"" target=""_blank"">Amasty Customer Attributes module</a>."
+"Additional Order Attributes","Additional Order Attributes"
+"To get the ability to enable extra order attributes you will need to install the <a href=""https://amasty.com/order-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=order-attributes"" target=""_blank"">Amasty Order Attributes module</a>.","To get the ability to enable extra order attributes you will need to install the <a href=""https://amasty.com/order-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=order-attributes"" target=""_blank"">Amasty Order Attributes module</a>."
+"Amasty Customer Segments Customers","Amasty Customer Segments Customers"
+"Indexed customer association","Indexed customer association"
+ID,ID
+"First Name","First Name"
+"Last Name","Last Name"
+Group,Group
+Phone,Phone
+Country,Country
+State/Province,State/Province
+"Customer Since","Customer Since"
+Segment,Segment
+Back,Back
+"Segment Information","Segment Information"
+"Segment Name","Segment Name"
+Description,Description
+Stores,Stores
+Status,Status
+"Matched Customers","Matched Customers"
+"Matched Guests","Matched Guests"
+"Create New Segment","Create New Segment"
+"Delete segments","Delete segments"
+"Delete selected items?","Delete selected items?"
+Delete,Delete
+Website,Website

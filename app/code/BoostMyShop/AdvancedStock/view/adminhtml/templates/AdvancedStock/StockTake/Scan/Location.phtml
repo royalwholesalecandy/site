@@ -1,0 +1,15 @@
+<div>
+    <table border="0" width="100%">
+        <tr>
+            <td width="50%">
+                <div id="div_message" style="font-size: 20px; font-weight: bold;"></div>
+        </tr>
+    </table>
+</div>
+
+<script>
+    require(["advancedstock_stock_take_location_scanner"], function(){
+        stockTakeLocationScanner = new stockTakeLocationScanner();
+        stockTakeLocationScanner.init("<?php echo $this->getProductScanUrl(); ?>");
+    });
+</script>

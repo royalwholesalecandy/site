@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="BoostMyShop_Erp::main_menu" title="Embedded ERP" module="BoostMyShop_Erp" sortOrder="10" resource="BoostMyShop_Erp::main_menu" />
+
+        <add id="BoostMyShop_Erp::home" title="Home" module="BoostMyShop_Erp" parent="BoostMyShop_Erp::main_menu" sortOrder="1" resource="BoostMyShop_Erp::home"/>
+        <add id="BoostMyShop_Erp::products" title="Products" module="BoostMyShop_Erp" parent="BoostMyShop_Erp::home" action="erp/products" sortOrder="1" resource="BoostMyShop_Erp::products"/>
+
+        <remove id="BoostMyShop_Supplier::main_menu" />
+
+        <update id="BoostMyShop_Supplier::operations" parent="BoostMyShop_Erp::main_menu" title="Suppliers management"  resource="BoostMyShop_Supplier::operations" />
+        <update id="BoostMyShop_AdvancedStock::operation" parent="BoostMyShop_Erp::main_menu" title="Inventory Management" resource="BoostMyShop_AdvancedStock::operation" />
+        <update id="BoostMyShop_OrderPreparation::operation" parent="BoostMyShop_Erp::main_menu" title="Order preparation" resource="BoostMyShop_OrderPreparation::operations" />
+        <update id="BoostMyShop_Organizer::organizer" parent="BoostMyShop_Erp::home" title="Organizer" resource="BoostMyShop_Organizer::organizer" />
+
+        <remove id="BoostMyShop_AdvancedStock::products" />
+
+        <add id="BoostMyShop_Erp::misc" title="Miscelaneous" module="BoostMyShop_Erp" parent="BoostMyShop_Erp::main_menu" sortOrder="1" resource="BoostMyShop_Erp::misc"/>
+
+    </menu>
+</config>

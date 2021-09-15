@@ -1,0 +1,8 @@
+MageWorx,MageWorx
+"Prices per Customer","Prices per Customer"
+"Prices per Customer Defaults:","Prices per Customer Defaults:"
+"Used Customer Price In Catalog Price Rule","Used Customer Price In Catalog Price Rule"
+"Sync Customer Prices Data","Sync Customer Prices Data"
+"Please, use this button to manually synchronize data in case you've changed prices but don't observe this on the frontend.
+                    It can take a lot of time in case you have a lot of customer prices so you can use the following command 'php bin/magento mageworx-customer-prices:synchronize' to run this process in CLI.'.","Please, use this button to manually synchronize data in case you've changed prices but don't observe this on the frontend.
+                    It can take a lot of time in case you have a lot of customer prices so you can use the following command 'php bin/magento mageworx-customer-prices:synchronize' to run this process in CLI.'."

@@ -1,0 +1,15 @@
+.lien-popup span
+{                                  
+    position       :  absolute;
+    top            :  -2000em;
+    left           :  -2000em;
+    width          :  1px;
+    height         :  1px;
+    overflow       :  hidden; 
+    background     :  #ffffe1;
+    border         :  1px solid #000000;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+}  
+ 

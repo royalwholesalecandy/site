@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2018 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		<css src="Webkul_AmazonMagentoConnect::css/styles.css"/>
+	</head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Webkul\AmazonMagentoConnect\Block\Adminhtml\PriceRule\Edit\Tabs" name="amazonmagentoconnect.pricerule.edit.tabs"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Webkul\AmazonMagentoConnect\Block\Adminhtml\PriceRule\Edit" name="amazonmagentoconnect.pricerule.edit"/>
+        </referenceContainer>
+    </body>
+</page>

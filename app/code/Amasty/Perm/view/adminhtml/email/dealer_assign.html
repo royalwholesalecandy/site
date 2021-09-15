@@ -1,0 +1,56 @@
+<!--@subject New Sales Rep Comment Notification: Order {{var order.increment_id}} @-->
+<!--@vars {
+"var this.getUrl($store, 'customer/account/')":"Customer Account URL",
+"var order.getCustomerName()":"Customer Name",
+"var comment":"Order Comment",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status",
+"var history.getFromDealerContactname()":"From Dealer",
+"var history.getToDealerContactname()":"To Dealer"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hello %name," name=$history.getToDealerContactname()}}</p>
+            <p>
+                {{trans
+                "A new comment was added to the order #<strong>%increment_id </strong>"
+                increment_id=$order.increment_id
+                |raw}}
+            </p>
+            {{depend history.isDealerChanged()}}
+            <p>
+                {{trans
+                "Assigned From <strong>%from</strong> To <strong>%to</strong>"
+                from=$history.getFromDealerContactname()
+                to=$history.getToDealerContactname()
+                |raw}}
+            </p>
+            {{/depend}}
+            {{depend comment}}
+            <p>
+                {{trans
+                "The %author wrote:"
+                author=$history.getAuthorDealerContactname()
+                |raw}}
+            </p>
+            {{/depend}}
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend comment}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        {{var comment|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,48 @@
+<?php $images = $this->getWidgetInstagramData() ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<div class="content-block instagram-block">
+	<?php if($this->hasData('mgs_panel_title')): ?>
+		<div class="content-heading">
+			<h2 class="title"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+		</div>
+	<?php endif ?>
+	
+	<?php if(count($images)>0): ?>
+		<?php if($this->hasData('mgs_panel_note')): ?>
+			<div class="block-note"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+		<?php endif ?>
+
+		<div class="block-content">
+			<ul>
+				<?php foreach($images as $image): ?>
+					<li>
+						<?php if($this->getLink()): ?>
+							<a href="<?php echo $image['link'] ?>" target="_blank">
+						<?php endif ?>
+						
+						<img src="<?php echo $image['src'] ?>" alt=""/>
+						
+						<?php if($this->getLink()): ?>
+							</a>
+						<?php endif ?>
+						
+						<?php if($this->getLike() || $this->getComment()): ?>
+							<span class="social-count">
+								<?php if($this->getLike()): ?>
+									<span class="like-count"><span class="fa fa-heart"> </span> <span class="number"><?php echo $image['like'] ?></span></span>
+								<?php endif ?>
+								
+								<?php if($this->getComment()): ?>
+									<span class="comment-count"><span class="fa fa-comment"> </span> <span class="number"><?php echo $image['comment'] ?></span></span>
+								<?php endif ?>
+							</span>
+						<?php endif ?>
+					</li>
+				<?php endforeach ?>
+			</ul>
+		</div>
+
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning"><?php echo __('Can not get Instagram data or your instagram account have not any images.') ?></div>
+	<?php endif ?>
+</div>

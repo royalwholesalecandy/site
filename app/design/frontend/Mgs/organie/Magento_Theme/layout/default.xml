@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/ionicons.min.css"/>	
+        <css src="css/other.css"/>	
+        <css src="css/responsive.css"/>
+        <script src="js/custom-theme.js"/>
+    </head>
+    <body>
+        <referenceContainer name="header.container">
+            <referenceBlock name="header">
+                <referenceBlock name="top.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">top-links</argument>
+                    </arguments>
+                    <block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                            <argument name="class" xsi:type="string" translate="true">my-account</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Register</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+                                               template="account/link/authorization.phtml">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Login</argument>
+                        </arguments>
+                    </block>
+					
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>
+		<referenceContainer name="page.top">
+			<referenceBlock name="breadcrumbs">
+				<block class="Magento\Cms\Block\Block" name="organie_breadcrumb_background">
+					<arguments>
+						<argument name="block_id" xsi:type="string">organie_breadcrumb_background</argument>
+					</arguments>
+				</block>
+			</referenceBlock>
+		</referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="-" template="Magento_Store::switch/stores.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+    </body>
+</page>

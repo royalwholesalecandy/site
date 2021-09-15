@@ -1,0 +1,92 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Checkout
+ */
+?>
+
+<?php
+ /*
+ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+
+*/
+    
+    
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+
+
+    if($category){
+       $categoryObject = $objectManager->create('Magento\Catalog\Model\Category')->load($category->getId());
+    }else{
+        $cmsPage = $objectManager->get('\Magento\Cms\Model\Page');
+        if($cmsPage->getIdentifier() == 'brands'){
+            $category_id = 5;
+        }
+        if($cmsPage->getIdentifier() == 'categories'){
+            $category_id = 6;
+        }
+        
+        if($cmsPage->getIdentifier() == 'occasions'){
+            $category_id = 8;
+        }
+        if($cmsPage->getIdentifier() == 'colors'){
+            $category_id = 7;
+        }
+        if($cmsPage->getIdentifier() == 'flavors'){
+            $category_id = 13;
+        }
+        
+        $categoryObject = $objectManager->create('Magento\Catalog\Model\Category')->load($category_id);
+    }
+    
+?>
+
+
+<?php 
+$category = $categoryObject;
+if (isset($_GET['cat']) && (int)$_GET['cat']):
+    $cat = (int)$_GET['cat'];
+    $child = $objectManager->create('Magento\Catalog\Model\Category')->load($cat);
+    if ($child->getParentId() !=2 ):
+        return;
+    endif;
+endif;
+
+$_categories = $category->getChildrenCategories();
+?>
+<?php if (count($_categories)): ?>
+    <div class="category-products">
+        <div  class="cate">
+            <ul class="products-grid products-grid-3 odd">
+                <?php foreach ($_categories as $_category):
+                    $_category->load($_category->getId());
+                    ?>
+                    <?php if ($_category->getIsActive()): ?>
+                        <li class="item left third">
+                            <div class="product-item" style="min-height: 205px;">
+                                <a href="<?php echo $_category->getUrl() ?>" class="product-image" style="border:none;">
+                                    <?php
+                                    $_imageUrl = $_category->getImageUrl();
+                                    ?>
+                                    <?php  if ($_imageUrl):    ?>
+                                        <img src="<?php echo $_imageUrl ?>" alt="<?= $_category->getName() ?>" width="190" height="140" />
+                                    <?php else: ?>
+                                        <p style="width:190px;height:140px;" />
+                                    <?php endif; ?>
+                                </a>
+                                <div class="product-info"><a href="<?php echo $_category->getUrl() ?>"><h2 class="product-name"><?php echo $_category->getName() ?></h2></a></div>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach ?>
+                
+            </ul>
+            <div class="clear1"></div>
+        </div>
+    </div>      
+        
+<?php endif; ?> 
+

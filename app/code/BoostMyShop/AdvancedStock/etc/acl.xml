@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2014 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+
+            <resource id="Magento_Backend::admin">
+
+                <resource id="Magento_Catalog::catalog">
+                    <resource id="Magento_Catalog::catalog_inventory">
+                        <resource id="BoostMyShop_AdvancedStock::operation" title="Inventory Management" sortOrder="40">
+                            <resource id="BoostMyShop_AdvancedStock::product" title="Products" />
+                            <resource id="BoostMyShop_AdvancedStock::warehouse" title="Warehouses" />
+                            <resource id="BoostMyShop_AdvancedStock::warehouse_routing" title="Warehouses Routing" />
+                            <resource id="BoostMyShop_AdvancedStock::mass_stock_editor" title="Mass Stock Editor" />
+                            <resource id="BoostMyShop_AdvancedStock::stock_movement" title="Stock Movements" />
+                            <resource id="BoostMyShop_AdvancedStock::low_stock" title="Stock Helper" />
+                            <resource id="BoostMyShop_AdvancedStock::transfer" title="Stock transfer" />
+                            <resource id="BoostMyShop_AdvancedStock::stock_take" title="Stock take" />
+                            <resource id="BoostMyShop_AdvancedStock::configuration" title="Configuration" />
+                        </resource>
+                    </resource>
+                </resource>
+
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="BoostMyShop_AdvancedStock::Config" title="Inventory Management section" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+
+
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,14 @@
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th><?php echo __('From'); ?></th>
+        <th><?php echo __('To'); ?></th>
+        <th><?php echo __('Message'); ?></th>
+    </tr>
+    <?php for($i=0;$i<10;$i++): ?>
+        <tr>
+            <td><input type="text" size="2" name="groups[backorder][fields][from_<?php echo $i; ?>][value]" value="<?php echo $this->getFieldValue('from', $i); ?>"></td>
+            <td><input type="text" size="2" name="groups[backorder][fields][to_<?php echo $i; ?>][value]" value="<?php echo $this->getFieldValue('to', $i); ?>"></td>
+            <td><input type="text" size="20" name="groups[backorder][fields][message_<?php echo $i; ?>][value]" value="<?php echo $this->getFieldValue('message', $i); ?>"></td>
+        </tr>
+    <?php endfor; ?>
+</table>

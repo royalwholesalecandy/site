@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Metagento_Referrerurl::order_report"
+             title="Order Referrer URL Report" module="Metagento_Referrerurl"
+             parent="Magento_Sales::sales"
+             action="referrerurl/report/order"
+             resource="Metagento_Referrerurl::referrerurl" sortOrder="100"/>
+        <add id="Metagento_Referrerurl::customer_report"
+             title="Customer Referrer URL Report" module="Metagento_Referrerurl"
+             parent="Magento_Customer::customer"
+             action="referrerurl/report/customer"
+             resource="Metagento_Referrerurl::referrerurl" sortOrder="100"/>
+    </menu>
+</config>

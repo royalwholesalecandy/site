@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Component\Form\Fieldset">
+        <plugin name="amasty_segments_tab_label_edit" type="Amasty\Segments\Plugin\TabLabel"/>
+    </type>
+    <type name="Magento\Ui\Model\Export\ConvertToCsv">
+        <plugin name="amasty_segments_customers_listing_csv_export" type="Amasty\Segments\Plugin\CsvExport"/>
+    </type>
+    <type name="Magento\Ui\Model\Export\ConvertToXml">
+        <plugin name="amasty_segments_customers_listing_xml_export" type="Amasty\Segments\Plugin\XmlExport"/>
+    </type>
+</config>
+

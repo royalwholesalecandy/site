@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <wanexo_np>
+			<general>
+                <status>1</status>
+				<npHeading><![CDATA[Newsletter]]></npHeading>
+				<npDesciption><![CDATA[Subscribe to the Jambo Store mailing list to receive updates on new arrivals, special offers and other discount information.]]></npDesciption>
+				<npBtnText>Subscribe</npBtnText>
+				<npNote>Note:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper dolor ac justo</npNote>
+				<npTime>10800</npTime>
+				<npImageSrc></npImageSrc>
+				<np_bg_repeat>no-repeat</np_bg_repeat>
+				<np_bg_bp>right top</np_bg_bp>
+				<np_bg_atm>scroll</np_bg_atm>
+				<np_bg_sz>none</np_bg_sz>
+	
+			</general>
+        </wanexo_np>
+    </default>
+</config>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <wanexo_themeoption>
+			<genral_setting>
+                <navfix>1</navfix>
+				<boxed>0</boxed>
+				<rtl>0</rtl>
+				<wxo_heading>1</wxo_heading>
+			</genral_setting>
+			
+			<wxo_general_theme_setting>
+				<wxo_logo></wxo_logo>
+				<wxo_logo_fx></wxo_logo_fx>
+				<wxo_logo_sm></wxo_logo_sm>
+			</wxo_general_theme_setting>
+			
+			<wxo_header_setting>
+                <wxo_header>1</wxo_header>
+			</wxo_header_setting>
+
+			<wxo_google_map>
+                <enable>1</enable>
+				<wxo_latitude><![CDATA[40.712784]]></wxo_latitude>
+				<wxo_longitude><![CDATA[-74.005941]]></wxo_longitude>
+				<wxo_title><![CDATA[New York]]></wxo_title>
+				<wxo_description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices sollicitudin justo, eget mollis justo semper vel. Duis tempor eget leo eget pretium.]]></wxo_description>
+				<wxo_map_height><![CDATA[500]]></wxo_map_height>
+			</wxo_google_map>
+			
+			<wxo_footer_setting>
+                <wxo_footer>1</wxo_footer>
+			</wxo_footer_setting>	
+			
+        </wanexo_themeoption>
+    </default>
+</config>

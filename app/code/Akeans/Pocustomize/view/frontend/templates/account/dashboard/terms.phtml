@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+$customer = $block->getCustomer();
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+$orderDatamodel = $objectManager->get('Magento\Sales\Model\Order')->getCollection()->addFieldToFilter('customer_id', $customer->getId())->addFieldToFilter('status', 'purchaseorder_pending_payment');
+$customer = $objectManager->get('\Magento\Customer\Model\CustomerFactory')->create()->load($customer->getId());
+$notFound = false;
+$found = false;
+$objDate = $objectManager->create('Magento\Framework\Stdlib\DateTime\DateTime');
+$date = $objDate->gmtDate();
+?>
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Net Terms')) ?></strong></div>
+    <div class="block-content">
+        <?php if(count($orderDatamodel) > 0){?>
+			<?php foreach($orderDatamodel as $order){?>
+				<?php if(count($order->getInvoiceCollection()) > 0){?>
+					<?php foreach($order->getInvoiceCollection() as $invoice){?>
+						<?php if($invoice->getState() == 1){?>
+							<?php $pendingDays = 0; $diff = strtotime($date) - strtotime($invoice->getCreatedAt()); $daysDiff = abs(round($diff / 86400)); 
+								  if($customer->getData('custom_net_terms')){
+									  $pendingDays = $customer->getData('custom_net_terms') - $daysDiff;
+									  $pendingDays += 1;
+									  $pendingPaymentMessage = $pendingDays.' days left.';
+									  if($pendingDays <= 0){
+										  $pendingPaymentMessage = 'past due '.abs($pendingDays).' days.';
+									  }
+								  }
+								   
+							?>
+							<div class="pending-inv-line"><a href="<?php echo $block->getUrl().'sales/order/invoice/order_id/'.$order->getId()?>"><?php echo '#'.$invoice->getIncrementId()?> </a> is pending payment <?php echo $pendingPaymentMessage?></div>
+							<?php $found = true;?>
+						<?php }else{?>
+							<?php $notFound = true;?>
+						<?php }?>
+					<?php }?>
+				<?php }else{?>
+					<?php $notFound = true;?>
+				<?php }?>
+			<?php }?>
+		<?php }else{?>
+			<?php $notFound = true;?>
+		<?php }?>
+       <?php if($notFound && !$found){?>
+		<p>You have not any pending payment.</p>
+		<?php }?>
+    </div>
+</div>

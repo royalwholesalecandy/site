@@ -1,0 +1,54 @@
+<!--@subject {{var company_name}} - Purchase order notification {{var po_reference}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">Hello {{var sup_contact}}</p>
+
+<p>Please find below the details for the Purchase Order #{{var po_reference}}</p>
+
+{{if show_pdf_link == 1}}
+<p>You can download the <a href="{{var pdf_url}}">purchase order PDF</a></p>
+{{/if}}
+
+{{if show_file_link == 1}}
+<p>You can download the <a href="{{var file_url}}">csv/xml file</a></p>
+{{/if}}
+
+<p>&nbsp;</p>
+<p><strong>Main details :</strong></p>
+<ul>
+    <li>Date: {{var po_created_at}}</li>
+    <li>Expected time of delivery: {{var po_eta}}</li>
+    <li>Your contact: {{var manager_fullname}}</li>
+    <li>Comments : {{var po_public_comments}}</li>
+</ul>
+
+<table border="1" width="100%" cellpadding="10">
+    <tr>
+        <td width="50%">
+            <p><strong>Bill to</strong></p>
+            <p>{{var delivery_address}}</p>
+        </td>
+        <td width="50%">
+            <p><strong>Ship to</strong></p>
+            <p>{{var shipping_address}}</p>
+        </td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+<p><strong>Products :</strong></p>
+
+<table border="1" width="100%" cellpadding="10">
+    <tr>
+        <th>Sku</th>
+        <th>Product</th>
+        <th>Quantity</th>
+    </tr>
+    {{layout handle="email_purchase_order_items" order=$order}}
+</table>
+
+<p>&nbsp;</p>
+<p>Best regards</p>
+
+<p alig="right">{{var manager_fullname}}</p>

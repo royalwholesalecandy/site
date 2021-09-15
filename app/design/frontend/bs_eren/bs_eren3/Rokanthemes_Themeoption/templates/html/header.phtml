@@ -1,0 +1,53 @@
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('\Magento\Customer\Model\Session');
+$urlInterface = $objectManager->get('\Magento\Framework\UrlInterface');?>
+<div class="header-container">
+    <div class="header">
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-6 col-logo">
+                <?php echo $this->getChildHtml("logo"); ?>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-6 col-menu-control pull-right">
+                <?php echo $this->getChildHtml("minicart");?>
+                <div class="header-top-setting pull-right">
+                    <i class="fa fa-bars"> </i>
+                    <div class="setting-container">
+                        <h3>
+                            <?php echo __('My Account') ?>
+                        </h3>
+                        <?php echo $this->getChildHtml("top_link"); ?>
+                    </div>
+                </div>
+                <?php echo $this->getChildHtml("top.search"); ?>
+                <?php if(!$customerSession->isLoggedIn()) { ?>
+                <a class="custom-login" href="<?php echo $block->getUrl('customer/account/login') ?>" title="<?php echo __('Sign In') ?>">
+                    <?php echo __('Sign In') ?>
+                </a>
+                <?php } else { ?>
+                <a class="custom-login" href="<?php echo $block->getUrl('customer/account/logout') ?>" title="<?php echo __('Sign Out') ?>">
+                    <?php echo __('Sign Out') ?>
+                </a>
+                <?php } ?>
+                <?php echo $this->getChildHtml("top.navigation.sections"); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if ($this->helper('Rokanthemes\Themeoption\Helper\Themeconfig')->isEnableStickyHeader()): ?>
+<script type="text/javascript">
+    require( [ 'jquery' ], function ( $ ) {
+        $( document ).ready( function ( $ ) {
+            $('body').scroll( function () {
+                var num = $( '.header-container' ).outerHeight();
+                var screenWidth = $( window ).width();
+                if ( $( this ).scrollTop() > num && screenWidth >= 768 ) {
+                    $( ".header" ).addClass( "sticky" );
+                } else {
+                    $( ".header" ).removeClass( "sticky" );
+                }
+            } );
+        } );
+    } );
+</script>
+<?php endif; ?>

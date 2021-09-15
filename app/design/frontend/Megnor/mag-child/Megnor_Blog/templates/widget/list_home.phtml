@@ -1,0 +1,125 @@
+<?php
+/**
+ * Copyright © 2016 Ihor Vansach (ihor@megnor.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog recent posts widget
+ *
+ * @var $block \Megnor\Blog\Block\Widget\Recent
+ */
+?>
+
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+<?php if ($_postCollection->count()) { ?>
+<div class="post-list-wrapper blog-widget-recent">
+    <div class="blog_title"><h2><a href="<?php echo $block->getBaseUrl();
+?>blog"><span>Our Blog<!--?php echo $block->escapeHtml($block->getTitle()) ?--></span></a></h2></div>
+    <div class="blog-carousel-container">
+    <div class="blog-outer">
+    <div id="blog-carousel" class="post-list clearfix product-carousel">
+        <?php foreach ($_postCollection as $_post) { ?>
+            <?php
+                $_postUrl = $_post->getPostUrl();
+                $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+            ?>
+            <div class="slider-item post-holder post-holder-<?php echo $_post->getId() ?>">
+                <!--
+                <div class="post-header">
+
+                    
+                    <div class="post-info clear">
+                       
+                       
+                        <?php if ($_categoriesCount = $_post->getCategoriesCount()) { ?>
+                        <div class="dash">|</div>
+                        <div class="item post-categories">
+                            <span class="label"><?php echo __('Categories:') ?></span>
+                            <?php $n = 0; foreach($_post->getParentCategories() as $ct) { $n++; ?>
+                                <a title="<?php echo $block->escapeHtml($ct->getTitle()) ?>" href="<?php echo $ct->getCategoryUrl() ?>"><?php echo $block->escapeHtml($ct->getTitle()) ?></a>
+                                <?php if ($n != $_categoriesCount) { ?>, <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <?php } ?>
+                      
+                    </div>
+                </div>
+                  -->
+
+
+                <div class="post-content product-image-inner-blog">
+                     
+                     <?php if ($featuredImage = $_post->getFeaturedImage()) { ?>
+                        <div class="post-ftimg-hld">
+                            <div class="blog-image">
+                                <a href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+                                <div class="inner-image-blog">
+                                    <img src="<?php echo $featuredImage ?>" alt="<?php echo $_postName ?>" />
+                                </div>
+                                </a>
+                                
+                                <div class="post-image-hover"><div class="post-image-hover-inner"></div></div>
+                                <div class="image-hover-block">
+                                    <a href="<?php echo $featuredImage ?>" title="Click to zoom the image" class="zoom lightbox cboxElement" data-fancybox-group="gallery" ><i class="fa fa-search-plus"> &nbsp;</i></a>
+                                    <a href="<?php echo $_postUrl ?>" title="Click For Read More" class="read"><i class="fa fa-link"> &nbsp;</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    <div class="post-content-inner clearfix">
+                       <div class="blog-right-inner">
+
+                        <div class="post-title-holder clearfix">
+                            <div class="post-title">
+                                <a class="post-item-link"
+                                   href="<?php echo $_postUrl ?>">
+                                    <?php echo $_postName; ?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="post-description post-text-hld clearfix">
+                            <?php
+                            $desccount = strlen($block->getShorContent($_post));
+                            $desc = $block->getShorContent($_post); 
+                            if($desccount >= 35){
+                               echo  substr($desc,0,35)."....";
+                            } else {
+                            echo $desc; 
+                            }
+                            ?>
+                        </div>
+
+                        <div class="item post-posed-date post-date">
+                            <span class="value"><?php echo $_post->getPublishDate('d F') ?></span>
+                        </div>
+
+                        <div class="post-author">
+                        <a class="post-read-more" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+                           <?php echo __('Read more') ?>
+                        </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- <div class="post-footer"></div> -->
+            </div>
+
+        <?php } ?>
+    </div>
+    </div>
+    </div>
+        <div class="post-more-blog">
+             <a class="more-blogs" href="<?php /*echo $this->getBaseUrl()."/blog";*/ ?>" title="<?php /*echo $_postName */ ?>">
+               <?php /*echo __('View More Blogs') */ ?>
+             </a>
+         </div>
+
+</div>
+<?php } ?>

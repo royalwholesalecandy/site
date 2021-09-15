@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-organizer",
+  "description": "Embedded ERP : Organizer",
+  "type": "magento2-module",
+  "version": "1.2.0",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\Organizer\\": ""}
+  }
+}

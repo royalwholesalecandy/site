@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+		<add id="Wanexo_ProductCollection::product" title="Product Settings" module="Wanexo_ProductCollection" sortOrder="60" resource="Wanexo_ProductCollection::product" parent="Wanexo_Ext::wanexo" />
+        <add id="Wanexo_ProductCollection::settings" title="Product Settings" module="Wanexo_ProductCollection" sortOrder="61" action="adminhtml/system_config/edit/section/wanexo_productcollection"  resource="Wanexo_ProductCollection::settings" parent="Wanexo_ProductCollection::product" /> 
+    </menu>
+</config>

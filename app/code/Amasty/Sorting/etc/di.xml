@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Sorting
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Sorting\Api\IndexMethodWrapperInterface" type="Amasty\Sorting\Model\IndexMethodWrapper"/>
+    <!-- initialize sorting methods -->
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Bestselling">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">bestsellers</argument>
+            <argument name="methodName" xsi:type="string">Best Sellers</argument>
+            <argument name="ignoredProductTypes" xsi:type="array">
+                <!--<item name="bundle" xsi:type="const">\Magento\Catalog\Model\Product\Type::TYPE_BUNDLE</item>-->
+                <!--<item name="grouped" xsi:type="const">Magento\GroupedProduct\Model\Product\Type\Grouped::TYPE_CODE</item>-->
+                <!--<item name="configurable" xsi:type="const">\Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE</item>-->
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Toprated">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">rating_summary</argument>
+            <argument name="methodName" xsi:type="string">Top Rated</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Commented">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">reviews_count</argument>
+            <argument name="methodName" xsi:type="string">Reviews Count</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\MostViewed">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">most_viewed</argument>
+            <argument name="methodName" xsi:type="string">Most Viewed</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Wished">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">wished</argument>
+            <argument name="methodName" xsi:type="string">Now in Wishlists</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Newest">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">created_at</argument>
+            <argument name="methodName" xsi:type="string">New</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Sorting\Model\ResourceModel\Method\Saving">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">saving</argument>
+            <argument name="methodName" xsi:type="string">Biggest Saving</argument>
+        </arguments>
+    </type>
+    <!--initialize sorting methods with index-->
+    <virtualType name="Amasty\Sorting\Model\BestsellersWrapper" type="Amasty\Sorting\Model\IndexMethodWrapper">
+        <arguments>
+            <argument name="source" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Bestselling</argument>
+            <argument name="indexer" xsi:type="object">Amasty\Sorting\Model\Indexer\Bestsellers\BestsellersIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\Sorting\Model\MostViewedWrapper" type="Amasty\Sorting\Model\IndexMethodWrapper">
+        <arguments>
+            <argument name="source" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\MostViewed</argument>
+            <argument name="indexer" xsi:type="object">Amasty\Sorting\Model\Indexer\MostViewed\MostViewedIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\Sorting\Model\WishedWrapper" type="Amasty\Sorting\Model\IndexMethodWrapper">
+        <arguments>
+            <argument name="source" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Wished</argument>
+            <argument name="indexer" xsi:type="object">Amasty\Sorting\Model\Indexer\Wished\WishedIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\Sorting\Model\TopRatedWrapper" type="Amasty\Sorting\Model\IndexMethodWrapper">
+        <arguments>
+            <argument name="source" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Toprated</argument>
+            <argument name="indexer" xsi:type="object">Amasty\Sorting\Model\Indexer\TopRated\TopRatedIndexer</argument>
+        </arguments>
+    </virtualType>
+    <!-- collection of sorting methods -->
+    <type name="Amasty\Sorting\Model\MethodProvider">
+        <arguments>
+            <argument name="indexedMethods" xsi:type="array">
+                <item name="bestsellers" xsi:type="object">Amasty\Sorting\Model\BestsellersWrapper</item>
+                <item name="most_viewed" xsi:type="object">Amasty\Sorting\Model\MostViewedWrapper</item>
+                <item name="wished" xsi:type="object">Amasty\Sorting\Model\WishedWrapper</item>
+                <item name="rating_summary" xsi:type="object">Amasty\Sorting\Model\TopRatedWrapper</item>
+            </argument>
+            <argument name="methods" xsi:type="array">
+                <item name="bestsellers" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Bestselling</item>
+                <item name="most_viewed" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\MostViewed</item>
+                <item name="wished" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Wished</item>
+                <item name="reviews_count" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Commented</item>
+                <item name="rating_summary" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Toprated</item>
+                <item name="newest" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Newest</item>
+                <item name="saving" xsi:type="object">Amasty\Sorting\Model\ResourceModel\Method\Saving</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Config">
+        <plugin name="Amasty_Sorting::AddSortingMethods" type="Amasty\Sorting\Plugin\Catalog\Config"/>
+    </type>
+</config>

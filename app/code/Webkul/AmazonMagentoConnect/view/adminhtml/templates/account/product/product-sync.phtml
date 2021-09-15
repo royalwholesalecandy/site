@@ -1,0 +1,71 @@
+<?php 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */ 
+?>
+<?php
+	$note = '';$class ='';$statusClass = '';$tempTableStatus = null;$exportedProStatus = null;
+	$reportStatus = $block->getReportStatus();
+	if($reportStatus) {
+		$note = __('Report id already generated till %1, Regenerate report id for latest inventory.',date('M d, Y', strtotime($reportStatus)));
+		$class = 'wk-mu-success';
+	} else {
+		$note = __('Please generate the report id first.');
+		$class = 'message-error';
+		$statusClass = "disabled=disabled";
+	} 
+	$tempTableStatus = $block->getTempCount() ? '' :'disabled=disabled';
+	$exportedProStatus = $block->getExportedCount() ?'' :'disabled=disabled';
+?>
+<?php if(empty($block->checkCurrencyRate())) : ?>
+<div class = "wk-warning-msg">
+	<div class="message message-warning warning">
+		<div data-ui-id="messages-message-warning">
+			<?php echo __('Please configure currency options and currency rate as per your Amazon Marketplace currency.' ) ?>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+<strong class="report-note <?php echo $class; ?>"><?php echo $note; ?></strong>
+<br><br>
+<div class="page-main-actions">
+	<div class="wk-product-button-container">
+		<select id="amazon_product_type" title="<?php echo __('Select Import Product type')?>"class="admin__control-select ">
+				<option class="admin__control-select-placeholder" value="" selected="selected">
+					<?php echo __('Select Import Product')?>
+				</option>
+				<option value="all"><?php echo __('All')?></option>
+				<option value="active"><?php echo __('Active')?></option>
+				<option value="inactive"><?php echo __('Inactive')?></option>
+		</select>
+
+		<button id="amazonconnect-accounts-generate-reportid" title="<?php echo __('Generate Report Id')?>" type="button" class="action-default scalable save primary"><span class="ui-button-text">
+	    <span><?php echo __('Generate Report Id')?></span>
+		</span></button>
+
+		<button id="amazonconnect-accounts-product-import" title="<?php echo __('Import Product  From Amazon')?>" type="button" class="action-default scalable save primary" <?php echo $statusClass ?>><span class="ui-button-text">
+		    <span><?php echo __('Import Product')?></span>
+		</span></button>
+
+		<button id="amazonconnect-import-product-create" title="<?php echo __('Create Imported Product')?>" type="button" class="action-default scalable save primary" <?php echo $tempTableStatus ?>><span class="ui-button-text">
+		    <span><?php echo __('Create Imported Product')?></span>
+		</span></button>
+
+		<?php /** ?><button id="amazonconnect-update-exported-status" title="<?php echo __('Update Status')?>" type="button" class="action-default scalable save primary" <?php echo $exportedProStatus ?>><span class="ui-button-text">
+		    <span><?php echo __('Update Status')?></span>
+		</span></button>
+		<?php */ ?>
+	</div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "body": {
+			"productimportscript": {"importUrl":"<?php echo $block->getImportUrl()?>", "profilerUrl":"<?php echo $block->getProfilerUrl()?>","reportUrl":"<?php echo $block->getGenerateReportUrl()?>","exportButtonUrl":"<?php echo $block->getExportButtonUrl()?>"}
+        }
+    }
+</script>

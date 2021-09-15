@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<reports>
+
+    <purchased_total>
+        <name>Total purchased</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <series>
+            <serie>
+                <label>Total</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[select
+                                    DATE_FORMAT(po_created_at,'{group_by_date}') as x,
+                                    truncate(SUM(po_grandtotal_base), 0) as y
+                                from
+                                    {prefix}bms_purchase_order
+                                    inner join {prefix}bms_purchase_order_product on (po_id = pop_po_id)
+                                where
+                                    po_created_at >= "{date_from}"
+                                    and po_created_at <= "{date_to}"
+                                    and po_status in ('expected', 'complete')
+                                group by
+                                    DATE_FORMAT(po_created_at,'{group_by_date}')
+                                order by
+                                    po_created_at
+                            ]]></sql>
+    </purchased_total>
+
+    <purchased_total_for_supplier>
+        <name>Total purchased</name>
+        <size>full</size>
+        <renderer>bar</renderer>
+        <series>
+            <serie>
+                <label>Total</label>
+                <column>y</column>
+            </serie>
+        </series>
+        <sql><![CDATA[select
+                                    DATE_FORMAT(po_created_at,'{group_by_date}') as x,
+                                    truncate(SUM(po_grandtotal_base), 0) as y
+                                from
+                                    {prefix}bms_purchase_order
+                                    inner join {prefix}bms_purchase_order_product on (po_id = pop_po_id)
+                                where
+                                    po_created_at >= "{date_from}"
+                                    and po_created_at <= "{date_to}"
+                                    and po_status in ('expected', 'complete')
+                                    and po_sup_id = {supplier_id}
+                                group by
+                                    DATE_FORMAT(po_created_at,'{group_by_date}')
+                                order by
+                                    po_created_at
+                            ]]></sql>
+    </purchased_total_for_supplier>
+
+    <purchase_total_per_supplier>
+        <name>Distribution per supplier</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <y_label>Total purchased</y_label>
+        <sql><![CDATA[select
+                                    sup_name as x,
+                                    SUM(po_grandtotal_base) as y
+                                from
+                                    {prefix}bms_supplier
+                                    inner join {prefix}bms_purchase_order on (sup_id = po_sup_id)
+                                where
+                                    po_created_at >= "{date_from}"
+                                    and po_created_at <= "{date_to}"
+                                    and po_status in ('expected', 'complete')
+                                group by
+                                    sup_name
+        ]]></sql>
+    </purchase_total_per_supplier>
+
+    <purchase_order_per_status>
+        <name>Purchase order per status</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <y_label>Total purchased</y_label>
+        <sql><![CDATA[select
+                                    po_status as x,
+                                    count(*) as y
+                                from
+                                    {prefix}bms_purchase_order
+                                where
+                                    po_created_at >= "{date_from}"
+                                    and po_created_at <= "{date_to}"
+                                    and po_status not in ('draft', 'complete')
+                                group by
+                                    po_status
+        ]]></sql>
+    </purchase_order_per_status>
+
+    <quantity_expected_by_day>
+        <name>Qty to receive by day</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <table>
+            <columns>
+                <date>
+                    <title>Date</title>
+                    <align>left</align>
+                </date>
+                <qty>
+                    <align>right</align>
+                    <title>Qty</title>
+                </qty>
+            </columns>
+        </table>
+        <sql><![CDATA[select
+                                    DATE_FORMAT(po_eta,'{date_format}') as date,
+                                    SUM(pop_qty - 	pop_qty_received) as qty
+                                from
+                                    {prefix}bms_purchase_order
+                                    inner join {prefix}bms_purchase_order_product on (po_id = pop_po_id)
+                                where
+                                    po_created_at >= "{date_from}"
+                                    and po_created_at <= "{date_to}"
+                                    and po_status in ('expected')
+                                group by
+                                    DATE_FORMAT(po_eta,'{date_format}')
+                                order by
+                                    po_created_at
+                            ]]></sql>
+    </quantity_expected_by_day>
+
+    <expected_po>
+        <name>Expected Purchase Orders</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <table>
+            <columns>
+                <sup_name>
+                    <title>Supplier</title>
+                </sup_name>
+                <po_reference>
+                    <title>PO #</title>
+                    <renderer>link</renderer>
+                    <url>supplier/order/edit</url>
+                    <param_name>po_id</param_name>
+                    <param_value>po_id</param_value>
+                    <align>center</align>
+                </po_reference>
+                <po_eta>
+                    <title>ETA</title>
+                    <align>center</align>
+                </po_eta>
+                <products_count>
+                    <title>Products</title>
+                    <align>center</align>
+                </products_count>
+            </columns>
+        </table>
+        <sql><![CDATA[select
+                            po_id,
+                            DATE_FORMAT(po_eta,'{date_format}') as po_eta,
+                            po_reference,
+                            sup_name,
+                            sum(pop_qty - pop_qty_received) as products_count
+                        from
+                            {prefix}bms_purchase_order
+                            inner join {prefix}bms_supplier on (po_sup_id = sup_id)
+                            inner join {prefix}bms_purchase_order_product on (pop_po_id = po_id)
+                        where
+                            po_status in ("expected")
+                        group by
+                            po_id
+                        order by
+                            po_eta desc
+                    ]]></sql>
+    </expected_po>
+
+    <po_to_complete>
+        <name>Purchase orders to complete</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <table>
+            <columns>
+                <sup_name>
+                    <title>Supplier</title>
+                </sup_name>
+                <po_reference>
+                    <title>PO #</title>
+                    <renderer>link</renderer>
+                    <url>supplier/order/edit</url>
+                    <param_name>po_id</param_name>
+                    <param_value>po_id</param_value>
+                    <align>center</align>
+                </po_reference>
+                <po_status>
+                    <title>Status</title>
+                    <align>center</align>
+                </po_status>
+            </columns>
+        </table>
+        <sql><![CDATA[select
+                            po_id,
+                            po_status,
+                            po_reference,
+                            sup_name
+                        from
+                            {prefix}bms_purchase_order
+                            inner join {prefix}bms_supplier on (po_sup_id = sup_id)
+                        where
+                            po_status not in ("expected", "complete", "canceled")
+                        order by
+                            po_id desc
+                    ]]></sql>
+    </po_to_complete>
+
+    <supplier_invoice_due>
+        <name>Pending supplier invoices</name>
+        <size>half</size>
+        <renderer>table</renderer>
+        <table>
+            <columns>
+                <sup_name>
+                    <title>Supplier</title>
+                </sup_name>
+                <bsi_reference>
+                    <title>Invoice #</title>
+                    <renderer>link</renderer>
+                    <url>supplier/invoice/edit</url>
+                    <param_name>bsi_id</param_name>
+                    <param_value>bsi_id</param_value>
+                </bsi_reference>
+                <date>
+                    <title>Invoice Date</title>
+                    <align>left</align>
+                </date>
+                <due_date>
+                    <title>Due date</title>
+                </due_date>
+                <balance_due>
+                    <title>Balance due</title>
+                    <align>right</align>
+                </balance_due>
+            </columns>
+        </table>
+        <sql><![CDATA[select
+                            bsi_id,
+                            DATE_FORMAT(bsi_date,'{date_format}') as date,
+                            DATE_FORMAT(bsi_due_date,'{date_format}') as due_date,
+                            (bsi_total - bsi_total_paid) as balance_due,
+                            bsi_reference,
+                            sup_name
+                        from
+                            {prefix}bms_supplier_invoice
+                            inner join {prefix}bms_supplier on (bsi_sup_id = sup_id)
+                        where
+                            bsi_date >= "{date_from}"
+                            and bsi_date <= "{date_to}"
+                            and bsi_status <> "paid"
+                        order by
+                            bsi_due_date desc
+                    ]]></sql>
+    </supplier_invoice_due>
+
+    <supplyneeds_per_status>
+        <name>Supply needs per status</name>
+        <size>half</size>
+        <renderer>pie</renderer>
+        <y_label>quantity</y_label>
+        <source_type>model</source_type>
+        <source_model>\BoostMyShop\UltimateReport\Model\Report\Source\Supplier\SupplyNeedsPerStatus</source_model>
+    </supplyneeds_per_status>
+
+</reports>

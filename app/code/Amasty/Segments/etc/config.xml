@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <segments>
+            <general>
+                <customer_attributes>website_id,dob,email,firstname,lastname,middlename,gender,group_id</customer_attributes>
+                <frequency>0 */12 * * *</frequency>
+            </general>
+        </segments>
+    </default>
+</config>

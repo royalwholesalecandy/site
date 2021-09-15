@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <section id="segments" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customers Segmentation</label>
+            <tab>amasty</tab>
+            <resource>Amasty_Segments::amastysegments</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="frequency" translate="label comment" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cron Execution Time</label>
+                    <source_model>Amasty\Segments\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Amasty\Segments\Model\Backend\Cron</backend_model>
+                </field>
+                <field id="customer_attributes" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Registered Customers Attributes</label>
+                    <source_model>Amasty\Segments\Model\Config\Source\Customer\Attributes</source_model>
+                    <comment><![CDATA[To get the ability to enable extra customer attributes you will need to install the <a href="https://amasty.com/customer-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=customer-attributes" target="_blank">Amasty Customer Attributes module</a>.]]></comment>
+                </field>
+                <field id="order_attributes" translate="label comment" type="multiselect" sortOrder="21" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Order Attributes</label>
+                    <source_model>Amasty\Segments\Model\Config\Source\Order\Attributes</source_model>
+                    <comment><![CDATA[To get the ability to enable extra order attributes you will need to install the <a href="https://amasty.com/order-attributes-for-magento-2.html?utm_source=module&utm_medium=segmentation&utm_content=order-attributes" target="_blank">Amasty Order Attributes module</a>.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

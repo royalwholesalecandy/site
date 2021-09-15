@@ -1,0 +1,94 @@
+"First Name","First Name"
+"Last Name","Last Name"
+Email,Email
+Status,Status
+Active,Active
+Inactive,Inactive
+"Order #","Order #"
+"Purchase On","Purchase On"
+"Bill to Name","Bill to Name"
+"Shipped to Name","Shipped to Name"
+"Bought From","Bought From"
+Action,Action
+"View Order","View Order"
+CSV,CSV
+Additional,Additional
+"Additional Information","Additional Information"
+"Dealer Description","Dealer Description"
+"Send copy of email to","Send copy of email to"
+"Comma separated list of email addresses","Comma separated list of email addresses"
+"Manage Customers","Manage Customers"
+Reports,Reports
+Restrictions,Restrictions
+"Allowed Customer Group","Allowed Customer Group"
+"Leave empty or select all to use any group.","Leave empty or select all to use any group."
+"The delear can select from the groups above when creates a customer or an order.","The delear can select from the groups above when creates a customer or an order."
+"Assign Dealer","Assign Dealer"
+"Submit Comment","Submit Comment"
+"Amasty: Sales Reps and Dealers","Amasty: Sales Reps and Dealers"
+"Is Dealer","Is Dealer"
+"Restrictions for viewing customers and orders will be applied for this role only.","Restrictions for viewing customers and orders will be applied for this role only."
+Dealer,Dealer
+"A total of %1 record(s) were updated.","A total of %1 record(s) were updated."
+"Please enter a comment.","Please enter a comment."
+"We cannot assign dealer.","We cannot assign dealer."
+"My Dealer","My Dealer"
+"You saved the dealer information.","You saved the dealer information."
+"Invalid input","Invalid input"
+"We can't save the customer.","We can't save the customer."
+"%1 don't have permissions for order","%1 don't have permissions for order"
+"%1 (Default)","%1 (Default)"
+No,No
+Customers,Customers
+"Warning!\r\nThis action will remove this customer from already assigned dealer\r\nAre you sure?","Warning!\r\nThis action will remove this customer from already assigned dealer\r\nAre you sure?"
+Comment,Comment
+"Notify Dealer by Email","Notify Dealer by Email"
+"Notification Not Applicable","Notification Not Applicable"
+Notified,Notified
+"Not Notified","Not Notified"
+"Assigned From %1 To %2","Assigned From %1 To %2"
+"Choose a Dealer","Choose a Dealer"
+"* Required Fields","* Required Fields"
+Save,Save
+"Go back","Go back"
+"Your Dealer Info","Your Dealer Info"
+"Hello %name,","Hello %name,"
+"A new comment was added to the order #<strong>%increment_id </strong>","A new comment was added to the order #<strong>%increment_id </strong>"
+"Assigned From <strong>%from</strong> To <strong>%to</strong>","Assigned From <strong>%from</strong> To <strong>%to</strong>"
+"The %author wrote:","The %author wrote:"
+"Sales Reps and Dealers","Sales Reps and Dealers"
+General,General
+"Default Dealer","Default Dealer"
+"All new orders will be assigned to this dealer except if a specific customer is already assigned to another dealer.","All new orders will be assigned to this dealer except if a specific customer is already assigned to another dealer."
+"Send New Order Email to the Dealer","Send New Order Email to the Dealer"
+"Indicate `Yes` to send a copy of the order email to the associated dealer.","Indicate `Yes` to send a copy of the order email to the associated dealer."
+"Show Re-assign Fields","Show Re-assign Fields"
+"On the order view page in Backend.","On the order view page in Backend."
+"Show From To","Show From To"
+"From whom to whom re-assigned order.","From whom to whom re-assigned order."
+"Show Author of Message","Show Author of Message"
+"Hide the `Manage Customers` tab","Hide the `Manage Customers` tab"
+"On the `Edit User` page (the `Edit Dealer` page).","On the `Edit User` page (the `Edit Dealer` page)."
+"Allow dealers to see all customers and orders","Allow dealers to see all customers and orders"
+"Indicate `Yes` to allow dealers to see all customers and orders in the system","Indicate `Yes` to allow dealers to see all customers and orders in the system"
+"Re-assigned Order Notifications","Re-assigned Order Notifications"
+"Send Emails","Send Emails"
+"Indicate `Yes` to send a notification about re-assigned order to the new and old dealers.","Indicate `Yes` to send a notification about re-assigned order to the new and old dealers."
+"Dealer Can Assign Order to Other Dealers","Dealer Can Assign Order to Other Dealers"
+"Indicate `No` if you want dealer to assign orders to the store administrator only.","Indicate `No` if you want dealer to assign orders to the store administrator only."
+"Admin Name","Admin Name"
+"If an order assigned from a dealer to the store admin, email will be sent to this name.","If an order assigned from a dealer to the store admin, email will be sent to this name."
+"Admin Email","Admin Email"
+"If an order assigned from a dealer to the store admin, email will be sent to this address.","If an order assigned from a dealer to the store admin, email will be sent to this address."
+"Email Sender","Email Sender"
+"Email Template","Email Template"
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Email template chosen based on theme fallback when ""Default"" option is selected."
+Frontend,Frontend
+"Allow Customers to select a Dealer on Registration","Allow Customers to select a Dealer on Registration"
+"Allow Customers to select a Dealer in Customer Account","Allow Customers to select a Dealer in Customer Account"
+"Show Dealer description at checkout","Show Dealer description at checkout"
+"Show Dealer description in customer dashboard","Show Dealer description in customer dashboard"
+"Assign a Dealer","Assign a Dealer"
+"Are you sure to assign selected customers to new dealer?","Are you sure to assign selected customers to new dealer?"
+Dealers,Dealers
+"Edit Dealer","Edit Dealer"

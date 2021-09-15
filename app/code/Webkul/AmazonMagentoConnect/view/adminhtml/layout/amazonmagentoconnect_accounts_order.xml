@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_AmazonMagentoConnect
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+	<update handle="formkey"/>
+	<head>
+		<css src="Webkul_AmazonMagentoConnect::css/styles.css"/>
+	</head>
+    <container name="root" label="Root">
+    	<block class="Webkul\AmazonMagentoConnect\Block\Adminhtml\Order\OrderSync" name="adminhtml.amzmagesync.order" template="account/order/order-sync.phtml" />
+        <block class="Webkul\AmazonMagentoConnect\Block\Adminhtml\Accounts\Edit\Tab\Order" name="adminhtml.amzmagesync.edit.tab.orders"/>
+    </container>
+</layout>

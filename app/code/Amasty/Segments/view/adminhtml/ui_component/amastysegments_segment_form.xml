@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amastysegments_segment_form.amastysegments_segment_form_data_source</item>
+            <item name="deps" xsi:type="string">amastysegments_segment_form.amastysegments_segment_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Segment</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">amastysegments_segment_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="save" xsi:type="string">Amasty\Segments\Block\Adminhtml\Segment\Edit\SaveButton</item>
+            <item name="refresh_segment_data" xsi:type="string">Amasty\Segments\Block\Adminhtml\Segment\Edit\RefreshButton</item>
+            <item name="save_and_continue" xsi:type="string">Amasty\Segments\Block\Adminhtml\Segment\Edit\SaveAndContinueButton</item>
+            <item name="delete" xsi:type="string">Amasty\Segments\Block\Adminhtml\Segment\Edit\DeleteButton</item>
+        </item>
+    </argument>
+    <dataSource name="amastysegments_segment_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\Segments\Model\Segment\DataProvider</argument>
+            <argument name="name" xsi:type="string">amastysegments_segment_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">segment_id</argument>
+            <argument name="requestFieldName" xsi:type="string">segment_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="amastysegments/segment/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Segment Information</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+                <item name="opened" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <field name="segment_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amastysegments_segment</item>
+                    <item name="dataScope" xsi:type="string">segment_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Segment Name</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amastysegments_segment</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">amastysegments_segment</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                </item>
+            </argument>
+        </field>
+        <field name="website_ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Stores</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="source" xsi:type="string">amastysegments_segment</item>
+                    <item name="dataScope" xsi:type="string">website_ids</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="tooltip" xsi:type="array">
+                        <item name="link" xsi:type="string">http://docs.magento.com/m2/ce/user_guide/configuration/scope.html</item>
+                        <item name="description" xsi:type="string">What is this?</item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\Segments\Ui\Component\Listing\Column\Website\Options</item>
+            </argument>
+        </field>
+        <field name="is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amastysegments_segment</item>
+                    <item name="dataScope" xsi:type="string">is_active</item>
+                </item>
+                <item name="options" xsi:type="array">
+                    <item name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">Active</item>
+                    </item>
+                    <item name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">Inactive</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="conditions">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Conditions</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <container name="conditions_apply_to" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Amasty\Segments\Block\Adminhtml\Segment\Edit\Tab\Conditions</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+    <fieldset name="customer">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Matched Customers</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">30</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <insertListing name="customer_grid">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">amastysegments_customer_listing</item>
+                    <item name="provider" xsi:type="string">amastysegments_segment_form.amastysegments_segment_form_data_source</item>
+                    <item name="externalProvider" xsi:type="string">amastysegments_customer_listing.amastysegments_customer_listing_data_source</item>
+                    <item name="selectionsProvider" xsi:type="string">amastysegments_customer_listing.amastysegments_customer_listing.amastysegments_customer_listing_columns.actions</item>
+                    <item name="ns" xsi:type="string">amastysegments_customer_listing</item>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="behaviourType" xsi:type="string">simple</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="segmentId" xsi:type="string">${ $.provider }:data.segment_id</item>
+                    </item>
+                    <item name="exports" xsi:type="array">
+                        <item name="segmentId" xsi:type="string">${ $.externalProvider }:params.segment_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+    <fieldset name="guest">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Matched Guests</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">30</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <insertListing name="guest_grid">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">amastysegments_guest_listing</item>
+                    <item name="provider" xsi:type="string">amastysegments_segment_form.amastysegments_segment_form_data_source</item>
+                    <item name="externalProvider" xsi:type="string">amastysegments_guest_listing.amastysegments_guest_listing_data_source</item>
+                    <item name="selectionsProvider" xsi:type="string">amastysegments_guest_listing.amastysegments_guest_listing.amastysegments_guest_listing_columns.actions</item>
+                    <item name="ns" xsi:type="string">amastysegments_guest_listing</item>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="behaviourType" xsi:type="string">simple</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="segmentId" xsi:type="string">${ $.provider }:data.segment_id</item>
+                    </item>
+                    <item name="exports" xsi:type="array">
+                        <item name="segmentId" xsi:type="string">${ $.externalProvider }:params.segment_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+</form>

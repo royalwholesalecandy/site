@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<reports>
+
+    <stock_value>
+        <name>Stock value</name>
+        <size>half</size>
+        <renderer>bar</renderer>
+        <source_type>model</source_type>
+        <available_for_dashboard>1</available_for_dashboard>
+        <source_model>\BoostMyShop\UltimateReport\Model\Report\Source\Warehouse\StockValue</source_model>
+    </stock_value>
+
+</reports>

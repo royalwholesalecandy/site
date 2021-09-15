@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.akeans.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="akeans" translate="label" sortOrder="2">
+            <label>Akeans</label>
+        </tab>
+        <section id="showpriceafterlogin_config" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Show Price After Login</label>
+            <tab>akeans</tab>
+            <resource>Akeans_ShowPriceAfterLogin::config</resource>
+            <group id="group_showpriceafterlogin_general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <!-- add a new group with id active display -->
+                <label>General Options</label>
+
+                <field id="config_showpriceafterlogin_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    
+                </field>
+                
+                <field id="config_showpriceafterlogin_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Title</label>
+                    <comment>Login For Price label for add to cart button</comment>
+                </field>
+				
+				<field id="config_showpriceafterlogin_redirect_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Redirect Url</label>
+                    <comment>url to redirect</comment>
+                </field>
+                
+            </group>
+			 <!--GROUP 02 : Other Configuration-->
+            <group id="group_showpriceafterlogin_other" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+               
+                <label>Other Setting</label>
+                <field id="config_showpriceafterlogin_customer_group" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    
+                    <label>Customer Group</label>
+					<comment>selected customer group will able to see the price and add to cart button </comment>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+                <field id="config_showpriceafterlogin_allowed_categories" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    
+                    <label>Category</label>
+					<comment>selected category will not show the price and add to cart button </comment>
+					<source_model>Akeans\ShowPriceAfterLogin\Model\Config\Source\Categorylist</source_model>
+                </field>
+				
+				<field id="config_showpriceafterlogin_allowed_product_ids" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    
+                    <label>Product IDs</label>
+					<comment>enter product id with comma format like 2,3,4 and these product ids will not show the price and add to cart button</comment>
+					<source_model>Akeans\ShowPriceAfterlogin\Model\Config\Source\Categorylist</source_model>
+                </field>
+				
+				<field id="config_showpriceafterlogin_callprice_text" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Call For Price Label</label>
+                    <comment>Text appear when user will logged in but not able see the price and add to cart button</comment>
+                </field>
+                
+            </group>
+			<!-- GROUP 03 : Free Shipping Configuration -->
+			<group id="group_showpriceafterlogin_shipping" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <!-- add a new group with id active display -->
+                <label>Shipping Option</label>
+                <field id="config_showpriceafterlogin_min_order_amount" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Minimum order amount to checkout</label>
+                </field>
+                <field id="config_showpriceafterlogin_ordertime" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Order time (hours)</label>
+                    <comment>Maximum time (in hours) to look back in order history to allow free shipping.</comment>
+                </field>
+				<field id="config_showpriceafterlogin_coupon_reqamount" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Required $ amount to checkout</label>
+                    <comment>MaximumSet minimum order $ amount to checkout with coupon</comment>
+                </field>
+				<field id="config_showpriceafterlogin_coupon_codeval" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <!-- add a new field with id scope -->
+                    <label>Coupon code name</label>
+                </field>
+                
+            </group>
+        </section>
+    </system>
+</config>

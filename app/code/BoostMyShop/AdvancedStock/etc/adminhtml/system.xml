@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="advancedstock" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Inventory Management</label>
+            <tab>boostmyshop</tab>
+            <resource>BoostMyShop_AdvancedStock::Config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+
+                <field id="disable_log" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Disable logs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="store_sm_stacktrace" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Log stock movement stacktrace</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>To enable if you experience issue with unwanted stock movements</comment>
+                </field>
+
+            </group>
+
+            <group id="attributes" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Attributes</label>
+
+                <field id="barcode_attribute" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Barcode attribute</label>
+                    <source_model>BoostMyShop\AdvancedStock\Model\Config\Source\Attributes</source_model>
+                </field>
+
+                <field id="manufacturer_attribute" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Manufacturer attribute</label>
+                    <source_model>BoostMyShop\AdvancedStock\Model\Config\Source\Attributes</source_model>
+                </field>
+
+            </group>
+
+            <group id="opened_orders" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Pending orders</label>
+
+                <field id="opened_orders_statuses" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Pending order statuses</label>
+                    <source_model>BoostMyShop\AdvancedStock\Model\Config\Source\Status</source_model>
+                    <comment>Select statuses to consider an order as "opened". Only orders with these statuses will decrease and reserve inventory</comment>
+                </field>
+
+            </group>
+
+            <group id="stock_level" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Stock levels</label>
+
+                <field id="default_warning" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default value for Warning stock level</label>
+                </field>
+
+                <field id="default_ideal" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default value for Ideal stock level</label>
+                </field>
+
+                <field id="history_range_1" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weeks for sales history range #1</label>
+                    <comment>Number of weeks from now to consider to calculate sales history for range #1</comment>
+                </field>
+
+                <field id="history_range_2" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Weeks for sales history range #2</label>
+                    <comment>Number of weeks from now to consider to calculate sales history for range #2</comment>
+                </field>
+
+                <field id="history_range_3" translate="label" type="text" sortOrder="5" showInDefault="3" showInWebsite="0" showInStore="0">
+                    <label>Weeks for sales history range #3</label>
+                    <comment>Number of weeks from now to consider to calculate sales history for range #3</comment>
+                </field>
+
+            </group>
+
+            <group id="frontend" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend</label>
+
+                <field id="display_stocks" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Display stocks</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Display warehouse stock levels on product view</comment>
+                </field>
+
+            </group>
+
+            <group id="discrepencies" translate="label" type="text" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Stock discrepencies</label>
+
+                <field id="show_report" translate="label" type="button" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Stock discrepencies report</label>
+                    <frontend_model>BoostMyShop\AdvancedStock\Block\System\Config\DiscrepencyButton</frontend_model>
+                </field>
+
+                <!--
+                <field id="stock_item_quantity_fix_method" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Stock item quantity fix method</label>
+                    <source_model>BoostMyShop\AdvancedStock\Model\Config\Source\Discrepency\StockItemQuantityFixMethod</source_model>
+                </field>
+                -->
+
+            </group>
+
+        </section>
+    </system>
+</config>

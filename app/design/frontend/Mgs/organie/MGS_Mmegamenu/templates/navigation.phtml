@@ -1,0 +1,26 @@
+<?php $megaMenu = $this->getMegamenuItems(); ?>
+<?php $helper = $this->helper('MGS\Mmegamenu\Helper\Data') ?>
+<?php if((count($megaMenu)>0) || $helper->getStoreConfig('megamenu/general/home')):?>
+	<nav class="navigation">
+		<button class="nav-toggle-close btn"><em class="ion-ios-close-empty"></em></button>
+		<ul id="mainMenu" class="nav nav-pills nav-main">
+			<?php if($helper->getStoreConfig('megamenu/general/home')): ?>
+				<li class="mega-menu-item<?php if($this->isHomePage()): ?> active<?php endif ?>">
+					<a href="<?php echo $this->getUrl() ?>" class="level0">
+						<?php echo $helper->getStoreConfig('megamenu/general/hometext') ?>
+					</a>
+				</li>
+			<?php endif ?>
+			<?php if(count($megaMenu)>0): ?>
+				<?php $i=0; foreach($megaMenu as $item): $i++ ?>
+					<li class="<?php echo $this->getClass($item) ?>">
+						<?php echo $this->getMenuHtml($item) ?>
+					</li>
+				<?php endforeach ?>
+			<?php endif ?>
+			<li class="  category-menu level0">
+				<a href="javascript:;void(0)" class="level0 changestore"><span data-hover="Candy">Candy</span></a>
+			</li>
+		</ul>
+	</nav>
+<?php endif ?>

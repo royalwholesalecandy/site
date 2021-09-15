@@ -1,0 +1,50 @@
+.field label.required em {
+	color: #EB340A;
+	float: right;
+	font-style: normal;
+	position: absolute;
+	right: -8px;
+	top: 0;
+}
+
+.field label {
+	color: #666666 !important;
+	float: left;
+	font-weight: bold;
+	position: relative;
+	z-index: 0;
+}
+
+.field .float-none {
+	float: none;
+	margin-left: 2px;
+}
+
+.field .input-box {
+	clear: both;
+}
+
+.field .input-box .date-trig {
+	vertical-align: middle;
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+.link-wishlist {
+	color: #ff002d;
+	cursor: pointer;
+	margin-left: 7px;
+	text-decoration: underline;
+	font-weight: normal;
+}
+.itoris_list-box {
+	background-image: none !important;
+}
+
+.admin__scope-old input[type="radio"]{
+	position: absolute;
+}
+
+.admin__field.margin-left-30 {
+	margin-left: 30%;
+}

@@ -1,0 +1,41 @@
+<fieldset class="fieldset admin__fieldset " id="warehouse_import_fieldset">
+    <legend class="admin__legend legend">
+        <span><?php echo __('Export products'); ?></span>
+    </legend><br />
+
+    <p>Export a csv file with all products in this stock take.</p>
+
+    <button id="save" type="button" class="action-default scalable primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="document.location.href='<?php echo $this->getExportFileUrl(); ?>';">
+        <span class="ui-button-text">
+            <span><?php echo __('Export'); ?></span>
+        </span>
+    </button>
+
+</fieldset>
+
+
+<fieldset class="fieldset admin__fieldset " id="warehouse_import_fieldset">
+    <legend class="admin__legend legend">
+        <span><?php echo __('Import products'); ?></span>
+    </legend><br />
+
+    <p>Use this section to import a csv file with the quantity scanned</p>
+    <p>Expected format :</p>
+
+    <ul style="margin-left: 50px;">
+        <li>File format : csv file</li>
+        <li>File extension : csv or txt</li>
+        <li>Separator : semi-colon ";"</li>
+        <li>Columns
+            <ul style="margin-left: 50px;">
+                <li>sku (mandatory)</li>
+                <li>qty_scanned (mandatory)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p>Select the file to import and click on save button : <br><input type="file" name="import_file"> </p>
+
+</fieldset>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2014 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="BoostMyShop_Supplier::main_menu" title="Suppliers" module="BoostMyShop_Supplier" sortOrder="40" resource="BoostMyShop_Supplier::main_menu" />
+        <add id="BoostMyShop_Supplier::operations" title="Suppliers management" module="BoostMyShop_Supplier" sortOrder="10" parent="BoostMyShop_Supplier::main_menu" resource="BoostMyShop_Supplier::operations" />
+        <add id="BoostMyShop_Supplier::purchase_orders" title="Purchase Orders" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/order" sortOrder="10" resource="BoostMyShop_Supplier::purchase_orders"/>
+        <add id="BoostMyShop_Supplier::transit" title="Products in transit" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/transit" sortOrder="20" resource="BoostMyShop_Supplier::transit"/>
+        <add id="BoostMyShop_Supplier::replenishment" title="Supply Needs" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/replenishment" sortOrder="20" resource="BoostMyShop_Supplier::replenishment"/>
+        <add id="BoostMyShop_Supplier::suppliers" title="Suppliers" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/supplier" sortOrder="30" resource="BoostMyShop_Supplier::suppliers"/>
+        <add id="BoostMyShop_Supplier::product_supplier" title="Product / Supplier association" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/productSupplier/index" sortOrder="40" resource="BoostMyShop_Supplier::product_supplier"/>
+        <add id="BoostMyShop_Supplier::supplier_invoice" title="Supplier Invoices" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/invoice" sortOrder="50" resource="BoostMyShop_Supplier::supplier_invoice"/>
+        <add id="BoostMyShop_Supplier::supplier_payments" title="Supplier Payments" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/payments" sortOrder="60" resource="BoostMyShop_Supplier::supplier_payments"/>
+        <add id="BoostMyShop_Supplier::configuration" title="Configuration" module="BoostMyShop_Supplier" parent="BoostMyShop_Supplier::operations" action="supplier/configuration" sortOrder="100" resource="BoostMyShop_Supplier::configuration"/>
+    </menu>
+</config>

@@ -1,0 +1,139 @@
+<?php $portfolios = $this->getPortfolios() ?>
+<?php $helper = $this->helper('MGS\Portfolio\Helper\Data'); ?>
+<div class="content-block portfolio-block portfolio-list-block">
+	<?php if($this->hasData('mgs_panel_title')): ?>
+		<div class="content-heading">
+			<h2 class="title"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+		</div>
+	<?php endif ?>
+	
+	<?php if(count($portfolios)>0): ?>
+		<?php if($this->hasData('mgs_panel_note')): ?>
+			<div class="block-note"><?php echo $helper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+		<?php endif ?>
+		
+		<?php
+			$blockId = rand() . time();
+			$useSlider = $this->getUseSlider();
+			$showThumbnail = $this->getShowThumbnail();
+			$showCategories = $this->getShowCategories();
+			$showShowContent = $this->getShowContent();
+			$perRow = $this->getPerrow();
+		?>
+		<?php if($useSlider): ?>
+			<div class="block widget mgs-portfolio ">
+				<div class="owl-carousel portfolio-grid mgs-carousel-<?php echo $blockId; ?>">
+					<?php foreach ($portfolios as $portfolio): ?>
+						<div class="item">
+							<div class="portfolio-top-content">
+								<?php if ($showThumbnail): ?>
+									<a href="<?php echo $portfolio->getAddress(); ?>"><img src="<?php echo $this->getThumbnailSrc($portfolio)?>" alt="" class="img-responsive"/></a>
+								<?php endif ?>
+								<!--span class="hover-info">
+									<span class="fa fa-search"></span>
+									<span class="project"><?php echo $portfolio->getServices() ?></span>
+									<span class="categories"><?php echo $this->getCategoriesText($portfolio)?></span>
+								</span-->
+								<?php if ($showShowContent): ?>
+									<?php $length = $this->getCharacterCount() ?>
+									<div class="short-content">
+										<?php if($length): ?>
+											<?php echo $this->truncate($portfolio->getDescription(), $length); ?>
+										<?php else: ?>
+											<?php echo $portfolio->getDescription() ?>
+										<?php endif ?>
+									</div>
+								<?php endif ?>
+							</div>
+							
+							<div class="portfolio-bottom-content">
+								<?php if($showCategories): ?>
+									<h4><a href="<?php echo $portfolio->getAddress(); ?>"><?php echo $portfolio->getName() ?></a></h4>
+								<?php endif ?>
+								<p class="category-link"><?php echo $this->getCategoriesLink($portfolio)?></p>
+							</div>
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+			<script type="text/javascript">
+				require([
+					'jquery',
+					'mgs/owlcarousel'
+				], function ($) {
+					var owl<?php echo $blockId ?> = $('.mgs-carousel-<?php echo $blockId ?>').owlCarousel({
+						items: <?php echo $perRow; ?>,
+						autoplay: <?php echo $this->getAutoplay() ? 'true' : 'false' ?>,
+						autoplayHoverPause: <?php echo $this->getStopAuto() ? 'true' : 'false' ?>,
+						nav: <?php echo $this->getNavigation() ? 'true' : 'false' ?>,
+						dots: <?php echo $this->getPagination() ? 'true' : 'false' ?>,
+						margin:30,
+						responsive:{
+							0:{
+								items:1,
+								margin:0
+							},
+							480:{
+								items:2,
+								margin:20
+							},
+							768:{
+								items:<?php echo $perRow; ?>
+							}
+						}
+					});
+					<?php if($this->getPagination()): ?>
+						owl<?php echo $blockId ?>.on('changed.owl.carousel', function (event) {
+							if (event.item.count - event.page.size == event.item.index)
+								$(event.target).find('.owl-dots div:last')
+								  .addClass('active').siblings().removeClass('active');
+						});
+					<?php endif ?>
+				});
+			</script>
+		<?php else: ?>
+			
+			<div class="block widget mgs-portfolio">
+				<div class="block-content">
+					<?php $col = $helper->convertPerRowtoCol($perRow); ?>
+					<ul class="row <?php echo $helper->convertColClass($col, 'row') ?>">
+						<?php foreach ($portfolios as $portfolio): ?>
+							<li class="item <?php echo $helper->convertColClass($col, 'col') ?>">
+								<div class="portfolio-top-content">
+									<?php if ($showThumbnail): ?>
+										<a href="<?php echo $portfolio->getAddress(); ?>"><img src="<?php echo $this->getThumbnailSrc($portfolio)?>" alt="" class="img-responsive"/></a>
+									<?php endif ?>
+									<!--span class="hover-info">
+										<span class="fa fa-search"></span>
+										<span class="project"><?php echo $portfolio->getServices() ?></span>
+										<span class="categories"><?php echo $this->getCategoriesText($portfolio)?></span>
+									</span-->
+									<?php if ($showShowContent): ?>
+										<?php $length = $this->getCharacterCount() ?>
+										<div class="short-content">
+											<?php if($length): ?>
+												<?php echo $this->truncate($portfolio->getDescription(), $length); ?>
+											<?php else: ?>
+												<?php echo $portfolio->getDescription() ?>
+											<?php endif ?>
+										</div>
+									<?php endif ?>
+								</div>
+								
+								<div class="portfolio-bottom-content">
+									<?php if($showCategories): ?>
+										<h4><a href="<?php echo $portfolio->getAddress(); ?>"><?php echo $portfolio->getName() ?></a></h4>
+									<?php endif ?>
+									<p class="category-link"><?php echo $this->getCategoriesLink($portfolio)?></p>
+								</div>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				</div>
+			</div>
+		<?php endif ?>
+
+	<?php else: ?>
+		<p class="note-msg"><?php echo $this->__('There are no portfolios matching the selection.') ?></p>
+	<?php endif ?>
+</div>

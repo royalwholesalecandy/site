@@ -1,0 +1,110 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_REGISTRATION_FIELDS_MANAGER
+ * @copyright  Copyright (c) 2016 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php
+/** @var Magento\Customer\Block\Form\Register $block */
+$sections = $block->getFormConfig();
+/** @var $fieldHelper \Itoris\RegFields\Helper\Field */
+$fieldHelper = \Magento\Framework\App\ObjectManager::getInstance()->create('Itoris\RegFields\Helper\Field');
+/** @var \Magento\Directory\Helper\Data $directoryHelper */
+$directoryHelper = $fieldHelper->getObjectManager()->create('Magento\Directory\Helper\Data');
+?>
+<?php echo $block->getChildHtml('customer.form.register.extra')?>
+<div class="account-create">
+	<?php echo $block->getChildHtml('form_fields_before')?>
+	<?php echo $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+	<form class="form create account form-create-account" action="<?php echo $block->getPostActionUrl() ?>" method="post" enctype="multipart/form-data" id="form-validate" data-mage-init='{"validation":{}}'>
+		<input type="hidden" name="success_url" value="<?php echo $block->getSuccessUrl() ?>" />
+		<input type="hidden" name="error_url" value="<?php echo $block->getErrorUrl() ?>" />
+        <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+		<?php foreach ($sections as $section): ?>
+			<fieldset class="fieldset create info">
+				<legend class="legend"><span><?php echo isset($section['label']) ? $block->escapeHtml(__($section['label'])) : '' ?></span></legend>
+				<ul class="form-list">
+					<?php for ($i = 1; $i <= $section['rows']; $i++): ?>
+						<li class="fields">
+							<?php for ($j = 1; $j <= $section['cols']; $j++): ?>
+								<?php
+								$num = ($i - 1) * $section['cols'] + $j;
+								echo $fieldHelper->checkAndGetFieldHtml($section, $num);
+								?>
+							<?php endfor; ?>
+						</li>
+					<?php endfor; ?>
+				</ul>
+			</fieldset>
+		<?php endforeach; ?>
+		<fieldset class="fieldset additional">
+            <?php echo $block->getChildHtml('form_additional_info') ?>
+		</fieldset>
+
+		<div class="buttons-set">
+			<p class="back-link"><a href="<?php echo $block->getBackUrl() ?>" class="back-link"><small>&laquo; </small><?php echo $block->escapeHtml(__('Back')) ?></a></p>
+			<button type="button" id="submit_btn" onclick="window.ItorisHelper.validateForm('form-validate')" title="<?php echo $block->escapeHtml(__('Create an Account')) ?>" class="action submit primary button"><span><?php echo $block->escapeHtml(__('Create an Account')) ?></span></button>
+		</div>
+	</form>
+   
+</div>
+
+<script type="text/javascript">
+	require(['prototype', 'varien/form',/*,'prototype/validation',*/ 'Itoris_RegFields/js/main'], function(){
+		//<![CDATA[
+		var dataForm = new VarienForm('form-validate', true);
+		<?php if($fieldHelper->canUseRegionUpdater()): ?>
+		var regFormRegion = new RegionUpdater('country_id', 'region', 'region_id', <?php echo $directoryHelper->getRegionJson() ?>, undefined, 'postcode');
+		<?php if (!$fieldHelper->isCountryRequireState()): ?>
+		regFormRegion.update();
+		<?php endif; ?>
+		<?php endif; ?>
+		<?php if ($fieldHelper->isAddressCreated()): ?>
+		window.countriesWithOptionalZip = <?php echo $directoryHelper->getCountriesWithOptionalZip(true) ?>;
+		if ($('country_id') !== null) {
+			Event.observe($('country_id'), 'click', function() {
+				window.ItorisHelper.updateZip();
+			});
+			window.ItorisHelper.updateZip();
+		}
+		if($('country_id') == null){$('region_id').hide(); $('region').show();}
+		<?php endif; ?>
+		<?php if($fieldHelper->canUseRegionUpdater(true)): ?>
+		var regFormRegionS = new RegionUpdater('s_country_id', 's_region', 's_region_id', <?php echo $directoryHelper->getRegionJson() ?>, undefined, 's_postcode');
+		<?php if (!$fieldHelper->isCountryRequireState('s_')): ?>
+		regFormRegionS.update();
+		<?php endif; ?>
+		<?php endif; ?>
+		<?php if ($fieldHelper->isAddressCreated(true)): ?>
+		window.countriesWithOptionalZip = <?php echo $directoryHelper->getCountriesWithOptionalZip(true) ?>;
+		if ($('s_country_id') !== null) {
+			Event.observe($('s_country_id'), 'click', function() {
+				window.ItorisHelper._updateZip('s_');
+			});
+			window.ItorisHelper._updateZip('s_');
+		}
+		if($('s_country_id') == null){$('s_region_id').hide(); $('s_region').show();}
+		<?php endif; ?>
+		//]]>
+
+	});
+</script>

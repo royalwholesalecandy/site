@@ -1,0 +1,9 @@
+<?php if ($this->getPurchaseOrder()): ?>
+    <?php foreach($this->getPurchaseOrder()->getAllItems() as $item): ?>
+        <tr>
+            <td><?php echo ($item->getpop_supplier_sku() ? $item->getpop_supplier_sku() : $item->getpop_sku()); ?></td>
+            <td><?php echo $item->getpop_name(); ?></td>
+            <td><?php echo $item->getpop_qty(); ?></td>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>

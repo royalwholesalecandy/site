@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Segments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="amasty_segments_indexer" instance="Amasty\Segments\Cron\Indexer" method="execute">
+            <config_path>crontab/default/jobs/amasty_segments_indexer/schedule/cron_expr</config_path>
+        </job>
+    </group>
+</config>

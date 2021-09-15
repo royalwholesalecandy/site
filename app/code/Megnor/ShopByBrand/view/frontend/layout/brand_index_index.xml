@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="content">
+            <!-- <block class="Megnor\ShopByBrand\Block\Listhome" name="brand.list.content"  template="Megnor_ShopByBrand::megnor_brand/list_home.phtml" cacheable="false">
+             </block> -->
+
+             <block class="Megnor\ShopByBrand\Block\Brandlist" name="brand_list" as="brandlist" template="Megnor_ShopByBrand::megnor_brand/brandlist.phtml" cacheable="false">
+             
+             </block>
+        </referenceContainer>
+    </body>
+</page>
