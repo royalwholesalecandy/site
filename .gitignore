@@ -17,6 +17,7 @@
 !/choco/**/*
 !/lib/web/mage/trim-input.js
 !/lib/web/rokanthemes/**/*
+!/lib/web/tiny_mce/tiny_mce_src.js
 /update/
 /dev
 /vendor/codeception
