@@ -21,6 +21,12 @@
 # 2019-12-17 Dmitry Fedyuk Fedyuk https://github.com/mage2pro
 # «Allowed memory size of 792723456 bytes exhausted»: https://github.com/royalwholesalecandy/core/issues/52
 !/pub/.htaccess
+# 2019-12-17 Dmitry Fedyuk Fedyuk https://github.com/mage2pro
+# «Allowed memory size of 792723456 bytes exhausted»: https://github.com/royalwholesalecandy/core/issues/52
+# 2019-12-26 Dmitry Fedyuk Fedyuk https://github.com/mage2pro
+# 1) «Allowed memory size of 4294967296 bytes exhausted»: https://github.com/royalwholesalecandy/core/issues/76
+# 2) This option works for https://royalwholesalecandy.com/i.php
+!/pub/.user.ini
 /update/
 /dev
 /vendor/codeception
