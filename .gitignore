@@ -18,6 +18,9 @@
 !/lib/web/mage/trim-input.js
 !/lib/web/rokanthemes/**/*
 !/lib/web/tiny_mce/tiny_mce_src.js
+# 2019-12-17 Dmitry Fedyuk Fedyuk https://github.com/mage2pro
+# «Allowed memory size of 792723456 bytes exhausted»: https://github.com/royalwholesalecandy/core/issues/52
+!/pub/.htaccess
 /update/
 /dev
 /vendor/codeception
