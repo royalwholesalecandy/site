@@ -1,4 +1,4 @@
-[canadasatellite.ca](https://royalwholesalecandy.com) (Magento 2).
+[royalwholesalecandy.com](https://royalwholesalecandy.com) (Magento 2).
 
 ## How to upgrade Mage2.PRO packages
 ```
